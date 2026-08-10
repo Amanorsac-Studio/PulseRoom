@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>PulseRoom</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="3"  y="12" width="3.5" height="8"  rx="1.75" class="bm b1"/>
+          <rect x="9"  y="7"  width="3.5" height="18" rx="1.75" class="bm b2"/>
+          <rect x="15" y="3"  width="3.5" height="26" rx="1.75" class="bm b3"/>
+          <rect x="21" y="9"  width="3.5" height="14" rx="1.75" class="bm b4"/>
+          <rect x="27" y="13" width="2.5" height="6"  rx="1.25" class="bm b5"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">PulseRoom</span>
+          <span class="brand-sub">Producer Toolkit</span>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <button class="nav-item active" data-page="delay"  data-accent="delay">
+          <span class="nav-dot"></span>Delay Calculator
+        </button>
+        <button class="nav-item" data-page="reverb" data-accent="reverb">
+          <span class="nav-dot"></span>Reverb Designer
+        </button>
+        <button class="nav-item" data-page="eq" data-accent="eq">
+          <span class="nav-dot"></span>EQ Cheat Sheet
+        </button>
+        <button class="nav-item" data-page="comp" data-accent="comp">
+          <span class="nav-dot"></span>Compression
+        </button>
+        <button class="nav-item" data-page="chains" data-accent="chains">
+          <span class="nav-dot"></span>Mix Chains
+        </button>
+        <button class="nav-item" data-page="guide" data-accent="guide">
+          <span class="nav-dot"></span>Mixing Guide
+        </button>
+        <button class="nav-item" data-page="reference" data-accent="reference">
+          <span class="nav-dot"></span>Reference
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <p>Values are starting points.<br/>Trust your ears first.</p>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <div class="main">
+
+      <!-- Global tempo bar -->
+      <header class="tempo-bar">
+        <div class="tempo-cluster">
+          <span class="tempo-label">Project tempo</span>
+          <div class="tempo-controls">
+            <button class="step-btn" id="bpmDown" aria-label="Decrease BPM">&minus;</button>
+            <input type="number" id="bpmInput" class="bpm-input" value="120" min="20" max="300" step="0.1" />
+            <button class="step-btn" id="bpmUp" aria-label="Increase BPM">+</button>
+          </div>
+          <span class="tempo-unit">BPM</span>
+          <button class="mult-btn" id="bpmHalf" title="Half-time (÷2)">&frac12;&times;</button>
+          <button class="mult-btn" id="bpmDouble" title="Double-time (&times;2)">2&times;</button>
+          <button class="tap-btn" id="tapBtn">TAP</button>
+          <button class="tap-btn" id="detectBtn" title="Detect tempo from an audio file (or drop one anywhere)">DETECT</button>
+          <input type="file" id="audioFile" accept="audio/*,.mp3,.wav,.ogg,.m4a,.aac,.flac,.aif,.aiff" hidden />
+        </div>
+        <div class="tempo-readout">
+          <div class="readout-cell"><span class="ro-num" id="roBeat">500.0</span><span class="ro-cap">ms / beat</span></div>
+          <div class="readout-cell"><span class="ro-num" id="roBar">2000</span><span class="ro-cap">ms / bar</span></div>
+          <div class="readout-cell"><span class="ro-num" id="roHz">2.00</span><span class="ro-cap">Hz / beat</span></div>
+        </div>
+      </header>
+
+      <main class="content" id="content">
+        <section class="page active" id="page-delay"></section>
+        <section class="page" id="page-reverb"></section>
+        <section class="page" id="page-eq"></section>
+        <section class="page" id="page-comp"></section>
+        <section class="page" id="page-chains"></section>
+        <section class="page" id="page-guide"></section>
+        <section class="page" id="page-reference"></section>
+      </main>
+    </div>
+  </div>
+
+  <div class="drop-overlay" id="dropOverlay">
+    <div class="drop-box">
+      Drop your track
+      <span>I'll detect the tempo and set it everywhere</span>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Copied</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
