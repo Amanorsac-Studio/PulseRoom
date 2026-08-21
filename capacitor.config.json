@@ -1,0 +1,8 @@
+{
+  "appId": "com.pulseroom.app",
+  "appName": "PulseRoom",
+  "webDir": "www",
+  "backgroundColor": "#0c0e12",
+  "android": { "backgroundColor": "#0c0e12" },
+  "ios": { "contentInset": "automatic", "backgroundColor": "#0c0e12" }
+}

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+www/
+android/
+ios/
+assets/
+frames-tmp/
+releases/*.exe
+releases/*.dmg
+releases/*.apk
+releases/*.ipa
+releases/*.zip

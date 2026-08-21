@@ -9,12 +9,19 @@
   "scripts": {
     "start": "node start.js",
     "dist:win": "electron-builder --win",
-    "dist:mac": "electron-builder --mac"
+    "dist:mac": "electron-builder --mac",
+    "build:www": "node build-www.js",
+    "cap:android": "node build-www.js && npx cap sync android",
+    "cap:ios": "node build-www.js && npx cap sync ios"
   },
   "devDependencies": {
     "electron": "^33.0.0",
     "electron-builder": "^25.0.0",
-    "ffmpeg-static": "^5.3.0"
+    "ffmpeg-static": "^5.3.0",
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/cli": "^8.5.0",
+    "@capacitor/core": "^8.5.0",
+    "@capacitor/ios": "^8.5.0"
   },
   "build": {
     "appId": "com.pulseroom.app",

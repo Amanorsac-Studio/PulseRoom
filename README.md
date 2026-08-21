@@ -32,7 +32,18 @@ npm run dist:win   # Windows installer (run on Windows)
 npm run dist:mac   # macOS .dmg (must be run on a Mac)
 ```
 
+Ready-to-upload installers live in `releases/` (see `releases/HOW_TO_GET_THE_MAC_VERSION.md` for the macOS build paths — a Mac or the included GitHub Actions workflow at `.github/workflows/build-installers.yml` is required for the .dmg).
+
 Note: if a build tool complains about the `&` in this folder's path, copy the project to a folder without special characters (e.g. `C:\PulseRoom`) and build from there.
+
+## Mobile (Android & iOS)
+
+The same app ships to phones via [Capacitor](https://capacitorjs.com). Native projects are generated in CI (not committed):
+
+- **Android APK** — built by the `android` job in `.github/workflows/build-installers.yml` (artifact `PulseRoom-Android`). Users install it directly ("allow unknown sources"); Play Store submission needs a release keystore.
+- **iOS** — the `ios` job builds an unsigned archive (artifact `PulseRoom-iOS-unsigned`) proving the project compiles. Apple does not allow installing apps from websites: shipping to users requires an Apple Developer account ($99/yr) and TestFlight / App Store via Xcode.
+
+Local commands: `npm run build:www` copies the app into `www/`; `npx cap add android|ios` then `npm run cap:android|cap:ios` to sync.
 
 ## Tech
 

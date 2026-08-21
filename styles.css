@@ -888,3 +888,100 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
   .tempo-readout { display: none; }
   .rv-big { grid-template-columns: 1fr; }
 }
+
+/* ============ MOBILE (phones, Capacitor builds) ============ */
+
+@media (max-width: 760px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100dvh;
+  }
+
+  /* sidebar becomes a compact top bar with a scrollable tab strip */
+  .sidebar {
+    flex-direction: column;
+    gap: 10px;
+    padding: calc(10px + env(safe-area-inset-top)) 12px 8px;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar, .nav, .main, .content, .page { min-width: 0; max-width: 100vw; }
+  .brand { padding: 0 4px; }
+  .brand-text { display: flex; }
+  .brand-mark { width: 26px; height: 26px; }
+  .brand-name { font-size: 15px; }
+  .sidebar-foot { display: none; }
+
+  .nav {
+    flex-direction: row;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-item {
+    flex: none;
+    width: auto;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 9px 13px;
+    min-height: 40px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .nav-item span:not(.nav-dot) { display: inline; }
+  .nav-item .nav-dot { width: 7px; height: 7px; }
+
+  .main { height: auto; min-height: 0; }
+
+  /* tempo bar wraps onto two rows */
+  .tempo-bar {
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    padding: 10px 12px;
+  }
+  .tempo-cluster { flex-wrap: wrap; gap: 8px; width: 100%; }
+  .tempo-label { display: none; }
+  .bpm-input { width: 78px; }
+  .mult-btn { padding: 0 10px; }
+  .tap-btn { padding: 0 13px; font-size: 12px; }
+  .tempo-readout { display: flex; gap: 14px; width: 100%; justify-content: flex-start; }
+  .readout-cell { align-items: flex-start; }
+  .ro-num { font-size: 14px; }
+
+  .content { padding: 18px 14px calc(40px + env(safe-area-inset-bottom)); }
+  .page-title { font-size: 22px; }
+  .page-desc { font-size: 13.5px; }
+  .card { padding: 16px; }
+
+  /* delay: two tight columns */
+  .delay-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .delay-cell { padding: 13px 13px 11px; }
+  .dc-ms { font-size: 21px; }
+  .dc-use { font-size: 11.5px; }
+  .filter-row { gap: 10px; }
+  .seg button { padding: 8px 11px; font-size: 12.5px; }
+
+  /* reverb */
+  .rv-num-card .val { font-size: 26px; }
+  .rv-styles { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+  .rv-style { flex: 1 1 45%; padding: 10px 12px; }
+  .rv-style .rs-desc { display: none; }
+
+  /* eq / comp / chains */
+  .eq-spectrum { height: 150px; }
+  .eq-chip { padding: 8px 12px; font-size: 12.5px; }
+  .comp-vis { height: 190px; }
+  .stat-card .val { font-size: 21px; }
+  .chain-node { flex: 1 1 100%; max-width: none; }
+  .chain-arrow { display: none; }
+
+  /* reference */
+  .note-freq-grid { grid-template-columns: repeat(4, 1fr); }
+
+  /* drag-drop has no meaning on touch */
+  .drop-overlay { display: none !important; }
+}

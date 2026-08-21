@@ -1,0 +1,166 @@
+{
+  "product_name": "PulseRoom",
+  "tagline": "Every mixing answer. One tempo.",
+  "version": "1.0.0",
+  "platforms": ["Windows", "macOS"],
+  "brand": {
+    "personality": "calm senior engineer — precise, generous, quietly confident",
+    "voice": "direct, technical-but-warm, second person, verbs first, zero hype-words",
+    "values": ["flow over friction", "teach the why", "ears above numbers", "offline is a feature"],
+    "philosophy_line": "Values are starting points. Trust your ears first.",
+    "logo": "five rounded vertical bars (abstract waveform) in the five module accent colors + wordmark"
+  },
+  "colors": {
+    "bg": "#0c0e12",
+    "panel": "#12151c",
+    "panel2": "#171b24",
+    "panel3": "#1d2230",
+    "line": "rgba(255,255,255,0.07)",
+    "text": "#e9ebf1",
+    "text2": "#a2a9b8",
+    "text3": "#6d7488",
+    "accent_primary": "#3fd3e4",
+    "accents": {
+      "delay": "#3fd3e4",
+      "reverb": "#a48bfa",
+      "eq": "#f2b13c",
+      "comp": "#f25c7f",
+      "chains": "#4fd58f",
+      "guide": "#5f9dff",
+      "reference": "#d8a05f"
+    },
+    "rule": "one accent per section; cyan is default; full set appears only in logo and EQ spectrum"
+  },
+  "fonts": {
+    "sans": "Segoe UI Variable, SF Pro Text, Inter, system-ui, sans-serif",
+    "mono": "Cascadia Code, SF Mono, JetBrains Mono, Consolas, monospace",
+    "rules": "ALL numerals in mono; headlines weight 750, letter-spacing -0.02em; hero clamp(44px,6vw,76px)"
+  },
+  "design_tokens": {
+    "radius": { "card": "14px", "control": "8px", "pill": "999px" },
+    "spacing_base": "4px",
+    "card_padding": "20-22px",
+    "shadow_hero": "0 40px 100px rgba(0,0,0,0.55)",
+    "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "motion_durations": { "ui": "<=400ms", "hero": "<=900ms" },
+    "theme": "dark-only by design (pro-audio convention)"
+  },
+  "features": [
+    { "id": "tempo", "name": "Global Tempo Bar", "priority": "P0", "benefit": "Set BPM once (type, step, or TAP / press T) — every time-based value in the app follows live.", "visual": "cyan mono BPM numerals, ms/beat + ms/bar + Hz readouts" },
+    { "id": "detect", "name": "Tempo Detect", "priority": "P0", "benefit": "Drop any song onto the window (or click DETECT) and PulseRoom analyzes the audio offline and sets the project tempo — with a confidence rating and half-time hint.", "visual": "dashed cyan full-screen drop overlay, pulsing DETECT button while analyzing" },
+    { "id": "delay", "name": "Delay Calculator", "priority": "P0", "benefit": "Opens to the 8 essential values with usage notes; toggle reveals all 21 with straight/dotted/triplet filters; every card click-copies ms and shows the LFO Hz equivalent.", "visual": "card grid, kind pills color-coded cyan/amber/violet" },
+    { "id": "reverb", "name": "Reverb Designer", "priority": "P0", "benefit": "Six spaces sized to the bar grid: pre-delay, decay, total time, plus a drawn send-EQ filter curve and wet/diffusion suggestions.", "visual": "three violet hero numbers, decay envelope SVG, send-EQ response curve with LOW CUT/HIGH CUT markers" },
+    { "id": "eq", "name": "EQ Cheat Sheet", "priority": "P0", "benefit": "13 sources; boost (green), cut (rose), and listen (blue) zones painted on a log 20Hz-20kHz spectrum with band-by-band reasons.", "visual": "chip picker, labeled spectrum zones, two-column band cards" },
+    { "id": "comp", "name": "Compression Settings", "priority": "P0", "benefit": "14 sources; a gain-reduction envelope shows the hit, attack window, GR depth, and release recovery beside ratio/attack/release/GR tiles.", "visual": "envelope SVG with amber attack band and green release band, 2x2 rose stat tiles" },
+    { "id": "chains", "name": "Mix Chains", "priority": "P1", "benefit": "Plugin-order recipes for 10 sources with per-step settings and a 'why this order' explanation.", "visual": "numbered nodes flowing left-to-right with arrows" },
+    { "id": "guide", "name": "Mixing Guide", "priority": "P1", "benefit": "Nine accordion sections of condensed mixing habits with hard numbers.", "visual": "accordion cards, key numbers in blue mono" },
+    { "id": "reference", "name": "Reference Tables", "priority": "P1", "benefit": "LUFS targets per platform, frequency map, psychoacoustic timing windows, note-to-Hz C0-B4.", "visual": "two-column tables with tan mono values, note-tile grid" }
+  ],
+  "screenshots": [
+    { "id": "S1", "title": "Hero — Delay Essentials", "page": "delay", "state": "essentials view @140 BPM", "frame": "frameless dark window, full app", "background": "cyan radial on #07080b", "caption": "One tempo. Every answer." },
+    { "id": "S2", "title": "Tempo bar macro", "page": "header", "state": "TAP flash", "frame": "3:1 crop, 4deg tilt", "background": "dark scanline", "caption": "Tap it. Type it. Nudge it." },
+    { "id": "S3", "title": "Copy micro-moment", "page": "delay", "state": "1/8 dotted hover + toast", "frame": "card crop", "background": "dark", "caption": "Every number is one click from your delay plugin." },
+    { "id": "S4", "title": "Reverb Designer", "page": "reverb", "state": "Concert Hall selected", "frame": "full window", "background": "violet radial", "caption": "Reverb sized to the song, not the preset." },
+    { "id": "S5", "title": "Send-EQ macro", "page": "reverb", "state": "EQ curve card only", "frame": "16:9 crop", "background": "near-black", "caption": "The habit that separates clean mixes from muddy ones." },
+    { "id": "S6", "title": "EQ Cheat Sheet", "page": "eq", "state": "Lead Vocal", "frame": "full window", "background": "amber radial", "caption": "See the spectrum the way engineers hear it." },
+    { "id": "S7", "title": "Compression envelope", "page": "comp", "state": "Lead Vocal", "frame": "full window or 4:3 crop", "background": "rose radial", "caption": "Attack and release, finally visible." },
+    { "id": "S8", "title": "Mix Chains", "page": "chains", "state": "Lead Vocal chain", "frame": "full width", "background": "green radial", "caption": "The right order, and the reasons." },
+    { "id": "S9", "title": "Mixing Guide", "page": "guide", "state": "Gain staging open", "frame": "laptop mockup, 12deg", "background": "blue radial vignette", "caption": "Ten years of mixing habits, one page." },
+    { "id": "S10", "title": "Reference tables", "page": "reference", "state": "default", "frame": "full window", "background": "tan radial", "caption": "The numbers you look up every week, one tab away." },
+    { "id": "S11", "title": "Responsive composite", "page": "any", "state": "236px sidebar vs 68px rail", "frame": "side-by-side", "background": "dark", "caption": "Small window? PulseRoom folds neatly." },
+    { "id": "S12", "title": "OG composite", "page": "delay", "state": "8deg tilt window", "frame": "1200x630", "background": "cyan-to-violet gradient", "caption": "Every mixing answer. One tempo." }
+  ],
+  "animations": [
+    { "id": "hero_intro", "desc": "logo bars equalize -> window rises -> BPM rolls 120->140 -> delay cards cascade-morph (60ms stagger) -> TAP heartbeat loop 500ms", "tech": "Framer Motion or GSAP timeline", "duration": "1.6s", "reduced_motion": "300ms fade" },
+    { "id": "tap_pulse", "desc": "cyan ring emits from TAP every 500ms (120 BPM heartbeat)", "tech": "CSS keyframes" },
+    { "id": "tempo_demo", "desc": "interactive BPM input morphs real delay values live on the page", "tech": "vanilla JS + Framer Motion animate()" },
+    { "id": "eq_flip", "desc": "spectrum zones FLIP to new positions on instrument switch", "tech": "GSAP Flip" },
+    { "id": "gr_draw", "desc": "gain-reduction envelope draws left-to-right, bands fade after", "tech": "SVG stroke-dashoffset, 1.2s" },
+    { "id": "sendeq_morph", "desc": "send-EQ curve morphs between six space presets, 3s cycle", "tech": "GSAP MorphSVG or flubber" },
+    { "id": "chain_pulse", "desc": "light dot travels chain nodes continuously", "tech": "GSAP motionPath" },
+    { "id": "scroll_reveals", "desc": "12px rise + fade at 30% viewport, once; counters count up", "tech": "Framer Motion whileInView" },
+    { "id": "preloader", "desc": "five brand bars equalize in canon, 900ms", "tech": "Lottie" }
+  ],
+  "assets": {
+    "have": ["icon.png 256px (five-bar mark on dark rounded tile)", "full app source with exact CSS tokens", "logo/ kit: mark SVG (color, mono white, mono black), horizontal logo SVG (dark-bg, light-bg, mono white), stacked logo SVG, favicon.svg, transparent mark PNGs 512+1024", "screenshots/ raw captures S1-S10 (1280x840 PNG)"],
+    "need": [".icns / .ico from 1024px mark", "wordmark text converted to outlines for print", "S1-S12 hero-grade composites @2x with backgrounds/frames", "device mockup frames", "radial gradient set per accent", "noise tile", "waveform ridgeline SVG", "OG 1200x630", "social banners", "trailer 30s", "walkthrough 60s", "teaser 9:16 12s", "Lottie: preloader, tap pulse, copy check"]
+  },
+  "copy": {
+    "hero_headline": "Every mixing answer. One tempo.",
+    "hero_subheadline": "PulseRoom turns your song's BPM into delay times, reverb tails, EQ moves, and compression settings — in one beautiful desktop app that works offline.",
+    "problem_section_title": "The 11-tab mix session ends here.",
+    "workflow_title": "A session with PulseRoom",
+    "workflow_steps": ["Tap your tempo", "Copy your delays", "Size your reverb", "Carve with confidence", "Check your loudness"],
+    "benefits": ["Stay in flow — answers in two clicks, not five tabs", "Learn while you mix — every number ships with its why", "Works offline — no account, no ads, no spinner", "Native on Windows & macOS"],
+    "feature_blocks": [
+      { "title": "Delay, decoded.", "body": "The eight delay values producers actually use — synced to your BPM, one click to copy. The full 21-value grid is a toggle away." },
+      { "title": "Reverb that fits the song.", "body": "Six spaces, pre-delay and decay locked to the bar grid, and the send-EQ curve drawn for you." },
+      { "title": "EQ you can see.", "body": "Boost and cut zones for 13 instruments, painted onto a real spectrum — from kick-drum sub to mix-bus air." },
+      { "title": "Compression, finally visible.", "body": "Watch the gain-reduction envelope for 14 sources. Attack and release stop being guesswork." },
+      { "title": "Chains with reasons.", "body": "Plugin order for vocals, drums, bass, and the mastering chain — each step explained." },
+      { "title": "The reference desk.", "body": "LUFS targets, frequency map, Haas windows, note-to-Hz for tuning 808s. Every number you Google, un-Googled." }
+    ],
+    "final_cta_headline": "Your next session starts at your tempo.",
+    "cta_microcopy": "Free · Offline · No account"
+  },
+  "seo": {
+    "title": "PulseRoom — Delay & Reverb Calculator + Mixing Toolkit for Producers (Free, Windows & Mac)",
+    "description": "Turn your BPM into delay times, reverb decay, EQ moves, and compression settings. PulseRoom is a free offline desktop toolkit for music producers — visual, instant, beautiful.",
+    "og_title": "PulseRoom — Every mixing answer. One tempo.",
+    "og_description": "The free desktop toolkit that syncs delay, reverb, EQ, and compression guidance to your song's BPM. Windows & macOS.",
+    "keywords": ["delay time calculator", "reverb calculator", "pre-delay calculator", "EQ cheat sheet", "compression settings", "mixing guide", "LUFS targets", "music production tools", "BPM to ms"]
+  },
+  "faqs": [
+    { "q": "Is it really free?", "a": "Yes — free download, no account, no ads." },
+    { "q": "Does it work offline?", "a": "Completely. Nothing is sent anywhere." },
+    { "q": "Windows and Mac?", "a": "Both, from the same codebase." },
+    { "q": "Is it a plugin/VST?", "a": "No — it's a standalone companion app that lives beside any DAW." },
+    { "q": "Are the values 'correct'?", "a": "They're proven starting points with the reasoning attached. Trust your ears first." },
+    { "q": "Will it slow my machine?", "a": "It's a ~2 MB reference app — lighter than one browser tab." }
+  ],
+  "testimonials_placeholders": [
+    { "quote": "I closed six browser tabs the day I installed this.", "attribution": "PLACEHOLDER — bedroom producer", "replace_before_launch": true },
+    { "quote": "The compression page taught my students more in one lecture than a semester of tables.", "attribution": "PLACEHOLDER — audio instructor", "replace_before_launch": true },
+    { "quote": "It's the first calculator that feels like it belongs next to my DAW.", "attribution": "PLACEHOLDER — mix engineer", "replace_before_launch": true }
+  ],
+  "pricing": {
+    "model": "free",
+    "copy": "Free. Forever, for the core toolkit.",
+    "future_pro_placeholder": "PulseRoom Pro — custom chains, session presets, printable cheat sheets. One-time $19."
+  },
+  "ui_sections": [
+    { "order": 1, "id": "nav", "notes": "logo + Features/Guide/Download; blur-glass on scroll" },
+    { "order": 2, "id": "hero", "notes": "headline, sub, dual OS-detected CTAs, S1 with intro animation" },
+    { "order": 3, "id": "social_proof", "notes": "download count / placeholder logos strip" },
+    { "order": 4, "id": "problem", "notes": "the 11-tab pain, desaturated visual" },
+    { "order": 5, "id": "tempo_demo", "notes": "INTERACTIVE: live BPM input morphs real values — the conversion engine" },
+    { "order": 6, "id": "features", "notes": "6 alternating blocks using S3-S10" },
+    { "order": 7, "id": "workflow", "notes": "5-step session walkthrough" },
+    { "order": 8, "id": "comparison", "notes": "vs browser calculators / PDFs table" },
+    { "order": 9, "id": "testimonials", "notes": "placeholders until real quotes exist" },
+    { "order": 10, "id": "faq", "notes": "accordion" },
+    { "order": 11, "id": "final_cta", "notes": "momentum close, both OS buttons" },
+    { "order": 12, "id": "footer", "notes": "utility + philosophy sign-off" }
+  ],
+  "cta_text": {
+    "primary_windows": "Download free for Windows",
+    "primary_mac": "Download for Mac",
+    "secondary": "See it in action",
+    "mid_page": "Stop Googling delay times."
+  },
+  "navigation": ["Features", "Mixing Guide", "Changelog", "Download"],
+  "footer": {
+    "tagline": "PulseRoom — the producer's reference desk. Made for the ones mixing at 2 a.m.",
+    "columns": { "Product": ["Download", "Changelog"], "Learn": ["Mixing Guide", "EQ basics"], "Connect": ["Contact", "Twitter/X"] },
+    "legal": "© 2026 PulseRoom. Values are starting points — trust your ears first."
+  },
+  "image_prompts": {
+    "hero_background": "Ultra-dark studio gradient background, deep charcoal #0c0e12 fading into a soft radial glow of electric cyan #3fd3e4 at 8% opacity upper-left, subtle film grain, no objects, no text, minimal, premium software landing page backdrop, 8k --ar 16:9",
+    "feature_background_template": "Minimal abstract background for a dark software website section, near-black #0c0e12 with one soft radial bloom of {ACCENT_HEX} at low opacity, faint 1% noise texture, no shapes, no text, cinematic, understated --ar 16:9",
+    "lifestyle_studio": "Moody home music studio at night, producer's desk from behind, dual monitors with dark software glowing cyan and violet (screens out of focus), MIDI keyboard, studio headphones on stand, LED strip rim light, shallow depth of field f/1.8, cinematic teal-and-charcoal grade, photorealistic, no visible faces, no logos, no readable text --ar 16:9",
+    "abstract_equalizer": "Elegant abstract visualization of sound: five vertical rounded bars of light in cyan, violet, amber, rose, and green on a near-black background, soft glow, slight height variation like an equalizer, glassy reflections on a dark floor, minimal, Apple-keynote aesthetic, no text --ar 16:9",
+    "abstract_reverb_tail": "A single luminous violet curve decaying exponentially from left to right across a dark panel, like a reverb tail made of light, thin cyan gridlines barely visible, long exposure light-painting feel, minimal, premium, no text --ar 21:9",
+    "og_stage": "Dark 1200x630 web preview background, charcoal gradient, cyan-to-violet glow from lower-right, empty right half reserved for a window screenshot composite, faint grid texture 3% opacity, no text --ar 40:21",
+    "rule": "Generators create environments and abstract art ONLY — all UI is composited from real screenshots"
+  }
+}
