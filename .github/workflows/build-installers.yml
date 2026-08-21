@@ -2,6 +2,11 @@ name: Build installers
 
 # Builds: Windows installer, macOS universal DMG, Android APK, iOS (unsigned archive).
 # Trigger manually (Actions tab -> Run workflow) or by pushing a tag like v1.0.0.
+# Tag pushes also publish everything to a GitHub Release (public download links).
+
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
   push:
@@ -86,15 +91,47 @@ jobs:
       - run: npx cap sync ios
       - name: Build (unsigned — App Store/TestFlight distribution needs an Apple Developer account)
         run: |
+          set -o pipefail
           cd ios/App
-          xcodebuild -workspace App.xcworkspace -scheme App -configuration Release \
+          ls -la
+          if [ -e App.xcworkspace ]; then C="-workspace App.xcworkspace"; else C="-project App.xcodeproj"; fi
+          xcodebuild $C -scheme App -configuration Release \
             -sdk iphoneos -destination 'generic/platform=iOS' \
             -derivedDataPath build build \
-            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
+            2>&1 | tee "$GITHUB_WORKSPACE/ios-build.log" | tail -80
           cd build/Build/Products/Release-iphoneos
           mkdir Payload && cp -r App.app Payload/
           zip -qr "$GITHUB_WORKSPACE/PulseRoom-1.0.0-iOS-unsigned.ipa" Payload
       - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ios-build-log
+          path: ios-build.log
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
         with:
           name: PulseRoom-iOS-unsigned
           path: PulseRoom-1.0.0-iOS-unsigned.ipa
+
+  release:
+    if: always() && startsWith(github.ref, 'refs/tags/')
+    needs: [windows, macos, android, ios]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: out
+          merge-multiple: true
+      - run: ls -la out
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: PulseRoom ${{ github.ref_name }}
+          files: out/*
+          body: |
+            Installers built automatically by GitHub Actions.
+
+            - **Windows:** if SmartScreen appears, click *More info → Run anyway*.
+            - **macOS:** universal (Intel + Apple Silicon). First launch: right-click → Open.
+            - **Android:** allow installs from unknown sources when prompted.
+            - **iOS:** the .ipa is unsigned (App Store / TestFlight requires Apple Developer signing).
