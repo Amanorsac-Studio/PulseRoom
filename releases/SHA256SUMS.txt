@@ -1,2 +1,4 @@
 6e85cf009b39b70798a4a5c7ada9bf59accda68872c930b55798a5d169ca7e78 *PulseRoom-Setup-1.0.0-Windows.exe
+d58374f1a61583ce1edbe20c3c98ce9d2e8b3bd7604c1f2b4a2b2c701ddc9472 *PulseRoom-1.0.0-Android.apk
+98ca4ca0228ebedaf14d3f4bd49dd0f4a4fc198a357e1a8cf4edd36b1d6a3bc2 *PulseRoom-1.0.0-iOS-unsigned.ipa
 a3dce5610d1a36c4e761d416986875a7cc87fc850466aa1f1adb80ec84fd3dad *PulseRoom-source-1.0.0.zip

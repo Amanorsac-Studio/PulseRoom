@@ -32,7 +32,7 @@ npm run dist:win   # Windows installer (run on Windows)
 npm run dist:mac   # macOS .dmg (must be run on a Mac)
 ```
 
-Ready-to-upload installers live in `releases/` (see `releases/HOW_TO_GET_THE_MAC_VERSION.md` for the macOS build paths — a Mac or the included GitHub Actions workflow at `.github/workflows/build-installers.yml` is required for the .dmg).
+Official downloads for all platforms are published on the [GitHub Releases page](https://github.com/amanorsac/PulseRoom/releases) on every version tag (see `releases/DOWNLOAD_LINKS.md`). Local copies live in `releases/` (see `releases/HOW_TO_GET_THE_MAC_VERSION.md` for the macOS build paths — a Mac or the included GitHub Actions workflow at `.github/workflows/build-installers.yml` is required for the .dmg).
 
 Note: if a build tool complains about the `&` in this folder's path, copy the project to a folder without special characters (e.g. `C:\PulseRoom`) and build from there.
 
