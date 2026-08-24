@@ -124,10 +124,19 @@ jobs:
           path: out
           merge-multiple: true
       - run: ls -la out
+      # Publishes installers to the PUBLIC showcase repo (source stays private here).
+      # Requires secret RELEASE_TOKEN = PAT with Contents:write on the public repo.
       - uses: softprops/action-gh-release@v2
         with:
+          repository: amanorsac/PulseRoom-app
+          token: ${{ secrets.RELEASE_TOKEN }}
+          tag_name: ${{ github.ref_name }}
           name: PulseRoom ${{ github.ref_name }}
-          files: out/*
+          files: |
+            out/PulseRoom.Setup.*.exe
+            out/PulseRoom-*-universal.dmg
+            out/PulseRoom-*-Android.apk
+            out/PulseRoom-*-iOS-unsigned.ipa
           body: |
             Installers built automatically by GitHub Actions.
 

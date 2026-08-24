@@ -10,3 +10,4 @@ releases/*.dmg
 releases/*.apk
 releases/*.ipa
 releases/*.zip
+showcase/.git/
