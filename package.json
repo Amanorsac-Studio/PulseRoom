@@ -1,7 +1,7 @@
 {
   "name": "pulseroom",
   "productName": "PulseRoom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reverb & delay time calculator with EQ, compression and mixing guides for music producers",
   "main": "main.js",
   "author": "PulseRoom",

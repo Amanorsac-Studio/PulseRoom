@@ -65,11 +65,11 @@ jobs:
             || echo "asset generation skipped"
       - run: npx cap sync android
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
-      - run: cp android/app/build/outputs/apk/debug/app-debug.apk PulseRoom-1.0.0-Android.apk
+      - run: cp android/app/build/outputs/apk/debug/app-debug.apk PulseRoom-1.0.1-Android.apk
       - uses: actions/upload-artifact@v4
         with:
           name: PulseRoom-Android
-          path: PulseRoom-1.0.0-Android.apk
+          path: PulseRoom-1.0.1-Android.apk
 
   ios:
     runs-on: macos-latest
@@ -102,7 +102,7 @@ jobs:
             2>&1 | tee "$GITHUB_WORKSPACE/ios-build.log" | tail -80
           cd build/Build/Products/Release-iphoneos
           mkdir Payload && cp -r App.app Payload/
-          zip -qr "$GITHUB_WORKSPACE/PulseRoom-1.0.0-iOS-unsigned.ipa" Payload
+          zip -qr "$GITHUB_WORKSPACE/PulseRoom-1.0.1-iOS-unsigned.ipa" Payload
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -112,7 +112,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: PulseRoom-iOS-unsigned
-          path: PulseRoom-1.0.0-iOS-unsigned.ipa
+          path: PulseRoom-1.0.1-iOS-unsigned.ipa
 
   release:
     if: always() && startsWith(github.ref, 'refs/tags/')
@@ -128,7 +128,7 @@ jobs:
       # Requires secret RELEASE_TOKEN = PAT with Contents:write on the public repo.
       - uses: softprops/action-gh-release@v2
         with:
-          repository: amanorsac/PulseRoom-app
+          repository: amanorsac/PulseRoom-App
           token: ${{ secrets.RELEASE_TOKEN }}
           tag_name: ${{ github.ref_name }}
           name: PulseRoom ${{ github.ref_name }}
