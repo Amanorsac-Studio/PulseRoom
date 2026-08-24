@@ -1,11 +1,8 @@
 name: Build installers
 
 # Builds: Windows installer, macOS universal DMG, Android APK, iOS (unsigned archive).
-# Trigger manually (Actions tab -> Run workflow) or by pushing a tag like v1.0.0.
+# Trigger manually (Actions tab -> Run workflow) or by pushing a tag like v1.0.1.
 # Tag pushes also publish everything to a GitHub Release (public download links).
-
-permissions:
-  contents: write
 
 on:
   workflow_dispatch:
@@ -104,43 +101,7 @@ jobs:
           mkdir Payload && cp -r App.app Payload/
           zip -qr "$GITHUB_WORKSPACE/PulseRoom-1.0.1-iOS-unsigned.ipa" Payload
       - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: ios-build-log
-          path: ios-build.log
-          if-no-files-found: ignore
-      - uses: actions/upload-artifact@v4
         with:
           name: PulseRoom-iOS-unsigned
           path: PulseRoom-1.0.1-iOS-unsigned.ipa
 
-  release:
-    if: always() && startsWith(github.ref, 'refs/tags/')
-    needs: [windows, macos, android, ios]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          path: out
-          merge-multiple: true
-      - run: ls -la out
-      # Publishes installers to the PUBLIC showcase repo (source stays private here).
-      # Requires secret RELEASE_TOKEN = PAT with Contents:write on the public repo.
-      - uses: softprops/action-gh-release@v2
-        with:
-          repository: amanorsac/PulseRoom-App
-          token: ${{ secrets.RELEASE_TOKEN }}
-          tag_name: ${{ github.ref_name }}
-          name: PulseRoom ${{ github.ref_name }}
-          files: |
-            out/PulseRoom.Setup.*.exe
-            out/PulseRoom-*-universal.dmg
-            out/PulseRoom-*-Android.apk
-            out/PulseRoom-*-iOS-unsigned.ipa
-          body: |
-            Installers built automatically by GitHub Actions.
-
-            - **Windows:** if SmartScreen appears, click *More info → Run anyway*.
-            - **macOS:** universal (Intel + Apple Silicon). First launch: right-click → Open.
-            - **Android:** allow installs from unknown sources when prompted.
-            - **iOS:** the .ipa is unsigned (App Store / TestFlight requires Apple Developer signing).

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Delay Time Calculator (BPM to ms) &amp; Mixing Toolkit | PulseRoom</title>
+<meta name="description" content="Free delay time calculator: convert BPM to ms for straight, dotted and triplet delays, plus reverb pre-delay, EQ and compression settings. Free app for Windows, Mac, Android.">
+<link rel="canonical" href="https://amanorsac.studio/pulseroom">
+<meta name="theme-color" content="#0c0e12">
+<link rel="icon" href="assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PulseRoom — Every mixing answer. One tempo.">
+<meta property="og:description" content="Free delay &amp; reverb calculator plus EQ, compression and mixing references. Use online or download for Windows, macOS and Android.">
+<meta property="og:url" content="https://amanorsac.github.io/PulseRoom-App/">
+<meta property="og:image" content="https://amanorsac.github.io/PulseRoom-App/assets/delay.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PulseRoom — Every mixing answer. One tempo.">
+<meta name="twitter:description" content="Free BPM to ms delay calculator, reverb designer, EQ cheat sheet and compression settings.">
+<meta name="twitter:image" content="https://amanorsac.github.io/PulseRoom-App/assets/delay.png">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"SoftwareApplication","name":"PulseRoom","applicationCategory":"MultimediaApplication","operatingSystem":"Windows, macOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Tempo-synced delay and reverb calculator with EQ, compression and mixing references for music producers.","url":"https://amanorsac.github.io/PulseRoom-App/","downloadUrl":"https://github.com/amanorsac/PulseRoom-App/releases/latest","screenshot":"https://amanorsac.github.io/PulseRoom-App/assets/delay.png","featureList":["Delay time calculator (BPM to ms)","Reverb pre-delay and decay calculator","Tempo detection from audio files","EQ cheat sheet for 13 instruments","Compression settings for 14 sources","Mixing chains and LUFS reference"]},
+{"@type":"WebApplication","name":"Delay Time Calculator","applicationCategory":"UtilityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://amanorsac.github.io/PulseRoom-App/#calculator"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do you calculate delay time from BPM?","acceptedAnswer":{"@type":"Answer","text":"Divide 60,000 by the tempo to get the milliseconds of one quarter note. For example at 120 BPM, 60000 / 120 = 500 ms. Halve it for an eighth note (250 ms), multiply by 1.5 for a dotted value (750 ms) and by 2/3 for a triplet (333 ms)."}},
+{"@type":"Question","name":"What delay time should I use at 140 BPM?","acceptedAnswer":{"@type":"Answer","text":"At 140 BPM a quarter note delay is 428.6 ms, an eighth note is 214.3 ms, a dotted eighth is 321.4 ms and a sixteenth is 107.1 ms."}},
+{"@type":"Question","name":"What is a good reverb pre-delay?","acceptedAnswer":{"@type":"Answer","text":"20 to 40 ms of pre-delay keeps the source clear of its tail. Syncing pre-delay to a 1/64 or 1/32 note of the song tempo makes the reverb breathe with the track rather than smearing it."}},
+{"@type":"Question","name":"Is PulseRoom free?","acceptedAnswer":{"@type":"Answer","text":"Yes. PulseRoom is a free download for Windows, macOS and Android with no account and no ads, and it works fully offline."}}]}]}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo.png" alt="PulseRoom logo" width="28" height="28">PulseRoom</a>
+    <ul>
+      <li><a href="#calculator">Calculator</a></li>
+      <li><a href="#chart">Delay chart</a></li>
+      <li><a href="#eq">EQ &amp; compression</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn" href="https://github.com/amanorsac/PulseRoom-App/releases/latest">Download free</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section>
+  <div class="wrap">
+    <span class="badge">Free &middot; Offline &middot; Windows, macOS &amp; Android</span>
+    <h1>Delay time calculator<br><span class="tint">and mixing toolkit.</span></h1>
+    <p class="lede">Turn your song's BPM into delay times, reverb tails, EQ moves and compression settings. Use the calculator below in your browser, or download the free app that also detects tempo from any song, works offline and never asks for an account.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://github.com/amanorsac/PulseRoom-App/releases/latest">Download the free app</a>
+      <a class="btn ghost" href="#calculator">Use the calculator</a>
+    </div>
+  </div>
+</section>
+
+<section id="calculator">
+  <div class="wrap">
+    <h2>BPM to delay time calculator</h2>
+    <p>Enter your tempo to get every note value in milliseconds, including dotted and triplet delays. The Hz value doubles as a tempo-synced LFO rate for tremolo, auto-pan and sidechain shaping.</p>
+    <div class="tool" style="margin-top:20px">
+      <div class="tempo-row">
+        <label for="bpm">Tempo (BPM)</label>
+        <input type="number" id="bpm" value="120" min="20" max="300" step="0.1" inputmode="decimal">
+        <button class="chip" data-bpm="90">90</button>
+        <button class="chip" data-bpm="100">100</button>
+        <button class="chip" data-bpm="120">120</button>
+        <button class="chip" data-bpm="128">128</button>
+        <button class="chip" data-bpm="140">140</button>
+        <button class="chip" data-bpm="174">174</button>
+      </div>
+      <div class="results" id="delayResults"></div>
+      <h3>Reverb pre-delay &amp; decay at this tempo</h3>
+      <div class="results" id="reverbResults"></div>
+    </div>
+    <p class="sub" style="margin-top:14px">Formula: one quarter note = 60000 &divide; BPM milliseconds. Dotted = &times;1.5, triplet = &times;2/3.</p>
+  </div>
+</section>
+
+<section id="chart">
+  <div class="wrap">
+    <h2>Delay time chart for common tempos</h2>
+    <p>Quarter, eighth, dotted eighth and sixteenth note delay times in milliseconds for the tempos producers use most.</p>
+    <table>
+      <thead><tr><th>BPM</th><th class="num">1/4</th><th class="num">1/8</th><th class="num">1/8 dotted</th><th class="num">1/16</th><th class="num">1/4 triplet</th></tr></thead>
+      <tbody>
+        <tr><td>70</td><td class="num">857.1</td><td class="num">428.6</td><td class="num">642.9</td><td class="num">214.3</td><td class="num">571.4</td></tr>
+        <tr><td>80</td><td class="num">750.0</td><td class="num">375.0</td><td class="num">562.5</td><td class="num">187.5</td><td class="num">500.0</td></tr>
+        <tr><td>90</td><td class="num">666.7</td><td class="num">333.3</td><td class="num">500.0</td><td class="num">166.7</td><td class="num">444.4</td></tr>
+        <tr><td>100</td><td class="num">600.0</td><td class="num">300.0</td><td class="num">450.0</td><td class="num">150.0</td><td class="num">400.0</td></tr>
+        <tr><td>110</td><td class="num">545.5</td><td class="num">272.7</td><td class="num">409.1</td><td class="num">136.4</td><td class="num">363.6</td></tr>
+        <tr><td>120</td><td class="num">500.0</td><td class="num">250.0</td><td class="num">375.0</td><td class="num">125.0</td><td class="num">333.3</td></tr>
+        <tr><td>128</td><td class="num">468.8</td><td class="num">234.4</td><td class="num">351.6</td><td class="num">117.2</td><td class="num">312.5</td></tr>
+        <tr><td>140</td><td class="num">428.6</td><td class="num">214.3</td><td class="num">321.4</td><td class="num">107.1</td><td class="num">285.7</td></tr>
+        <tr><td>150</td><td class="num">400.0</td><td class="num">200.0</td><td class="num">300.0</td><td class="num">100.0</td><td class="num">266.7</td></tr>
+        <tr><td>160</td><td class="num">375.0</td><td class="num">187.5</td><td class="num">281.3</td><td class="num">93.8</td><td class="num">250.0</td></tr>
+        <tr><td>174</td><td class="num">344.8</td><td class="num">172.4</td><td class="num">258.6</td><td class="num">86.2</td><td class="num">229.9</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What PulseRoom does</h2>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card"><h3 style="margin-top:0">Tempo detection</h3><p>Drop any song onto the app and it finds the BPM in seconds &mdash; analysed on your machine, nothing uploaded.</p></div>
+      <div class="card"><h3 style="margin-top:0">Delay calculator</h3><p>Straight, dotted and triplet values for every note division, one click to copy into your plugin.</p></div>
+      <div class="card"><h3 style="margin-top:0">Reverb designer</h3><p>Pre-delay and decay locked to the bar grid, plus the send-EQ curve drawn for you.</p></div>
+      <div class="card"><h3 style="margin-top:0">EQ cheat sheet</h3><p>Boost and cut zones for 13 instruments painted on a real frequency spectrum.</p></div>
+      <div class="card"><h3 style="margin-top:0">Compression settings</h3><p>Ratio, attack, release and gain reduction for 14 sources, with the envelope drawn.</p></div>
+      <div class="card"><h3 style="margin-top:0">Mix chains &amp; reference</h3><p>Plugin order per source, LUFS targets per platform, and note-to-Hz for tuning 808s.</p></div>
+    </div>
+
+    <figure>
+      <img src="assets/delay.png" alt="PulseRoom delay time calculator showing tempo-synced delay values in milliseconds" width="1280" height="840" loading="lazy">
+      <figcaption>The delay calculator: every note value at your tempo, with usage notes.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/reverb.png" alt="Reverb pre-delay and decay calculator with send EQ curve" width="1280" height="840" loading="lazy">
+      <figcaption>Reverb sized to the song, with the send-EQ curve to copy.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="eq">
+  <div class="wrap">
+    <h2>EQ cheat sheet: key frequencies by instrument</h2>
+    <p>Starting points for the most common sources. Sweep with a narrow boost to find problems, then cut with the smallest move that fixes it.</p>
+    <table>
+      <thead><tr><th>Source</th><th>Cut</th><th>Boost</th></tr></thead>
+      <tbody>
+        <tr><td>Kick drum</td><td>200&ndash;400 Hz (boxy)</td><td>40&ndash;60 Hz weight, 3&ndash;5 kHz beater click</td></tr>
+        <tr><td>Snare</td><td>400&ndash;700 Hz (honk)</td><td>150&ndash;250 Hz body, 3&ndash;6 kHz crack</td></tr>
+        <tr><td>Bass</td><td>200&ndash;350 Hz (mud)</td><td>40&ndash;80 Hz foundation, 700 Hz&ndash;1.2 kHz growl</td></tr>
+        <tr><td>808</td><td>below 25&ndash;30 Hz</td><td>30&ndash;60 Hz sub, saturate 500 Hz&ndash;1.5 kHz</td></tr>
+        <tr><td>Lead vocal</td><td>200&ndash;400 Hz mud, 1&ndash;2 kHz nasal</td><td>3&ndash;6 kHz presence, 10 kHz+ air</td></tr>
+        <tr><td>Electric guitar</td><td>200&ndash;400 Hz mud, 4&ndash;7 kHz fizz</td><td>2&ndash;4 kHz presence</td></tr>
+        <tr><td>Acoustic guitar</td><td>80&ndash;120 Hz boom</td><td>2&ndash;5 kHz clarity, 8&ndash;12 kHz sparkle</td></tr>
+        <tr><td>Hi-hats &amp; cymbals</td><td>below 200 Hz, 2&ndash;4 kHz harshness</td><td>7&ndash;12 kHz shimmer</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:44px">Compression settings by source</h2>
+    <p>Set ratio, attack and release first, then lower the threshold until the meter shows the target gain reduction.</p>
+    <table>
+      <thead><tr><th>Source</th><th class="num">Ratio</th><th class="num">Attack</th><th class="num">Release</th><th class="num">GR</th></tr></thead>
+      <tbody>
+        <tr><td>Kick drum</td><td class="num">4:1</td><td class="num">10&ndash;30 ms</td><td class="num">50&ndash;100 ms</td><td class="num">3&ndash;6 dB</td></tr>
+        <tr><td>Snare</td><td class="num">4:1</td><td class="num">5&ndash;15 ms</td><td class="num">40&ndash;80 ms</td><td class="num">3&ndash;6 dB</td></tr>
+        <tr><td>Bass</td><td class="num">4:1</td><td class="num">10&ndash;40 ms</td><td class="num">40&ndash;120 ms</td><td class="num">4&ndash;8 dB</td></tr>
+        <tr><td>Lead vocal</td><td class="num">3:1&ndash;4:1</td><td class="num">5&ndash;15 ms</td><td class="num">40&ndash;80 ms</td><td class="num">3&ndash;6 dB</td></tr>
+        <tr><td>Rap vocal</td><td class="num">4:1&ndash;6:1</td><td class="num">1&ndash;5 ms</td><td class="num">30&ndash;60 ms</td><td class="num">5&ndash;10 dB</td></tr>
+        <tr><td>Drum bus</td><td class="num">2:1&ndash;4:1</td><td class="num">10&ndash;30 ms</td><td class="num">auto</td><td class="num">2&ndash;4 dB</td></tr>
+        <tr><td>Mix bus</td><td class="num">1.5:1&ndash;2:1</td><td class="num">30 ms</td><td class="num">auto</td><td class="num">1&ndash;3 dB</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:44px">LUFS targets by streaming platform</h2>
+    <table>
+      <thead><tr><th>Platform</th><th class="num">Integrated LUFS</th><th class="num">True peak</th></tr></thead>
+      <tbody>
+        <tr><td>Spotify / Tidal / Amazon</td><td class="num">&minus;14</td><td class="num">&minus;1 dBTP</td></tr>
+        <tr><td>Apple Music</td><td class="num">&minus;16</td><td class="num">&minus;1 dBTP</td></tr>
+        <tr><td>YouTube</td><td class="num">&minus;14</td><td class="num">&minus;1 dBTP</td></tr>
+        <tr><td>Club / DJ master</td><td class="num">&minus;7 to &minus;5</td><td class="num">&minus;0.3 dBTP</td></tr>
+        <tr><td>Broadcast (EBU R128)</td><td class="num">&minus;23</td><td class="num">&minus;1 dBTP</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Download PulseRoom free</h2>
+    <p>One download, no account, works offline. The app adds tempo detection from audio files, tap tempo, click-to-copy values, mix chains and the full mixing guide.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://github.com/amanorsac/PulseRoom-App/releases/latest">Windows &middot; macOS &middot; Android</a>
+    </div>
+    <p class="sub" style="margin-top:16px">Windows: unsigned installer &mdash; if SmartScreen appears choose &ldquo;More info &rarr; Run anyway&rdquo;. macOS: universal build for Intel and Apple Silicon; first launch right-click &rarr; Open. Android: allow installs from unknown sources when prompted.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Frequently asked questions</h2>
+    <details open><summary>How do you calculate delay time from BPM?</summary><p>Divide 60,000 by the tempo to get one quarter note in milliseconds. At 120 BPM that is 500 ms. Halve it for an eighth note, multiply by 1.5 for dotted, and by 2/3 for triplet values.</p></details>
+    <details><summary>What delay time should I use at 140 BPM?</summary><p>A quarter note is 428.6 ms, an eighth note 214.3 ms, a dotted eighth 321.4 ms and a sixteenth 107.1 ms. Dotted eighth delays are the classic choice for rhythmic guitar and synth parts.</p></details>
+    <details><summary>What is a good reverb pre-delay?</summary><p>20&ndash;40 ms keeps the source clear of its tail. Syncing pre-delay to a 1/64 or 1/32 note of your tempo lets the reverb breathe with the track instead of smearing it.</p></details>
+    <details><summary>Does the app work offline?</summary><p>Yes. Everything runs locally, including tempo detection from audio files. There is no account, no telemetry and no ads.</p></details>
+    <details><summary>Is there an iPhone or iPad version?</summary><p>The iOS build exists and runs on iPhone and iPad, but Apple only permits installation through the App Store or TestFlight, which requires an Apple Developer account. Android, Windows and macOS are available to download now.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>PulseRoom &mdash; the producer's reference desk. Values are starting points; trust your ears first.</p>
+    <p class="sub" style="margin-top:8px">&copy; 2026 PulseRoom &middot; <a href="https://github.com/amanorsac/PulseRoom-App/releases/latest">Downloads</a></p>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>
