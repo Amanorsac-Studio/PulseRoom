@@ -59,7 +59,7 @@ contents directly, or base64 it — the script accepts either.
 
 ## Bundle identifier
 
-The app currently declares `com.pulseroom.app` in `capacitor.config.json`. The
+The app declares `com.amanorsac.pulseroom` in `capacitor.config.json` (matching the Google Play and App Store records). The
 build overrides this with the bundle id from the provisioning profile, so a
 profile issued for a different identifier just works. Wildcard profiles keep the
 identifier from the Capacitor config.
