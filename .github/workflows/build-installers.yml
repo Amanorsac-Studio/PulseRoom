@@ -136,31 +136,16 @@ jobs:
             || echo "asset generation skipped"
       - run: npx cap sync ios
 
-      # Signing. Repository and organization secrets both resolve through
-      # `secrets.*`, and several common names are accepted so whatever the
-      # secrets are already called should be picked up without renaming.
-      - name: Build iOS (signed when credentials are present)
-        id: iosbuild
+      # Finds the right certificate/profile/API key among the secrets by
+      # inspecting them, so the secret names do not matter.
+      - name: Discover iOS signing material
         env:
-          IOS_CERT_B64: ${{ secrets.IOS_CERTIFICATE_BASE64 || secrets.BUILD_CERTIFICATE_BASE64 || secrets.APPLE_CERTIFICATE_BASE64 || secrets.IOS_DIST_CERT_BASE64 || secrets.CERTIFICATE_BASE64 || secrets.APPLE_DISTRIBUTION_CERT_BASE64 }}
-          IOS_CERT_PASSWORD: ${{ secrets.IOS_CERTIFICATE_PASSWORD || secrets.P12_PASSWORD || secrets.APPLE_CERTIFICATE_PASSWORD || secrets.CERT_PASSWORD || secrets.IOS_P12_PASSWORD }}
-          IOS_PROFILE_B64: ${{ secrets.IOS_PROVISION_PROFILE_BASE64 || secrets.BUILD_PROVISION_PROFILE_BASE64 || secrets.APPLE_PROVISIONING_PROFILE_BASE64 || secrets.PROVISIONING_PROFILE_BASE64 || secrets.IOS_PROFILE_BASE64 || secrets.IOS_MOBILEPROVISION_BASE64 }}
-          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID || secrets.IOS_TEAM_ID || secrets.TEAM_ID }}
-          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID || secrets.ASC_KEY_ID || secrets.APPSTORE_KEY_ID || secrets.APPLE_API_KEY_ID }}
-          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID || secrets.ASC_ISSUER_ID || secrets.APPSTORE_ISSUER_ID || secrets.APPLE_API_ISSUER_ID }}
-          ASC_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY || secrets.ASC_PRIVATE_KEY || secrets.APPSTORE_PRIVATE_KEY || secrets.APPLE_API_PRIVATE_KEY }}
+          ALL_SECRETS: ${{ toJSON(secrets) }}
+        run: node scripts/ios-discover.js
+
+      - name: Build iOS
+        id: iosbuild
         run: |
-          # Presence report only — never prints a secret value.
-          report() { if [ -n "${2:-}" ]; then echo "  $1: present"; else echo "  $1: not set"; fi; }
-          echo "Signing credentials visible to this run:"
-          report "certificate (.p12 base64)" "${IOS_CERT_B64:-}"
-          report "certificate password"      "${IOS_CERT_PASSWORD:-}"
-          report "provisioning profile"      "${IOS_PROFILE_B64:-}"
-          report "team id (optional)"        "${APPLE_TEAM_ID:-}"
-          report "App Store Connect key id"  "${ASC_KEY_ID:-}"
-          report "App Store Connect issuer"  "${ASC_ISSUER_ID:-}"
-          report "App Store Connect key"     "${ASC_PRIVATE_KEY:-}"
-          echo
           chmod +x scripts/ios-build.sh
           bash scripts/ios-build.sh
 
