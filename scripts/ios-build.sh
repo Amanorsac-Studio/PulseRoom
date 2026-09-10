@@ -56,7 +56,7 @@ echo "App icon: $(basename "$BIG") (1024x1024)"
 echo "Bundle id: $BUNDLE_ID"
 
 # ------------------------------------------------------------------ unsigned --
-if ! have "${IOS_CERT_PATH:-}"; then
+if ! have "${IOS_SIGN_IDENTITY:-}"; then
   echo "::notice::No usable certificate — building UNSIGNED (cannot be installed on devices)."
   xcodebuild "${XCPROJ[@]}" -scheme App -configuration Release \
     -sdk iphoneos -destination 'generic/platform=iOS' \
@@ -70,22 +70,12 @@ if ! have "${IOS_CERT_PATH:-}"; then
   exit 0
 fi
 
-# -------------------------------------------------------------- keychain prep --
-echo "--- importing the certificate ---"
-KEYCHAIN="$TMP/pulseroom-signing.keychain-db"
-KEYCHAIN_PASS="$(openssl rand -hex 24)"
-security create-keychain -p "$KEYCHAIN_PASS" "$KEYCHAIN"
-security set-keychain-settings -lut 21600 "$KEYCHAIN"
-security unlock-keychain -p "$KEYCHAIN_PASS" "$KEYCHAIN"
-security import "$IOS_CERT_PATH" -P "${IOS_CERT_PASSWORD:-}" -A -t cert -f pkcs12 \
-  -k "$KEYCHAIN" -T /usr/bin/codesign -T /usr/bin/security
-security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASS" "$KEYCHAIN" >/dev/null
-security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
-
-IDENTITY="$(security find-identity -v -p codesigning "$KEYCHAIN" | grep -o '"[^"]*"' | head -1 | tr -d '"' || true)"
-if [ -z "$IDENTITY" ]; then
-  echo "::error::The certificate imported but carries no private key. Re-export the .p12 from Keychain Access including the key."
-  exit 1
+# ------------------------------------------------- keychain (from discovery) --
+KEYCHAIN="${IOS_KEYCHAIN:-}"
+IDENTITY="${IOS_SIGN_IDENTITY:-}"
+if [ -n "$KEYCHAIN" ] && [ -n "${IOS_KEYCHAIN_PASSWORD:-}" ]; then
+  security unlock-keychain -p "$IOS_KEYCHAIN_PASSWORD" "$KEYCHAIN"
+  security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
 fi
 echo "Signing identity: $IDENTITY"
 
