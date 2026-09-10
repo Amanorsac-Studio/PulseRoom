@@ -111,7 +111,7 @@ jobs:
       - name: Require a Play-ready bundle
         run: |
           if [ "${ANDROID_SIGNED}" != "true" ]; then
-            echo "::error::No .aab was produced — Google Play cannot accept this build. See the signing report above."
+            echo "::error::No .aab produced. ${ANDROID_SIGN_REASON:-see the signing report above}"
             exit 1
           fi
           echo "Play-ready bundle built."

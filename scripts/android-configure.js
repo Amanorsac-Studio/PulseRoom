@@ -82,20 +82,28 @@ gradle = gradle
 if (gradle === beforeVersions) console.log('::warning::version fields not found in build.gradle');
 console.log(`Version: ${version} (versionCode ${versionCode})`);
 
-function finish(signed) {
+function finish(signed, reason = '') {
   fs.writeFileSync(GRADLE, gradle);
+  const names = [...secrets.keys()].sort();
   if (process.env.GITHUB_ENV) {
-    fs.appendFileSync(process.env.GITHUB_ENV, `ANDROID_SIGNED=${signed ? 'true' : 'false'}\n`);
+    fs.appendFileSync(process.env.GITHUB_ENV,
+      `ANDROID_SIGNED=${signed ? 'true' : 'false'}\nANDROID_SIGN_REASON=${reason.replace(/[\r\n]+/g, ' ')}\n`);
   }
-  if (!signed) {
-    console.log('::error::No usable upload keystore was found, so no Play-ready .aab can be produced.');
-    console.log('::error::Add the keystore (base64 of your .jks/.p12) and its password as secrets visible to this repository, then re-run.');
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, [
+      `## Android signing: ${signed ? 'ready' : 'NOT ready'}`,
+      '',
+      `${signed ? 'A Play-ready .aab was built.' : '**' + reason + '**'}`,
+      '',
+      `Secrets visible to this job (${names.length}): ${names.length ? '`' + names.join('`, `') + '`' : '_none_'}`,
+      ''
+    ].join('\n'));
   }
+  if (!signed) console.log('::error::' + reason);
 }
 
 if (!keystoreBuf) {
-  console.log('Keystore: none of the available secrets contain a keystore.');
-  finish(false);
+  finish(false, 'No secret contains an Android keystore. Checked ' + secrets.size + ' secret(s) for JKS/PKCS12/BKS content.');
   process.exit(0);
 }
 console.log(`Keystore: found in secret "${keystoreName}" (${keystoreBuf.length} bytes)`);
@@ -126,10 +134,9 @@ for (const [name, value] of ranked) {
 }
 
 if (!storePassword) {
-  console.log(keytoolOk
-    ? '::error::Found a keystore, but none of the other secrets unlocked it — check the keystore password secret.'
-    : '::error::Found a keystore but keytool is missing, so the password could not be verified.');
-  finish(false);
+  finish(false, keytoolOk
+    ? `Keystore found in secret "${keystoreName}", but none of the ${ranked.length} other secret(s) unlocked it — the keystore password is missing or wrong.`
+    : 'Keystore found but keytool is unavailable, so the password could not be verified.');
   process.exit(0);
 }
 
@@ -139,8 +146,7 @@ const explicitAlias = [...secrets.entries()].find(([n]) => /ALIAS/i.test(n));
 let keyAlias = aliases[0];
 if (explicitAlias && aliases.includes(explicitAlias[1].trim())) keyAlias = explicitAlias[1].trim();
 if (!keyAlias) {
-  console.log('::error::The keystore contains no key entries.');
-  finish(false);
+  finish(false, 'The keystore opened but contains no key entries.');
   process.exit(0);
 }
 console.log(`Key alias: ${keyAlias}${aliases.length > 1 ? ` (of ${aliases.length} entries)` : ''}`);
@@ -165,8 +171,7 @@ const signingBlock = `    signingConfigs {
 `;
 const anchor = /( *)buildTypes \{\s*\n( *)release \{\s*\n/;
 if (!anchor.test(gradle)) {
-  console.log('::error::Could not find the buildTypes/release block to attach signing to.');
-  finish(false);
+  finish(false, 'Could not find the buildTypes/release block in build.gradle.');
   process.exit(1);
 }
 gradle = gradle.replace(anchor, (m, i1, i2) =>
