@@ -36,6 +36,23 @@ if [ -f "$PLIST_APP" ]; then
   /usr/libexec/PlistBuddy -c "Add :ITSAppUsesNonExemptEncryption bool false" "$PLIST_APP" 2>/dev/null     || /usr/libexec/PlistBuddy -c "Set :ITSAppUsesNonExemptEncryption false" "$PLIST_APP"
   echo "Declared ITSAppUsesNonExemptEncryption = false"
 fi
+# Apple rejects any build without a 1024x1024 marketing icon, so fail here
+# rather than after an upload and a review cycle.
+ICONSET="App/Assets.xcassets/AppIcon.appiconset"
+BIG=""
+if [ -d "$ICONSET" ]; then
+  for f in "$ICONSET"/*.png; do
+    [ -e "$f" ] || continue
+    W="$(sips -g pixelWidth "$f" 2>/dev/null | awk '/pixelWidth/{print $2}')"
+    [ "$W" = "1024" ] && BIG="$f" && break
+  done
+fi
+if [ -z "$BIG" ]; then
+  echo "::error::No 1024x1024 app icon in $ICONSET — icon generation failed, and Apple will reject the build."
+  exit 1
+fi
+echo "App icon: $(basename "$BIG") (1024x1024)"
+
 echo "Bundle id: $BUNDLE_ID"
 
 # ------------------------------------------------------------------ unsigned --
