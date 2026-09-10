@@ -3,7 +3,7 @@
 # Captures App Store screenshots at true device resolution using the iOS
 # Simulator, which is the only way to hit Apple's exact required pixel sizes.
 #
-#   iPhone 6.5"  -> 1284x2778 or 1242x2688
+#   iPhone 6.9"  -> 1320x2868 or 1290x2796  (this slot covers 6.5/6.7/6.9)
 #   iPad 13"     -> 2048x2732 or 2064x2752   (required because the app is universal)
 #
 # The app is built once for the simulator; for each screen the bundled
@@ -93,7 +93,7 @@ PY
     xcrun simctl io "$udid" screenshot "$file" >/dev/null 2>&1
     xcrun simctl terminate "$udid" "$BUNDLE_ID" >/dev/null 2>&1 || true
     if [ "$label" = "iphone" ]; then
-      SIZE="$(normalise "$file" "1284x2778 2778x1284 1242x2688 2688x1242" "1284x2778")"
+      SIZE="$(normalise "$file" "1320x2868 2868x1320 1290x2796 2796x1290 1260x2736 2736x1260" "1290x2796")"
     else
       SIZE="$(normalise "$file" "2064x2752 2752x2064 2048x2732 2732x2048" "2048x2732")"
     fi
@@ -104,10 +104,10 @@ PY
   xcrun simctl delete "$udid" >/dev/null 2>&1 || true
 }
 
-# App Store Connect asks for 6.5-inch iPhone shots (1284x2778 / 1242x2688), so
-# prefer models whose native resolution already matches one of those.
+# The Media Manager's 6.9" slot covers 6.5/6.7/6.9 and wants 1320x2868 or
+# 1290x2796, so prefer models whose native resolution already matches.
 IPHONE=""
-for want in "iPhone 14 Plus" "iPhone 13 Pro Max" "iPhone 12 Pro Max" "iPhone 11 Pro Max"; do
+for want in "iPhone 17 Pro Max" "iPhone 16 Pro Max" "iPhone 15 Pro Max" "iPhone 14 Pro Max"; do
   IPHONE="$(pick_device_type "t.name === '$want'")"
   [ -n "$IPHONE" ] && break
 done
