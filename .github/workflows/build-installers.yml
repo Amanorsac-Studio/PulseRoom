@@ -1,8 +1,9 @@
 name: Build installers
 
-# Builds: Windows installer, macOS universal DMG, Android APK, iOS (unsigned archive).
-# Trigger manually (Actions tab -> Run workflow) or by pushing a tag like v1.0.1.
-# Tag pushes also publish everything to a GitHub Release (public download links).
+# Builds: Windows installer, macOS universal DMG, Android APK, iOS (.ipa).
+# The iOS build is signed automatically when the signing secrets are present,
+# and falls back to an unsigned build when they are not.
+# Trigger manually (Actions -> Run workflow) or by pushing a tag like v1.0.3.
 
 on:
   workflow_dispatch:
@@ -50,6 +51,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
+      - run: echo "APP_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
       - run: npm install --no-audit --no-fund
       - run: npm run build:www
       - run: npx cap add android
@@ -62,11 +64,11 @@ jobs:
             || echo "asset generation skipped"
       - run: npx cap sync android
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
-      - run: cp android/app/build/outputs/apk/debug/app-debug.apk PulseRoom-1.0.1-Android.apk
+      - run: cp android/app/build/outputs/apk/debug/app-debug.apk "PulseRoom-${APP_VERSION}-Android.apk"
       - uses: actions/upload-artifact@v4
         with:
           name: PulseRoom-Android
-          path: PulseRoom-1.0.1-Android.apk
+          path: PulseRoom-*-Android.apk
 
   ios:
     runs-on: macos-latest
@@ -75,6 +77,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - run: echo "APP_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
       - run: npm install --no-audit --no-fund
       - run: npm run build:www
       - run: npx cap add ios
@@ -86,22 +89,43 @@ jobs:
             --splashBackgroundColor '#0c0e12' --splashBackgroundColorDark '#0c0e12' \
             || echo "asset generation skipped"
       - run: npx cap sync ios
-      - name: Build (unsigned — App Store/TestFlight distribution needs an Apple Developer account)
+
+      # Signing. Repository and organization secrets both resolve through
+      # `secrets.*`, and several common names are accepted so whatever the
+      # secrets are already called should be picked up without renaming.
+      - name: Build iOS (signed when credentials are present)
+        id: iosbuild
+        env:
+          IOS_CERT_B64: ${{ secrets.IOS_CERTIFICATE_BASE64 || secrets.BUILD_CERTIFICATE_BASE64 || secrets.APPLE_CERTIFICATE_BASE64 || secrets.IOS_DIST_CERT_BASE64 || secrets.CERTIFICATE_BASE64 || secrets.APPLE_DISTRIBUTION_CERT_BASE64 }}
+          IOS_CERT_PASSWORD: ${{ secrets.IOS_CERTIFICATE_PASSWORD || secrets.P12_PASSWORD || secrets.APPLE_CERTIFICATE_PASSWORD || secrets.CERT_PASSWORD || secrets.IOS_P12_PASSWORD }}
+          IOS_PROFILE_B64: ${{ secrets.IOS_PROVISION_PROFILE_BASE64 || secrets.BUILD_PROVISION_PROFILE_BASE64 || secrets.APPLE_PROVISIONING_PROFILE_BASE64 || secrets.PROVISIONING_PROFILE_BASE64 || secrets.IOS_PROFILE_BASE64 || secrets.IOS_MOBILEPROVISION_BASE64 }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID || secrets.IOS_TEAM_ID || secrets.TEAM_ID }}
+          ASC_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID || secrets.ASC_KEY_ID || secrets.APPSTORE_KEY_ID || secrets.APPLE_API_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID || secrets.ASC_ISSUER_ID || secrets.APPSTORE_ISSUER_ID || secrets.APPLE_API_ISSUER_ID }}
+          ASC_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY || secrets.ASC_PRIVATE_KEY || secrets.APPSTORE_PRIVATE_KEY || secrets.APPLE_API_PRIVATE_KEY }}
         run: |
-          set -o pipefail
-          cd ios/App
-          ls -la
-          if [ -e App.xcworkspace ]; then C="-workspace App.xcworkspace"; else C="-project App.xcodeproj"; fi
-          xcodebuild $C -scheme App -configuration Release \
-            -sdk iphoneos -destination 'generic/platform=iOS' \
-            -derivedDataPath build build \
-            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
-            2>&1 | tee "$GITHUB_WORKSPACE/ios-build.log" | tail -80
-          cd build/Build/Products/Release-iphoneos
-          mkdir Payload && cp -r App.app Payload/
-          zip -qr "$GITHUB_WORKSPACE/PulseRoom-1.0.1-iOS-unsigned.ipa" Payload
+          # Presence report only — never prints a secret value.
+          report() { if [ -n "${2:-}" ]; then echo "  $1: present"; else echo "  $1: not set"; fi; }
+          echo "Signing credentials visible to this run:"
+          report "certificate (.p12 base64)" "${IOS_CERT_B64:-}"
+          report "certificate password"      "${IOS_CERT_PASSWORD:-}"
+          report "provisioning profile"      "${IOS_PROFILE_B64:-}"
+          report "team id (optional)"        "${APPLE_TEAM_ID:-}"
+          report "App Store Connect key id"  "${ASC_KEY_ID:-}"
+          report "App Store Connect issuer"  "${ASC_ISSUER_ID:-}"
+          report "App Store Connect key"     "${ASC_PRIVATE_KEY:-}"
+          echo
+          chmod +x scripts/ios-build.sh
+          bash scripts/ios-build.sh
+
       - uses: actions/upload-artifact@v4
         with:
-          name: PulseRoom-iOS-unsigned
-          path: PulseRoom-1.0.1-iOS-unsigned.ipa
+          name: PulseRoom-iOS${{ steps.iosbuild.outputs.ios_signed == 'true' && '-signed' || '-unsigned' }}
+          path: PulseRoom-*-iOS*.ipa
 
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: ios-build-log
+          path: ios-build.log
+          if-no-files-found: ignore
