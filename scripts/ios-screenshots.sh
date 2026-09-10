@@ -3,7 +3,7 @@
 # Captures App Store screenshots at true device resolution using the iOS
 # Simulator, which is the only way to hit Apple's exact required pixel sizes.
 #
-#   iPhone 6.9"  -> 1290x2796 or 1320x2868
+#   iPhone 6.5"  -> 1284x2778 or 1242x2688
 #   iPad 13"     -> 2048x2732 or 2064x2752   (required because the app is universal)
 #
 # The app is built once for the simulator; for each screen the bundled
@@ -50,6 +50,18 @@ LATEST_RUNTIME="$(xcrun simctl list runtimes -j | node -e "
 [ -n "$LATEST_RUNTIME" ] || { echo "::error::no iOS simulator runtime available"; exit 1; }
 echo "Runtime: $LATEST_RUNTIME"
 
+# Apple enforces exact dimensions; resize if the device's native size is not
+# one of the accepted values for that slot.
+normalise() {             # $1 file  $2 accepted sizes  $3 fallback target
+  local w h cur
+  w="$(sips -g pixelWidth "$1" | awk '/pixelWidth/{print $2}')"
+  h="$(sips -g pixelHeight "$1" | awk '/pixelHeight/{print $2}')"
+  cur="${w}x${h}"
+  case " $2 " in *" $cur "*) echo "$cur"; return;; esac
+  sips -z "${3#*x}" "${3%x*}" "$1" --out "$1" >/dev/null 2>&1
+  echo "$cur -> $3"
+}
+
 shoot_device() {          # $1 device-type|name   $2 label   $3.. pages
   local spec="$1"; shift
   local label="$1"; shift
@@ -80,14 +92,26 @@ PY
     local file="$OUT/${label}-${n}-${page}.png"
     xcrun simctl io "$udid" screenshot "$file" >/dev/null 2>&1
     xcrun simctl terminate "$udid" "$BUNDLE_ID" >/dev/null 2>&1 || true
-    echo "  $(basename "$file")  $(sips -g pixelWidth -g pixelHeight "$file" | awk '/pixel/{printf "%s ", $2}')"
+    if [ "$label" = "iphone" ]; then
+      SIZE="$(normalise "$file" "1284x2778 2778x1284 1242x2688 2688x1242" "1284x2778")"
+    else
+      SIZE="$(normalise "$file" "2064x2752 2752x2064 2048x2732 2732x2048" "2048x2732")"
+    fi
+    echo "  $(basename "$file")  $SIZE"
     n=$((n+1))
   done
   xcrun simctl shutdown "$udid" >/dev/null 2>&1 || true
   xcrun simctl delete "$udid" >/dev/null 2>&1 || true
 }
 
-IPHONE="$(pick_device_type "/iPhone/.test(t.name) && /Pro Max|Plus|Max/.test(t.name)")"
+# App Store Connect asks for 6.5-inch iPhone shots (1284x2778 / 1242x2688), so
+# prefer models whose native resolution already matches one of those.
+IPHONE=""
+for want in "iPhone 14 Plus" "iPhone 13 Pro Max" "iPhone 12 Pro Max" "iPhone 11 Pro Max"; do
+  IPHONE="$(pick_device_type "t.name === '$want'")"
+  [ -n "$IPHONE" ] && break
+done
+[ -n "$IPHONE" ] || IPHONE="$(pick_device_type "/iPhone/.test(t.name) && /Pro Max|Plus/.test(t.name)")"
 [ -n "$IPHONE" ] || IPHONE="$(pick_device_type "/iPhone/.test(t.name)")"
 IPAD="$(pick_device_type "/iPad Pro/.test(t.name) && /13-inch|12\.9/.test(t.name)")"
 [ -n "$IPAD" ] || IPAD="$(pick_device_type "/iPad/.test(t.name)")"
