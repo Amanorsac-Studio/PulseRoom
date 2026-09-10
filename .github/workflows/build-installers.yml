@@ -160,3 +160,27 @@ jobs:
           name: ios-build-log
           path: ios-build.log
           if-no-files-found: ignore
+
+  ios-screenshots:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npm run build:www
+      - run: npx cap add ios
+      - name: Generate app icons and splash
+        run: |
+          mkdir -p assets && cp icon.png assets/logo.png
+          npx @capacitor/assets generate --ios             --iconBackgroundColor '#0c0e12' --iconBackgroundColorDark '#0c0e12'             --splashBackgroundColor '#0c0e12' --splashBackgroundColorDark '#0c0e12'             || echo "asset generation skipped"
+      - run: npx cap sync ios
+      - name: Capture App Store screenshots
+        run: |
+          chmod +x scripts/ios-screenshots.sh
+          bash scripts/ios-screenshots.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AppStore-Screenshots
+          path: appstore-screenshots/*.png

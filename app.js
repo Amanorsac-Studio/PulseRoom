@@ -1355,4 +1355,7 @@ document.addEventListener('keydown', e => {
 
 initTempoDetect();
 updateTempoReadout();
-showPage('delay');
+/* __startPage lets the screenshot tooling open a specific page; normal launches
+   fall through to the delay calculator. */
+showPage(RENDERERS[window.__startPage] ? window.__startPage : 'delay');
+if (window.__startState) { Object.assign(state, window.__startState); showPage(state.page); }
