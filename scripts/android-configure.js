@@ -55,7 +55,10 @@ const isKeystore = buf =>
   );
 
 function decodeMaybe(value) {
-  const cleaned = value.replace(/\s/g, '');
+  const cleaned = value.trim()
+    .replace(/^["']|["']$/g, '')   // stray quotes around the value
+    .replace(/^data:[^,]*,/, '')   // data: prefix
+    .replace(/\s/g, '');
   if (!/^[A-Za-z0-9+/=]+$/.test(cleaned) || cleaned.length < 400) return null;
   try {
     const buf = Buffer.from(cleaned, 'base64');
