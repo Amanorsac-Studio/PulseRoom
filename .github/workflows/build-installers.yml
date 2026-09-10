@@ -161,6 +161,14 @@ jobs:
           path: ios-build.log
           if-no-files-found: ignore
 
+      - name: Require a signed iOS build
+        run: |
+          if [ "${{ steps.iosbuild.outputs.ios_signed }}" != "true" ]; then
+            echo "::error::iOS build was NOT signed, so nothing reached TestFlight. See the 'iOS signing' summary above for the reason."
+            exit 1
+          fi
+          echo "Signed and uploaded."
+
   ios-screenshots:
     runs-on: macos-latest
     steps:
