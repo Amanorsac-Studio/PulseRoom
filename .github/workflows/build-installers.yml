@@ -63,12 +63,49 @@ jobs:
             --splashBackgroundColor '#0c0e12' --splashBackgroundColorDark '#0c0e12' \
             || echo "asset generation skipped"
       - run: npx cap sync android
-      - run: cd android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
-      - run: cp android/app/build/outputs/apk/debug/app-debug.apk "PulseRoom-${APP_VERSION}-Android.apk"
+
+      # Stamps version/versionCode and wires the upload keystore into gradle.
+      # Repository and organization secrets both resolve through `secrets.*`;
+      # several common names are accepted so existing secrets work unchanged.
+      - name: Configure release signing
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 || secrets.ANDROID_SIGNING_KEY_BASE64 || secrets.KEYSTORE_BASE64 || secrets.UPLOAD_KEYSTORE_BASE64 || secrets.ANDROID_KEYSTORE_B64 || secrets.SIGNING_KEY }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD || secrets.ANDROID_STORE_PASSWORD || secrets.KEYSTORE_PASSWORD || secrets.ANDROID_SIGNING_STORE_PASSWORD || secrets.STORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS || secrets.KEY_ALIAS || secrets.ANDROID_ALIAS || secrets.ANDROID_SIGNING_KEY_ALIAS || secrets.ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD || secrets.KEY_PASSWORD || secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+        run: node scripts/android-configure.js
+
+      - name: Build
+        run: |
+          cd android && chmod +x gradlew
+          if [ "${ANDROID_SIGNED}" = "true" ]; then
+            ./gradlew bundleRelease assembleRelease --no-daemon
+          else
+            ./gradlew assembleDebug --no-daemon
+          fi
+
+      - name: Collect and verify artifacts
+        run: |
+          set -e
+          OUT="$GITHUB_WORKSPACE"
+          if [ "${ANDROID_SIGNED}" = "true" ]; then
+            cp android/app/build/outputs/bundle/release/app-release.aab "$OUT/PulseRoom-${APP_VERSION}-Android.aab"
+            cp android/app/build/outputs/apk/release/app-release.apk    "$OUT/PulseRoom-${APP_VERSION}-Android.apk"
+            APKSIGNER="$(ls -d $ANDROID_HOME/build-tools/*/apksigner | tail -1)"
+            echo "--- APK signature ---"
+            "$APKSIGNER" verify --print-certs "$OUT/PulseRoom-${APP_VERSION}-Android.apk" | grep -Ei "Signer #1 certificate (DN|SHA-256)" || true
+            echo "--- AAB signature ---"
+            jarsigner -verify "$OUT/PulseRoom-${APP_VERSION}-Android.aab" | tail -2
+          else
+            cp android/app/build/outputs/apk/debug/app-debug.apk "$OUT/PulseRoom-${APP_VERSION}-Android-debug.apk"
+            echo "::warning::Debug APK only — Google Play requires a signed .aab (see ANDROID_SIGNING.md)."
+          fi
+          ls -la "$OUT"/PulseRoom-*Android* 2>/dev/null
+
       - uses: actions/upload-artifact@v4
         with:
           name: PulseRoom-Android
-          path: PulseRoom-*-Android.apk
+          path: PulseRoom-*Android*.a*
 
   ios:
     runs-on: macos-latest
