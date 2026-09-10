@@ -28,6 +28,14 @@ BUNDLE_ID="$(node -e "process.stdout.write(require('$WORK/capacitor.config.json'
 cd "$IOS_DIR"
 if [ -e App.xcworkspace ]; then XCPROJ=(-workspace App.xcworkspace); else XCPROJ=(-project App.xcodeproj); fi
 echo "Xcode: $(xcodebuild -version | head -1)"
+
+# The app makes no network calls and uses no encryption, so declare that up
+# front — otherwise App Store Connect asks for export compliance on every upload.
+PLIST_APP="App/Info.plist"
+if [ -f "$PLIST_APP" ]; then
+  /usr/libexec/PlistBuddy -c "Add :ITSAppUsesNonExemptEncryption bool false" "$PLIST_APP" 2>/dev/null     || /usr/libexec/PlistBuddy -c "Set :ITSAppUsesNonExemptEncryption false" "$PLIST_APP"
+  echo "Declared ITSAppUsesNonExemptEncryption = false"
+fi
 echo "Bundle id: $BUNDLE_ID"
 
 # ------------------------------------------------------------------ unsigned --
