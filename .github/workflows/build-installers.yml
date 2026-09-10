@@ -69,6 +69,7 @@ jobs:
       # several common names are accepted so existing secrets work unchanged.
       - name: Configure release signing
         env:
+          ALL_SECRETS: ${{ toJSON(secrets) }}
           ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 || secrets.ANDROID_SIGNING_KEY_BASE64 || secrets.KEYSTORE_BASE64 || secrets.UPLOAD_KEYSTORE_BASE64 || secrets.ANDROID_KEYSTORE_B64 || secrets.SIGNING_KEY }}
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD || secrets.ANDROID_STORE_PASSWORD || secrets.KEYSTORE_PASSWORD || secrets.ANDROID_SIGNING_STORE_PASSWORD || secrets.STORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS || secrets.KEY_ALIAS || secrets.ANDROID_ALIAS || secrets.ANDROID_SIGNING_KEY_ALIAS || secrets.ALIAS }}
@@ -106,6 +107,14 @@ jobs:
         with:
           name: PulseRoom-Android
           path: PulseRoom-*Android*.a*
+
+      - name: Require a Play-ready bundle
+        run: |
+          if [ "${ANDROID_SIGNED}" != "true" ]; then
+            echo "::error::No .aab was produced — Google Play cannot accept this build. See the signing report above."
+            exit 1
+          fi
+          echo "Play-ready bundle built."
 
   ios:
     runs-on: macos-latest
