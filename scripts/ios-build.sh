@@ -15,6 +15,9 @@
 set -euo pipefail
 
 APP_VERSION="${APP_VERSION:-1.0.0}"
+# App Store Connect only offers a build to the version record whose number it
+# matches, so this must equal the version shown in App Store Connect.
+MARKETING_VERSION="${IOS_MARKETING_VERSION:-$APP_VERSION}"
 BUILD_NUMBER="${GITHUB_RUN_NUMBER:-1}"
 WORK="${GITHUB_WORKSPACE:-$(pwd)}"
 TMP="${RUNNER_TEMP:-/tmp}"
@@ -135,7 +138,7 @@ xcodebuild "${XCPROJ[@]}" -scheme App -configuration Release \
   "${AUTH[@]}" "${SIGN_ARGS[@]}" \
   DEVELOPMENT_TEAM="$TEAM_ID" \
   PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID" \
-  MARKETING_VERSION="$APP_VERSION" \
+  MARKETING_VERSION="$MARKETING_VERSION" \
   CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
   OTHER_CODE_SIGN_FLAGS="--keychain $KEYCHAIN" \
   2>&1 | tee "$WORK/ios-build.log" | tail -40

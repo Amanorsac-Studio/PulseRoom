@@ -145,6 +145,10 @@ jobs:
 
       - name: Build iOS
         id: iosbuild
+        env:
+          # Must match the version record in App Store Connect, otherwise the
+          # uploaded build cannot be selected for that version.
+          IOS_MARKETING_VERSION: '1.0'
         run: |
           chmod +x scripts/ios-build.sh
           bash scripts/ios-build.sh
