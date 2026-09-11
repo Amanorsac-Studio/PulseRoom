@@ -141,9 +141,12 @@ jobs:
       # Finds the right certificate/profile/API key among the secrets by
       # inspecting them, so the secret names do not matter.
       - name: Discover iOS signing material
+        if: always()
         env:
           ALL_SECRETS: ${{ toJSON(secrets) }}
-        run: node scripts/ios-discover.js
+        run: |
+          set -o pipefail
+          node scripts/ios-discover.js 2>&1 | tee "$GITHUB_WORKSPACE/ios-discover.log"
 
       - name: Build iOS
         id: iosbuild
@@ -151,9 +154,11 @@ jobs:
           # Must match the version record in App Store Connect, otherwise the
           # uploaded build cannot be selected for that version.
           IOS_MARKETING_VERSION: '1.0'
+        continue-on-error: true
         run: |
+          set -o pipefail
           chmod +x scripts/ios-build.sh
-          bash scripts/ios-build.sh
+          bash scripts/ios-build.sh 2>&1 | tee "$GITHUB_WORKSPACE/ios-step.log"
 
       - uses: actions/upload-artifact@v4
         with:
@@ -175,8 +180,10 @@ jobs:
           set +e
           REP=/tmp/ci-report
           rm -rf "$REP" && mkdir -p "$REP"
-          [ -f "$GITHUB_STEP_SUMMARY" ] && cp "$GITHUB_STEP_SUMMARY" "$REP/ios-summary.md"
-          [ -f "$GITHUB_WORKSPACE/ios-build.log" ] && tail -400 "$GITHUB_WORKSPACE/ios-build.log" > "$REP/ios-build-tail.log"
+          for f in ios-discover.log ios-step.log; do
+            [ -f "$GITHUB_WORKSPACE/$f" ] && cp "$GITHUB_WORKSPACE/$f" "$REP/$f"
+          done
+          [ -f "$GITHUB_WORKSPACE/ios-build.log" ] && tail -300 "$GITHUB_WORKSPACE/ios-build.log" > "$REP/xcodebuild-tail.log"
           {
             echo "run: ${{ github.run_number }}"
             echo "sha: ${{ github.sha }}"
