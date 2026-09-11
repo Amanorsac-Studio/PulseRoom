@@ -118,6 +118,8 @@ jobs:
 
   ios:
     runs-on: macos-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -164,6 +166,33 @@ jobs:
           name: ios-build-log
           path: ios-build.log
           if-no-files-found: ignore
+
+      # The repository is private, so logs are not readable through the API.
+      # Publishing them to a branch makes them fetchable with plain git.
+      - name: Publish diagnostics
+        if: always()
+        run: |
+          set +e
+          REP=/tmp/ci-report
+          rm -rf "$REP" && mkdir -p "$REP"
+          [ -f "$GITHUB_STEP_SUMMARY" ] && cp "$GITHUB_STEP_SUMMARY" "$REP/ios-summary.md"
+          [ -f "$GITHUB_WORKSPACE/ios-build.log" ] && tail -400 "$GITHUB_WORKSPACE/ios-build.log" > "$REP/ios-build-tail.log"
+          {
+            echo "run: ${{ github.run_number }}"
+            echo "sha: ${{ github.sha }}"
+            echo "ref: ${{ github.ref_name }}"
+            echo "signed: ${{ steps.iosbuild.outputs.ios_signed }}"
+            echo "finished: $(date -u)"
+          } > "$REP/status.txt"
+          cd /tmp && rm -rf logsrepo && mkdir logsrepo && cd logsrepo
+          git init -q
+          git config user.email "actions@github.com"
+          git config user.name "PulseRoom CI"
+          mkdir -p ios && cp "$REP"/* ios/ 2>/dev/null
+          git add -A
+          git commit -q -m "iOS diagnostics for run ${{ github.run_number }}"
+          git push -f -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" HEAD:ci-logs
+          echo "diagnostics pushed to the ci-logs branch"
 
       - name: Require a signed iOS build
         run: |
