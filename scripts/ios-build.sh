@@ -123,8 +123,11 @@ else
     echo "::error::Without a provisioning profile, both APPLE_TEAM_ID and an App Store Connect API key are required."
     exit 1
   fi
-  SIGN_ARGS=(CODE_SIGN_STYLE=Automatic)
-  echo "Signing automatically — Xcode will create the profile for $BUNDLE_ID via the API key."
+  # Ask explicitly for a DISTRIBUTION identity. Left to itself, automatic
+  # signing requests an iOS App Development profile, which Apple refuses to
+  # issue when the team has no registered devices.
+  SIGN_ARGS=(CODE_SIGN_STYLE=Automatic CODE_SIGN_IDENTITY="Apple Distribution" PROVISIONING_PROFILE_SPECIFIER="")
+  echo "Signing automatically — Xcode will create a distribution profile for $BUNDLE_ID via the API key."
 fi
 
 # ------------------------------------------------------------------- archive --
@@ -132,16 +135,27 @@ ARCHIVE="$TMP/App.xcarchive"
 EXPORT_DIR="$TMP/export"
 rm -rf "$ARCHIVE" "$EXPORT_DIR"
 
-xcodebuild "${XCPROJ[@]}" -scheme App -configuration Release \
-  -sdk iphoneos -destination 'generic/platform=iOS' \
-  -archivePath "$ARCHIVE" archive \
-  "${AUTH[@]}" "${SIGN_ARGS[@]}" \
-  DEVELOPMENT_TEAM="$TEAM_ID" \
-  PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID" \
-  MARKETING_VERSION="$MARKETING_VERSION" \
-  CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
-  OTHER_CODE_SIGN_FLAGS="--keychain $KEYCHAIN" \
-  2>&1 | tee "$WORK/ios-build.log" | tail -40
+archive_with() {          # $@ = extra build settings
+  xcodebuild "${XCPROJ[@]}" -scheme App -configuration Release \
+    -sdk iphoneos -destination 'generic/platform=iOS' \
+    -archivePath "$ARCHIVE" archive \
+    "${AUTH[@]}" "$@" \
+    DEVELOPMENT_TEAM="$TEAM_ID" \
+    PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID" \
+    MARKETING_VERSION="$MARKETING_VERSION" \
+    CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
+    ${KEYCHAIN:+OTHER_CODE_SIGN_FLAGS="--keychain $KEYCHAIN"} \
+    2>&1 | tee "$WORK/ios-build.log" | tail -40
+}
+
+if ! archive_with "${SIGN_ARGS[@]}"; then
+  # Fall back to an unsigned archive and let the export step do the signing —
+  # export only ever asks for a distribution profile, never a development one.
+  echo "::notice::Signed archive failed; archiving unsigned and signing at export instead."
+  rm -rf "$ARCHIVE"
+  archive_with CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
+fi
+
 
 # -------------------------------------------------------------------- export --
 write_export_plist() {
