@@ -1,0 +1,11 @@
+Secrets available (16): ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD, APPLE_DIST_P12, APPLE_DIST_PASSWORD, APPLE_TEAM_ID, ASC_ISSUER_ID, ASC_KEY_ID, ASC_KEY_P8, MAC_CERT_P12, MAC_CERT_PASSWORD, MAC_INSTALLER_P12, MAC_INSTALLER_PASSWORD, MAS_INSTALLER_P12, MAS_INSTALLER_PASSWORD, RELEASE_TOKEN, github_token
+Certificate blobs found: MAC_CERT_P12, ANDROID_KEYSTORE_BASE64, MAC_INSTALLER_P12, APPLE_DIST_P12
+  MAC_CERT_P12: imported (password from "APPLE_DIST_PASSWORD") -> Developer ID Application: Stephen Amanor Sackey (SGQVTNFK4Q)
+  ANDROID_KEYSTORE_BASE64: imported (password from "ANDROID_KEYSTORE_PASSWORD") -> certificate only, no private key
+  MAC_INSTALLER_P12: imported (password from "MAC_INSTALLER_PASSWORD") -> certificate only, no private key
+  APPLE_DIST_P12: imported (password from "APPLE_DIST_PASSWORD") -> Apple Distribution: Stephen Amanor Sackey (SGQVTNFK4Q)
+Code-signing identities in the keychain (2):
+  - Developer ID Application: Stephen Amanor Sackey (SGQVTNFK4Q)
+  - Apple Distribution: Stephen Amanor Sackey (SGQVTNFK4Q)
+Using identity: Apple Distribution: Stephen Amanor Sackey (SGQVTNFK4Q)
+App Store Connect API key: "ASC_KEY_P8"
