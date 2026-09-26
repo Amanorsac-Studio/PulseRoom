@@ -20,6 +20,9 @@ const state = {
 const $  = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
+const TOUCH = matchMedia('(pointer: coarse)').matches;
+const tapWord = TOUCH ? 'Tap' : 'Click';
+
 const beatMs = () => 60000 / state.bpm;          // quarter note
 const barMs  = () => beatMs() * 4;               // 4/4 bar
 
@@ -108,7 +111,7 @@ function renderDelay() {
   $('#page-delay').innerHTML = `
     <div class="page-head">
       <h1 class="page-title">Delay <span class="tint" style="--accent:var(--c-delay)">Calculator</span></h1>
-      <p class="page-desc">Every note value at ${state.bpm} BPM, in milliseconds. Click any card to copy the time. The Hz value doubles as a tempo-synced LFO rate for tremolo, auto-pan and sidechain shaping.</p>
+      <p class="page-desc">Every note value at ${state.bpm} BPM, in milliseconds. ${tapWord} any card to copy the time. The Hz value doubles as a tempo-synced LFO rate for tremolo, auto-pan and sidechain shaping.</p>
     </div>
 
     <div class="filter-row" style="--accent:var(--c-delay)">
@@ -1325,9 +1328,21 @@ const RENDERERS = {
   reference: renderReference
 };
 
+const MORE_PAGES = ['chains', 'guide', 'reference'];
+
+function syncTabs(page) {
+  const tabs = $$('.tab');
+  if (!tabs.length) return;
+  tabs.forEach(t => t.classList.remove('on'));
+  const direct = tabs.find(t => t.dataset.page === page);
+  if (direct) direct.classList.add('on');
+  else if (MORE_PAGES.includes(page)) $('#tabMore').classList.add('on');
+}
+
 function showPage(page) {
   state.page = page;
   $$('.nav-item').forEach(b => b.classList.toggle('active', b.dataset.page === page));
+  syncTabs(page);
   $$('.page').forEach(p => p.classList.remove('active'));
   const el = $(`#page-${page}`);
   RENDERERS[page]();
@@ -1353,6 +1368,37 @@ document.addEventListener('keydown', e => {
   if (e.key === 't' && document.activeElement.tagName !== 'INPUT') tap();
 });
 
+/* ---------- phone navigation: tab bar + "More" sheet ---------- */
+function initPhoneNav() {
+  const sheet = $('#moreSheet'), backdrop = $('#sheetBackdrop');
+  if (!sheet) return;
+  const openSheet = () => { sheet.classList.add('open'); backdrop.classList.add('open'); };
+  const closeSheet = () => { sheet.classList.remove('open'); backdrop.classList.remove('open'); };
+
+  $('#tabbar').addEventListener('click', e => {
+    const tab = e.target.closest('.tab');
+    if (!tab) return;
+    if (tab.id === 'tabMore') { openSheet(); return; }
+    closeSheet();
+    showPage(tab.dataset.page);
+  });
+
+  sheet.addEventListener('click', e => {
+    const item = e.target.closest('.sheet-item');
+    if (!item) return;
+    closeSheet();
+    showPage(item.dataset.page);
+  });
+
+  $('#sheetCancel').addEventListener('click', closeSheet);
+  backdrop.addEventListener('click', closeSheet);
+
+  // block the pinch gesture that makes a web view feel like a web page
+  document.addEventListener('gesturestart', e => e.preventDefault());
+  document.addEventListener('dblclick', e => e.preventDefault());
+}
+
+initPhoneNav();
 initTempoDetect();
 updateTempoReadout();
 /* __startPage lets the screenshot tooling open a specific page; normal launches
