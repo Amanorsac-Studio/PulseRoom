@@ -53,9 +53,20 @@ ASK                      ANSWER                        DO
                           3. …                          [related questions]
 ```
 
-Three screens: **Ask** (search + filters), **Answer** (the payload), and the
-existing calculators, which answers can deep-link into — "set your delay to
-1/8 dotted" opens the Delay page already on that value.
+Two new screens — **Ask** (search + filters) and **Answer** (the payload) —
+added to everything v1 already does.
+
+**Nothing from v1 is removed.** Delay, Reverb, EQ chart, Compression, Mixing
+chains, Tips & Guide and Reference all stay, all keep their content, and all
+get the same visual upgrade as the new screens. The vocal chains in particular
+become destinations that answers link into: "use the pop vocal chain" opens
+that chain with the relevant stage already highlighted. Answers deep-link into
+the calculators the same way — "set your delay to 1/8 dotted" opens the Delay
+page already on that value.
+
+What changes in v1 is how it *looks*, not what it holds: the EQ curves,
+compression envelopes and chain diagrams are redrawn and animated to the
+standard set by the Ask screens.
 
 ---
 
@@ -121,14 +132,31 @@ pumping, phasey, masked, lifeless.
 **Genres (10)** — Afrobeats, Highlife, African Gospel, CCM / Worship, R&B,
 Hip-hop / Trap, Jazz, Reggae / Dancehall, Pop, Amapiano.
 
-| Bucket | Maths | Entries |
+The bank is now built, not estimated. `node v2/build-question-bank.js` emits
+`v2/data/question-index.json` and the readable `v2/QUESTION_BANK.md`.
+
+| Bucket | How it is produced | Questions |
 |---|---|---|
-| Source × intent (pruned to sensible pairs) | 28 × 14, minus nonsense | ~340 |
-| Source × problem | 28 × 12, pruned | ~230 |
-| Genre playbooks | 10 genres × 20 signature questions | 200 |
-| Concepts and technique | pre-delay, parallel comp, gain staging, mid/side, phase, LUFS… | 150 |
-| Workflow and creative | vocal stacks from one take, building depth, effect throws, mix prep | 120 |
-| **Total** | | **~1,040** |
+| Source × intent | generated from a curated matrix | 217 |
+| Source × problem | generated from a curated matrix | 166 |
+| Genre playbooks | hand-written, 10 playbooks | 160 |
+| Concepts and technique | hand-written | 100 |
+| Workflow and creative | hand-written | 50 |
+| **Built** | | **693** |
+
+The combinatorial buckets are generated because they genuinely are
+combinatorial — but from a matrix that lists, per source, only the intents and
+problems that make sense for it. A pad cannot hit harder and hats are never
+boomy, so the generator never asks it. The other 310 have no pattern and are
+written by hand.
+
+**693, not 1,000.** The gap closes three ways, in this order: finishing the
+remaining sources × intents that were pruned conservatively (~80), adding the
+four secondary genres already stubbed in the validator — Amapiano, Reggae,
+Jazz, Pop (~80 each at playbook depth), and genre-scoped variants of the
+highest-traffic questions, which are distinct *searches* even where
+`genreNotes` lets one entry answer them. Padding to reach a round number would
+make the bank worse, so the claim moves only as real questions are added.
 
 Genre playbooks are where this becomes distinctive. Nobody else ships "how do I
 mix a highlife horn section" or "how do I stop my choir swallowing the lead".

@@ -13,13 +13,25 @@ const SOURCES = ['kick', 'snare', 'hats', 'toms', 'overheads', 'room', 'drumbus'
   'strings', 'horns', 'percussion', 'mixbus', 'concept'];
 const INTENTS = ['bigger', 'tighter', 'punchier', 'warmer', 'brighter', 'cleaner', 'wider',
   'upfront', 'back', 'louder', 'aggressive', 'smoother', 'glued', 'natural', 'learn'];
-const GENRES = ['afrobeats', 'highlife', 'gospel', 'ccm', 'rnb', 'hiphop', 'jazz',
-  'reggae', 'pop', 'amapiano', 'all'];
+const GENRES = ['afrobeats', 'highlife', 'rnb', 'hiphop', 'all',
+  // gospel is six genres that mix differently, not one
+  'gospel', 'gospel-trad', 'gospel-contemporary', 'gospel-worship',
+  'gospel-african', 'gospel-trap', 'gospel-urban',
+  // out of 2.0 scope, kept so later batches validate
+  'ccm', 'jazz', 'reggae', 'pop', 'amapiano'];
 const VISUALS = ['eq-curve', 'eq-mask', 'comp-attack', 'comp-envelope', 'reverb-tail',
   'delay-grid', 'stereo-field', 'sidechain', 'layering', 'chain-flow', 'levels', 'automation'];
 
-const files = process.argv.slice(2);
-if (!files.length) { console.error('usage: node v2/validate.js <file.json ...>'); process.exit(2); }
+const argv = process.argv.slice(2);
+const ix = argv.indexOf('--index');
+const indexFile = ix === -1 ? null : argv[ix + 1];
+const files = ix === -1 ? argv : argv.filter((_, n) => n !== ix && n !== ix + 1);
+if (!files.length) { console.error('usage: node v2/validate.js [--index question-index.json] <file.json ...>'); process.exit(2); }
+
+// Ids in the backlog are legitimate link targets: the question exists and is
+// scheduled, its answer is just not written yet.
+const planned = new Set();
+if (indexFile) for (const q of JSON.parse(fs.readFileSync(indexFile, 'utf8')).questions) planned.add(q.id);
 
 let errors = 0, warnings = 0, total = 0;
 const ids = new Set();
@@ -81,7 +93,7 @@ for (const file of files) {
   const doc = JSON.parse(fs.readFileSync(file, 'utf8'));
   for (const q of doc.questions || [])
     for (const r of q.related || [])
-      if (!ids.has(r)) warn(q.id, `related id "${r}" does not exist yet`);
+      if (!ids.has(r) && !planned.has(r)) warn(q.id, `related id "${r}" is not in the bank`);
 }
 
 console.log(`\n${total} entries · ${errors} errors · ${warnings} warnings`);

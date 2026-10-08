@@ -1,511 +1,1077 @@
 {
-  "schemaVersion": 1,
-  "note": "Seed batch for PulseRoom 2.0. Written to the final schema so the engine, visuals and voice can be built against real content.",
-  "questions": [
-    {
-      "id": "kick-harder",
-      "q": "How do I make my kick hit harder?",
-      "aliases": ["weak kick", "kick has no punch", "kick doesn't knock", "make kick slap", "kick needs impact"],
-      "source": "kick", "intent": "punchier",
-      "genres": ["afrobeats", "hiphop", "gospel", "pop"],
-      "short": "Let the beater click through before the compressor grabs it, then add weight underneath.",
-      "steps": [
-        "Compressor: 4:1, attack 20-30 ms, release 60-100 ms, aim for 3-6 dB of gain reduction.",
-        "EQ after the compressor: +2 dB at 50-60 Hz with a wide bell.",
-        "Cut 2-4 dB at 250-350 Hz to clear the cardboard.",
-        "Add 1-2 dB at 3-5 kHz for the beater, or layer a click sample for phone speakers."
-      ],
-      "params": {
-        "comp": { "ratio": "4:1", "attack": "20-30 ms", "release": "60-100 ms", "gr": "3-6 dB" },
-        "eq": [{ "f": 55, "gain": 2, "q": 1.0 }, { "f": 300, "gain": -3, "q": 1.6 }, { "f": 4000, "gain": 1.5, "q": 0.9 }]
-      },
-      "visual": { "type": "comp-attack", "compare": true },
-      "why": "A fast attack flattens the transient your ear reads as the hit. Slowing it lets the beater pass before gain reduction starts, so the kick keeps its edge while the body stays controlled.",
-      "watch": "If it starts to click unpleasantly, the attack is too slow or the release too fast.",
-      "genreNotes": {
-        "afrobeats": "The log drum usually owns 50-70 Hz. High-pass the kick at 40 Hz and let it speak at 80-100 Hz rather than fighting underneath it.",
-        "gospel": "On a live kit, set the gate before any of this or you compress the bleed along with the drum."
-      },
-      "related": ["kick-vs-808", "kick-boxy", "drum-bus-glue"]
+ "schemaVersion": 1,
+ "note": "Seed batch for PulseRoom 2.0. Written to the final schema so the engine, visuals and voice can be built against real content.",
+ "questions": [
+  {
+   "id": "kick-harder",
+   "q": "How do I make my kick hit harder?",
+   "aliases": [
+    "weak kick",
+    "kick has no punch",
+    "kick doesn't knock",
+    "make kick slap",
+    "kick needs impact"
+   ],
+   "source": "kick",
+   "intent": "punchier",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel",
+    "pop"
+   ],
+   "short": "Let the beater click through before the compressor grabs it, then add weight underneath.",
+   "steps": [
+    "Compressor: 4:1, attack 20-30 ms, release 60-100 ms, aim for 3-6 dB of gain reduction.",
+    "EQ after the compressor: +2 dB at 50-60 Hz with a wide bell.",
+    "Cut 2-4 dB at 250-350 Hz to clear the cardboard.",
+    "Add 1-2 dB at 3-5 kHz for the beater, or layer a click sample for phone speakers."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "attack": "20-30 ms",
+     "release": "60-100 ms",
+     "gr": "3-6 dB"
     },
-    {
-      "id": "kick-vs-808",
-      "q": "My kick and 808 are fighting. How do I fix it?",
-      "aliases": ["808 masking kick", "kick disappears under 808", "muddy low end 808", "kick and bass clash"],
-      "source": "808", "intent": "cleaner",
-      "genres": ["hiphop", "afrobeats", "amapiano"],
-      "short": "Decide which one owns the sub, then carve the other out of its way.",
-      "steps": [
-        "Pick the role: 808 owns 30-60 Hz, kick owns 60-100 Hz (usual choice), or swap it for a kick-led record.",
-        "High-pass the kick at 40-50 Hz so it stops competing below the 808.",
-        "Sidechain the 808 to the kick: 2-4 dB of ducking, 10 ms attack, release timed to the kick's decay.",
-        "Tune the 808 to the song key — an out-of-key 808 will never sit, no matter the EQ."
-      ],
-      "params": {
-        "eq": [{ "f": 45, "gain": -24, "q": 0.7, "type": "highpass", "label": "on the kick" }],
-        "sidechain": { "depth": "2-4 dB", "attack": "10 ms", "release": "match kick decay" }
-      },
-      "visual": { "type": "eq-mask", "sources": ["kick", "808"] },
-      "why": "Two sources with energy in the same octave sum into mud and cancel each other's definition. Separating them by role rather than level is what makes both audible at once.",
-      "watch": "Heavy ducking that pumps the whole track usually means the release is too slow.",
-      "genreNotes": {
-        "hiphop": "Trap records often let the 808 own everything below 100 Hz and use the kick purely as a transient click on top.",
-        "amapiano": "The log drum is the bass instrument — treat it as the 808 here and keep the kick short and high."
-      },
-      "related": ["kick-harder", "808-mix", "low-end-mono"]
-    },
-    {
-      "id": "vocal-thin",
-      "q": "Why do my vocals sound thin?",
-      "aliases": ["vocal sounds weak", "no body in vocal", "vocal too small", "thin vocal fix"],
-      "source": "leadvocal", "intent": "warmer",
-      "genres": ["rnb", "afrobeats", "gospel", "pop", "ccm"],
-      "short": "You are probably high-passing too high and cutting the chest out of the voice.",
-      "steps": [
-        "Move the high-pass down to 80 Hz for most voices, 70 Hz for a deep male voice.",
-        "Add 1-2 dB with a wide bell at 180-250 Hz — that is chest, not mud.",
-        "Only cut 250-400 Hz if the voice sounds cloudy, and cut it wide and shallow.",
-        "Add saturation before you add more high end; harmonics read as body, brightness alone reads as thin."
-      ],
-      "params": {
-        "eq": [{ "f": 80, "gain": -24, "q": 0.7, "type": "highpass" }, { "f": 210, "gain": 1.5, "q": 0.8 }]
-      },
-      "visual": { "type": "eq-curve", "compare": true },
-      "why": "Most tutorials teach an aggressive high-pass because they assume a muddy home recording. On a clean take it removes the weight that makes a voice sound like a person in a room.",
-      "watch": "If the vocal now feels boomy on headphones, the issue is the room on the recording, not the EQ — narrow a cut at the specific resonance rather than raising the filter.",
-      "genreNotes": {
-        "afrobeats": "Protect 180-350 Hz especially. The genre's vocals live in a conversational tone and go lifeless when thinned out for brightness.",
-        "gospel": "Lead singers often push hard — compress before EQ so the body you add does not jump on the loud notes."
-      },
-      "related": ["vocal-bigger", "vocal-upfront", "vocal-harsh"]
-    },
-    {
-      "id": "vocal-bigger",
-      "q": "How do I make my vocals sound big?",
-      "aliases": ["huge vocal", "wide vocal", "vocal sounds small", "make vocals massive", "stadium vocal"],
-      "source": "leadvocal", "intent": "bigger",
-      "genres": ["gospel", "ccm", "pop", "rnb", "afrobeats"],
-      "short": "Size comes from layers and contrast, not from volume or more reverb.",
-      "steps": [
-        "Double the lead and pan the copies 25-40% left and right, 4-6 dB under the centre.",
-        "Keep the centre lead dry and upfront — it is the contrast that makes the sides feel wide.",
-        "Send to a plate reverb, 1.2-1.8 s, with 20-30 ms pre-delay so the words stay clear.",
-        "Add a 1/4 note delay on a send, filtered 300 Hz to 5 kHz, at 10-15% so repeats sit behind.",
-        "Automate the throws: effects up on the last word of a line, down during the line."
-      ],
-      "params": {
-        "reverb": { "type": "plate", "decay": "1.2-1.8 s", "preDelay": "20-30 ms", "send": "12-20%" },
-        "delay": { "division": "1/4", "feedback": "20-30%", "filter": "300 Hz - 5 kHz" }
-      },
-      "visual": { "type": "layering", "voices": 3 },
-      "why": "Reverb alone pushes a voice backwards, which reads as distant rather than large. Width from real doubles plus a dry centre gives scale while keeping the words in your face.",
-      "watch": "Check mono. If the doubles vanish, they were timed too similarly — retake them rather than reaching for a widener.",
-      "genreNotes": {
-        "gospel": "With a choir behind the lead, keep the lead's reverb shorter than the choir's or everything blurs together.",
-        "ccm": "Long hall tails suit worship ballads, but duck the reverb under the vocal with a sidechain so lyrics stay intelligible."
-      },
-      "related": ["vocal-stack-from-one-take", "choir-vs-lead", "reverb-muddy"]
-    },
-    {
-      "id": "vocal-stack-from-one-take",
-      "q": "I only have a few vocal takes. How do I build a stack?",
-      "aliases": ["fake vocal double", "not enough takes", "make one vocal sound like many", "thicken single vocal"],
-      "source": "harmony", "intent": "bigger",
-      "genres": ["gospel", "afrobeats", "rnb", "pop"],
-      "short": "Build width from timing and pitch differences, never from copies of the identical file.",
-      "steps": [
-        "Duplicate the take, nudge one copy 12-25 ms late, pan the pair hard left and right.",
-        "Pitch one copy up 8 cents and the other down 8 cents so they beat against each other.",
-        "Give each copy slightly different EQ — one brighter, one darker — so they stop sounding like one source.",
-        "Drop both 5-8 dB under the original and high-pass them at 150 Hz.",
-        "Check in mono. If it hollows out, reduce the delay offset to under 15 ms."
-      ],
-      "params": {
-        "timing": { "offsetA": "+12-25 ms", "offsetB": "-10-20 ms" },
-        "pitch": { "offsetA": "+8 cents", "offsetB": "-8 cents" }
-      },
-      "visual": { "type": "stereo-field", "monoCheck": true },
-      "why": "A duplicated file panned apart is still one mono signal and collapses to the centre. Small timing and pitch differences are what the ear reads as two separate singers.",
-      "watch": "Offsets past 30 ms stop sounding like a double and start sounding like a slapback echo.",
-      "genreNotes": {
-        "gospel": "Real stacked takes always beat this. Use it to thicken an existing stack, not to replace a session.",
-        "afrobeats": "Ad-libs respond especially well — treat each ad-lib as its own narrow pair rather than widening the lead."
-      },
-      "related": ["vocal-bigger", "choir-vs-lead", "mono-compatibility"]
-    },
-    {
-      "id": "choir-vs-lead",
-      "q": "My choir is swallowing the lead vocal. What do I do?",
-      "aliases": ["choir too loud", "background vocals cover lead", "choir masking lead", "bgv balance"],
-      "source": "choir", "intent": "cleaner",
-      "genres": ["gospel", "ccm"],
-      "short": "Carve the choir around the lead instead of turning the choir down.",
-      "steps": [
-        "High-pass the choir higher than the lead — 150-200 Hz — so it stops competing for chest.",
-        "Dip the choir 2-3 dB at 3-5 kHz, exactly where the lead's presence lives.",
-        "Compress the choir harder than the lead, 4:1 and 4-8 dB, so it becomes one flat texture.",
-        "Give the choir a longer reverb than the lead, which places it behind without lowering it.",
-        "Only now adjust the fader, and expect to move it less than you thought."
-      ],
-      "params": {
-        "eq": [{ "f": 175, "gain": -24, "q": 0.7, "type": "highpass" }, { "f": 4000, "gain": -2.5, "q": 1.2 }],
-        "comp": { "ratio": "4:1", "gr": "4-8 dB" }
-      },
-      "visual": { "type": "eq-mask", "sources": ["lead vocal", "choir"] },
-      "why": "Two voices in the same frequency range mask each other, so lowering the choir only makes the arrangement smaller without making the lead clearer. Removing the overlap keeps both present.",
-      "watch": "Cutting the choir's top end too hard makes consonants mush. Dip the presence region, not the air above 10 kHz.",
-      "genreNotes": {
-        "gospel": "When the choir is the moment rather than the backing, invert this: duck the lead's reverb and let the choir take the presence band."
-      },
-      "related": ["vocal-upfront", "vocal-bigger", "eq-masking-concept"]
-    },
-    {
-      "id": "snare-crack",
-      "q": "How do I get more crack out of my snare?",
-      "aliases": ["snare sounds weak", "snare needs snap", "more snare attack", "flat snare"],
-      "source": "snare", "intent": "punchier",
-      "genres": ["hiphop", "pop", "gospel", "highlife"],
-      "short": "Protect the transient, then lift the crack band and let the ring go.",
-      "steps": [
-        "Compressor: 4:1, attack 5-15 ms, release 40-80 ms, 3-6 dB of gain reduction.",
-        "Sweep 400-700 Hz with a narrow boost to find the ugly ring, then cut it 3-5 dB.",
-        "Lift 2-3 dB at 3-6 kHz for the crack.",
-        "Add 150-250 Hz if the drum sounds small, but check it against the bass.",
-        "For rock-level aggression, crush a parallel copy at 10:1 and blend it underneath."
-      ],
-      "params": {
-        "comp": { "ratio": "4:1", "attack": "5-15 ms", "release": "40-80 ms", "gr": "3-6 dB" },
-        "eq": [{ "f": 550, "gain": -4, "q": 2.5 }, { "f": 4500, "gain": 2.5, "q": 1.0 }, { "f": 200, "gain": 1.5, "q": 1.0 }]
-      },
-      "visual": { "type": "comp-attack", "compare": true },
-      "why": "The crack is a short burst of high-mid energy at the very start of the hit. A fast attack removes exactly that, which is why heavily compressed snares often sound duller rather than louder.",
-      "watch": "Boosting 3-6 kHz on a cheap sample lifts the noise with it. Layer a better sample instead of pushing the EQ further.",
-      "genreNotes": {
-        "highlife": "The snare sits inside a busy guitar and horn arrangement — favour the 2-3 kHz edge over the 5 kHz sizzle so it cuts without getting brittle."
-      },
-      "related": ["kick-harder", "drum-bus-glue", "snare-boxy"]
-    },
-    {
-      "id": "mix-muddy",
-      "q": "My whole mix sounds muddy. Where do I start?",
-      "aliases": ["muddy mix", "mix sounds cloudy", "no clarity in mix", "everything blurry"],
-      "source": "mixbus", "intent": "cleaner",
-      "genres": ["afrobeats", "gospel", "hiphop", "rnb", "pop", "highlife"],
-      "short": "Mud is usually too many instruments sharing 200-500 Hz, not one bad channel.",
-      "steps": [
-        "High-pass everything that is not kick, bass or a full-range pad — guitars at 100 Hz, keys at 120 Hz, pads at 150 Hz.",
-        "Find the two or three instruments that need 200-500 Hz most and let them keep it; cut 2-3 dB there on everything else.",
-        "Check how many sources are playing at once in that range — the fix is often arrangement, not EQ.",
-        "Only touch the mix bus after the channels are clean, and then never more than 1-1.5 dB."
-      ],
-      "params": {
-        "eq": [{ "f": 300, "gain": -2.5, "q": 1.0, "label": "on the crowded sources" }]
-      },
-      "visual": { "type": "eq-mask", "sources": ["guitar", "keys", "vocal", "bass"] },
-      "why": "Every instrument has some energy at 200-500 Hz. Individually fine, together it sums into a wall that masks everything above it. Cutting a little on many channels beats cutting a lot on one.",
-      "watch": "If the mix turns thin and brittle, you cut too widely — restore the instruments that carry the song's warmth.",
-      "genreNotes": {
-        "highlife": "Several guitars plus horns plus organ all crowd the low mids. Assign each a lane: rhythm guitar high, organ low, horns in between.",
-        "gospel": "A live band plus choir plus organ is the hardest case — the organ is usually the one to carve, not the voices."
-      },
-      "related": ["eq-masking-concept", "lowcut-everything", "mixbus-glue"]
-    },
-    {
-      "id": "reverb-muddy",
-      "q": "My reverb is making the mix muddy. How do I fix it?",
-      "aliases": ["too much reverb", "reverb washing out mix", "reverb mud", "reverb clouding"],
-      "source": "leadvocal", "intent": "cleaner",
-      "genres": ["gospel", "ccm", "pop", "rnb"],
-      "short": "Filter the reverb return and shorten the tail before you lower the send.",
-      "steps": [
-        "Put an EQ on the reverb return, not the source.",
-        "High-pass the return at 200-300 Hz so the tail stops adding low mids.",
-        "Low-pass at 8-10 kHz so it stops adding hiss and sibilance.",
-        "Shorten the decay so the tail ends before the next phrase — at 120 BPM that is about 1.5 s.",
-        "Add pre-delay of 20-40 ms to separate the word from its tail."
-      ],
-      "params": {
-        "reverb": { "lowCut": "200-300 Hz", "highCut": "8-10 kHz", "decay": "fit to the bar", "preDelay": "20-40 ms" }
-      },
-      "visual": { "type": "reverb-tail", "tempoSynced": true },
-      "why": "Most reverb mud comes from low frequencies in the tail, which pile up under everything. Filtering the return keeps the sense of space while removing the part that clouds the mix.",
-      "watch": "If filtering makes it sound small, shorten the decay instead of opening the filters back up.",
-      "genreNotes": {
-        "gospel": "A room with a live band already has natural ambience — you usually need far less added reverb than a programmed record."
-      },
-      "related": ["vocal-bigger", "reverb-choose", "predelay-concept"]
-    },
-    {
-      "id": "808-mix",
-      "q": "How do I mix an 808 so it translates everywhere?",
-      "aliases": ["808 not audible on phone", "808 too boomy", "808 distorts", "make 808 loud"],
-      "source": "808", "intent": "louder",
-      "genres": ["hiphop", "afrobeats", "amapiano"],
-      "short": "Saturate it so there are harmonics above the sub, because small speakers cannot reproduce the fundamental.",
-      "steps": [
-        "Tune the 808 to the song key first — everything else is wasted if the pitch is wrong.",
-        "High-pass at 25-30 Hz to remove rumble you cannot hear but that eats headroom.",
-        "Add saturation or distortion, and listen at 500 Hz - 2 kHz for the harmonics appearing.",
-        "Compress gently, 4:1 with 15-30 ms attack, 2-5 dB, so every note sits at the same level.",
-        "Keep everything below 120 Hz mono."
-      ],
-      "params": {
-        "eq": [{ "f": 28, "gain": -24, "q": 0.7, "type": "highpass" }],
-        "comp": { "ratio": "4:1", "attack": "15-30 ms", "release": "80-150 ms", "gr": "2-5 dB" }
-      },
-      "visual": { "type": "eq-curve", "compare": true },
-      "why": "Phone and laptop speakers cannot reproduce 40 Hz at all. Saturation creates harmonics an octave or two up, and the ear reconstructs the missing fundamental from them — which is why a saturated 808 is audible on a phone and a pure sine is silent.",
-      "watch": "Too much distortion turns the 808 into a buzzing mid-range instrument. Blend the distorted copy under the clean one if it gets aggressive.",
-      "genreNotes": {
-        "afrobeats": "The log drum needs the same treatment but keep it shorter and more percussive than a trap 808.",
-        "amapiano": "The log drum is the hook — saturate it hard and let it be the brightest low-end element."
-      },
-      "related": ["kick-vs-808", "low-end-mono", "mix-translation"]
-    },
-    {
-      "id": "highlife-horns",
-      "q": "How do I mix a highlife horn section?",
-      "aliases": ["mixing horns", "brass section mix", "trumpet sax mix", "horn section sits badly"],
-      "source": "horns", "intent": "cleaner",
-      "genres": ["highlife", "gospel", "jazz"],
-      "short": "Treat the section as one instrument, then place it in the gap between guitars and vocals.",
-      "steps": [
-        "Bus all horns together and do most of the work on the bus, not the individual mics.",
-        "High-pass the bus at 120-150 Hz.",
-        "Cut 2-3 dB at 800 Hz - 1.2 kHz where brass gets honky.",
-        "Compress the bus 3:1, 10-20 ms attack, 2-4 dB, so the section breathes as one.",
-        "Pan the section as a unit — spread the players 30-60% rather than hard left and right.",
-        "Carve 2-4 kHz slightly if the horns fight the lead vocal."
-      ],
-      "params": {
-        "eq": [{ "f": 135, "gain": -24, "q": 0.7, "type": "highpass" }, { "f": 1000, "gain": -2.5, "q": 1.4 }],
-        "comp": { "ratio": "3:1", "attack": "10-20 ms", "release": "100-200 ms", "gr": "2-4 dB" }
-      },
-      "visual": { "type": "stereo-field" },
-      "why": "Horns recorded individually and treated individually never glue into a section. Bus processing applies the same character to all of them, which is what makes an arrangement sound like one horn line rather than three separate players.",
-      "watch": "Brass transients are loud — if the compressor is grabbing 8 dB on the stabs, raise the threshold and use the fader instead.",
-      "genreNotes": {
-        "highlife": "Horns answer the vocal line rather than playing under it, so automate them up in the gaps and down under the verses.",
-        "jazz": "Keep the compression far lighter; the dynamics are the performance."
-      },
-      "related": ["mix-muddy", "guitar-highlife", "bus-processing-concept"]
-    },
-    {
-      "id": "guitar-highlife",
-      "q": "How do I mix highlife guitars so they don't clash?",
-      "aliases": ["two guitars clashing", "guitar mix highlife", "palm wine guitar", "rhythm guitar muddy"],
-      "source": "eguitar", "intent": "cleaner",
-      "genres": ["highlife", "afrobeats", "gospel"],
-      "short": "Give each guitar its own frequency lane and its own side of the stereo field.",
-      "steps": [
-        "High-pass every guitar at 100-150 Hz; none of them need low end in this arrangement.",
-        "Pan the interlocking parts opposite each other, 50-80% left and right.",
-        "Carve complementary EQ: lift 2-3 kHz on one, 4-5 kHz on the other, and cut where you lifted on the opposite part.",
-        "Keep compression light, 3:1 and 2-3 dB — the picking dynamics are the groove.",
-        "Add a short 1/8 or 1/16 delay on one side only to widen without doubling."
-      ],
-      "params": {
-        "eq": [{ "f": 120, "gain": -24, "q": 0.7, "type": "highpass" }, { "f": 2500, "gain": 2, "q": 1.2 }]
-      },
-      "visual": { "type": "stereo-field" },
-      "why": "Highlife guitar parts interlock rhythmically in the same register. Panning separates them in space and complementary EQ separates them in tone, so the listener hears the conversation between them instead of a blur.",
-      "watch": "Do not high-pass so hard that the guitars lose the woody body that defines the style.",
-      "genreNotes": {
-        "highlife": "The lead guitar is a melodic voice, almost a second singer — give it presence around 3 kHz and automate it like a vocal."
-      },
-      "related": ["mix-muddy", "highlife-horns", "stereo-width-concept"]
-    },
-    {
-      "id": "piano-wide",
-      "q": "How do I make a piano sound wide and big?",
-      "aliases": ["piano sounds narrow", "wide piano", "piano small", "spread piano"],
-      "source": "piano", "intent": "wider",
-      "genres": ["gospel", "ccm", "rnb", "jazz", "pop"],
-      "short": "Width comes from the recording's natural spread and from space, not from a stereo widener.",
-      "steps": [
-        "If it is a stereo recording, keep it stereo and avoid any mono-summing plugin.",
-        "High-pass at 80-120 Hz so the left hand stops competing with the bass.",
-        "Cut 2-3 dB at 250-400 Hz where the body turns to mud in a full arrangement.",
-        "Add a stereo reverb with 25-35 ms pre-delay; the early reflections are what read as size.",
-        "Keep everything below 150 Hz mono so the low notes stay solid."
-      ],
-      "params": {
-        "eq": [{ "f": 100, "gain": -24, "q": 0.7, "type": "highpass" }, { "f": 320, "gain": -2.5, "q": 1.2 }],
-        "reverb": { "type": "hall or chamber", "preDelay": "25-35 ms", "decay": "1.5-2.5 s" }
-      },
-      "visual": { "type": "stereo-field", "monoCheck": true },
-      "why": "A piano is already a wide source because the strings are physically spread. Most narrowness comes from the arrangement crowding it, so making room is more effective than artificially widening.",
-      "watch": "Stereo wideners on a piano often destroy mono compatibility — check in mono before keeping one.",
-      "genreNotes": {
-        "gospel": "When piano and organ play together, keep the piano above 150 Hz and let the organ hold the low register, or they turn to soup."
-      },
-      "related": ["mix-muddy", "stereo-width-concept", "organ-gospel"]
-    },
-    {
-      "id": "vocal-upfront",
-      "q": "How do I get my vocal to sit on top of the beat?",
-      "aliases": ["vocal buried", "vocal behind the beat", "vocal not upfront", "vocal gets lost"],
-      "source": "leadvocal", "intent": "upfront",
-      "genres": ["hiphop", "afrobeats", "rnb", "pop"],
-      "short": "Make room in the beat rather than turning the vocal up.",
-      "steps": [
-        "Find the vocal's presence range, usually 2-5 kHz, and dip the busiest instruments there by 2-3 dB.",
-        "Use serial compression on the vocal: two stages of 3 dB each rather than one of 6.",
-        "Add saturation — density makes a vocal feel close in a way that volume does not.",
-        "Keep the dry vocal in the centre and dry; push effects to sends.",
-        "Automate the beat down 1 dB under the verses if it is still fighting."
-      ],
-      "params": {
-        "comp": { "stage1": "opto, 3:1, 2-3 dB", "stage2": "FET, 4:1, fast, 2-3 dB" },
-        "eq": [{ "f": 3000, "gain": -2.5, "q": 1.0, "label": "on the beat, not the vocal" }]
-      },
-      "visual": { "type": "eq-mask", "sources": ["vocal", "beat"] },
-      "why": "Raising the vocal fader raises it against everything equally, including the frequencies that are masking it. Dipping the beat only where the vocal lives creates a pocket, so the vocal sounds closer without being louder.",
-      "watch": "Dipping the beat too wide makes the production sound hollow in the gaps between lines — use a dynamic EQ keyed off the vocal if that happens.",
-      "genreNotes": {
-        "hiphop": "Rap vocals need faster, harder compression than sung vocals — 4:1 to 6:1 with a 1-5 ms attack keeps every syllable in front.",
-        "afrobeats": "Resist flattening the performance; the conversational dynamics are part of the style."
-      },
-      "related": ["vocal-bigger", "vocal-thin", "eq-masking-concept"]
-    },
-    {
-      "id": "predelay-concept",
-      "q": "What is pre-delay and what should I set it to?",
-      "aliases": ["pre delay explained", "what does predelay do", "reverb predelay setting"],
-      "source": "concept", "intent": "learn",
-      "genres": ["all"],
-      "short": "Pre-delay is the gap before the reverb starts, and it is what keeps words clear inside a big space.",
-      "steps": [
-        "Start at 20-40 ms for vocals — enough to separate the word from its tail.",
-        "Sync it to the song: a 1/64 note at your tempo is a reliable starting point.",
-        "More pre-delay makes the source sound closer and the space bigger.",
-        "Less pre-delay glues the source into the space, which suits pads and strings.",
-        "Zero pre-delay on a vocal is what makes it sound like it is singing from inside a cave."
-      ],
-      "params": { "reverb": { "preDelay": "20-40 ms, or a 1/64 note" } },
-      "visual": { "type": "reverb-tail", "showPreDelay": true, "tempoSynced": true },
-      "why": "Your ear locates a sound by its first arrival and judges the room by what follows. Separating the two lets the brain hear a close singer in a large room, rather than a distant singer.",
-      "watch": "Pre-delay longer than about 80 ms starts to be heard as a distinct slapback rather than a room.",
-      "genreNotes": {},
-      "related": ["reverb-muddy", "reverb-choose", "vocal-bigger"]
-    },
-    {
-      "id": "eq-masking-concept",
-      "q": "What is masking and how do I hear it?",
-      "aliases": ["frequency masking", "instruments fighting", "why can't I hear an instrument"],
-      "source": "concept", "intent": "learn",
-      "genres": ["all"],
-      "short": "Masking is one sound hiding another because they share the same frequency range at the same moment.",
-      "steps": [
-        "Solo the two suspects together, then mute each in turn — if one gets clearer when the other stops, they are masking.",
-        "Sweep a narrow boost on the less important source to find where the overlap is loudest.",
-        "Cut there on the less important source rather than boosting on the more important one.",
-        "Check whether the two parts actually need to play at the same time — arrangement solves masking better than EQ."
-      ],
-      "params": {},
-      "visual": { "type": "eq-mask", "animated": true },
-      "why": "The ear has limited resolution within a frequency band. When two sources fill the same band, the louder one wins and the quieter one is perceived as absent rather than quiet, which is why turning it up rarely fixes it.",
-      "watch": "Chasing masking with boosts makes every element louder and the mix smaller. Cut, do not boost.",
-      "genreNotes": {},
-      "related": ["mix-muddy", "vocal-upfront", "kick-vs-808"]
-    },
-    {
-      "id": "low-end-mono",
-      "q": "Should my low end be mono?",
-      "aliases": ["mono bass", "bass in stereo", "low frequency mono", "mono below 120"],
-      "source": "concept", "intent": "learn",
-      "genres": ["all"],
-      "short": "Yes, below roughly 120 Hz — stereo low end falls apart on club systems and phones.",
-      "steps": [
-        "Put a mono-maker or mid/side EQ on the mix bus and set it to collapse everything below 120-150 Hz.",
-        "Check the mix in mono and listen for the bass changing level — that means phase problems.",
-        "Keep kick and bass dead centre; width belongs to everything above them.",
-        "Test on a phone speaker, which is mono, before deciding you are finished."
-      ],
-      "params": { "width": { "monoBelow": "120-150 Hz" } },
-      "visual": { "type": "stereo-field", "monoCheck": true },
-      "why": "Low frequencies have long wavelengths, so stereo differences down there are mostly phase differences. Played on a mono system they cancel, and the bass can simply disappear.",
-      "watch": "Collapsing too high, above about 200 Hz, starts to narrow instruments that should stay wide.",
-      "genreNotes": {
-        "amapiano": "Club playback is the target — be strict about this one.",
-        "afrobeats": "Most listening is on phones, which are mono; the low end has to survive the collapse."
-      },
-      "related": ["808-mix", "mix-translation", "stereo-width-concept"]
-    },
-    {
-      "id": "drum-bus-glue",
-      "q": "How do I glue my drums together?",
-      "aliases": ["drums sound separate", "drum bus compression", "glue drums", "drums not cohesive"],
-      "source": "drumbus", "intent": "glued",
-      "genres": ["hiphop", "gospel", "pop", "highlife", "jazz"],
-      "short": "Light bus compression plus saturation, with the individual drums already balanced.",
-      "steps": [
-        "Balance the kit with faders first — bus processing cannot fix a bad balance.",
-        "Bus compressor: 2:1 to 4:1, 10-30 ms attack, auto release, 2-4 dB of gain reduction.",
-        "Add tape or console saturation after the compressor to round the transient peaks.",
-        "Blend a heavily crushed parallel copy underneath for energy, 10:1 and 10-20 dB, at 10-20% of the level.",
-        "Compare bypassed at matched loudness — if it is not clearly better, you overdid it."
-      ],
-      "params": {
-        "comp": { "ratio": "2:1-4:1", "attack": "10-30 ms", "release": "auto", "gr": "2-4 dB" }
-      },
-      "visual": { "type": "chain-flow", "chain": ["balance", "bus comp", "saturation", "parallel blend"] },
-      "why": "Compressing the whole kit together makes the quiet elements move with the loud ones, which is the physical reason a kit sounds like one performance rather than separate samples.",
-      "watch": "If the cymbals pump when the kick hits, the attack is too fast or the ratio too high.",
-      "genreNotes": {
-        "gospel": "Live kits glue more easily because the room mics already share a space — use less compression than you would on programmed drums.",
-        "hiphop": "Programmed drums need more help; parallel crush is doing most of the work."
-      },
-      "related": ["kick-harder", "snare-crack", "parallel-comp-concept"]
-    },
-    {
-      "id": "organ-gospel",
-      "q": "How do I mix a Hammond organ in gospel?",
-      "aliases": ["organ mix", "hammond too loud", "organ muddy", "leslie mix"],
-      "source": "organ", "intent": "cleaner",
-      "genres": ["gospel", "ccm", "jazz"],
-      "short": "The organ fills every gap by nature, so carve it hard and let it be the bed, not the feature.",
-      "steps": [
-        "High-pass at 100-120 Hz unless the organ is holding the bass line.",
-        "Cut 3-4 dB at 250-400 Hz — this is where the organ buries everything else.",
-        "Keep the Leslie's stereo spread but check it in mono for phase cancellation.",
-        "Compress lightly, 2:1 and 2-3 dB; heavy compression kills the swell of the drawbars.",
-        "Automate it down under the vocal and up in the turnarounds."
-      ],
-      "params": {
-        "eq": [{ "f": 110, "gain": -24, "q": 0.7, "type": "highpass" }, { "f": 320, "gain": -3.5, "q": 1.2 }],
-        "comp": { "ratio": "2:1", "gr": "2-3 dB" }
-      },
-      "visual": { "type": "automation" },
-      "why": "A Hammond played with full drawbars is close to a full-spectrum pad. In a dense arrangement it masks the piano, the guitars and the lower part of the voices at once, so it needs more carving than almost any other instrument.",
-      "watch": "Do not high-pass a bass-pedal organ part — check what register the player is actually in first.",
-      "genreNotes": {
-        "gospel": "During the vamp the organ becomes a lead instrument. Automate the carve away in those sections instead of leaving it static."
-      },
-      "related": ["piano-wide", "mix-muddy", "automation-concept"]
-    },
-    {
-      "id": "mix-translation",
-      "q": "My mix sounds good on headphones but bad in the car. Why?",
-      "aliases": ["mix doesn't translate", "sounds different everywhere", "bad on phone speaker", "car test fails"],
-      "source": "mixbus", "intent": "cleaner",
-      "genres": ["all"],
-      "short": "You mixed to one system's flattery; translation comes from checking several and from mid-range balance.",
-      "steps": [
-        "Check on three systems: headphones, a phone speaker, and one more, before judging anything.",
-        "If it vanishes on the phone, your information is all below 200 Hz — add harmonics with saturation.",
-        "If it is harsh in the car, you were mixing quietly on headphones; check at conversation level on speakers.",
-        "Loudness-match against two reference tracks in the same genre and compare the mid-range.",
-        "Mix mostly at low volume — balance decisions made loud do not survive."
-      ],
-      "params": {},
-      "visual": { "type": "levels" },
-      "why": "Every system reproduces a different slice of the spectrum. A mix that depends on one slice fails on the others, whereas a mix with the important information in the mid-range survives everywhere, because every speaker reproduces the mid-range.",
-      "watch": "Do not EQ for one bad system. Fix what is wrong on all of them.",
-      "genreNotes": {
-        "afrobeats": "Phone playback dominates — if the hook does not work on a phone speaker it does not work."
-      },
-      "related": ["808-mix", "low-end-mono", "lufs-targets"]
+    "eq": [
+     {
+      "f": 55,
+      "gain": 2,
+      "q": 1.0
+     },
+     {
+      "f": 300,
+      "gain": -3,
+      "q": 1.6
+     },
+     {
+      "f": 4000,
+      "gain": 1.5,
+      "q": 0.9
+     }
+    ]
+   },
+   "visual": {
+    "type": "comp-attack",
+    "compare": true
+   },
+   "why": "A fast attack flattens the transient your ear reads as the hit. Slowing it lets the beater pass before gain reduction starts, so the kick keeps its edge while the body stays controlled.",
+   "watch": "If it starts to click unpleasantly, the attack is too slow or the release too fast.",
+   "genreNotes": {
+    "afrobeats": "The log drum usually owns 50-70 Hz. High-pass the kick at 40 Hz and let it speak at 80-100 Hz rather than fighting underneath it.",
+    "gospel": "On a live kit, set the gate before any of this or you compress the bleed along with the drum."
+   },
+   "related": [
+    "kick-vs-808",
+    "kick-fix-boxy",
+    "drum-bus-glue"
+   ]
+  },
+  {
+   "id": "kick-vs-808",
+   "q": "My kick and 808 are fighting. How do I fix it?",
+   "aliases": [
+    "808 masking kick",
+    "kick disappears under 808",
+    "muddy low end 808",
+    "kick and bass clash"
+   ],
+   "source": "808",
+   "intent": "cleaner",
+   "genres": [
+    "hiphop",
+    "afrobeats",
+    "amapiano"
+   ],
+   "short": "Decide which one owns the sub, then carve the other out of its way.",
+   "steps": [
+    "Pick the role: 808 owns 30-60 Hz, kick owns 60-100 Hz (usual choice), or swap it for a kick-led record.",
+    "High-pass the kick at 40-50 Hz so it stops competing below the 808.",
+    "Sidechain the 808 to the kick: 2-4 dB of ducking, 10 ms attack, release timed to the kick's decay.",
+    "Tune the 808 to the song key — an out-of-key 808 will never sit, no matter the EQ."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 45,
+      "gain": -24,
+      "q": 0.7,
+      "type": "highpass",
+      "label": "on the kick"
+     }
+    ],
+    "sidechain": {
+     "depth": "2-4 dB",
+     "attack": "10 ms",
+     "release": "match kick decay"
     }
-  ]
+   },
+   "visual": {
+    "type": "eq-mask",
+    "sources": [
+     "kick",
+     "808"
+    ]
+   },
+   "why": "Two sources with energy in the same octave sum into mud and cancel each other's definition. Separating them by role rather than level is what makes both audible at once.",
+   "watch": "Heavy ducking that pumps the whole track usually means the release is too slow.",
+   "genreNotes": {
+    "hiphop": "Trap records often let the 808 own everything below 100 Hz and use the kick purely as a transient click on top.",
+    "amapiano": "The log drum is the bass instrument — treat it as the 808 here and keep the kick short and high."
+   },
+   "related": [
+    "kick-harder",
+    "808-mix",
+    "low-end-mono"
+   ]
+  },
+  {
+   "id": "vocal-thin",
+   "q": "Why do my vocals sound thin?",
+   "aliases": [
+    "vocal sounds weak",
+    "no body in vocal",
+    "vocal too small",
+    "thin vocal fix"
+   ],
+   "source": "leadvocal",
+   "intent": "warmer",
+   "genres": [
+    "rnb",
+    "afrobeats",
+    "gospel",
+    "pop",
+    "ccm"
+   ],
+   "short": "You are probably high-passing too high and cutting the chest out of the voice.",
+   "steps": [
+    "Move the high-pass down to 80 Hz for most voices, 70 Hz for a deep male voice.",
+    "Add 1-2 dB with a wide bell at 180-250 Hz — that is chest, not mud.",
+    "Only cut 250-400 Hz if the voice sounds cloudy, and cut it wide and shallow.",
+    "Add saturation before you add more high end; harmonics read as body, brightness alone reads as thin."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 80,
+      "gain": -24,
+      "q": 0.7,
+      "type": "highpass"
+     },
+     {
+      "f": 210,
+      "gain": 1.5,
+      "q": 0.8
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve",
+    "compare": true
+   },
+   "why": "Most tutorials teach an aggressive high-pass because they assume a muddy home recording. On a clean take it removes the weight that makes a voice sound like a person in a room.",
+   "watch": "If the vocal now feels boomy on headphones, the issue is the room on the recording, not the EQ — narrow a cut at the specific resonance rather than raising the filter.",
+   "genreNotes": {
+    "afrobeats": "Protect 180-350 Hz especially. The genre's vocals live in a conversational tone and go lifeless when thinned out for brightness.",
+    "gospel": "Lead singers often push hard — compress before EQ so the body you add does not jump on the loud notes."
+   },
+   "related": [
+    "vocal-bigger",
+    "vocal-upfront",
+    "leadvocal-fix-harsh"
+   ]
+  },
+  {
+   "id": "vocal-bigger",
+   "q": "How do I make my vocals sound big?",
+   "aliases": [
+    "huge vocal",
+    "wide vocal",
+    "vocal sounds small",
+    "make vocals massive",
+    "stadium vocal"
+   ],
+   "source": "leadvocal",
+   "intent": "bigger",
+   "genres": [
+    "gospel",
+    "ccm",
+    "pop",
+    "rnb",
+    "afrobeats"
+   ],
+   "short": "Size comes from layers and contrast, not from volume or more reverb.",
+   "steps": [
+    "Double the lead and pan the copies 25-40% left and right, 4-6 dB under the centre.",
+    "Keep the centre lead dry and upfront — it is the contrast that makes the sides feel wide.",
+    "Send to a plate reverb, 1.2-1.8 s, with 20-30 ms pre-delay so the words stay clear.",
+    "Add a 1/4 note delay on a send, filtered 300 Hz to 5 kHz, at 10-15% so repeats sit behind.",
+    "Automate the throws: effects up on the last word of a line, down during the line."
+   ],
+   "params": {
+    "reverb": {
+     "type": "plate",
+     "decay": "1.2-1.8 s",
+     "preDelay": "20-30 ms",
+     "send": "12-20%"
+    },
+    "delay": {
+     "division": "1/4",
+     "feedback": "20-30%",
+     "filter": "300 Hz - 5 kHz"
+    }
+   },
+   "visual": {
+    "type": "layering",
+    "voices": 3
+   },
+   "why": "Reverb alone pushes a voice backwards, which reads as distant rather than large. Width from real doubles plus a dry centre gives scale while keeping the words in your face.",
+   "watch": "Check mono. If the doubles vanish, they were timed too similarly — retake them rather than reaching for a widener.",
+   "genreNotes": {
+    "gospel": "With a choir behind the lead, keep the lead's reverb shorter than the choir's or everything blurs together.",
+    "ccm": "Long hall tails suit worship ballads, but duck the reverb under the vocal with a sidechain so lyrics stay intelligible."
+   },
+   "related": [
+    "vocal-stack-from-one-take",
+    "choir-vs-lead",
+    "reverb-muddy"
+   ]
+  },
+  {
+   "id": "vocal-stack-from-one-take",
+   "q": "I only have a few vocal takes. How do I build a stack?",
+   "aliases": [
+    "fake vocal double",
+    "not enough takes",
+    "make one vocal sound like many",
+    "thicken single vocal"
+   ],
+   "source": "harmony",
+   "intent": "bigger",
+   "genres": [
+    "gospel",
+    "afrobeats",
+    "rnb",
+    "pop"
+   ],
+   "short": "Build width from timing and pitch differences, never from copies of the identical file.",
+   "steps": [
+    "Duplicate the take, nudge one copy 12-25 ms late, pan the pair hard left and right.",
+    "Pitch one copy up 8 cents and the other down 8 cents so they beat against each other.",
+    "Give each copy slightly different EQ — one brighter, one darker — so they stop sounding like one source.",
+    "Drop both 5-8 dB under the original and high-pass them at 150 Hz.",
+    "Check in mono. If it hollows out, reduce the delay offset to under 15 ms."
+   ],
+   "params": {
+    "timing": {
+     "offsetA": "+12-25 ms",
+     "offsetB": "-10-20 ms"
+    },
+    "pitch": {
+     "offsetA": "+8 cents",
+     "offsetB": "-8 cents"
+    }
+   },
+   "visual": {
+    "type": "stereo-field",
+    "monoCheck": true
+   },
+   "why": "A duplicated file panned apart is still one mono signal and collapses to the centre. Small timing and pitch differences are what the ear reads as two separate singers.",
+   "watch": "Offsets past 30 ms stop sounding like a double and start sounding like a slapback echo.",
+   "genreNotes": {
+    "gospel": "Real stacked takes always beat this. Use it to thicken an existing stack, not to replace a session.",
+    "afrobeats": "Ad-libs respond especially well — treat each ad-lib as its own narrow pair rather than widening the lead."
+   },
+   "related": [
+    "vocal-bigger",
+    "choir-vs-lead",
+    "c-mono-compatibility"
+   ]
+  },
+  {
+   "id": "choir-vs-lead",
+   "q": "My choir is swallowing the lead vocal. What do I do?",
+   "aliases": [
+    "choir too loud",
+    "background vocals cover lead",
+    "choir masking lead",
+    "bgv balance"
+   ],
+   "source": "choir",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "ccm"
+   ],
+   "short": "Carve the choir around the lead instead of turning the choir down.",
+   "steps": [
+    "High-pass the choir higher than the lead — 150-200 Hz — so it stops competing for chest.",
+    "Dip the choir 2-3 dB at 3-5 kHz, exactly where the lead's presence lives.",
+    "Compress the choir harder than the lead, 4:1 and 4-8 dB, so it becomes one flat texture.",
+    "Give the choir a longer reverb than the lead, which places it behind without lowering it.",
+    "Only now adjust the fader, and expect to move it less than you thought."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 175,
+      "gain": -24,
+      "q": 0.7,
+      "type": "highpass"
+     },
+     {
+      "f": 4000,
+      "gain": -2.5,
+      "q": 1.2
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4-8 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "sources": [
+     "lead vocal",
+     "choir"
+    ]
+   },
+   "why": "Two voices in the same frequency range mask each other, so lowering the choir only makes the arrangement smaller without making the lead clearer. Removing the overlap keeps both present.",
+   "watch": "Cutting the choir's top end too hard makes consonants mush. Dip the presence region, not the air above 10 kHz.",
+   "genreNotes": {
+    "gospel": "When the choir is the moment rather than the backing, invert this: duck the lead's reverb and let the choir take the presence band."
+   },
+   "related": [
+    "vocal-upfront",
+    "vocal-bigger",
+    "eq-masking-concept"
+   ]
+  },
+  {
+   "id": "snare-crack",
+   "q": "How do I get more crack out of my snare?",
+   "aliases": [
+    "snare sounds weak",
+    "snare needs snap",
+    "more snare attack",
+    "flat snare"
+   ],
+   "source": "snare",
+   "intent": "punchier",
+   "genres": [
+    "hiphop",
+    "pop",
+    "gospel",
+    "highlife"
+   ],
+   "short": "Protect the transient, then lift the crack band and let the ring go.",
+   "steps": [
+    "Compressor: 4:1, attack 5-15 ms, release 40-80 ms, 3-6 dB of gain reduction.",
+    "Sweep 400-700 Hz with a narrow boost to find the ugly ring, then cut it 3-5 dB.",
+    "Lift 2-3 dB at 3-6 kHz for the crack.",
+    "Add 150-250 Hz if the drum sounds small, but check it against the bass.",
+    "For rock-level aggression, crush a parallel copy at 10:1 and blend it underneath."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "attack": "5-15 ms",
+     "release": "40-80 ms",
+     "gr": "3-6 dB"
+    },
+    "eq": [
+     {
+      "f": 550,
+      "gain": -4,
+      "q": 2.5
+     },
+     {
+      "f": 4500,
+      "gain": 2.5,
+      "q": 1.0
+     },
+     {
+      "f": 200,
+      "gain": 1.5,
+      "q": 1.0
+     }
+    ]
+   },
+   "visual": {
+    "type": "comp-attack",
+    "compare": true
+   },
+   "why": "The crack is a short burst of high-mid energy at the very start of the hit. A fast attack removes exactly that, which is why heavily compressed snares often sound duller rather than louder.",
+   "watch": "Boosting 3-6 kHz on a cheap sample lifts the noise with it. Layer a better sample instead of pushing the EQ further.",
+   "genreNotes": {
+    "highlife": "The snare sits inside a busy guitar and horn arrangement — favour the 2-3 kHz edge over the 5 kHz sizzle so it cuts without getting brittle."
+   },
+   "related": [
+    "kick-harder",
+    "drum-bus-glue",
+    "snare-fix-boxy"
+   ]
+  },
+  {
+   "id": "mix-muddy",
+   "q": "My whole mix sounds muddy. Where do I start?",
+   "aliases": [
+    "muddy mix",
+    "mix sounds cloudy",
+    "no clarity in mix",
+    "everything blurry"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "gospel",
+    "hiphop",
+    "rnb",
+    "pop",
+    "highlife"
+   ],
+   "short": "Mud is usually too many instruments sharing 200-500 Hz, not one bad channel.",
+   "steps": [
+    "High-pass everything that is not kick, bass or a full-range pad — guitars at 100 Hz, keys at 120 Hz, pads at 150 Hz.",
+    "Find the two or three instruments that need 200-500 Hz most and let them keep it; cut 2-3 dB there on everything else.",
+    "Check how many sources are playing at once in that range — the fix is often arrangement, not EQ.",
+    "Only touch the mix bus after the channels are clean, and then never more than 1-1.5 dB."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 300,
+      "gain": -2.5,
+      "q": 1.0,
+      "label": "on the crowded sources"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-mask",
+    "sources": [
+     "guitar",
+     "keys",
+     "vocal",
+     "bass"
+    ]
+   },
+   "why": "Every instrument has some energy at 200-500 Hz. Individually fine, together it sums into a wall that masks everything above it. Cutting a little on many channels beats cutting a lot on one.",
+   "watch": "If the mix turns thin and brittle, you cut too widely — restore the instruments that carry the song's warmth.",
+   "genreNotes": {
+    "highlife": "Several guitars plus horns plus organ all crowd the low mids. Assign each a lane: rhythm guitar high, organ low, horns in between.",
+    "gospel": "A live band plus choir plus organ is the hardest case — the organ is usually the one to carve, not the voices."
+   },
+   "related": [
+    "eq-masking-concept",
+    "c-highpass-everything",
+    "mixbus-glued"
+   ]
+  },
+  {
+   "id": "reverb-muddy",
+   "q": "My reverb is making the mix muddy. How do I fix it?",
+   "aliases": [
+    "too much reverb",
+    "reverb washing out mix",
+    "reverb mud",
+    "reverb clouding"
+   ],
+   "source": "leadvocal",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "ccm",
+    "pop",
+    "rnb"
+   ],
+   "short": "Filter the reverb return and shorten the tail before you lower the send.",
+   "steps": [
+    "Put an EQ on the reverb return, not the source.",
+    "High-pass the return at 200-300 Hz so the tail stops adding low mids.",
+    "Low-pass at 8-10 kHz so it stops adding hiss and sibilance.",
+    "Shorten the decay so the tail ends before the next phrase — at 120 BPM that is about 1.5 s.",
+    "Add pre-delay of 20-40 ms to separate the word from its tail."
+   ],
+   "params": {
+    "reverb": {
+     "lowCut": "200-300 Hz",
+     "highCut": "8-10 kHz",
+     "decay": "fit to the bar",
+     "preDelay": "20-40 ms"
+    }
+   },
+   "visual": {
+    "type": "reverb-tail",
+    "tempoSynced": true
+   },
+   "why": "Most reverb mud comes from low frequencies in the tail, which pile up under everything. Filtering the return keeps the sense of space while removing the part that clouds the mix.",
+   "watch": "If filtering makes it sound small, shorten the decay instead of opening the filters back up.",
+   "genreNotes": {
+    "gospel": "A room with a live band already has natural ambience — you usually need far less added reverb than a programmed record."
+   },
+   "related": [
+    "vocal-bigger",
+    "c-reverb-types",
+    "predelay-concept"
+   ]
+  },
+  {
+   "id": "808-mix",
+   "q": "How do I mix an 808 so it translates everywhere?",
+   "aliases": [
+    "808 not audible on phone",
+    "808 too boomy",
+    "808 distorts",
+    "make 808 loud"
+   ],
+   "source": "808",
+   "intent": "louder",
+   "genres": [
+    "hiphop",
+    "afrobeats",
+    "amapiano"
+   ],
+   "short": "Saturate it so there are harmonics above the sub, because small speakers cannot reproduce the fundamental.",
+   "steps": [
+    "Tune the 808 to the song key first — everything else is wasted if the pitch is wrong.",
+    "High-pass at 25-30 Hz to remove rumble you cannot hear but that eats headroom.",
+    "Add saturation or distortion, and listen at 500 Hz - 2 kHz for the harmonics appearing.",
+    "Compress gently, 4:1 with 15-30 ms attack, 2-5 dB, so every note sits at the same level.",
+    "Keep everything below 120 Hz mono."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 28,
+      "gain": -24,
+      "q": 0.7,
+      "type": "highpass"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "attack": "15-30 ms",
+     "release": "80-150 ms",
+     "gr": "2-5 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve",
+    "compare": true
+   },
+   "why": "Phone and laptop speakers cannot reproduce 40 Hz at all. Saturation creates harmonics an octave or two up, and the ear reconstructs the missing fundamental from them — which is why a saturated 808 is audible on a phone and a pure sine is silent.",
+   "watch": "Too much distortion turns the 808 into a buzzing mid-range instrument. Blend the distorted copy under the clean one if it gets aggressive.",
+   "genreNotes": {
+    "afrobeats": "The log drum needs the same treatment but keep it shorter and more percussive than a trap 808.",
+    "amapiano": "The log drum is the hook — saturate it hard and let it be the brightest low-end element."
+   },
+   "related": [
+    "kick-vs-808",
+    "low-end-mono",
+    "mix-translation"
+   ]
+  },
+  {
+   "id": "highlife-horns",
+   "q": "How do I mix a highlife horn section?",
+   "aliases": [
+    "mixing horns",
+    "brass section mix",
+    "trumpet sax mix",
+    "horn section sits badly"
+   ],
+   "source": "horns",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "gospel",
+    "jazz"
+   ],
+   "short": "Treat the section as one instrument, then place it in the gap between guitars and vocals.",
+   "steps": [
+    "Bus all horns together and do most of the work on the bus, not the individual mics.",
+    "High-pass the bus at 120-150 Hz.",
+    "Cut 2-3 dB at 800 Hz - 1.2 kHz where brass gets honky.",
+    "Compress the bus 3:1, 10-20 ms attack, 2-4 dB, so the section breathes as one.",
+    "Pan the section as a unit — spread the players 30-60% rather than hard left and right.",
+    "Carve 2-4 kHz slightly if the horns fight the lead vocal."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 135,
+      "gain": -24,
+      "q": 0.7,
+      "type": "highpass"
+     },
+     {
+      "f": 1000,
+      "gain": -2.5,
+      "q": 1.4
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "attack": "10-20 ms",
+     "release": "100-200 ms",
+     "gr": "2-4 dB"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "Horns recorded individually and treated individually never glue into a section. Bus processing applies the same character to all of them, which is what makes an arrangement sound like one horn line rather than three separate players.",
+   "watch": "Brass transients are loud — if the compressor is grabbing 8 dB on the stabs, raise the threshold and use the fader instead.",
+   "genreNotes": {
+    "highlife": "Horns answer the vocal line rather than playing under it, so automate them up in the gaps and down under the verses.",
+    "jazz": "Keep the compression far lighter; the dynamics are the performance."
+   },
+   "related": [
+    "mix-muddy",
+    "guitar-highlife",
+    "c-bus-compression"
+   ]
+  },
+  {
+   "id": "guitar-highlife",
+   "q": "How do I mix highlife guitars so they don't clash?",
+   "aliases": [
+    "two guitars clashing",
+    "guitar mix highlife",
+    "palm wine guitar",
+    "rhythm guitar muddy"
+   ],
+   "source": "eguitar",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel"
+   ],
+   "short": "Give each guitar its own frequency lane and its own side of the stereo field.",
+   "steps": [
+    "High-pass every guitar at 100-150 Hz; none of them need low end in this arrangement.",
+    "Pan the interlocking parts opposite each other, 50-80% left and right.",
+    "Carve complementary EQ: lift 2-3 kHz on one, 4-5 kHz on the other, and cut where you lifted on the opposite part.",
+    "Keep compression light, 3:1 and 2-3 dB — the picking dynamics are the groove.",
+    "Add a short 1/8 or 1/16 delay on one side only to widen without doubling."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 120,
+      "gain": -24,
+      "q": 0.7,
+      "type": "highpass"
+     },
+     {
+      "f": 2500,
+      "gain": 2,
+      "q": 1.2
+     }
+    ]
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "Highlife guitar parts interlock rhythmically in the same register. Panning separates them in space and complementary EQ separates them in tone, so the listener hears the conversation between them instead of a blur.",
+   "watch": "Do not high-pass so hard that the guitars lose the woody body that defines the style.",
+   "genreNotes": {
+    "highlife": "The lead guitar is a melodic voice, almost a second singer — give it presence around 3 kHz and automate it like a vocal."
+   },
+   "related": [
+    "mix-muddy",
+    "highlife-horns",
+    "c-how-wide-too-wide"
+   ]
+  },
+  {
+   "id": "piano-wide",
+   "q": "How do I make a piano sound wide and big?",
+   "aliases": [
+    "piano sounds narrow",
+    "wide piano",
+    "piano small",
+    "spread piano"
+   ],
+   "source": "piano",
+   "intent": "wider",
+   "genres": [
+    "gospel",
+    "ccm",
+    "rnb",
+    "jazz",
+    "pop"
+   ],
+   "short": "Width comes from the recording's natural spread and from space, not from a stereo widener.",
+   "steps": [
+    "If it is a stereo recording, keep it stereo and avoid any mono-summing plugin.",
+    "High-pass at 80-120 Hz so the left hand stops competing with the bass.",
+    "Cut 2-3 dB at 250-400 Hz where the body turns to mud in a full arrangement.",
+    "Add a stereo reverb with 25-35 ms pre-delay; the early reflections are what read as size.",
+    "Keep everything below 150 Hz mono so the low notes stay solid."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 100,
+      "gain": -24,
+      "q": 0.7,
+      "type": "highpass"
+     },
+     {
+      "f": 320,
+      "gain": -2.5,
+      "q": 1.2
+     }
+    ],
+    "reverb": {
+     "type": "hall or chamber",
+     "preDelay": "25-35 ms",
+     "decay": "1.5-2.5 s"
+    }
+   },
+   "visual": {
+    "type": "stereo-field",
+    "monoCheck": true
+   },
+   "why": "A piano is already a wide source because the strings are physically spread. Most narrowness comes from the arrangement crowding it, so making room is more effective than artificially widening.",
+   "watch": "Stereo wideners on a piano often destroy mono compatibility — check in mono before keeping one.",
+   "genreNotes": {
+    "gospel": "When piano and organ play together, keep the piano above 150 Hz and let the organ hold the low register, or they turn to soup."
+   },
+   "related": [
+    "mix-muddy",
+    "c-how-wide-too-wide",
+    "organ-gospel"
+   ]
+  },
+  {
+   "id": "vocal-upfront",
+   "q": "How do I get my vocal to sit on top of the beat?",
+   "aliases": [
+    "vocal buried",
+    "vocal behind the beat",
+    "vocal not upfront",
+    "vocal gets lost"
+   ],
+   "source": "leadvocal",
+   "intent": "upfront",
+   "genres": [
+    "hiphop",
+    "afrobeats",
+    "rnb",
+    "pop"
+   ],
+   "short": "Make room in the beat rather than turning the vocal up.",
+   "steps": [
+    "Find the vocal's presence range, usually 2-5 kHz, and dip the busiest instruments there by 2-3 dB.",
+    "Use serial compression on the vocal: two stages of 3 dB each rather than one of 6.",
+    "Add saturation — density makes a vocal feel close in a way that volume does not.",
+    "Keep the dry vocal in the centre and dry; push effects to sends.",
+    "Automate the beat down 1 dB under the verses if it is still fighting."
+   ],
+   "params": {
+    "comp": {
+     "stage1": "opto, 3:1, 2-3 dB",
+     "stage2": "FET, 4:1, fast, 2-3 dB"
+    },
+    "eq": [
+     {
+      "f": 3000,
+      "gain": -2.5,
+      "q": 1.0,
+      "label": "on the beat, not the vocal"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-mask",
+    "sources": [
+     "vocal",
+     "beat"
+    ]
+   },
+   "why": "Raising the vocal fader raises it against everything equally, including the frequencies that are masking it. Dipping the beat only where the vocal lives creates a pocket, so the vocal sounds closer without being louder.",
+   "watch": "Dipping the beat too wide makes the production sound hollow in the gaps between lines — use a dynamic EQ keyed off the vocal if that happens.",
+   "genreNotes": {
+    "hiphop": "Rap vocals need faster, harder compression than sung vocals — 4:1 to 6:1 with a 1-5 ms attack keeps every syllable in front.",
+    "afrobeats": "Resist flattening the performance; the conversational dynamics are part of the style."
+   },
+   "related": [
+    "vocal-bigger",
+    "vocal-thin",
+    "eq-masking-concept"
+   ]
+  },
+  {
+   "id": "predelay-concept",
+   "q": "What is pre-delay and what should I set it to?",
+   "aliases": [
+    "pre delay explained",
+    "what does predelay do",
+    "reverb predelay setting"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "short": "Pre-delay is the gap before the reverb starts, and it is what keeps words clear inside a big space.",
+   "steps": [
+    "Start at 20-40 ms for vocals — enough to separate the word from its tail.",
+    "Sync it to the song: a 1/64 note at your tempo is a reliable starting point.",
+    "More pre-delay makes the source sound closer and the space bigger.",
+    "Less pre-delay glues the source into the space, which suits pads and strings.",
+    "Zero pre-delay on a vocal is what makes it sound like it is singing from inside a cave."
+   ],
+   "params": {
+    "reverb": {
+     "preDelay": "20-40 ms, or a 1/64 note"
+    }
+   },
+   "visual": {
+    "type": "reverb-tail",
+    "showPreDelay": true,
+    "tempoSynced": true
+   },
+   "why": "Your ear locates a sound by its first arrival and judges the room by what follows. Separating the two lets the brain hear a close singer in a large room, rather than a distant singer.",
+   "watch": "Pre-delay longer than about 80 ms starts to be heard as a distinct slapback rather than a room.",
+   "genreNotes": {},
+   "related": [
+    "reverb-muddy",
+    "c-reverb-types",
+    "vocal-bigger"
+   ]
+  },
+  {
+   "id": "eq-masking-concept",
+   "q": "What is masking and how do I hear it?",
+   "aliases": [
+    "frequency masking",
+    "instruments fighting",
+    "why can't I hear an instrument"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "short": "Masking is one sound hiding another because they share the same frequency range at the same moment.",
+   "steps": [
+    "Solo the two suspects together, then mute each in turn — if one gets clearer when the other stops, they are masking.",
+    "Sweep a narrow boost on the less important source to find where the overlap is loudest.",
+    "Cut there on the less important source rather than boosting on the more important one.",
+    "Check whether the two parts actually need to play at the same time — arrangement solves masking better than EQ."
+   ],
+   "params": {},
+   "visual": {
+    "type": "eq-mask",
+    "animated": true
+   },
+   "why": "The ear has limited resolution within a frequency band. When two sources fill the same band, the louder one wins and the quieter one is perceived as absent rather than quiet, which is why turning it up rarely fixes it.",
+   "watch": "Chasing masking with boosts makes every element louder and the mix smaller. Cut, do not boost.",
+   "genreNotes": {},
+   "related": [
+    "mix-muddy",
+    "vocal-upfront",
+    "kick-vs-808"
+   ]
+  },
+  {
+   "id": "low-end-mono",
+   "q": "Should my low end be mono?",
+   "aliases": [
+    "mono bass",
+    "bass in stereo",
+    "low frequency mono",
+    "mono below 120"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "short": "Yes, below roughly 120 Hz — stereo low end falls apart on club systems and phones.",
+   "steps": [
+    "Put a mono-maker or mid/side EQ on the mix bus and set it to collapse everything below 120-150 Hz.",
+    "Check the mix in mono and listen for the bass changing level — that means phase problems.",
+    "Keep kick and bass dead centre; width belongs to everything above them.",
+    "Test on a phone speaker, which is mono, before deciding you are finished."
+   ],
+   "params": {
+    "width": {
+     "monoBelow": "120-150 Hz"
+    }
+   },
+   "visual": {
+    "type": "stereo-field",
+    "monoCheck": true
+   },
+   "why": "Low frequencies have long wavelengths, so stereo differences down there are mostly phase differences. Played on a mono system they cancel, and the bass can simply disappear.",
+   "watch": "Collapsing too high, above about 200 Hz, starts to narrow instruments that should stay wide.",
+   "genreNotes": {
+    "amapiano": "Club playback is the target — be strict about this one.",
+    "afrobeats": "Most listening is on phones, which are mono; the low end has to survive the collapse."
+   },
+   "related": [
+    "808-mix",
+    "mix-translation",
+    "c-how-wide-too-wide"
+   ]
+  },
+  {
+   "id": "drum-bus-glue",
+   "q": "How do I glue my drums together?",
+   "aliases": [
+    "drums sound separate",
+    "drum bus compression",
+    "glue drums",
+    "drums not cohesive"
+   ],
+   "source": "drumbus",
+   "intent": "glued",
+   "genres": [
+    "hiphop",
+    "gospel",
+    "pop",
+    "highlife",
+    "jazz"
+   ],
+   "short": "Light bus compression plus saturation, with the individual drums already balanced.",
+   "steps": [
+    "Balance the kit with faders first — bus processing cannot fix a bad balance.",
+    "Bus compressor: 2:1 to 4:1, 10-30 ms attack, auto release, 2-4 dB of gain reduction.",
+    "Add tape or console saturation after the compressor to round the transient peaks.",
+    "Blend a heavily crushed parallel copy underneath for energy, 10:1 and 10-20 dB, at 10-20% of the level.",
+    "Compare bypassed at matched loudness — if it is not clearly better, you overdid it."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "2:1-4:1",
+     "attack": "10-30 ms",
+     "release": "auto",
+     "gr": "2-4 dB"
+    }
+   },
+   "visual": {
+    "type": "chain-flow",
+    "chain": [
+     "balance",
+     "bus comp",
+     "saturation",
+     "parallel blend"
+    ]
+   },
+   "why": "Compressing the whole kit together makes the quiet elements move with the loud ones, which is the physical reason a kit sounds like one performance rather than separate samples.",
+   "watch": "If the cymbals pump when the kick hits, the attack is too fast or the ratio too high.",
+   "genreNotes": {
+    "gospel": "Live kits glue more easily because the room mics already share a space — use less compression than you would on programmed drums.",
+    "hiphop": "Programmed drums need more help; parallel crush is doing most of the work."
+   },
+   "related": [
+    "kick-harder",
+    "snare-crack",
+    "c-parallel-compression"
+   ]
+  },
+  {
+   "id": "organ-gospel",
+   "q": "How do I mix a Hammond organ in gospel?",
+   "aliases": [
+    "organ mix",
+    "hammond too loud",
+    "organ muddy",
+    "leslie mix"
+   ],
+   "source": "organ",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "ccm",
+    "jazz"
+   ],
+   "short": "The organ fills every gap by nature, so carve it hard and let it be the bed, not the feature.",
+   "steps": [
+    "High-pass at 100-120 Hz unless the organ is holding the bass line.",
+    "Cut 3-4 dB at 250-400 Hz — this is where the organ buries everything else.",
+    "Keep the Leslie's stereo spread but check it in mono for phase cancellation.",
+    "Compress lightly, 2:1 and 2-3 dB; heavy compression kills the swell of the drawbars.",
+    "Automate it down under the vocal and up in the turnarounds."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 110,
+      "gain": -24,
+      "q": 0.7,
+      "type": "highpass"
+     },
+     {
+      "f": 320,
+      "gain": -3.5,
+      "q": 1.2
+     }
+    ],
+    "comp": {
+     "ratio": "2:1",
+     "gr": "2-3 dB"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A Hammond played with full drawbars is close to a full-spectrum pad. In a dense arrangement it masks the piano, the guitars and the lower part of the voices at once, so it needs more carving than almost any other instrument.",
+   "watch": "Do not high-pass a bass-pedal organ part — check what register the player is actually in first.",
+   "genreNotes": {
+    "gospel": "During the vamp the organ becomes a lead instrument. Automate the carve away in those sections instead of leaving it static."
+   },
+   "related": [
+    "piano-wide",
+    "mix-muddy",
+    "w-automate-not-set-forget"
+   ]
+  },
+  {
+   "id": "mix-translation",
+   "q": "My mix sounds good on headphones but bad in the car. Why?",
+   "aliases": [
+    "mix doesn't translate",
+    "sounds different everywhere",
+    "bad on phone speaker",
+    "car test fails"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "short": "You mixed to one system's flattery; translation comes from checking several and from mid-range balance.",
+   "steps": [
+    "Check on three systems: headphones, a phone speaker, and one more, before judging anything.",
+    "If it vanishes on the phone, your information is all below 200 Hz — add harmonics with saturation.",
+    "If it is harsh in the car, you were mixing quietly on headphones; check at conversation level on speakers.",
+    "Loudness-match against two reference tracks in the same genre and compare the mid-range.",
+    "Mix mostly at low volume — balance decisions made loud do not survive."
+   ],
+   "params": {},
+   "visual": {
+    "type": "levels"
+   },
+   "why": "Every system reproduces a different slice of the spectrum. A mix that depends on one slice fails on the others, whereas a mix with the important information in the mid-range survives everywhere, because every speaker reproduces the mid-range.",
+   "watch": "Do not EQ for one bad system. Fix what is wrong on all of them.",
+   "genreNotes": {
+    "afrobeats": "Phone playback dominates — if the hook does not work on a phone speaker it does not work."
+   },
+   "related": [
+    "808-mix",
+    "low-end-mono",
+    "c-what-lufs"
+   ]
+  }
+ ]
 }
