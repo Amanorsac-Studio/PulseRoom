@@ -219,7 +219,32 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 .books.split .gbig.collection{grid-row:span 4;margin-bottom:0}
 .books.split .gsub{grid-template-columns:1fr 1fr 1fr}
 
+/* ---------- onboarding ---------- */
+.onb{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.onb::before{content:"";position:absolute;inset:0;z-index:-2;
+  background-image:var(--scene);background-size:cover;background-position:center;
+  animation:slowpan 18s ease-in-out infinite alternate}
+@keyframes slowpan{from{transform:scale(1.04) translateY(0)}to{transform:scale(1.12) translateY(-1.5%)}}
+.onb::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,#07080B 20%,rgba(7,8,11,.86) 44%,rgba(7,8,11,.25) 72%,rgba(7,8,11,.5) 100%)}
+.onb-body{position:relative;padding:0 26px 40px}
+.onb-dots{display:flex;gap:6px;margin-bottom:26px}
+.onb-dots i{height:3px;flex:1;border-radius:99px;background:rgba(255,255,255,.16);cursor:pointer;
+  transition:background .3s var(--spring)}
+.onb-dots i.on{background:var(--accent)}
+.onb h3{font-size:31px;line-height:1.1;letter-spacing:-.04em;font-weight:700;
+  animation:rise .55s var(--spring) both}
+.onb p{color:var(--muted);font-size:15px;line-height:1.5;margin-top:12px;max-width:38ch;
+  animation:rise .55s var(--spring) .08s both}
+.onb .cta{margin-top:26px;max-width:none}
+.desk .onb-body{padding:0 0 56px;max-width:560px;margin:0 auto}
+.tablet .onb-body{padding:0 44px 56px;max-width:620px}
+
 /* ---------- paywall ---------- */
+.pw{position:relative;isolation:isolate}
+.pw-art{position:absolute;inset:-26px -34px;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(to bottom,rgba(10,11,14,.72) 0%,rgba(10,11,14,.88) 42%,#0A0B0E 78%),
+    var(--pwscene);background-size:cover;background-position:center top}
 .pw .mark{display:flex;gap:4px;align-items:flex-end;height:46px;margin-bottom:26px}
 .pw .mark i{width:7px;border-radius:99px;display:block;background:var(--accent);animation:eq 1.6s ease-in-out infinite;
   animation-delay:calc(var(--i)*120ms)}
@@ -308,6 +333,7 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
     <button data-screen="answer" aria-pressed="false">Answer</button>
     <button data-screen="books"  aria-pressed="false">Playbooks</button>
     <button data-screen="empty"  aria-pressed="false">No match</button>
+    <button data-screen="onboard" aria-pressed="false">Onboarding</button>
     <button data-screen="pay"    aria-pressed="false">Unlock</button>
   </div>
 </header>
@@ -420,6 +446,16 @@ const QUESTIONS = [
 ];
 
 const COVER = id => `assets/covers/${id}.jpg`;
+const SCENE = id => `assets/scenes/${id}.jpg`;
+
+const ONBOARD = [
+  { img:'onboard-ask',     h:'A thousand questions,<br>already answered.',
+    p:'Ask the way it sounds in your head. No wording rules, no menus to learn.' },
+  { img:'onboard-answer',  h:'The numbers,<br>and the picture.',
+    p:'Every answer carries the exact settings and a moving diagram of what the move actually does.' },
+  { img:'onboard-offline', h:'Works with<br>no signal.',
+    p:'The whole library lives on your device. Nothing you ask ever leaves it.' }
+];
 
 const GENRES = [
   { k:'gospel', name:'Gospel', n:72, collection:true,
@@ -452,7 +488,7 @@ const RAIL = [
 ];
 
 /* ============================ state ============================ */
-const state = { dev:'phone', screen:'ask', query:'', src:'All', answer:QUESTIONS[0], speaking:false };
+const state = { dev:'phone', screen:'ask', query:'', src:'All', answer:QUESTIONS[0], speaking:false, slide:0 };
 const holder = document.getElementById('holder');
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
@@ -654,7 +690,7 @@ function partPay(){
     '<b>Read aloud</b> while your hands stay on the faders',
     '<b>Works with no signal</b> — nothing leaves the device, ever'
   ];
-  return `<div class="pw">
+  return `<div class="pw" style="--pwscene:url('${SCENE('unlock')}')"><div class="pw-art"></div>
     <div class="mark">${[0,1,2,3,4].map(i=>`<i style="--i:${i}"></i>`).join('')}</div>
     <h3>Everything in the room,<br><em>for the price of one plugin.</em></h3>
     <ul>${rows.map((r,i) => `<li style="--i:${i}">
@@ -664,6 +700,19 @@ function partPay(){
     <p class="fine">One payment. Every update included.<br>The calculators stay free, forever.</p>
   </div>`;
 }
+
+const partOnboard = () => {
+  const o = ONBOARD[state.slide], last = state.slide === ONBOARD.length - 1;
+  return `<div class="onb" style="--scene:url('${SCENE(o.img)}')">
+    <div class="onb-body">
+      <div class="onb-dots">${ONBOARD.map((_, i) =>
+        `<i class="${i === state.slide ? 'on' : ''}" data-slide="${i}"></i>`).join('')}</div>
+      <h3 key="${state.slide}">${o.h}</h3>
+      <p>${esc(o.p)}</p>
+      <button class="cta" id="onbNext">${last ? 'Get started' : 'Continue'}</button>
+    </div>
+  </div>`;
+};
 
 /* ============================ shells ============================ */
 const STATUSBAR = `
@@ -686,6 +735,8 @@ const tabbar = active => `<nav class="tabbar">${
         stroke-linejoin="round">${TABICON[k]}</svg><span>${l}</span></button>`).join('')}</nav>`;
 
 function phoneShell(){
+  if (state.screen === 'onboard')
+    return `<div class="notch"></div><div class="screen">${STATUSBAR}${partOnboard()}</div>`;
   const list = results();
   let body;
   if (state.screen === 'answer'){
@@ -716,6 +767,8 @@ function phoneShell(){
 }
 
 function tabletShell(){
+  if (state.screen === 'onboard')
+    return `<div class="screen">${STATUSBAR}${partOnboard()}</div>`;
   const list = results();
   const main = state.screen === 'books'
     ? `<div class="wsection">${partBooks(true)}</div>`
@@ -742,6 +795,8 @@ function tabletShell(){
 }
 
 function deskShell(){
+  if (state.screen === 'onboard')
+    return `<div class="screen"><div class="winbar"><i></i><i></i><i></i><b>PulseRoom</b></div>${partOnboard()}</div>`;
   const list = results();
   const rail = RAIL.map(([group, items]) => `<div class="railhead">${group}</div>${
     items.map(([name, n]) => `<button class="ri ${name === state.src ? 'on' : ''}" data-src="${name}">${name}<em>${n}</em></button>`).join('')
@@ -881,6 +936,13 @@ holder.addEventListener('click', e => {
     return;
   }
   if (e.target.closest('#voice')){ state.speaking = !state.speaking; return render(); }
+
+  const dot = e.target.closest('[data-slide]');
+  if (dot){ state.slide = +dot.dataset.slide; return render(); }
+  if (e.target.closest('#onbNext')){
+    if (state.slide < ONBOARD.length - 1){ state.slide++; return render(); }
+    state.slide = 0; state.screen = 'ask'; return render();
+  }
 
   const p = e.target.closest('.param');
   if (p){ const b = p.querySelector('b'), was = b.textContent; b.textContent = 'copied'; setTimeout(() => b.textContent = was, 900); }

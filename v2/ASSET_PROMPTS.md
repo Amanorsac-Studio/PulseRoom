@@ -37,6 +37,11 @@ already see the direction of in the prototype.
 
 ## 2. What generated imagery IS right for
 
+> **Status: all fourteen delivered and in the app.** Ten playbook covers in
+> `v2/assets/covers/`, four portrait scenes in `v2/assets/scenes/`. Rebuild them
+> from new source art with `node_modules/electron/dist/electron scripts/build-covers.js <source-dir>`,
+> which resizes and recompresses in one pass — 4.49 MB of source became 0.91 MB.
+
 Atmosphere, where accuracy is not the job. These are worth generating:
 
 | Asset | Count | Where it appears |
