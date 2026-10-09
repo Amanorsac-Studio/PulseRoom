@@ -4,26 +4,35 @@
    ============================================================ */
 
 :root {
-  --bg:            #0c0e12;
-  --panel:         #12151c;
-  --panel-2:       #171b24;
-  --panel-3:       #1d2230;
+  --bg:            #0A0B0E;
+  --panel:         #121419;
+  --panel-2:       #171A21;
+  --panel-3:       #1D222B;
+  --sunken:        #0E1014;
   --line:          rgba(255, 255, 255, 0.07);
   --line-strong:   rgba(255, 255, 255, 0.12);
-  --text:          #e9ebf1;
-  --text-2:        #a2a9b8;
-  --text-3:        #6d7488;
+  --text:          #ECEEF3;
+  --text-2:        #99A0AD;
+  --text-3:        #636A79;
 
-  /* module accents (functional color coding) */
-  --c-delay:     #3fd3e4;
-  --c-reverb:    #a48bfa;
-  --c-eq:        #f2b13c;
-  --c-comp:      #f25c7f;
-  --c-chains:    #4fd58f;
-  --c-guide:     #5f9dff;
-  --c-reference: #d8a05f;
+  /* One accent carries the whole interface. */
+  --accent:     #45C8D8;
+  --accent-ink: #06282E;
+  --accent-rgb: 69, 200, 216;
 
-  --accent: var(--c-delay);
+  /* These four are not decoration — each one means something, and they
+     appear only inside data: curves, bands, envelopes, meters. */
+  --c-boost: #4FD58F;   /* add energy here      */
+  --c-cut:   #F2607F;   /* remove energy here   */
+  --c-hold:  #E7B45A;   /* attack / watch out   */
+  --c-info:  #5F9DFF;   /* listen and decide    */
+
+  /* Module tokens kept so every page keeps working; they all resolve to
+     the single accent now instead of giving each page its own colour. */
+  --c-delay: var(--accent);  --c-reverb: var(--accent);
+  --c-eq:    var(--accent);  --c-comp:   var(--accent);
+  --c-chains:var(--accent);  --c-guide:  var(--accent);
+  --c-reference: var(--accent);
 
   --r-card: 14px;
   --r-ctl:  8px;
@@ -46,7 +55,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::selection { background: rgba(63, 211, 228, 0.25); }
+::selection { background: rgba(var(--accent-rgb), 0.25); }
 
 /* scrollbars */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
@@ -85,11 +94,11 @@ body {
 }
 
 .brand-mark { width: 30px; height: 30px; flex: none; }
-.bm { fill: var(--c-delay); }
-.bm.b2 { fill: var(--c-reverb); }
-.bm.b3 { fill: var(--c-eq); }
-.bm.b4 { fill: var(--c-comp); }
-.bm.b5 { fill: var(--c-chains); }
+.bm    { fill: var(--accent); opacity: .45; }
+.bm.b2 { opacity: .70; }
+.bm.b3 { opacity: 1; }
+.bm.b4 { opacity: .70; }
+.bm.b5 { opacity: .45; }
 
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
 .brand-name { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
@@ -230,8 +239,8 @@ body {
   transition: background 0.12s ease, border-color 0.12s ease;
 }
 .tap-btn:hover { border-color: var(--c-delay); color: var(--c-delay); }
-.tap-btn:active { transform: scale(0.97); background: rgba(63,211,228,0.12); }
-.tap-btn.tapped { border-color: var(--c-delay); color: var(--c-delay); background: rgba(63,211,228,0.12); }
+.tap-btn:active { transform: scale(0.97); background: rgba(var(--accent-rgb), 0.12); }
+.tap-btn.tapped { border-color: var(--c-delay); color: var(--c-delay); background: rgba(var(--accent-rgb), 0.12); }
 
 .mult-btn {
   height: 38px;
@@ -247,7 +256,7 @@ body {
   transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
 }
 .mult-btn:hover { border-color: var(--c-delay); color: var(--c-delay); }
-.mult-btn:active { transform: scale(0.95); background: rgba(63, 211, 228, 0.12); }
+.mult-btn:active { transform: scale(0.95); background: rgba(var(--accent-rgb), 0.12); }
 
 .tap-btn.busy {
   color: var(--c-delay);
@@ -280,7 +289,7 @@ body {
   font-size: 22px;
   font-weight: 750;
   color: var(--text);
-  background: rgba(63, 211, 228, 0.05);
+  background: rgba(var(--accent-rgb), 0.05);
 }
 .drop-box span {
   display: block;
@@ -454,9 +463,9 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
   border-radius: 999px;
   letter-spacing: 0.05em;
 }
-.dc-kind.straight { background: rgba(63,211,228,0.14);  color: var(--c-delay); }
-.dc-kind.dotted   { background: rgba(242,177,60,0.14);  color: var(--c-eq); }
-.dc-kind.triplet  { background: rgba(164,139,250,0.16); color: var(--c-reverb); }
+.dc-kind.straight { background: rgba(var(--accent-rgb), 0.14); color: var(--accent); }
+.dc-kind.dotted   { background: rgba(231,180,90,0.14);         color: var(--c-hold); }
+.dc-kind.triplet  { background: rgba(95,157,255,0.14);         color: var(--c-info); }
 
 .dc-ms {
   font-family: var(--mono);
@@ -612,7 +621,7 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
 .eq-spectrum {
   position: relative;
   height: 200px;
-  background: var(--panel-2);
+  background: var(--sunken);
   border: 1px solid var(--line);
   border-radius: var(--r-card);
   margin-bottom: 6px;
@@ -620,15 +629,34 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
 }
 .eq-spectrum svg { display: block; width: 100%; height: 100%; }
 
+.eq-marks { position: absolute; inset: 0; pointer-events: none; }
+.eq-mark {
+  position: absolute;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  animation: eqMarkIn 0.45s cubic-bezier(.32,.72,0,1) forwards;
+}
+@keyframes eqMarkIn { to { opacity: 1; } }
+.eq-mark b { display: block; font-size: 12px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+.eq-mark i {
+  display: block; font-style: normal; font-family: var(--mono);
+  font-size: 10.5px; margin-top: 2px;
+}
+.eq-mark.boost i { color: var(--c-boost); }
+.eq-mark.cut   i { color: var(--c-cut); }
+.eq-mark.info  i { color: var(--c-info); }
+
 .spectrum-scale {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  height: 15px;
   font-family: var(--mono);
   font-size: 11px;
   color: var(--text-3);
-  padding: 0 4px;
   margin-bottom: 20px;
 }
+.spectrum-scale span { position: absolute; top: 0; white-space: nowrap; }
 
 .eq-bands { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
@@ -648,9 +676,9 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
   border-radius: 999px;
   flex: none;
 }
-.eq-band.boost .bar { background: var(--c-chains); }
-.eq-band.cut   .bar { background: var(--c-comp); }
-.eq-band.info  .bar { background: var(--c-guide); }
+.eq-band.boost .bar { background: var(--c-boost); }
+.eq-band.cut   .bar { background: var(--c-cut); }
+.eq-band.info  .bar { background: var(--c-info); }
 
 .eq-band .freq {
   font-family: var(--mono);
@@ -659,9 +687,9 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
   white-space: nowrap;
   min-width: 92px;
 }
-.eq-band.boost .freq { color: var(--c-chains); }
-.eq-band.cut   .freq { color: var(--c-comp); }
-.eq-band.info  .freq { color: var(--c-guide); }
+.eq-band.boost .freq { color: var(--c-boost); }
+.eq-band.cut   .freq { color: var(--c-cut); }
+.eq-band.info  .freq { color: var(--c-info); }
 
 .eq-band .what { font-size: 13px; color: var(--text-2); line-height: 1.5; }
 .eq-band .what strong { color: var(--text); font-weight: 650; display: block; }
@@ -712,8 +740,9 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
 }
 
 .comp-vis {
+  position: relative;
   height: 230px;
-  background: var(--panel-2);
+  background: var(--sunken);
   border: 1px solid var(--line);
   border-radius: var(--r-ctl);
   overflow: hidden;
@@ -729,14 +758,26 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
 
 /* reverb send-EQ visual */
 .rv-eq-vis {
-  height: 120px;
-  background: var(--panel-2);
+  position: relative;
+  height: 130px;
+  background: var(--sunken);
   border: 1px solid var(--line);
   border-radius: var(--r-ctl);
   overflow: hidden;
   margin-bottom: 6px;
 }
 .rv-eq-vis svg { display: block; width: 100%; height: 100%; }
+
+.rv-marks { position: absolute; inset: 0; pointer-events: none; font-family: var(--mono); }
+.rv-mark {
+  position: absolute; top: 7px; font-size: 10px; letter-spacing: 0.04em;
+  white-space: nowrap; color: var(--c-cut); font-weight: 600;
+  opacity: 0; animation: cvIn 0.4s cubic-bezier(.32,.72,0,1) 0.5s forwards;
+}
+.rv-mark b { font-weight: 700; }
+.rv-mark.zero { left: 8px; top: 16px; color: var(--text-3); font-weight: 500; }
+.rv-mark.lo { transform: translateX(6px); }
+.rv-mark.hi { transform: translateX(calc(-100% - 6px)); }
 
 /* ============ CHAINS PAGE ============ */
 
@@ -947,7 +988,7 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
     font-size: 13px;
     letter-spacing: 0.02em;
   }
-  .mult-btn:active, .tap-btn:active { transform: scale(0.95); background: rgba(63, 211, 228, 0.14); }
+  .mult-btn:active, .tap-btn:active { transform: scale(0.95); background: rgba(var(--accent-rgb), 0.14); }
 
   .tempo-readout { display: flex; gap: 20px; margin-top: 12px; }
   .readout-cell { align-items: flex-start; }
@@ -1093,3 +1134,22 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
   }
   .sheet-cancel:active { background: rgba(255, 255, 255, 0.12); }
 }
+
+
+/* ---- gain-reduction envelope labels (HTML, so they are never stretched) ---- */
+.cv-marks { position: absolute; inset: 0; pointer-events: none; font-family: var(--mono); }
+.cv-mark {
+  position: absolute;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  opacity: 0;
+  animation: cvIn 0.4s cubic-bezier(.32,.72,0,1) 0.55s forwards;
+}
+@keyframes cvIn { to { opacity: 1; } }
+.cv-mark b { font-weight: 700; }
+.cv-mark.zero { left: 8px;  transform: translateY(-140%); color: var(--text-3); }
+.cv-mark.hit  { top: 8px;   transform: translateX(4px);   color: var(--text-2); font-weight: 700; }
+.cv-mark.atk  { bottom: 8px; transform: translateX(-50%); color: var(--c-hold); font-weight: 600; }
+.cv-mark.rel  { bottom: 8px; transform: translateX(-50%); color: var(--c-boost); font-weight: 600; }
+.cv-mark.gr   { transform: translate(-50%, 6px);          color: var(--c-cut);  font-weight: 700; }

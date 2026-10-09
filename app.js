@@ -221,6 +221,7 @@ function sendEqSvg(lowHz, highHz) {
     pts.push(`${pos(f).toFixed(1)},${y.toFixed(1)}`);
   }
   const line = pts.join(' ');
+  const flat = pts.map(pt => pt.split(',')[0] + ',22').join(' ');   // the same curve with no filtering
   const lowX = pos(lowHz).toFixed(1);
   const highX = pos(highHz).toFixed(1);
   const gridlines = [50, 100, 200, 500, 1000, 2000, 5000, 10000].map(f =>
@@ -228,16 +229,26 @@ function sendEqSvg(lowHz, highHz) {
        stroke="rgba(255,255,255,0.05)" stroke-width="0.25"/>`
   ).join('');
   const fmtF = h => h >= 1000 ? (h / 1000) + ' kHz' : h + ' Hz';
-  return `
+  const marks = `
+    <div class="rv-mark zero">0 dB</div>
+    <div class="rv-mark lo" style="left:${lowX}%">LOW CUT <b>${fmtF(lowHz)}</b></div>
+    <div class="rv-mark hi" style="left:${highX}%">HIGH CUT <b>${fmtF(highHz)}</b></div>`;
+  return `<div class="rv-eq-vis"><svg viewBox="0 0 100 100" preserveAspectRatio="none">
     ${gridlines}
     <line x1="0" y1="22" x2="100" y2="22" stroke="rgba(255,255,255,0.10)" stroke-width="0.3" stroke-dasharray="1.5 1.5"/>
-    <polygon points="0,100 ${line} 100,100" fill="rgba(164,139,250,0.13)"/>
-    <polyline points="${line}" fill="none" stroke="var(--c-reverb)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-    <line x1="${lowX}" y1="10" x2="${lowX}" y2="100" stroke="var(--c-comp)" stroke-width="0.35" stroke-dasharray="2 2" opacity="0.8"/>
-    <line x1="${highX}" y1="10" x2="${highX}" y2="100" stroke="var(--c-comp)" stroke-width="0.35" stroke-dasharray="2 2" opacity="0.8"/>
-    <text x="${Number(lowX) + 1.5}" y="9" font-size="4.6" fill="var(--c-comp)" font-weight="600">LOW CUT ${fmtF(lowHz)}</text>
-    <text x="${Number(highX) - 1.5}" y="9" text-anchor="end" font-size="4.6" fill="var(--c-comp)" font-weight="600">HIGH CUT ${fmtF(highHz)}</text>
-    <text x="1.5" y="19.5" font-size="4" fill="rgba(255,255,255,0.45)">0 dB</text>`;
+    <defs><linearGradient id="sendFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="var(--accent)" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
+    </linearGradient></defs>
+    <polygon points="0,100 ${line} 100,100" fill="url(#sendFill)"/>
+    <polyline points="${flat}" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="0.9" vector-effect="non-scaling-stroke"/>
+    <polyline points="${line}" fill="none" stroke="var(--accent)" stroke-width="1.6" vector-effect="non-scaling-stroke">
+      <animate attributeName="points" dur="0.9s" values="${flat};${line}" fill="freeze"
+        calcMode="spline" keySplines=".3 0 .1 1"/>
+    </polyline>
+    <line x1="${lowX}" y1="0" x2="${lowX}" y2="100" stroke="var(--c-cut)" stroke-width="0.35" stroke-dasharray="2 2" opacity="0.75"/>
+    <line x1="${highX}" y1="0" x2="${highX}" y2="100" stroke="var(--c-cut)" stroke-width="0.35" stroke-dasharray="2 2" opacity="0.75"/>
+  </svg><div class="rv-marks">${marks}</div></div>`;
 }
 
 function renderReverb() {
@@ -293,12 +304,12 @@ function renderReverb() {
           <div class="card-title">Decay envelope</div>
           <div class="decay-vis">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-              <rect x="0" y="0" width="${preX}" height="100" fill="rgba(164,139,250,0.10)"/>
-              <line x1="${preX}" y1="0" x2="${preX}" y2="100" stroke="rgba(164,139,250,0.5)" stroke-width="0.4" stroke-dasharray="2 2"/>
+              <rect x="0" y="0" width="${preX}" height="100" fill="rgba(var(--accent-rgb),0.08)"/>
+              <line x1="${preX}" y1="0" x2="${preX}" y2="100" stroke="rgba(var(--accent-rgb),0.5)" stroke-width="0.4" stroke-dasharray="2 2"/>
               <polyline points="${preX},92 ${pts.map(p => {
                 const [px, py] = p.split(',');
                 return `${(preX + (100 - preX) * (px / 100)).toFixed(1)},${py}`;
-              }).join(' ')}" fill="none" stroke="var(--c-reverb)" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+              }).join(' ')}" fill="none" stroke="var(--accent)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
               <line x1="0" y1="92" x2="100" y2="92" stroke="rgba(255,255,255,0.12)" stroke-width="0.3"/>
             </svg>
           </div>
@@ -307,13 +318,13 @@ function renderReverb() {
         <div class="card">
           <div class="card-title">Send EQ curve</div>
           <div class="card-sub">Filter the reverb return like this so the tail adds space, not mud or hiss.</div>
-          <div class="rv-eq-vis">
-            <svg viewBox="0 0 100 100" preserveAspectRatio="none">${sendEqSvg(s.lowHz, s.highHz)}</svg>
-          </div>
-          <div class="spectrum-scale">
-            <span>20</span><span>50</span><span>100</span><span>200</span><span>500</span>
-            <span>1k</span><span>2k</span><span>5k</span><span>10k</span><span>20k</span>
-          </div>
+          ${sendEqSvg(s.lowHz, s.highHz)}
+          <div class="spectrum-scale">${
+            [[20,'20'],[50,'50'],[100,'100'],[200,'200'],[500,'500'],[1000,'1k'],
+             [2000,'2k'],[5000,'5k'],[10000,'10k'],[20000,'20k']].map(([f, l]) => {
+              const x = Math.log10(f / 20) / Math.log10(1000) * 100;
+              return `<span style="left:${x.toFixed(2)}%;transform:translateX(${x <= 0 ? 0 : x >= 100 ? -100 : -50}%)">${l}</span>`;
+            }).join('')}</div>
         </div>
 
         <div class="card">
@@ -443,28 +454,52 @@ function renderEQ() {
     `<button class="eq-chip ${key === state.eqInstrument ? 'on' : ''}" data-i="${key}">${d.name}</button>`
   ).join('');
 
-  const colors = { boost: 'var(--c-chains)', cut: 'var(--c-comp)', info: 'var(--c-guide)' };
+  const colors = { boost: 'var(--c-boost)', cut: 'var(--c-cut)', info: 'var(--c-info)' };
 
-  const regions = inst.bands.map(b => {
-    const x = logPos(b.lo);
-    const w = logPos(b.hi) - x;
-    const y = b.type === 'boost' ? 18 : b.type === 'cut' ? 52 : 35;
-    const label = w >= b.title.length * 2.7
-      ? `<text x="${(x + w / 2).toFixed(1)}" y="${y + 18}" text-anchor="middle"
-           font-size="4.4" fill="#e9ebf1" font-family="inherit" font-weight="600">${b.title}</text>`
-      : '';
+  // Full-height columns read as "this part of the spectrum"; floating boxes
+  // read as nothing. Labels are HTML on top of the SVG, because the chart is
+  // drawn with preserveAspectRatio="none" and SVG text stretches with it.
+  const TOP = { boost: 10, cut: 40, info: 25 };
+
+  const regions = inst.bands.map((b, i) => {
+    const x = logPos(b.lo), w = logPos(b.hi) - x;
     return `
-      <rect x="${x.toFixed(1)}" y="${y}" width="${w.toFixed(1)}" height="30" rx="3"
-        fill="${colors[b.type]}" opacity="0.28"/>
-      <rect x="${x.toFixed(1)}" y="${y}" width="${w.toFixed(1)}" height="30" rx="3"
-        fill="none" stroke="${colors[b.type]}" stroke-width="0.35" opacity="0.9"/>
-      ${label}`;
+      <g opacity="0">
+        <rect x="${x.toFixed(1)}" y="6" width="${w.toFixed(1)}" height="88" rx="1.5"
+          fill="${colors[b.type]}" opacity="0.13"/>
+        <rect x="${x.toFixed(1)}" y="6" width="${w.toFixed(1)}" height="2" rx="1"
+          fill="${colors[b.type]}"/>
+        <line x1="${x.toFixed(1)}" y1="6" x2="${x.toFixed(1)}" y2="94"
+          stroke="${colors[b.type]}" stroke-width="0.3" opacity="0.55"/>
+        <line x1="${(x + w).toFixed(1)}" y1="6" x2="${(x + w).toFixed(1)}" y2="94"
+          stroke="${colors[b.type]}" stroke-width="0.3" opacity="0.55"/>
+        <animate attributeName="opacity" from="0" to="1" dur="0.45s"
+          begin="${(i * 0.08).toFixed(2)}s" fill="freeze"/>
+      </g>`;
+  }).join('');
+
+  // labels float above the chart so they keep the real font at the real size
+  const marks = inst.bands.map((b, i) => {
+    const x = logPos(b.lo), w = logPos(b.hi) - x;
+    const rng = `${b.lo >= 1000 ? (b.lo / 1000) + 'k' : b.lo}–${b.hi >= 1000 ? (b.hi / 1000) + 'k' : b.hi}`;
+    return `<div class="eq-mark ${b.type}" style="left:${(x + w / 2).toFixed(2)}%;top:${TOP[b.type]}%;
+      animation-delay:${(i * 0.08 + 0.2).toFixed(2)}s">
+      <b>${b.title}</b><i>${rng} Hz</i></div>`;
   }).join('');
 
   const gridlines = [50, 100, 200, 500, 1000, 2000, 5000, 10000].map(f =>
     `<line x1="${logPos(f).toFixed(1)}" y1="0" x2="${logPos(f).toFixed(1)}" y2="100"
        stroke="rgba(255,255,255,0.06)" stroke-width="0.25"/>`
   ).join('');
+
+  // a quiet pink-noise silhouette, so the panel reads as a spectrum and not a bar chart
+  let floor = 'M0,94';
+  for (let i = 0; i <= 60; i++) {
+    const t = i / 60, f = 20 * Math.pow(1000, t);
+    const y = 94 - (38 - 13 * Math.log10(f / 40)) * (f < 40 ? 0.45 : 1);
+    floor += `L${(t * 100).toFixed(1)},${Math.max(40, Math.min(94, y)).toFixed(1)}`;
+  }
+  floor += 'L100,94Z';
 
   const bands = inst.bands.map(b => `
     <div class="eq-band ${b.type}">
@@ -482,17 +517,24 @@ function renderEQ() {
     <div class="eq-picker" id="eqPicker">${chips}</div>
 
     <div class="eq-spectrum">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none">${gridlines}${regions}</svg>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        ${gridlines}
+        <path d="${floor}" fill="rgba(255,255,255,0.035)"/>
+        ${regions}
+      </svg>
+      <div class="eq-marks">${marks}</div>
     </div>
-    <div class="spectrum-scale">
-      <span>20</span><span>50</span><span>100</span><span>200</span><span>500</span>
-      <span>1k</span><span>2k</span><span>5k</span><span>10k</span><span>20k</span>
-    </div>
+    <div class="spectrum-scale">${
+      [[20,'20'],[50,'50'],[100,'100'],[200,'200'],[500,'500'],[1000,'1k'],
+       [2000,'2k'],[5000,'5k'],[10000,'10k'],[20000,'20k']].map(([f, l]) => {
+        const x = logPos(f);
+        return `<span style="left:${x.toFixed(2)}%;transform:translateX(${x <= 0 ? 0 : x >= 100 ? -100 : -50}%)">${l}</span>`;
+      }).join('')}</div>
 
     <div class="legend">
-      <span><i style="background:var(--c-chains)"></i>Boost zone</span>
-      <span><i style="background:var(--c-comp)"></i>Cut zone</span>
-      <span><i style="background:var(--c-guide)"></i>Listen &amp; decide</span>
+      <span><i style="background:var(--c-boost)"></i>Boost zone</span>
+      <span><i style="background:var(--c-cut)"></i>Cut zone</span>
+      <span><i style="background:var(--c-info)"></i>Listen &amp; decide</span>
     </div>
 
     <div class="eq-bands">${bands}</div>`;
@@ -554,18 +596,17 @@ const COMP_DATA = {
     note: 'The famous glue: slow attack, program-dependent release, needle barely moving. If you can clearly hear it working, back off.' }
 };
 
-/* gain-reduction envelope: a hit lands, GR dives over the attack, holds, recovers over the release */
-function compEnvelopeSvg(c) {
+/* gain-reduction envelope: a hit lands, GR dives over the attack, holds, recovers
+   over the release. Labels are HTML over the chart, never SVG text: the chart is
+   drawn with preserveAspectRatio="none", which stretches any text inside it. */
+function compEnvelope(c) {
   const atkM = (c.atk[0] + c.atk[1]) / 2;
   const relM = (c.rel[0] + c.rel[1]) / 2;
   const t0 = 25, hold = Math.max(30, atkM);
   const total = t0 + atkM + hold + relM * 1.15 + 30;
-  const xs = t => (t / total) * 100;
-
-  const y0 = 20;
-  const depth = Math.min(52, 14 + c.grN * 3);
-  const yG = y0 + depth;
-
+  const xs = ms => (ms / total) * 100;
+  const y0 = 26;                                   // 0 dB, no gain reduction
+  const yG = y0 + Math.min(c.grN, 12) * 4.2;       // floor of the dive
   const atkEnd = t0 + atkM;
   const relStart = atkEnd + hold;
   const relEnd = relStart + relM;
@@ -578,23 +619,37 @@ function compEnvelopeSvg(c) {
     `L100,${y0}`
   ].join(' ');
 
-  return `
-    <line x1="0" y1="${y0}" x2="100" y2="${y0}" stroke="rgba(255,255,255,0.12)" stroke-width="0.3" stroke-dasharray="1.5 1.5"/>
-    <text x="1.5" y="${y0 - 3}" font-size="4" fill="rgba(255,255,255,0.45)">0 dB</text>
+  const svg = `
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <line x1="0" y1="${y0}" x2="100" y2="${y0}" stroke="rgba(255,255,255,0.12)"
+        stroke-width="0.3" stroke-dasharray="1.5 1.5"/>
 
-    <rect x="${xs(t0 + c.atk[0])}" y="8" width="${Math.max(xs(t0 + c.atk[1]) - xs(t0 + c.atk[0]), 1)}" height="84"
-      fill="rgba(242,177,60,0.08)"/>
-    <rect x="${xs(relStart + c.rel[0] * 0)}" y="8" width="${xs(relStart + c.rel[1]) - xs(relStart)}" height="84"
-      fill="rgba(79,213,143,0.07)"/>
+      <rect x="${xs(t0)}" y="4" width="${Math.max(xs(atkEnd) - xs(t0), 0.8)}" height="88"
+        fill="rgba(231,180,90,0.10)"/>
+      <rect x="${xs(relStart)}" y="4" width="${xs(relEnd) - xs(relStart)}" height="88"
+        fill="rgba(79,213,143,0.08)"/>
 
-    <line x1="${xs(t0)}" y1="6" x2="${xs(t0)}" y2="96" stroke="rgba(255,255,255,0.28)" stroke-width="0.35" stroke-dasharray="2 2"/>
-    <text x="${xs(t0) + 1.5}" y="10" font-size="4.2" fill="rgba(255,255,255,0.6)" font-weight="600">HIT</text>
+      <line x1="${xs(t0)}" y1="4" x2="${xs(t0)}" y2="92" stroke="rgba(255,255,255,0.28)"
+        stroke-width="0.35" stroke-dasharray="2 2"/>
 
-    <path d="${curve}" fill="none" stroke="var(--c-comp)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+      <path d="${curve}" fill="none" stroke="var(--c-cut)" stroke-width="1.8"
+        vector-effect="non-scaling-stroke" pathLength="100"
+        stroke-dasharray="100" stroke-dashoffset="100">
+        <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.1s" fill="freeze"
+          calcMode="spline" keySplines=".25 0 .15 1"/>
+      </path>
+    </svg>`;
 
-    <text x="${xs(t0 + atkM / 2)}" y="97.5" text-anchor="middle" font-size="4.4" fill="var(--c-eq)" font-weight="700">ATTACK ${c.attack}</text>
-    <text x="${xs(relStart + relM / 2)}" y="97.5" text-anchor="middle" font-size="4.4" fill="var(--c-chains)" font-weight="700">RELEASE ${c.release}</text>
-    <text x="${xs(atkEnd + hold / 2)}" y="${yG + 6.5}" text-anchor="middle" font-size="4.4" fill="var(--c-comp)" font-weight="700">${c.gr} GR</text>`;
+  // percentages here are the same numbers the chart uses, so a label can never
+  // drift away from the region it names
+  const marks = `
+    <div class="cv-mark zero" style="top:${y0}%">0 dB</div>
+    <div class="cv-mark hit"  style="left:${xs(t0)}%">HIT</div>
+    <div class="cv-mark atk"  style="left:${xs(t0 + atkM / 2)}%">ATTACK <b>${c.attack}</b></div>
+    <div class="cv-mark rel"  style="left:${xs(relStart + relM / 2)}%">RELEASE <b>${c.release}</b></div>
+    <div class="cv-mark gr"   style="left:${xs(atkEnd + hold / 2)}%;top:${yG}%">${c.gr} GR</div>`;
+
+  return `<div class="comp-vis">${svg}<div class="cv-marks">${marks}</div></div>`;
 }
 
 function renderComp() {
@@ -602,7 +657,7 @@ function renderComp() {
 
   const chips = Object.entries(COMP_DATA).map(([key, d]) =>
     `<button class="eq-chip ${key === state.compSource ? 'on' : ''}" data-i="${key}"
-       style="--chip:var(--c-comp)">${d.name}</button>`
+       style="--chip:var(--accent)">${d.name}</button>`
   ).join('');
 
   $('#page-comp').innerHTML = `
@@ -617,9 +672,7 @@ function renderComp() {
       <div class="card" style="margin:0">
         <div class="card-title">Gain-reduction envelope</div>
         <div class="card-sub">What the compressor does to one loud hit with these settings.</div>
-        <div class="comp-vis">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none">${compEnvelopeSvg(c)}</svg>
-        </div>
+        ${compEnvelope(c)}
       </div>
 
       <div class="comp-stats">
@@ -786,7 +839,7 @@ function renderChains() {
 
   const chips = Object.entries(CHAIN_DATA).map(([key, d]) =>
     `<button class="eq-chip ${key === state.chainInstrument ? 'on' : ''}" data-i="${key}"
-       style="--c-eq:var(--c-chains)">${d.name}</button>`
+       style="--chip:var(--accent)">${d.name}</button>`
   ).join('');
 
   const nodes = c.chain.map((n, i) => `
