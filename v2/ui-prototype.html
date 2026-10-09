@@ -185,21 +185,38 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 
 /* ---------- playbooks ---------- */
 .gbig{position:relative;border:1px solid var(--line);border-radius:20px;overflow:hidden;padding:20px;
-  margin-bottom:12px;cursor:pointer;background:var(--surface);transition:transform .2s var(--spring)}
+  margin-bottom:12px;cursor:pointer;background:var(--surface);isolation:isolate;
+  transition:transform .2s var(--spring),border-color .2s}
+.gbig:hover{border-color:rgba(255,255,255,.18)}
 .gbig:active{transform:scale(.985)}
-.gbig::after{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
-  background:radial-gradient(120% 90% at 90% 0%,var(--glow),transparent 62%)}
-.gbig b{position:relative;display:block;font-size:19px;letter-spacing:-.025em;font-weight:650}
-.gbig span{position:relative;display:block;color:var(--muted);font-size:13px;margin-top:5px;line-height:1.45}
-.gbig em{position:relative;display:inline-block;margin-top:13px;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--dim)}
-.gsub{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-.gs{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:13px;cursor:pointer;
-  transition:transform .18s var(--spring)}
+/* the art sits behind everything, cropped to its right side where the subject is */
+.gbig.photo::before{content:"";position:absolute;inset:0;z-index:-2;
+  background-image:var(--cover);background-size:cover;background-position:right center}
+/* and a scrim keeps the left third solid enough to read on */
+.gbig.photo::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,#0F1116 0%,rgba(15,17,22,.96) 36%,rgba(15,17,22,.68) 72%,rgba(15,17,22,.2) 100%)}
+.gbig.photo{min-height:168px;display:flex;align-items:flex-end}
+.gtext{position:relative;max-width:34ch}
+.gtext b{display:block;font-size:19px;letter-spacing:-.025em;font-weight:650}
+.gtext span{display:block;color:var(--muted);font-size:13px;margin-top:5px;line-height:1.45}
+.gtext em{display:inline-block;margin-top:13px;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--dim)}
+
+.gsub{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.gs{position:relative;border:1px solid var(--line);border-radius:13px;padding:66px 12px 12px;
+  cursor:pointer;overflow:hidden;isolation:isolate;transition:transform .18s var(--spring),border-color .18s}
+.gs:hover{border-color:rgba(255,255,255,.2)}
 .gs:active{transform:scale(.96)}
-.gs b{display:block;font-size:14px;font-weight:580;letter-spacing:-.015em}
-.gs small{display:block;color:var(--dim);font-size:11.5px;margin-top:3px;font-family:var(--mono)}
+.gs::before{content:"";position:absolute;inset:0;z-index:-2;
+  background-image:var(--cover);background-size:cover;background-position:center;
+  transition:transform .4s var(--spring)}
+.gs:hover::before{transform:scale(1.06)}
+.gs::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,#0B0D11 6%,rgba(11,13,17,.78) 38%,rgba(11,13,17,.14) 100%)}
+.gs b{position:relative;display:block;font-size:14px;font-weight:580;letter-spacing:-.015em}
+.gs small{position:relative;display:block;color:var(--muted);font-size:11.5px;margin-top:3px;font-family:var(--mono)}
+
 .books.split{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;align-items:start}
-.books.split .gbig:first-child{grid-row:span 4;margin-bottom:0}
+.books.split .gbig.collection{grid-row:span 4;margin-bottom:0}
 .books.split .gsub{grid-template-columns:1fr 1fr 1fr}
 
 /* ---------- paywall ---------- */
@@ -402,19 +419,24 @@ const QUESTIONS = [
     watch:'Hard-panned piano sounds dramatic on headphones and disappears on a phone. Judge it on the worst speaker you have.' }
 ];
 
+const COVER = id => `assets/covers/${id}.jpg`;
+
 const GENRES = [
-  { k:'gospel', name:'Gospel', glow:'rgba(69,200,216,.14)', n:72,
-    blurb:'Choir against lead, live band bleed, organ that fills every gap.',
-    subs:[['Traditional','Live band · choir'],['Contemporary','Programmed · stacked'],
-          ['Praise & Worship','Dynamics · build'],['African Gospel','Highlife · percussion'],
-          ['Gospel Trap','808 · ad-libs'],['Urban Gospel','R&B hybrid']] },
-  { k:'hiphop',   name:'Hip-hop & Trap', glow:'rgba(242,96,127,.12)', n:26,
+  { k:'gospel', name:'Gospel', n:72, collection:true,
+    blurb:'Six styles that mix nothing alike. Choir against lead, live band bleed, organ that fills every gap.',
+    subs:[['Traditional','Live band · choir','gospel-trad'],
+          ['Contemporary','Programmed · stacked','gospel-contemporary'],
+          ['Praise & Worship','Dynamics · build','gospel-worship'],
+          ['African Gospel','Highlife · percussion','gospel-african'],
+          ['Gospel Trap','808 · ad-libs','gospel-trap'],
+          ['Urban Gospel','R&B hybrid','gospel-urban']] },
+  { k:'hiphop',    name:'Hip-hop & Trap', n:26, img:'hiphop',
     blurb:'808 tuning, vocal density, hats that sit without stabbing.' },
-  { k:'afrobeats',name:'Afrobeats',      glow:'rgba(79,213,143,.12)', n:25,
+  { k:'afrobeats', name:'Afrobeats',      n:25, img:'afrobeats',
     blurb:'Log drum owns the sub. Keep the vocal conversational, never thinned.' },
-  { k:'highlife', name:'Highlife',       glow:'rgba(231,180,90,.12)', n:22,
+  { k:'highlife',  name:'Highlife',       n:22, img:'highlife',
     blurb:'Interlocking guitars, horn sections, a groove that must stay open.' },
-  { k:'rnb',      name:'R&B',            glow:'rgba(164,139,250,.12)', n:20,
+  { k:'rnb',       name:'R&B',            n:20, img:'rnb',
     blurb:'Stacked harmony, warm low mids, space that stays intimate.' }
 ];
 
@@ -615,10 +637,13 @@ function partAnswer(a){
     <div class="watch"><p><b style="color:var(--hold)">Watch:</b> ${esc(a.watch)}</p></div>`;
 }
 
-const partBooks = split => `<div class="books ${split ? 'split' : ''}">${GENRES.map((g,i) => `
-  <div class="gbig" style="--glow:${g.glow};animation:rise .5s var(--spring) ${i*70}ms both" data-genre="${g.k}">
-    <b>${g.name}</b><span>${g.blurb}</span><em>${g.n} signature answers</em>
-    ${g.subs ? `<div class="gsub">${g.subs.map(([n,d]) => `<div class="gs"><b>${n}</b><small>${d}</small></div>`).join('')}</div>` : ''}
+const partBooks = split => `<div class="books ${split ? 'split' : ''}">${GENRES.map((g, i) => `
+  <div class="gbig ${g.collection ? 'collection' : 'photo'}"
+    ${g.img ? `style="--cover:url('${COVER(g.img)}');animation:rise .5s var(--spring) ${i * 70}ms both"`
+            : `style="animation:rise .5s var(--spring) ${i * 70}ms both"`} data-genre="${g.k}">
+    <div class="gtext"><b>${g.name}</b><span>${g.blurb}</span><em>${g.n} signature answers</em></div>
+    ${g.subs ? `<div class="gsub">${g.subs.map(([n, d, id]) =>
+      `<div class="gs" style="--cover:url('${COVER(id)}')"><b>${n}</b><small>${d}</small></div>`).join('')}</div>` : ''}
   </div>`).join('')}</div>`;
 
 function partPay(){
