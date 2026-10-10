@@ -243,15 +243,21 @@ so a malformed entry can never ship.
 
 ---
 
-## 10. Decisions needed before building
+## 10. Decisions, settled
 
-1. **Free or paid?** A thousand researched answers is the first thing in
-   PulseRoom genuinely worth charging for. Options: keep free and grow the
-   audience, or free calculators with the assistant as a one-time unlock.
-2. **Genre priority** — which four lead in 2.0? Suggest Afrobeats, African
-   Gospel, Hip-hop/Trap, R&B, given your audience.
-3. **Voice** — OS voice (free, instant) or your own recorded intros?
-4. **Name** — "Assistant", "Ask", or "Studio" for the new tab.
+1. **Paid — $19, one payment.** No subscription. The calculators stay free, so
+   the free app keeps growing the audience and the assistant is what is sold.
+2. **Genres** — Gospel (six styles), Afrobeats, Hip-hop/Trap, R&B, Highlife.
+3. **Voice** — recorded locally in VoiceBox for the one-line answer and the
+   warning; on-device TTS reads the numbered steps. See `ASSET_PROMPTS.md` §4.
+4. **Name** — the tab is **ASK**.
+
+**One thing to decide at submission, not now: regional pricing.** $19 is a fair
+price in the US and UK and a steep one in Ghana and Nigeria, which is a large
+part of the audience for Gospel, Afrobeats and Highlife. Both stores support
+per-country pricing, and setting it is a few minutes of work in App Store
+Connect and Play Console. Worth doing deliberately rather than shipping one
+USD price everywhere and wondering why West African conversion is flat.
 
 ---
 

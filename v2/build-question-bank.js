@@ -177,11 +177,19 @@ const OVERRIDE = {
 /* ------------------------------------------------------------------ */
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const bank = [];
-const seen = new Set();
+const byId = new Map();
 
+/* An answered entry whose id is already in the bank is the same question with
+   its answer now written, not a duplicate: mark the existing row answered
+   rather than adding a second one. */
 function add(entry) {
-  if (seen.has(entry.id)) { console.error(`  duplicate id dropped: ${entry.id}`); return; }
-  seen.add(entry.id);
+  const prev = byId.get(entry.id);
+  if (prev) {
+    if (entry.status === 'answered') prev.status = 'answered';
+    else console.error(`  duplicate id dropped: ${entry.id}`);
+    return;
+  }
+  byId.set(entry.id, entry);
   bank.push(entry);
 }
 
@@ -202,12 +210,19 @@ for (const [key, src] of Object.entries(SOURCES)) {
 
 const generated = bank.length;
 
-/* Hand-written sets join the same backlog. */
-for (const file of ['playbooks.json', 'concepts.json']) {
+/* Hand-written sets join the same backlog, and so do the files that already
+   carry finished answers — the index is the whole corpus, not only the unwritten
+   part, so a `related` link can point at anything that exists. */
+const ANSWERED = ['questions.seed.json', 'batch-01-drums.json', 'batch-01-vocals.json',
+                  'batch-01-instruments.json'];
+
+for (const file of ['playbooks.json', 'concepts.json', ...ANSWERED]) {
   const p = path.join(OUT, file);
   if (!fs.existsSync(p)) { console.error(`  missing ${file} — skipped`); continue; }
   for (const q of JSON.parse(fs.readFileSync(p, 'utf8')).questions) {
-    add({ ...q, aliases: q.aliases || [], status: 'todo' });
+    add({ id: q.id, q: q.q, aliases: q.aliases || [], source: q.source, intent: q.intent,
+          problem: q.problem, genres: q.genres || ['all'], bucket: q.bucket || 'answered',
+          status: ANSWERED.includes(file) ? 'answered' : 'todo' });
   }
 }
 
@@ -215,6 +230,7 @@ for (const file of ['playbooks.json', 'concepts.json']) {
 fs.writeFileSync(path.join(OUT, 'question-index.json'),
   JSON.stringify({ generated: new Date().toISOString().slice(0, 10), count: bank.length, questions: bank }, null, 1));
 
+const done = bank.filter(q => q.status === 'answered').length;
 const byBucket = bank.reduce((m, q) => (m[q.bucket] = (m[q.bucket] || 0) + 1, m), {});
 const bySource = bank.reduce((m, q) => (m[q.source] = (m[q.source] || 0) + 1, m), {});
 
@@ -223,9 +239,23 @@ md += `Generated ${new Date().toISOString().slice(0, 10)} by \`v2/build-question
 md += `**${bank.length} questions.** This is the backlog: every entry has its final id, `;
 md += `question text and search aliases. An answer is written against each one, in batches, `;
 md += `and validated by \`v2/validate.js\` before it ships.\n\n`;
-md += `| Bucket | Questions |\n|---|---|\n`;
-for (const [k, n] of Object.entries(byBucket).sort((a, b) => b[1] - a[1])) md += `| ${k} | ${n} |\n`;
-md += `| **Total** | **${bank.length}** |\n\n---\n\n`;
+md += `**${done} of them are written.** A bullet marked ✓ has a finished, `;
+md += `validated answer in \`v2/data/\`; the rest are scheduled.
+
+`;
+md += `| Bucket | Questions | Written |
+|---|---|---|
+`;
+for (const [k, n] of Object.entries(byBucket).sort((a, b) => b[1] - a[1])) {
+  const w = bank.filter(q => q.bucket === k && q.status === 'answered').length;
+  md += `| ${k} | ${n} | ${w} |
+`;
+}
+md += `| **Total** | **${bank.length}** | **${done}** |
+
+---
+
+`;
 
 const order = [...Object.keys(SOURCES), 'concept'];
 for (const key of order) {

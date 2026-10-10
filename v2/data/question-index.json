@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-08",
- "count": 693,
+ "generated": "2026-10-10",
+ "count": 713,
  "questions": [
   {
    "id": "808-bigger",
@@ -17,7 +17,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-tighter",
@@ -34,7 +34,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-cleaner",
@@ -119,7 +119,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-warmer",
@@ -154,7 +154,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-fix-boomy",
@@ -275,7 +275,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-bigger",
@@ -292,7 +292,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-warmer",
@@ -326,7 +326,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-cleaner",
@@ -428,7 +428,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-fix-muddy",
@@ -446,7 +446,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-fix-boomy",
@@ -480,7 +480,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-fix-masked",
@@ -584,7 +584,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-bigger",
@@ -601,7 +601,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-brighter",
@@ -737,7 +737,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-fix-boxy",
@@ -754,7 +754,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-fix-harsh",
@@ -772,7 +772,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-fix-thin",
@@ -789,7 +789,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-fix-dull",
@@ -909,7 +909,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-cleaner",
@@ -943,7 +943,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-back",
@@ -960,7 +960,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-wider",
@@ -1029,7 +1029,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-fix-thin",
@@ -1099,7 +1099,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-tighter",
@@ -1218,7 +1218,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-fix-boxy",
@@ -1322,7 +1322,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-wider",
@@ -1339,7 +1339,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-cleaner",
@@ -1459,7 +1459,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-fix-thin",
@@ -1493,7 +1493,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-fix-dull",
@@ -1752,7 +1752,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-louder",
@@ -1769,7 +1769,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-bigger",
@@ -1924,7 +1924,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-fix-lifeless",
@@ -1993,7 +1993,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-cleaner",
@@ -2010,7 +2010,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-wider",
@@ -2216,7 +2216,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-cleaner",
@@ -2233,7 +2233,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-warmer",
@@ -2284,7 +2284,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-smoother",
@@ -2353,7 +2353,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-fix-boomy",
@@ -2388,7 +2388,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-fix-thin",
@@ -2731,7 +2731,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-warmer",
@@ -2748,7 +2748,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-cleaner",
@@ -2782,7 +2782,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-louder",
@@ -2799,7 +2799,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-natural",
@@ -2816,7 +2816,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-back",
@@ -2833,7 +2833,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-aggressive",
@@ -2884,7 +2884,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-thin",
@@ -2919,7 +2919,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-sibilant",
@@ -2937,7 +2937,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-muddy",
@@ -2955,7 +2955,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-boxy",
@@ -2972,7 +2972,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-dull",
@@ -2989,7 +2989,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-masked",
@@ -3075,7 +3075,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-tighter",
@@ -3092,7 +3092,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-glued",
@@ -3177,7 +3177,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-fix-masked",
@@ -3265,7 +3265,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-glued",
@@ -3282,7 +3282,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-cleaner",
@@ -3316,7 +3316,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-bigger",
@@ -3385,7 +3385,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-fix-muddy",
@@ -3490,7 +3490,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-wider",
@@ -3507,7 +3507,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-cleaner",
@@ -3524,7 +3524,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-back",
@@ -3541,7 +3541,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-glued",
@@ -3644,7 +3644,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-fix-masked",
@@ -3766,7 +3766,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-aggressive",
@@ -3783,7 +3783,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-brighter",
@@ -3817,7 +3817,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-louder",
@@ -3903,7 +3903,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-fix-sibilant",
@@ -3921,7 +3921,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-fix-thin",
@@ -4025,7 +4025,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "adlib-back",
@@ -4042,7 +4042,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "adlib-cleaner",
@@ -4059,7 +4059,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "adlib-brighter",
@@ -4129,7 +4129,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "adlib-fix-masked",
@@ -4147,7 +4147,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "adlib-fix-thin",
@@ -4249,7 +4249,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "eguitar-back",
@@ -4318,7 +4318,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "eguitar-fix-muddy",
@@ -4336,7 +4336,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "eguitar-fix-boxy",
@@ -4490,7 +4490,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "eguitar-clean-upfront",
@@ -4541,7 +4541,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "eguitar-clean-fix-harsh",
@@ -4645,7 +4645,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "aguitar-cleaner",
@@ -4764,7 +4764,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "aguitar-fix-boomy",
@@ -4781,7 +4781,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "aguitar-fix-harsh",
@@ -4885,7 +4885,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "piano-cleaner",
@@ -4953,7 +4953,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "piano-bigger",
@@ -5005,7 +5005,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "piano-fix-boxy",
@@ -5160,7 +5160,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "organ-bigger",
@@ -5212,7 +5212,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "organ-fix-masked",
@@ -5299,7 +5299,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rhodes-brighter",
@@ -5437,7 +5437,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rhodes-fix-harsh",
@@ -5523,7 +5523,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthlead-upfront",
@@ -5609,7 +5609,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthlead-fix-thin",
@@ -5730,7 +5730,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "pad-warmer",
@@ -5799,7 +5799,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "pad-fix-masked",
@@ -5886,7 +5886,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "strings-warmer",
@@ -6023,7 +6023,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "strings-fix-thin",
@@ -6195,7 +6195,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "horns-aggressive",
@@ -6247,7 +6247,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "horns-fix-boxy",
@@ -6350,7 +6350,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "mixbus-wider",
@@ -6367,7 +6367,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "mixbus-cleaner",
@@ -6419,7 +6419,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "mixbus-brighter",
@@ -6506,7 +6506,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "mixbus-fix-pumping",
@@ -6523,7 +6523,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "mixbus-fix-lifeless",
@@ -6597,558 +6597,559 @@
   {
    "id": "gt-live-choir-four-mics",
    "q": "How do I mix a live choir recorded with four mics?",
+   "aliases": [],
    "source": "choir",
    "intent": "cleaner",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-hammond-swallowing",
    "q": "How do I stop the Hammond organ swallowing the whole mix?",
+   "aliases": [],
    "source": "organ",
    "intent": "back",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-live-drum-bleed",
    "q": "How do I control drum bleed in a live church recording?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "cleaner",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-lead-vs-twenty-voices",
    "q": "How do I balance one lead singer against a twenty-voice choir?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "upfront",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-shout-section",
    "q": "How do I mix a gospel shout section without it turning to mush?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-vamp-four-minutes",
    "q": "How do I keep a four-minute vamp interesting in the mix?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "natural",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-bass-pick-and-slap",
    "q": "How do I mix a gospel bass that slaps in one bar and walks in the next?",
+   "aliases": [],
    "source": "bass",
    "intent": "smoother",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-leaky-kick-mic",
    "q": "How do I deal with a leaky kick mic in a live church recording?",
+   "aliases": [],
    "source": "kick",
    "intent": "cleaner",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-modern-without-losing-church",
    "q": "How do I make a traditional gospel mix sound modern without losing the church?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "brighter",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-tambourine",
    "q": "How do I mix tambourine so it cuts without stabbing?",
+   "aliases": [],
    "source": "percussion",
    "intent": "brighter",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-leslie-cabinet",
    "q": "How do I mix a Leslie cabinet on a Hammond?",
+   "aliases": [],
    "source": "organ",
    "intent": "natural",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gt-band-gets-loud",
    "q": "How do I keep a live gospel mix exciting when the band gets loud?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "louder",
    "genres": [
     "gospel-trad"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-programmed-plus-live-drummer",
    "q": "How do I blend programmed drums with a live gospel drummer?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "glued",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-stacked-vocals",
    "q": "How do I mix stacked contemporary gospel vocals?",
+   "aliases": [],
    "source": "harmony",
    "intent": "glued",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-compete-with-radio",
    "q": "How do I get a contemporary gospel mix to compete with secular radio?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "louder",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-switches-halfway",
    "q": "How do I mix a track that switches from programmed to live halfway through?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "glued",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-pad-under-busy",
    "q": "How do I sit a worship pad under a busy arrangement?",
+   "aliases": [],
    "source": "pad",
    "intent": "back",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-keys-doubling-bass",
    "q": "How do I mix gospel keys that double the bass line?",
+   "aliases": [],
    "source": "piano",
    "intent": "cleaner",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-key-change",
    "q": "How do I handle a key change in a contemporary gospel mix?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "bigger",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-drums-hit-like-a-record",
    "q": "How do I make contemporary gospel drums hit like a record?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "punchier",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-talkbox-vocoder",
    "q": "How do I mix a talkbox or vocoder lead in gospel?",
+   "aliases": [],
    "source": "synthlead",
    "intent": "cleaner",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-crowded-mids",
    "q": "How do I stop a contemporary gospel mix crowding in the mids?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-bgvs-feel-like-choir",
    "q": "How do I make six background vocals feel like a choir?",
+   "aliases": [],
    "source": "harmony",
    "intent": "bigger",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gc-final-chorus-lift",
    "q": "How do I mix the modulation into the final chorus?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "bigger",
    "genres": [
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-six-minute-build",
    "q": "How do I mix a worship song that builds for six minutes?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "natural",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-intimate-then-huge",
    "q": "How do I keep a worship mix intimate in the verse and huge in the chorus?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "bigger",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-acoustic-led",
    "q": "How do I mix an acoustic-led worship track?",
+   "aliases": [],
    "source": "aguitar",
    "intent": "natural",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-congregation-mic",
    "q": "How do I mix a congregation mic without it sounding like noise?",
+   "aliases": [],
    "source": "room",
    "intent": "natural",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-two-ambient-guitars",
    "q": "How do I mix two electric guitars both playing ambient swells?",
+   "aliases": [],
    "source": "eguitar-clean",
    "intent": "wider",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-honest-not-produced",
    "q": "How do I mix worship vocals so they feel honest, not produced?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "natural",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-reverb-for-ballad",
    "q": "How do I set reverb for a worship ballad?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "bigger",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-spontaneous-section",
    "q": "How do I mix the spontaneous section where nobody knows what happens next?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "natural",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-peaking-too-early",
    "q": "How do I stop a worship mix peaking too early?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "natural",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-quiet-then-belts",
    "q": "How do I mix a worship leader who sings quietly then belts?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "smoother",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-piano-and-pad-same-range",
    "q": "How do I balance piano and pad when they sit in the same range?",
+   "aliases": [],
    "source": "pad",
    "intent": "cleaner",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gw-iem-and-release",
    "q": "How do I mix a worship track for in-ear monitors and for release?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "natural",
    "genres": [
     "gospel-worship"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-percussion-vs-programmed",
    "q": "How do I mix African percussion against a programmed kit?",
+   "aliases": [],
    "source": "percussion",
    "intent": "glued",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-talking-drum",
    "q": "How do I mix a talking drum?",
+   "aliases": [],
    "source": "percussion",
    "intent": "upfront",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-choir-vs-percussion",
    "q": "How do I balance a choir against African percussion?",
+   "aliases": [],
    "source": "choir",
    "intent": "upfront",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-guitar-never-stops",
    "q": "How do I mix African gospel guitar lines that never stop moving?",
+   "aliases": [],
    "source": "eguitar-clean",
    "intent": "back",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-open-when-busy",
    "q": "How do I keep an African gospel mix open when everything is busy?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-call-and-response",
    "q": "How do I mix call-and-response vocals?",
+   "aliases": [],
    "source": "choir",
    "intent": "glued",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-shekere-masks-hats",
    "q": "How do I stop a shekere masking the hi-hats?",
+   "aliases": [],
    "source": "percussion",
    "intent": "cleaner",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-melodic-bass",
    "q": "How do I mix African gospel bass that plays melodically?",
+   "aliases": [],
    "source": "bass",
    "intent": "cleaner",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-horn-section",
    "q": "How do I mix a horn section in African gospel?",
+   "aliases": [],
    "source": "horns",
    "intent": "glued",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-drums-sound-stiff",
    "q": "How do I stop African gospel drums sounding stiff?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "natural",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-guitar-percussion-lock",
    "q": "How do I make the guitar and percussion lock in a gospel highlife groove?",
+   "aliases": [],
    "source": "eguitar-clean",
    "intent": "tighter",
    "genres": [
@@ -7156,144 +7157,144 @@
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ga-phone-speakers",
    "q": "How do I make an African gospel mix translate on phone speakers?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "brighter",
    "genres": [
     "gospel-african"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-808-under-choir",
    "q": "How do I mix an 808 under a gospel choir?",
+   "aliases": [],
    "source": "808",
    "intent": "cleaner",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-adlibs-around-preaching",
    "q": "How do I mix ad-libs around a preaching vocal?",
+   "aliases": [],
    "source": "adlib",
    "intent": "back",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-hats-vs-tambourine",
    "q": "How do I stop trap hats fighting the tambourine?",
+   "aliases": [],
    "source": "hats",
    "intent": "cleaner",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-sampled-live-choir",
    "q": "How do I mix a beat that samples a live choir?",
+   "aliases": [],
    "source": "choir",
    "intent": "glued",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-trap-drums-live-keys",
    "q": "How do I balance trap drums with live gospel keys?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "glued",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-heavy-autotune",
    "q": "How do I mix gospel vocals with heavy autotune?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "natural",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-808-and-organ-both-low",
    "q": "How do I keep the low end clean when the 808 and organ both go low?",
+   "aliases": [],
    "source": "808",
    "intent": "cleaner",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-drop",
    "q": "How do I mix a gospel trap drop?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "bigger",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-hit-without-burying-message",
    "q": "How do I make the drums hit without burying the message?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "back",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-vocal-chop",
    "q": "How do I mix a gospel vocal chop?",
+   "aliases": [],
    "source": "synthlead",
    "intent": "cleaner",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-triplet-hat-rolls",
    "q": "How do I stop triplet hat rolls cluttering the top end?",
+   "aliases": [],
    "source": "hats",
    "intent": "cleaner",
    "genres": [
@@ -7301,384 +7302,384 @@
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gx-streaming-loudness",
    "q": "How do I mix gospel trap for streaming loudness?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "louder",
    "genres": [
     "gospel-trap"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-rnb-style-stacks",
    "q": "How do I mix urban gospel vocals with R&B-style stacks?",
+   "aliases": [],
    "source": "harmony",
    "intent": "glued",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-modern-but-warm",
    "q": "How do I get urban gospel low end modern but still warm?",
+   "aliases": [],
    "source": "bass",
    "intent": "warmer",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-keys-and-live-bass",
    "q": "How do I mix urban gospel keys and a live bass together?",
+   "aliases": [],
    "source": "rhodes",
    "intent": "cleaner",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-rap-verse-in-middle",
    "q": "How do I mix a gospel song with a rap verse in the middle?",
+   "aliases": [],
    "source": "rapvocal",
    "intent": "glued",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-smooth-not-dull",
    "q": "How do I keep an urban gospel mix smooth without going dull?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "smoother",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-bgvs-almost-choir",
    "q": "How do I mix background vocals that are almost a choir?",
+   "aliases": [],
    "source": "harmony",
    "intent": "bigger",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-heavy-vibrato",
    "q": "How do I mix a gospel vocal with heavy vibrato?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "smoother",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-half-live-half-programmed",
    "q": "How do I mix drums that are half live and half programmed?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "glued",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-sax-solo",
    "q": "How do I sit a saxophone solo in a gospel mix?",
+   "aliases": [],
    "source": "horns",
    "intent": "upfront",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-bridge-drops-to-vocals-keys",
    "q": "How do I mix a bridge that drops to just vocals and keys?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "bigger",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-expensive-reverb",
    "q": "How do I get urban gospel reverb to sound expensive?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "bigger",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "gu-radio-and-church-playback",
    "q": "How do I mix for radio and for church playback at the same time?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "natural",
    "genres": [
     "gospel-urban"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-log-drum",
    "q": "How do I mix an afrobeats log drum?",
+   "aliases": [],
    "source": "808",
    "intent": "bigger",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-groove-swings",
    "q": "How do I mix afrobeats drums so the groove swings?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "natural",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-conversational-but-loud",
    "q": "How do I keep an afrobeats vocal conversational and still loud?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "upfront",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-shakers-drive",
    "q": "How do I mix afrobeats shakers so they drive the track?",
+   "aliases": [],
    "source": "percussion",
    "intent": "upfront",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-percussion-layers",
    "q": "How do I mix layered afrobeats percussion without clutter?",
+   "aliases": [],
    "source": "percussion",
    "intent": "cleaner",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-low-end-phone",
    "q": "How do I get afrobeats low end right on phone speakers?",
+   "aliases": [],
    "source": "808",
    "intent": "brighter",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-guitar-riff-all-song",
    "q": "How do I mix a guitar riff that repeats the whole song?",
+   "aliases": [],
    "source": "eguitar-clean",
    "intent": "back",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-light-autotune",
    "q": "How do I mix afrobeats vocals with light autotune?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "natural",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-logdrum-vs-kick",
    "q": "How do I balance the log drum and the kick?",
+   "aliases": [],
    "source": "kick",
    "intent": "cleaner",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-adlibs-and-bgvs",
    "q": "How do I mix afrobeats ad-libs and background vocals?",
+   "aliases": [],
    "source": "adlib",
    "intent": "wider",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-cluttered-mids",
    "q": "How do I stop an afrobeats mix cluttering in the mids?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-hats-and-shakers",
    "q": "How do I mix hats and shakers together?",
+   "aliases": [],
    "source": "hats",
    "intent": "cleaner",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-drop-lands",
    "q": "How do I make an afrobeats drop land?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "bigger",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-keys-under-groove",
    "q": "How do I mix keys and pads under a busy afrobeats groove?",
+   "aliases": [],
    "source": "pad",
    "intent": "back",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-amapiano-influenced",
    "q": "How do I mix an amapiano-influenced afrobeats track?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-congas-bongos",
    "q": "How do I mix congas and bongos in afrobeats?",
+   "aliases": [],
    "source": "percussion",
    "intent": "natural",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-the-bounce",
    "q": "How do I get the afrobeats bounce in the mix?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "punchier",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-stacked-chorus",
    "q": "How do I mix an afrobeats chorus with stacked vocals?",
+   "aliases": [],
    "source": "harmony",
    "intent": "bigger",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-samples-highlife-guitar",
    "q": "How do I mix an afrobeats track that samples highlife guitar?",
+   "aliases": [],
    "source": "eguitar-clean",
    "intent": "glued",
    "genres": [
@@ -7686,528 +7687,528 @@
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-club-system",
    "q": "How do I mix afrobeats for a club system?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "louder",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-no-real-chorus",
    "q": "How do I mix an arrangement that has no real chorus?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "natural",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-feature-recorded-elsewhere",
    "q": "How do I match a feature verse recorded somewhere else?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "glued",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-master-for-streaming",
    "q": "How do I master an afrobeats track for streaming?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "louder",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "ab-vocal-sits-on-the-one",
    "q": "How do I mix a vocal that lands behind the beat on purpose?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "natural",
    "genres": [
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-tune-the-808",
    "q": "How do I tune my 808 to the song?",
+   "aliases": [],
    "source": "808",
    "intent": "cleaner",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-hats-dont-stab",
    "q": "How do I mix trap hats so they don't stab?",
+   "aliases": [],
    "source": "hats",
    "intent": "smoother",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-every-word-clear",
    "q": "How do I mix a rap vocal so every word is clear?",
+   "aliases": [],
    "source": "rapvocal",
    "intent": "upfront",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-adlibs-around-main",
    "q": "How do I mix trap ad-libs around the main vocal?",
+   "aliases": [],
    "source": "adlib",
    "intent": "wider",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-snare-cuts-through",
    "q": "How do I make a trap snare cut through?",
+   "aliases": [],
    "source": "snare",
    "intent": "upfront",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-beat-as-two-track",
    "q": "How do I mix a beat that was sent as a two-track?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-vocal-over-loud-beat",
    "q": "How do I mix a rap vocal over a loud beat?",
+   "aliases": [],
    "source": "rapvocal",
    "intent": "upfront",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-cheap-mic",
    "q": "How do I rescue a rap vocal recorded on a cheap mic?",
+   "aliases": [],
    "source": "rapvocal",
    "intent": "cleaner",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-trap-drop",
    "q": "How do I mix a trap drop?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "bigger",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-808-on-small-speakers",
    "q": "How do I stop my 808 disappearing on small speakers?",
+   "aliases": [],
    "source": "808",
    "intent": "brighter",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-doubled-rap-vocals",
    "q": "How do I mix doubled rap vocals?",
+   "aliases": [],
    "source": "double",
    "intent": "tighter",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-melodic-autotune",
    "q": "How do I mix a melodic trap vocal with autotune?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "smoother",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-sampled-soul-loop",
    "q": "How do I mix a sampled soul loop?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "warmer",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-boom-bap-drums",
    "q": "How do I mix boom bap drums?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "punchier",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-hat-roll",
    "q": "How do I mix a trap hi-hat roll?",
+   "aliases": [],
    "source": "hats",
    "intent": "smoother",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-hook-stacks",
    "q": "How do I mix a rap hook with stacked vocals?",
+   "aliases": [],
    "source": "harmony",
    "intent": "bigger",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-sidechain-808-to-kick",
    "q": "How do I sidechain my 808 to the kick?",
+   "aliases": [],
    "source": "808",
    "intent": "cleaner",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-trap-with-live-bass",
    "q": "How do I mix a trap track that also has a live bass?",
+   "aliases": [],
    "source": "bass",
    "intent": "cleaner",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-rap-mix-harsh",
    "q": "How do I stop a rap mix being harsh?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "smoother",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-feature-different-room",
    "q": "How do I match a rap feature recorded in a different room?",
+   "aliases": [],
    "source": "rapvocal",
    "intent": "glued",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-drill-beat",
    "q": "How do I mix a drill beat?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "aggressive",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-loud-for-streaming",
    "q": "How do I get a trap mix loud enough for streaming?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "louder",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-vinyl-noise",
    "q": "How do I mix a track built on a noisy vinyl sample?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hh-recorded-too-hot",
    "q": "How do I fix a rap vocal that was recorded too hot?",
+   "aliases": [],
    "source": "rapvocal",
    "intent": "cleaner",
    "genres": [
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-vocal-stacks",
    "q": "How do I mix R&B vocal stacks?",
+   "aliases": [],
    "source": "harmony",
    "intent": "glued",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-warm-but-tight",
    "q": "How do I get R&B low end warm but tight?",
+   "aliases": [],
    "source": "bass",
    "intent": "tighter",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-mostly-space",
    "q": "How do I mix a track that is mostly space?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "bigger",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-soft-but-present-drums",
    "q": "How do I mix R&B drums that are soft but present?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "punchier",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-falsetto",
    "q": "How do I mix an R&B falsetto?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "smoother",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-harmonies-blend",
    "q": "How do I make harmonies blend with the lead instead of competing?",
+   "aliases": [],
    "source": "harmony",
    "intent": "back",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-six-vocal-layers",
    "q": "How do I mix a bridge with six vocal layers?",
+   "aliases": [],
    "source": "harmony",
    "intent": "cleaner",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-intimate-reverb",
    "q": "How do I get R&B reverb to feel intimate?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "natural",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-rhodes-and-pads",
    "q": "How do I mix Rhodes and pads together?",
+   "aliases": [],
    "source": "rhodes",
    "intent": "cleaner",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-heavy-breath",
    "q": "How do I handle heavy breaths in an R&B vocal?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "natural",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-live-and-programmed",
    "q": "How do I mix an R&B track with live and programmed drums?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "glued",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-bass-slides",
    "q": "How do I mix a bass that slides between notes?",
+   "aliases": [],
    "source": "bass",
    "intent": "smoother",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-vocal-runs",
    "q": "How do I mix vocal runs so every note is heard?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "smoother",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-smooth-not-dull",
    "q": "How do I keep an R&B mix smooth without losing detail?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "smoother",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-trap-influenced-beat",
    "q": "How do I mix an R&B song over a trap-influenced beat?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "glued",
    "genres": [
@@ -8215,264 +8216,264 @@
     "hiphop"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-bgvs-panned-wide",
    "q": "How do I mix background vocals panned wide?",
+   "aliases": [],
    "source": "harmony",
    "intent": "wider",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-duet-trading-lines",
    "q": "How do I mix a duet where two voices trade lines?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "glued",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-guitar-answers-vocal",
    "q": "How do I mix a guitar lick that answers the vocal?",
+   "aliases": [],
    "source": "eguitar-clean",
    "intent": "back",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-outro-adlibs",
    "q": "How do I mix an outro that fades into ad-libs?",
+   "aliases": [],
    "source": "adlib",
    "intent": "back",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "rb-low-end-survives-streaming",
    "q": "How do I master R&B so the low end survives streaming?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "louder",
    "genres": [
     "rnb"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-interlocking-guitars",
    "q": "How do I mix interlocking highlife guitars?",
+   "aliases": [],
    "source": "eguitar-clean",
    "intent": "cleaner",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-horn-section",
    "q": "How do I mix a highlife horn section?",
+   "aliases": [],
    "source": "horns",
    "intent": "glued",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-groove-stays-light",
    "q": "How do I mix highlife drums so the groove stays light?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "natural",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-walking-bass",
    "q": "How do I mix a highlife bass line that walks?",
+   "aliases": [],
    "source": "bass",
    "intent": "smoother",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-percussion-vs-kit",
    "q": "How do I mix highlife percussion against the kit?",
+   "aliases": [],
    "source": "percussion",
    "intent": "cleaner",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-open-and-airy",
    "q": "How do I keep a highlife mix open and airy?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-twi-ga-vocals",
    "q": "How do I mix highlife vocals sung in Twi or Ga?",
+   "aliases": [],
    "source": "leadvocal",
    "intent": "upfront",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-recorded-live-one-room",
    "q": "How do I mix a highlife track recorded live in one room?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-rhythm-guitar-masks-vocal",
    "q": "How do I stop the rhythm guitar masking the vocal?",
+   "aliases": [],
    "source": "eguitar-clean",
    "intent": "back",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-guitar-solo",
    "q": "How do I mix a highlife guitar solo?",
+   "aliases": [],
    "source": "eguitar-clean",
    "intent": "upfront",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-keys-and-organ",
    "q": "How do I mix highlife keys and organ together?",
+   "aliases": [],
    "source": "organ",
    "intent": "cleaner",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-backing-vocals",
    "q": "How do I mix highlife backing vocals?",
+   "aliases": [],
    "source": "harmony",
    "intent": "glued",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-older-audience-vinyl",
    "q": "How do I mix highlife for an audience used to vinyl?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "warmer",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-horns-not-harsh",
    "q": "How do I stop highlife horns sounding harsh?",
+   "aliases": [],
    "source": "horns",
    "intent": "smoother",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-song-modulates",
    "q": "How do I mix a highlife song that modulates?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "bigger",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-congas-and-claves",
    "q": "How do I mix congas and claves in highlife?",
+   "aliases": [],
    "source": "percussion",
    "intent": "natural",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-fusion-with-afrobeats",
    "q": "How do I mix a modern highlife fusion with afrobeats drums?",
+   "aliases": [],
    "source": "drumbus",
    "intent": "glued",
    "genres": [
@@ -8480,1844 +8481,2230 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-long-instrumental",
    "q": "How do I mix a long instrumental section?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "natural",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-warm-not-old",
    "q": "How do I make highlife sound warm without sounding old?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "brighter",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "hl-master-for-streaming",
    "q": "How do I master a highlife track for streaming?",
+   "aliases": [],
    "source": "mixbus",
    "intent": "louder",
    "genres": [
     "highlife"
    ],
    "bucket": "genre",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-gain-staging",
    "q": "What is gain staging and why does it matter?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-headroom",
    "q": "How much headroom should I leave before mastering?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-mix-into-limiter",
    "q": "Should I mix into a limiter?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-clipping-sound",
    "q": "What does clipping actually sound like?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-true-peak",
    "q": "What is true peak and why is it different from peak?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-what-lufs",
    "q": "What LUFS should I master to?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-spotify-turns-down",
    "q": "Why does my master get turned down on Spotify?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-dither",
    "q": "Do I need to dither, and when?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-crest-factor",
    "q": "What is crest factor and why should I care?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-oversampling",
    "q": "What does oversampling actually do?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-eq-before-after-comp",
    "q": "When should I EQ before compression and when after?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-what-is-q",
    "q": "What does Q actually control?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-shelf-or-bell",
    "q": "Shelf or bell — which should I use?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-linear-phase",
    "q": "When should I use a linear phase EQ?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-cut-vs-boost",
    "q": "Why does cutting usually sound better than boosting?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-highpass-everything",
    "q": "Should I high-pass everything?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-find-a-resonance",
    "q": "How do I find a resonance?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-dynamic-eq",
    "q": "What is dynamic EQ and when do I need it?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-tilt-eq",
    "q": "What is a tilt EQ?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-mid-side-eq",
    "q": "How do I use mid/side EQ?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-frequency-map",
    "q": "Which frequencies are mud, boxiness, honk and harshness?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-eq-in-context",
    "q": "How do I EQ in context instead of in solo?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-same-move-different-source",
    "q": "Why does the same EQ move sound different on every source?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-too-many-bands",
    "q": "How many EQ bands is too many?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-eq-curve-reading",
    "q": "How do I read an EQ curve?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-ratio",
    "q": "What does compression ratio actually do?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-knee",
    "q": "What does the knee control on a compressor?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-set-attack-by-ear",
    "q": "How do I set compressor attack by ear?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-set-release-by-ear",
    "q": "How do I set compressor release by ear?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-auto-release",
    "q": "What is auto-release and should I trust it?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-how-much-gr",
    "q": "How much gain reduction is too much?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-parallel-compression",
    "q": "What is parallel compression?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-serial-compression",
    "q": "Why would I use two compressors in a row?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-upward-compression",
    "q": "What is upward compression?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-compressor-types",
    "q": "VCA, FET, opto or vari-mu — which do I use when?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-limiter-vs-compressor",
    "q": "How is a limiter different from a compressor?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-multiband",
    "q": "What is multiband compression actually for?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-transient-shaper",
    "q": "When is a transient shaper better than a compressor?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-comp-makes-it-dull",
    "q": "Why does my compressor make things quieter and duller?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-lookahead",
    "q": "What is lookahead?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-sidechain-filter",
    "q": "What does the sidechain filter on a compressor do?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-bus-compression",
    "q": "What is bus compression for?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-compress-keep-dynamics",
    "q": "How do I compress without losing dynamics?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-expander",
    "q": "What is an expander and when do I use one?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-gate",
    "q": "How do I set a gate properly?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-ducking",
    "q": "What is ducking and when should I use it?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-sidechain-pumping",
    "q": "How do I sidechain without the whole mix pumping?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-predelay",
    "q": "What is pre-delay and how do I set it?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-decay-to-tempo",
    "q": "How do I set reverb decay to the tempo?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-reverb-types",
    "q": "Room, plate, hall, chamber or spring — which when?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-early-reflections",
    "q": "What are early reflections and why do they matter?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-send-vs-insert",
    "q": "Should reverb go on a send or an insert?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-eq-the-return",
    "q": "How do I EQ a reverb return?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-reverb-muddy",
    "q": "Why does reverb make my mix muddy?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-delay-for-depth",
    "q": "How do I use delay instead of reverb for depth?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-slapback",
    "q": "What is a slapback delay and where does it belong?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-ping-pong",
    "q": "What is ping-pong delay and when does it hurt the mix?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-delay-feedback",
    "q": "How do I set delay feedback?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-delays-behind-vocal",
    "q": "How do I make delays sit behind the vocal?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-effect-throw",
    "q": "What is a throw and how do I automate one?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-depth-without-reverb",
    "q": "How do I create depth without reverb?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-haas",
    "q": "What is the Haas effect and why is it risky?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-delay-in-time-or-off",
    "q": "Should delay be exactly in time or slightly off?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-mono-compatibility",
    "q": "What is mono compatibility and how do I check it?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-polarity-vs-phase",
    "q": "What is the difference between polarity and phase?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-comb-filtering",
    "q": "What is comb filtering?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-correlation-meter",
    "q": "How do I read a correlation meter?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-low-end-mono",
    "q": "Should the low end be mono?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-mid-side-processing",
    "q": "What is mid/side processing?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-how-wide-too-wide",
    "q": "How wide is too wide?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-fix-phase-two-mics",
    "q": "How do I fix a phase problem between two mics?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-three-to-one-rule",
    "q": "What is the 3:1 rule for mic placement?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-widen-without-widener",
    "q": "How do I widen something without a stereo widener?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-what-saturation-adds",
    "q": "What does saturation actually add?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-saturation-types",
    "q": "Tape, tube, transistor or diode — what is the difference?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-saturate-instead-of-eq",
    "q": "When should I saturate instead of EQ?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-harmonics-low-end",
    "q": "What is harmonic distortion doing to my low end?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-too-much-saturation",
    "q": "How much saturation is too much?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-masking",
    "q": "What is frequency masking?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-fletcher-munson",
    "q": "What is the Fletcher-Munson curve and why does it matter?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-what-volume-to-mix",
    "q": "What volume should I mix at?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-mix-sounds-worse-later",
    "q": "Why does my mix sound worse the longer I work on it?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-reference-tracks",
    "q": "How do I use reference tracks properly?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-ab-without-fooling-yourself",
    "q": "How do I A/B without fooling myself?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-louder-sounds-better",
    "q": "Why does louder always sound better?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-check-different-speakers",
    "q": "How do I check a mix on different speakers?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-null-test",
    "q": "What is a null test and what does it prove?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-train-your-ears",
    "q": "How do I train my ears to recognise frequencies?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-what-mastering-does",
    "q": "What does mastering actually do?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-master-my-own-mix",
    "q": "Can I master my own mix?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-stem-mastering",
    "q": "What is stem mastering?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-loudness-per-platform",
    "q": "How loud should my master be for each platform?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-limiter-off-for-engineer",
    "q": "Should I leave the limiter off for the mastering engineer?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-mastering-chain-order",
    "q": "What order should a mastering chain go in?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-master-is-done",
    "q": "How do I know when a master is done?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-too-much-low-end",
    "q": "How do I know if I have too much low end?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-low-end-no-sub",
    "q": "How do I mix low end without a subwoofer?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-sub-bass-lowmid",
    "q": "What is the difference between sub, bass and low mids?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-low-end-headphones",
    "q": "How do I judge low end on headphones?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "c-low-end-in-the-car",
    "q": "Why does my low end sound different in the car?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "concept",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-prepare-session",
    "q": "How do I prepare a session before mixing?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-what-order",
    "q": "What order should I mix in?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-start-drums-or-vocals",
    "q": "Should I start with the drums or the vocal?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-how-long",
    "q": "How long should a mix take?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-when-to-break",
    "q": "When should I take a break?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-mix-template",
    "q": "How do I set up a mix template?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-naming-colouring",
    "q": "How do I name and colour tracks usefully?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-rough-balance",
    "q": "What is a rough balance and why does it matter so much?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-fader-or-clip-gain",
    "q": "Should I use the fader or the clip gain?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-when-to-commit",
    "q": "When do I commit and when do I stay flexible?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-organise-buses",
    "q": "How should I organise my buses?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-vca-vs-group",
    "q": "VCA or group — what is the difference and when do I use each?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-headphones-only",
    "q": "How do I mix on headphones only?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-calibrate-monitors",
    "q": "How do I calibrate my monitors?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-treat-a-bedroom",
    "q": "How do I treat a bedroom for mixing?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-car-test",
    "q": "How do I test a mix in the car?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-phone-test",
    "q": "How do I test a mix on a phone speaker?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-revision-notes",
    "q": "How do I handle client revision notes?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-deliver-stems",
    "q": "How do I deliver stems?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-send-to-mastering",
    "q": "What exactly do I send to a mastering engineer?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-instrumental-tv-mix",
    "q": "How do I make an instrumental and a TV mix?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-radio-edit",
    "q": "How do I make a radio edit?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-version-and-back-up",
    "q": "How do I version and back up a mix?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-recall-old-mix",
    "q": "How do I recall an old mix?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-collaborate-remotely",
    "q": "How do I collaborate on a mix remotely?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-comp-a-vocal",
    "q": "How do I comp a vocal from many takes?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-tune-without-fake",
    "q": "How do I tune a vocal without it sounding fake?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-align-doubles",
    "q": "How do I time-align a doubled vocal?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-edit-drums-keep-feel",
    "q": "How do I edit drum timing without killing the feel?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-replace-bad-snare",
    "q": "How do I replace a bad snare?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-layer-two-kicks",
    "q": "How do I layer two kick samples?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-build-vocal-chain",
    "q": "How do I build a vocal chain from scratch?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-vocal-plugin-order",
    "q": "In what order should vocal plugins go?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-save-reuse-chain",
    "q": "How do I save and reuse a vocal chain across songs?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-gain-stage-a-chain",
    "q": "How do I gain stage a chain of plugins?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-clean-noisy-recording",
    "q": "How do I clean up a noisy recording?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-remove-hum",
    "q": "How do I remove a hum or buzz?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-room-on-every-mic",
    "q": "How do I deal with a room that is audible on every mic?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-clean-fades",
    "q": "How do I fade in and out cleanly?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-automate-not-set-forget",
    "q": "How do I automate a mix instead of setting and forgetting?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-ride-the-vocal",
    "q": "How do I ride a vocal fader?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-automate-effects",
    "q": "How do I automate effects rather than instruments?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-know-its-finished",
    "q": "How do I know a mix is finished?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-stop-tweaking",
    "q": "How do I stop endlessly tweaking?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-mix-fast-deadline",
    "q": "How do I mix fast for a deadline?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-mix-song-i-didnt-record",
    "q": "How do I mix a song I did not record?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-someone-elses-session",
    "q": "How do I take over someone else's session file?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-reference-level-every-session",
    "q": "How do I set the same reference level in every session?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-consistent-across-album",
    "q": "How do I keep mixes consistent across an album?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
   },
   {
    "id": "w-archive-a-project",
    "q": "How do I archive a project properly?",
+   "aliases": [],
    "source": "concept",
    "intent": "learn",
    "genres": [
     "all"
    ],
    "bucket": "workflow",
-   "aliases": [],
    "status": "todo"
+  },
+  {
+   "id": "kick-harder",
+   "q": "How do I make my kick hit harder?",
+   "aliases": [
+    "weak kick",
+    "kick has no punch",
+    "kick doesn't knock",
+    "make kick slap",
+    "kick needs impact"
+   ],
+   "source": "kick",
+   "intent": "punchier",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel",
+    "pop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "kick-vs-808",
+   "q": "My kick and 808 are fighting. How do I fix it?",
+   "aliases": [
+    "808 masking kick",
+    "kick disappears under 808",
+    "muddy low end 808",
+    "kick and bass clash"
+   ],
+   "source": "808",
+   "intent": "cleaner",
+   "genres": [
+    "hiphop",
+    "afrobeats",
+    "amapiano"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocal-thin",
+   "q": "Why do my vocals sound thin?",
+   "aliases": [
+    "vocal sounds weak",
+    "no body in vocal",
+    "vocal too small",
+    "thin vocal fix"
+   ],
+   "source": "leadvocal",
+   "intent": "warmer",
+   "genres": [
+    "rnb",
+    "afrobeats",
+    "gospel",
+    "pop",
+    "ccm"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocal-bigger",
+   "q": "How do I make my vocals sound big?",
+   "aliases": [
+    "huge vocal",
+    "wide vocal",
+    "vocal sounds small",
+    "make vocals massive",
+    "stadium vocal"
+   ],
+   "source": "leadvocal",
+   "intent": "bigger",
+   "genres": [
+    "gospel",
+    "ccm",
+    "pop",
+    "rnb",
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocal-stack-from-one-take",
+   "q": "I only have a few vocal takes. How do I build a stack?",
+   "aliases": [
+    "fake vocal double",
+    "not enough takes",
+    "make one vocal sound like many",
+    "thicken single vocal"
+   ],
+   "source": "harmony",
+   "intent": "bigger",
+   "genres": [
+    "gospel",
+    "afrobeats",
+    "rnb",
+    "pop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "choir-vs-lead",
+   "q": "My choir is swallowing the lead vocal. What do I do?",
+   "aliases": [
+    "choir too loud",
+    "background vocals cover lead",
+    "choir masking lead",
+    "bgv balance"
+   ],
+   "source": "choir",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "ccm"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "snare-crack",
+   "q": "How do I get more crack out of my snare?",
+   "aliases": [
+    "snare sounds weak",
+    "snare needs snap",
+    "more snare attack",
+    "flat snare"
+   ],
+   "source": "snare",
+   "intent": "punchier",
+   "genres": [
+    "hiphop",
+    "pop",
+    "gospel",
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mix-muddy",
+   "q": "My whole mix sounds muddy. Where do I start?",
+   "aliases": [
+    "muddy mix",
+    "mix sounds cloudy",
+    "no clarity in mix",
+    "everything blurry"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "gospel",
+    "hiphop",
+    "rnb",
+    "pop",
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "reverb-muddy",
+   "q": "My reverb is making the mix muddy. How do I fix it?",
+   "aliases": [
+    "too much reverb",
+    "reverb washing out mix",
+    "reverb mud",
+    "reverb clouding"
+   ],
+   "source": "leadvocal",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "ccm",
+    "pop",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "808-mix",
+   "q": "How do I mix an 808 so it translates everywhere?",
+   "aliases": [
+    "808 not audible on phone",
+    "808 too boomy",
+    "808 distorts",
+    "make 808 loud"
+   ],
+   "source": "808",
+   "intent": "louder",
+   "genres": [
+    "hiphop",
+    "afrobeats",
+    "amapiano"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "highlife-horns",
+   "q": "How do I mix a highlife horn section?",
+   "aliases": [
+    "mixing horns",
+    "brass section mix",
+    "trumpet sax mix",
+    "horn section sits badly"
+   ],
+   "source": "horns",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "gospel",
+    "jazz"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "guitar-highlife",
+   "q": "How do I mix highlife guitars so they don't clash?",
+   "aliases": [
+    "two guitars clashing",
+    "guitar mix highlife",
+    "palm wine guitar",
+    "rhythm guitar muddy"
+   ],
+   "source": "eguitar",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "piano-wide",
+   "q": "How do I make a piano sound wide and big?",
+   "aliases": [
+    "piano sounds narrow",
+    "wide piano",
+    "piano small",
+    "spread piano"
+   ],
+   "source": "piano",
+   "intent": "wider",
+   "genres": [
+    "gospel",
+    "ccm",
+    "rnb",
+    "jazz",
+    "pop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocal-upfront",
+   "q": "How do I get my vocal to sit on top of the beat?",
+   "aliases": [
+    "vocal buried",
+    "vocal behind the beat",
+    "vocal not upfront",
+    "vocal gets lost"
+   ],
+   "source": "leadvocal",
+   "intent": "upfront",
+   "genres": [
+    "hiphop",
+    "afrobeats",
+    "rnb",
+    "pop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "predelay-concept",
+   "q": "What is pre-delay and what should I set it to?",
+   "aliases": [
+    "pre delay explained",
+    "what does predelay do",
+    "reverb predelay setting"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "eq-masking-concept",
+   "q": "What is masking and how do I hear it?",
+   "aliases": [
+    "frequency masking",
+    "instruments fighting",
+    "why can't I hear an instrument"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "low-end-mono",
+   "q": "Should my low end be mono?",
+   "aliases": [
+    "mono bass",
+    "bass in stereo",
+    "low frequency mono",
+    "mono below 120"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "drum-bus-glue",
+   "q": "How do I glue my drums together?",
+   "aliases": [
+    "drums sound separate",
+    "drum bus compression",
+    "glue drums",
+    "drums not cohesive"
+   ],
+   "source": "drumbus",
+   "intent": "glued",
+   "genres": [
+    "hiphop",
+    "gospel",
+    "pop",
+    "highlife",
+    "jazz"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "organ-gospel",
+   "q": "How do I mix a Hammond organ in gospel?",
+   "aliases": [
+    "organ mix",
+    "hammond too loud",
+    "organ muddy",
+    "leslie mix"
+   ],
+   "source": "organ",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "ccm",
+    "jazz"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mix-translation",
+   "q": "My mix sounds good on headphones but bad in the car. Why?",
+   "aliases": [
+    "mix doesn't translate",
+    "sounds different everywhere",
+    "bad on phone speaker",
+    "car test fails"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
   }
  ]
 }

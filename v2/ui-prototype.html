@@ -256,8 +256,11 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
   opacity:0;transform:translateY(8px);animation:rise .5s var(--spring) forwards;animation-delay:calc(var(--i)*70ms)}
 .pw li svg{flex:none;color:var(--accent);margin-top:2px}
 .pw li span{color:var(--muted);line-height:1.45}
+.price{display:flex;align-items:baseline;gap:8px;margin-top:26px}
+.price b{font-size:40px;font-weight:700;letter-spacing:-.045em;line-height:1}
+.price span{font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
 .cta{width:100%;max-width:360px;height:52px;border-radius:15px;background:var(--accent);color:var(--accent-ink);
-  border:none;font:inherit;font-size:16px;font-weight:680;margin-top:24px;cursor:pointer;transition:transform .16s var(--spring)}
+  border:none;font:inherit;font-size:16px;font-weight:680;margin-top:16px;cursor:pointer;transition:transform .16s var(--spring)}
 .cta:active{transform:scale(.98)}
 .pw .fine{color:var(--dim);font-size:11.5px;margin-top:12px;line-height:1.5;max-width:360px;text-align:center}
 
@@ -696,8 +699,9 @@ function partPay(){
     <ul>${rows.map((r,i) => `<li style="--i:${i}">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
         stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.2 4.2L19 7"/></svg><span>${r}</span></li>`).join('')}</ul>
+    <div class="price"><b>$19</b><span>once</span></div>
     <button class="cta">Unlock PulseRoom Pro</button>
-    <p class="fine">One payment. Every update included.<br>The calculators stay free, forever.</p>
+    <p class="fine">One payment of $19. No subscription, no renewal.<br>Every future answer and update included.<br>The calculators stay free, forever.</p>
   </div>`;
 }
 
