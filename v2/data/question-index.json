@@ -6604,7 +6604,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-hammond-swallowing",
@@ -6616,7 +6616,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-live-drum-bleed",
@@ -6628,7 +6628,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-lead-vs-twenty-voices",
@@ -6640,7 +6640,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-shout-section",
@@ -6652,7 +6652,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-vamp-four-minutes",
@@ -6664,7 +6664,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-bass-pick-and-slap",
@@ -6676,7 +6676,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-leaky-kick-mic",
@@ -6688,7 +6688,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-modern-without-losing-church",
@@ -6700,7 +6700,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-tambourine",
@@ -6712,7 +6712,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-leslie-cabinet",
@@ -6724,7 +6724,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gt-band-gets-loud",
@@ -6736,7 +6736,7 @@
     "gospel-trad"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-programmed-plus-live-drummer",
@@ -6748,7 +6748,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-stacked-vocals",
@@ -6760,7 +6760,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-compete-with-radio",
@@ -6772,7 +6772,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-switches-halfway",
@@ -6784,7 +6784,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-pad-under-busy",
@@ -6796,7 +6796,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-keys-doubling-bass",
@@ -6808,7 +6808,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-key-change",
@@ -6820,7 +6820,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-drums-hit-like-a-record",
@@ -6832,7 +6832,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-talkbox-vocoder",
@@ -6844,7 +6844,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-crowded-mids",
@@ -6856,7 +6856,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-bgvs-feel-like-choir",
@@ -6868,7 +6868,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gc-final-chorus-lift",
@@ -6880,7 +6880,7 @@
     "gospel-contemporary"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-six-minute-build",
@@ -6892,7 +6892,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-intimate-then-huge",
@@ -6904,7 +6904,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-acoustic-led",
@@ -6916,7 +6916,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-congregation-mic",
@@ -6928,7 +6928,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-two-ambient-guitars",
@@ -6940,7 +6940,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-honest-not-produced",
@@ -6952,7 +6952,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-reverb-for-ballad",
@@ -6964,7 +6964,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-spontaneous-section",
@@ -6976,7 +6976,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-peaking-too-early",
@@ -6988,7 +6988,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-quiet-then-belts",
@@ -7000,7 +7000,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-piano-and-pad-same-range",
@@ -7012,7 +7012,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "gw-iem-and-release",
@@ -7024,7 +7024,7 @@
     "gospel-worship"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ga-percussion-vs-programmed",
@@ -7036,7 +7036,7 @@
     "gospel-african"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ga-talking-drum",
@@ -7048,7 +7048,7 @@
     "gospel-african"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ga-choir-vs-percussion",
@@ -7060,7 +7060,7 @@
     "gospel-african"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ga-guitar-never-stops",
@@ -7108,7 +7108,7 @@
     "gospel-african"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ga-melodic-bass",
@@ -7157,7 +7157,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ga-phone-speakers",
