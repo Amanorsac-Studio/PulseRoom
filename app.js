@@ -8,7 +8,12 @@
 
 const state = {
   bpm: 120,
-  page: 'delay',
+  page: 'ask',
+  askQuery: '',
+  askSource: 'all',
+  askGenre: 'all',
+  askId: null,
+  askOpen: false,
   delayView: 'essential',
   delayFilter: 'all',
   reverbStyle: 'hall',
@@ -25,6 +30,13 @@ const tapWord = TOUCH ? 'Tap' : 'Click';
 
 const beatMs = () => 60000 / state.bpm;          // quarter note
 const barMs  = () => beatMs() * 4;               // 4/4 bar
+
+/* ask.js draws its delay and reverb visuals at the project tempo, and copies
+   parameters through the same toast the rest of the app uses. */
+window.state = state;
+window.__beatMs = beatMs;
+window.__barMs = barMs;
+window.copyText = v => copy(v, v);
 
 const fmt = (n, dp = 1) => {
   const v = Number(n);
@@ -1372,6 +1384,7 @@ function initTempoDetect() {
 }
 
 const RENDERERS = {
+  ask: () => window.renderAsk && window.renderAsk(),
   delay: renderDelay,
   reverb: renderReverb,
   eq: renderEQ,
@@ -1393,6 +1406,7 @@ function syncTabs(page) {
 }
 
 function showPage(page) {
+  if (state.page !== page && window.askStopVoice) window.askStopVoice();
   state.page = page;
   $$('.nav-item').forEach(b => b.classList.toggle('active', b.dataset.page === page));
   syncTabs(page);
@@ -1456,5 +1470,5 @@ initTempoDetect();
 updateTempoReadout();
 /* __startPage lets the screenshot tooling open a specific page; normal launches
    fall through to the delay calculator. */
-showPage(RENDERERS[window.__startPage] ? window.__startPage : 'delay');
+showPage(RENDERERS[window.__startPage] ? window.__startPage : 'ask');
 if (window.__startState) { Object.assign(state, window.__startState); showPage(state.page); }
