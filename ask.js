@@ -516,6 +516,45 @@ function listRow(e, sel) {
       stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></button>`;
 }
 
+/* "1/8 dotted" -> {div:'1/8', kind:'dotted'}. "1/8 and 1/4" takes the first of
+   the two. A plain millisecond figure has no note value, so it gets no link —
+   the calculator would have nothing to point at. */
+function delayDivision(time) {
+  const m = /1\/(2|4|8|16|32|64)\b/.exec(String(time || ''));
+  if (!m) return null;
+  const rest = String(time).slice(m.index + m[0].length);
+  const kind = /dotted/i.test(rest) ? 'dotted' : /triplet/i.test(rest) ? 'triplet' : 'straight';
+  return { div: `1/${m[1]}`, kind };
+}
+
+/* The reverb page is organised by style. An answer names one, or names a decay
+   that only one style is built around. */
+const RV_STYLE = { ambience: 'ambience', room: 'room', chamber: 'chamber',
+                   plate: 'plate', hall: 'hall', cathedral: 'epic', epic: 'epic' };
+
+function reverbStyle(rv) {
+  const named = /^[a-z]+/.exec(String(rv.type || '').toLowerCase());
+  if (named && RV_STYLE[named[0]]) return RV_STYLE[named[0]];
+  const s = parseFloat(rv.decay);
+  if (!isFinite(s)) return null;
+  return s <= 0.4 ? 'ambience' : s <= 1.0 ? 'room' : s <= 1.6 ? 'chamber'
+       : s <= 2.6 ? 'hall' : 'epic';
+}
+
+const RV_LABEL = { ambience: 'Tight Ambience', room: 'Small Room', chamber: 'Chamber',
+                   plate: 'Plate', hall: 'Concert Hall', epic: 'Cathedral' };
+
+function deepLinks(p) {
+  const out = [];
+  const d = p.delay && delayDivision(p.delay.time);
+  if (d) out.push(`<button class="ask-jump" data-delay="${d.div} ${d.kind}">
+      <u>Delay Calculator</u><b>${d.div} ${d.kind} at your tempo</b></button>`);
+  const r = p.reverb && reverbStyle(p.reverb);
+  if (r) out.push(`<button class="ask-jump" data-reverb="${r}">
+      <u>Reverb Designer</u><b>${RV_LABEL[r]} — full settings</b></button>`);
+  return out.length ? `<div class="ask-jumps">${out.join('')}</div>` : '';
+}
+
 function answerHtml(e) {
   const v = drawViz(e);
   const chips = [];
@@ -554,6 +593,8 @@ function answerHtml(e) {
 
     ${chips.length ? `<div class="ask-params">${chips.map(([k, val]) =>
       `<button class="ask-param" data-copy="${esc(val)}"><u>${esc(k)}</u><b>${esc(val)}</b></button>`).join('')}</div>` : ''}
+
+    ${deepLinks(p)}
 
     <div class="ask-prose"><h4>Why</h4><p>${esc(e.why)}</p></div>
     ${e.watch ? `<div class="ask-watch"><p><b>Watch:</b> ${esc(e.watch)}</p></div>` : ''}
@@ -685,6 +726,17 @@ document.addEventListener('click', e => {
   if (e.target.closest('.ask-play')) {
     const cur = A().find(x => x.id === S.askId);
     if (cur) speak(cur, () => window.renderAsk());
+    return;
+  }
+
+  const jump = e.target.closest('.ask-jump');
+  if (jump) {
+    if (jump.dataset.delay && window.openDelayAt) {
+      const [div, kind] = jump.dataset.delay.split(' ');
+      window.openDelayAt(div, kind);
+    } else if (jump.dataset.reverb && window.openReverbAs) {
+      window.openReverbAs(jump.dataset.reverb);
+    }
     return;
   }
 

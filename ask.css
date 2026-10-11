@@ -321,3 +321,26 @@
   .ask-chips { padding: 0 14px 9px; }
   .ask-count { padding: 10px 16px 8px; }
 }
+
+/* ---------- deep links into the calculators ---------- */
+/* An answer that prescribes 1/8 dotted or a plate can hand the user to the page
+   that works it out at their tempo, rather than making them find it again. */
+.ask-jumps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.ask-jump {
+  flex: 1 1 220px; display: block; text-align: left; cursor: pointer;
+  background: linear-gradient(180deg,
+    rgba(var(--accent-rgb), .10), rgba(var(--accent-rgb), .03));
+  border: 1px solid rgba(var(--accent-rgb), .28);
+  border-radius: 11px; padding: 10px 13px;
+  transition: transform .15s cubic-bezier(.32,.72,0,1), border-color .18s, background .18s;
+}
+.ask-jump:hover { border-color: rgba(var(--accent-rgb), .5); background: rgba(var(--accent-rgb), .12); }
+.ask-jump:active { transform: translateY(1px) scale(.99); }
+.ask-jump u {
+  display: block; text-decoration: none; font-size: 9px; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--accent); font-weight: 700;
+}
+.ask-jump b {
+  display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-top: 3px;
+}
+.ask-jump b::after { content: ' →'; color: var(--text-3); }

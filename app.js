@@ -16,6 +16,7 @@ const state = {
   askOpen: false,
   delayView: 'essential',
   delayFilter: 'all',
+  delayHighlight: null,
   reverbStyle: 'hall',
   eqInstrument: 'kick',
   compSource: 'kick',
@@ -37,6 +38,18 @@ window.state = state;
 window.__beatMs = beatMs;
 window.__barMs = barMs;
 window.copyText = v => copy(v, v);
+
+/* Deep links out of an answer. An answer that prescribes 1/8 dotted or a plate
+   hands the user straight to the page that works it out at their tempo, with
+   the value it asked for already selected. */
+window.openDelayAt = (div, kind) => {
+  state.delayHighlight = `${div} ${kind}`;
+  showPage('delay');
+};
+window.openReverbAs = style => {
+  if (REVERB_STYLES[style]) state.reverbStyle = style;
+  showPage('reverb');
+};
 
 const fmt = (n, dp = 1) => {
   const v = Number(n);
@@ -99,6 +112,14 @@ function delayRows() {
 }
 
 function renderDelay() {
+  /* An answer can arrive here asking for one specific note value. If that value
+     is not one of the essentials, open the full grid so it is actually on screen. */
+  const hl = state.delayHighlight;
+  if (hl && !DELAY_ESSENTIALS.includes(hl)) {
+    state.delayView = 'all';
+    state.delayFilter = 'all';
+  }
+
   const essential = state.delayView === 'essential';
   const rows = delayRows().filter(r => {
     if (essential) return DELAY_ESSENTIALS.includes(`${r.div} ${r.kind}`);
@@ -108,8 +129,9 @@ function renderDelay() {
   const cells = rows.map(r => {
     const use = DELAY_USES[`${r.div} ${r.kind}`];
     const hz = 1000 / r.ms;
+    const label = `${r.div} ${r.kind}`;
     return `
-      <div class="delay-cell" data-ms="${r.ms.toFixed(2)}" data-label="${r.div} ${r.kind}">
+      <div class="delay-cell${label === hl ? ' hl' : ''}" data-ms="${r.ms.toFixed(2)}" data-label="${label}">
         <div class="dc-note">
           <span class="dc-div">${r.div}</span>
           <span class="dc-kind ${r.kind}">${r.kind.toUpperCase()}</span>
@@ -169,6 +191,10 @@ function renderDelay() {
   $$('.delay-cell').forEach(c =>
     c.addEventListener('click', () => copy(c.dataset.ms, `${c.dataset.label} = ${c.dataset.ms} ms`))
   );
+
+  const marked = $('.delay-cell.hl');
+  if (marked) requestAnimationFrame(() =>
+    marked.scrollIntoView({ block: 'center', behavior: 'smooth' }));
 }
 
 /* ============================================================
@@ -1407,6 +1433,7 @@ function syncTabs(page) {
 
 function showPage(page) {
   if (state.page !== page && window.askStopVoice) window.askStopVoice();
+  if (page !== 'delay') state.delayHighlight = null;
   state.page = page;
   $$('.nav-item').forEach(b => b.classList.toggle('active', b.dataset.page === page));
   syncTabs(page);
