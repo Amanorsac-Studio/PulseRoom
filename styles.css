@@ -3,6 +3,27 @@
    Radius system: cards 14px, controls 8px, pills 999px
    ============================================================ */
 
+/* Geist and Geist Mono, bundled as variable woff2 and loaded from disk so the
+   app stays fully offline. SIL Open Font License 1.1, Vercel in collaboration
+   with basement.studio; the licence ships beside the files in fonts/.
+   Variable means the weight axis is continuous, so the 530 and 620 weights
+   this interface asks for are now real rather than rounded to the nearest
+   installed cut. */
+@font-face {
+  font-family: "Geist";
+  src: url("fonts/Geist-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("fonts/GeistMono-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg:            #0A0B0E;
   --panel:         #121419;
@@ -41,8 +62,8 @@
   --r-card: 14px;
   --r-ctl:  8px;
 
-  --mono: "Cascadia Code", "SF Mono", "JetBrains Mono", Consolas, "Roboto Mono", monospace;
-  --sans: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Geist Mono", "Cascadia Code", "SF Mono", "JetBrains Mono", Consolas, "Roboto Mono", monospace;
+  --sans: "Geist", "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -960,7 +981,10 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
 
   html { -webkit-text-size-adjust: 100%; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    /* Was the native stack, to borrow the platform's text rendering. The app
+       has its own face now, and a tool that looks like itself on every device
+       beats one that looks native on two. */
+    font-family: var(--sans);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     overscroll-behavior-y: none;

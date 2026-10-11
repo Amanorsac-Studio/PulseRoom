@@ -130,8 +130,10 @@
 /* The one-line verdict is the whole point of the page, so it scales with the
    window instead of staying at 26px on a 1500px display. */
 .ask-short {
-  font-size: clamp(24px, 2.1vw, 33px); line-height: 1.16; letter-spacing: -.035em;
-  font-weight: 650; margin-top: 8px; max-width: 24ch;
+  /* -.035em was tuned for Segoe UI. Geist sets tighter by default, and at that
+     value a full stop ran into the next capital: "hit. Gate". */
+  font-size: clamp(24px, 2.1vw, 33px); line-height: 1.18; letter-spacing: -.018em;
+  font-weight: 640; margin-top: 8px; max-width: 24ch;
 }
 
 .ask-viz {
