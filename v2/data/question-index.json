@@ -8541,7 +8541,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-mix-into-limiter",
@@ -8553,7 +8553,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-clipping-sound",
@@ -8565,7 +8565,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-true-peak",
@@ -8577,7 +8577,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-what-lufs",
@@ -8601,7 +8601,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-dither",
@@ -8613,7 +8613,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-crest-factor",
@@ -8625,7 +8625,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-oversampling",
@@ -8637,7 +8637,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-eq-before-after-comp",
@@ -8649,7 +8649,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-what-is-q",
@@ -8661,7 +8661,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-shelf-or-bell",
@@ -8673,7 +8673,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-linear-phase",
@@ -8685,7 +8685,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-cut-vs-boost",
@@ -8697,7 +8697,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-highpass-everything",
@@ -8709,7 +8709,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-find-a-resonance",
@@ -8721,7 +8721,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-dynamic-eq",
@@ -8733,7 +8733,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-tilt-eq",
@@ -8757,7 +8757,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-frequency-map",
@@ -8769,7 +8769,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-eq-in-context",
@@ -8781,7 +8781,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-same-move-different-source",
@@ -8793,7 +8793,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-too-many-bands",
@@ -8817,7 +8817,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-ratio",
@@ -8829,7 +8829,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-knee",
@@ -8841,7 +8841,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-set-attack-by-ear",
@@ -8853,7 +8853,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-set-release-by-ear",
@@ -8865,7 +8865,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-auto-release",
@@ -8877,7 +8877,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-how-much-gr",
@@ -8889,7 +8889,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-parallel-compression",
@@ -8913,7 +8913,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-upward-compression",
@@ -8925,7 +8925,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-compressor-types",
@@ -8937,7 +8937,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-limiter-vs-compressor",
@@ -8949,7 +8949,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-multiband",
@@ -8961,7 +8961,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-transient-shaper",
@@ -8973,7 +8973,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-comp-makes-it-dull",
@@ -8985,7 +8985,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-lookahead",
@@ -8997,7 +8997,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-sidechain-filter",
@@ -9009,7 +9009,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-bus-compression",
@@ -9021,7 +9021,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-compress-keep-dynamics",
@@ -9033,7 +9033,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-expander",
@@ -9045,7 +9045,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-gate",
@@ -9057,7 +9057,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-ducking",
@@ -9069,7 +9069,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-sidechain-pumping",
@@ -9081,7 +9081,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-predelay",
@@ -9093,7 +9093,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-decay-to-tempo",
@@ -9105,7 +9105,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-reverb-types",
@@ -9117,7 +9117,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-early-reflections",
@@ -9129,7 +9129,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-send-vs-insert",
@@ -9141,7 +9141,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-eq-the-return",
@@ -9153,7 +9153,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-reverb-muddy",
@@ -9177,7 +9177,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-slapback",
@@ -9465,7 +9465,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-fletcher-munson",
@@ -9477,7 +9477,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-what-volume-to-mix",
@@ -9489,7 +9489,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-mix-sounds-worse-later",
@@ -9501,7 +9501,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-reference-tracks",
@@ -9513,7 +9513,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-ab-without-fooling-yourself",
@@ -9525,7 +9525,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-louder-sounds-better",
@@ -9537,7 +9537,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-check-different-speakers",
@@ -9549,7 +9549,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-null-test",
@@ -9561,7 +9561,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-train-your-ears",
@@ -9573,7 +9573,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-what-mastering-does",

@@ -2,17 +2,17 @@
 
 Generated 2026-10-11 by `v2/build-question-bank.js`. **712 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
 
-**210 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
+**269 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
 
 | Bucket | Questions | Written |
 |---|---|---|
 | intent | 217 | 57 |
 | problem | 166 | 41 |
 | genre | 160 | 90 |
-| concept | 100 | 3 |
+| concept | 100 | 62 |
 | workflow | 50 | 0 |
 | answered | 19 | 19 |
-| **Total** | **712** | **210** |
+| **Total** | **712** | **269** |
 
 ---
 
