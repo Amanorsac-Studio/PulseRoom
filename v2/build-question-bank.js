@@ -214,7 +214,7 @@ const generated = bank.length;
    carry finished answers — the index is the whole corpus, not only the unwritten
    part, so a `related` link can point at anything that exists. */
 const ANSWERED = ['questions.seed.json', 'batch-01-drums.json', 'batch-01-vocals.json',
-                  'batch-01-instruments.json', 'batch-02-gospel.json', 'batch-03-genres.json', 'batch-04-concepts.json', 'batch-05-workflow.json', 'batch-06-concepts2.json'];
+                  'batch-01-instruments.json', 'batch-02-gospel.json', 'batch-03-genres.json', 'batch-04-concepts.json', 'batch-05-workflow.json', 'batch-06-concepts2.json', 'batch-07-genres2.json'];
 
 for (const file of ['playbooks.json', 'concepts.json', ...ANSWERED]) {
   const p = path.join(OUT, file);
