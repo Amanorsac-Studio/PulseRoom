@@ -143,6 +143,23 @@ const ms = n => {                                             // "20–30 ms" ->
   return m.length > 1 ? (parseFloat(m[0]) + parseFloat(m[1])) / 2 : parseFloat(m[0]);
 };
 
+/* Batches have been written over time and spell the filter types differently.
+   Normalise here rather than editing 700 entries — and never let an unknown
+   type fall through to the bell branch, which turns a -24 dB filter into a
+   -24 dB notch. */
+function bandType(b) {
+  const t = String(b.type || '').toLowerCase().replace(/[^a-z]/g, '');
+  if (t === 'hp' || t === 'highpass' || t === 'hpf') return 'hp';
+  if (t === 'lp' || t === 'lowpass' || t === 'lpf') return 'lp';
+  if (t === 'highshelf' || t === 'hishelf') return 'hshelf';
+  if (t === 'lowshelf') return 'lshelf';
+  if (t === 'shelf') return b.f >= 1500 ? 'hshelf' : 'lshelf';
+  if (t === 'bell' || t === 'peak' || t === 'peaking') return 'bell';
+  // untyped: a deep cut with a gentle Q is a filter, anything else is a bell
+  if (b.gain !== undefined && b.gain <= -12 && (b.q || 1) <= 1.2) return 'hp';
+  return 'bell';
+}
+
 /* --- eq-curve: the filter response this answer describes --- */
 function vizEq(p) {
   const bands = (p.eq || []).filter(b => b && (b.f || b.f === 0));
@@ -151,10 +168,12 @@ function vizEq(p) {
   const resp = f => {
     let g = 0;
     for (const b of bands) {
-      const t = b.type || (b.gain <= -12 ? 'hp' : 'bell');
-      if (t === 'hp') g -= 18 / (1 + Math.pow(f / b.f, 3));
-      else if (t === 'lp') g -= 18 / (1 + Math.pow(b.f / f, 3));
-      else if (t === 'shelf') g += b.gain / (1 + Math.pow(b.f / f, 2));
+      const t = bandType(b);
+      const depth = Math.min(Math.abs(b.gain === undefined ? 18 : b.gain), 18);
+      if (t === 'hp') g -= depth / (1 + Math.pow(f / b.f, 3));
+      else if (t === 'lp') g -= depth / (1 + Math.pow(b.f / f, 3));
+      else if (t === 'hshelf') g += b.gain / (1 + Math.pow(b.f / f, 2));
+      else if (t === 'lshelf') g += b.gain / (1 + Math.pow(f / b.f, 2));
       else g += b.gain * Math.exp(-Math.pow(Math.log2(f / b.f), 2) / (1 / Math.max(b.q || 1, .3)));
     }
     return Math.max(-19, Math.min(19, g));
@@ -170,11 +189,10 @@ function vizEq(p) {
   };
   const handles = bands.map(b => {
     const x = lg(b.f) * 100, y = Y(resp(b.f));
-    const t = b.type || 'bell';
+    const t = bandType(b);
     const label = (t === 'hp' || t === 'lp') ? fmtHz(b.f)
       : `${b.gain > 0 ? '+' : '−'}${Math.abs(b.gain).toFixed(1)} dB`;
-    const flip = x > 68;
-    return { x, y, label, flip };
+    return { x, y, label, flip: x > 68 };
   });
 
   return { svg: `<svg viewBox="0 0 100 100" preserveAspectRatio="none">${grid(HZ)}
@@ -504,10 +522,10 @@ function answerHtml(e) {
   const p = e.params || {};
   if (p.comp) for (const [k, val] of Object.entries(p.comp)) chips.push([k, val]);
   for (const b of p.eq || []) {
-    const t = b.type || 'bell';
-    chips.push([t === 'hp' ? 'High-pass' : t === 'lp' ? 'Low-pass' : t === 'shelf' ? 'Shelf' : 'Bell',
-      (t === 'hp' || t === 'lp') ? fmtHz(b.f)
-        : `${b.gain > 0 ? '+' : '−'}${Math.abs(b.gain)} dB @ ${fmtHz(b.f)}`]);
+    const t = bandType(b);
+    const name = { hp: 'High-pass', lp: 'Low-pass', hshelf: 'High shelf', lshelf: 'Low shelf' }[t] || 'Bell';
+    chips.push([name, (t === 'hp' || t === 'lp') ? fmtHz(b.f)
+      : `${b.gain > 0 ? '+' : '−'}${Math.abs(b.gain)} dB @ ${fmtHz(b.f)}`]);
   }
   if (p.reverb) for (const [k, val] of Object.entries(p.reverb)) chips.push([k, val]);
   if (p.delay) for (const [k, val] of Object.entries(p.delay)) chips.push([k, val]);
@@ -638,8 +656,11 @@ document.addEventListener('click', e => {
     S.askOpen = true;
     if (speech) { speech.cancel(); speaking = false; }
     window.renderAsk();
-    const pane = document.querySelector('.ask-pane');
-    if (pane) pane.scrollIntoView({ block: 'nearest' });
+    // start the answer at its own top; scrollIntoView would fight the slide
+    const col = document.querySelector('.ask-answer');
+    if (col) col.scrollTop = 0;
+    const content = document.querySelector('.content');
+    if (content) content.scrollTop = 0;
     return;
   }
 
