@@ -1,6 +1,6 @@
 {
  "generated": "2026-10-11",
- "count": 712,
+ "count": 710,
  "questions": [
   {
    "id": "808-bigger",
@@ -258,7 +258,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-tighter",
@@ -309,7 +309,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-brighter",
@@ -343,7 +343,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-louder",
@@ -360,7 +360,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-aggressive",
@@ -377,7 +377,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-natural",
@@ -394,7 +394,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-upfront",
@@ -411,7 +411,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-fix-boxy",
@@ -463,7 +463,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-fix-thin",
@@ -498,7 +498,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-fix-dull",
@@ -515,7 +515,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-fix-lifeless",
@@ -532,7 +532,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-fix-phasey",
@@ -549,7 +549,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-punchier",
@@ -567,7 +567,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-tighter",
@@ -618,7 +618,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-warmer",
@@ -635,7 +635,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-cleaner",
@@ -652,7 +652,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-louder",
@@ -669,7 +669,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-aggressive",
@@ -686,7 +686,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-natural",
@@ -703,7 +703,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-upfront",
@@ -720,7 +720,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-wider",
@@ -806,7 +806,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-fix-lifeless",
@@ -823,7 +823,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-fix-masked",
@@ -841,7 +841,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-fix-phasey",
@@ -858,7 +858,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "snare-fix-honky",
@@ -875,7 +875,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-tighter",
@@ -892,7 +892,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-brighter",
@@ -926,7 +926,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-smoother",
@@ -977,7 +977,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-natural",
@@ -994,7 +994,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-louder",
@@ -1011,7 +1011,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-fix-harsh",
@@ -1046,7 +1046,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-fix-masked",
@@ -1064,7 +1064,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hats-fix-dull",
@@ -1081,7 +1081,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-punchier",
@@ -1116,7 +1116,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-bigger",
@@ -1133,7 +1133,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-warmer",
@@ -1150,7 +1150,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-cleaner",
@@ -1167,7 +1167,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-natural",
@@ -1184,7 +1184,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-wider",
@@ -1201,7 +1201,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-fix-boomy",
@@ -1235,7 +1235,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-fix-dull",
@@ -1252,7 +1252,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-fix-lifeless",
@@ -1269,7 +1269,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-fix-phasey",
@@ -1286,7 +1286,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-fix-muddy",
@@ -1304,7 +1304,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "toms-fix-masked",
@@ -1356,7 +1356,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-brighter",
@@ -1373,7 +1373,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-natural",
@@ -1390,7 +1390,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-glued",
@@ -1407,7 +1407,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-back",
@@ -1424,7 +1424,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-smoother",
@@ -1441,7 +1441,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-fix-harsh",
@@ -1476,7 +1476,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-fix-phasey",
@@ -1510,7 +1510,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "overheads-fix-masked",
@@ -1528,7 +1528,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-bigger",
@@ -1545,7 +1545,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-aggressive",
@@ -1562,7 +1562,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-cleaner",
@@ -1579,7 +1579,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-back",
@@ -1596,7 +1596,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-glued",
@@ -1613,7 +1613,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-warmer",
@@ -1630,7 +1630,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-fix-muddy",
@@ -1648,7 +1648,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-fix-harsh",
@@ -1666,7 +1666,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-fix-boomy",
@@ -1683,7 +1683,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-fix-lifeless",
@@ -1700,7 +1700,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "room-fix-phasey",
@@ -1717,7 +1717,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-glued",
@@ -1734,7 +1734,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-punchier",
@@ -1786,7 +1786,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-tighter",
@@ -1803,7 +1803,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-warmer",
@@ -1820,7 +1820,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-aggressive",
@@ -1837,7 +1837,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-cleaner",
@@ -1854,7 +1854,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-wider",
@@ -1871,7 +1871,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-fix-muddy",
@@ -1889,7 +1889,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-fix-harsh",
@@ -1907,7 +1907,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-fix-pumping",
@@ -1941,7 +1941,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-fix-masked",
@@ -1959,7 +1959,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "drumbus-fix-boxy",
@@ -1976,7 +1976,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-brighter",
@@ -2027,7 +2027,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-back",
@@ -2044,7 +2044,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-natural",
@@ -2061,7 +2061,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-tighter",
@@ -2078,7 +2078,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-upfront",
@@ -2095,7 +2095,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-fix-harsh",
@@ -2113,7 +2113,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-fix-thin",
@@ -2130,7 +2130,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-fix-masked",
@@ -2148,7 +2148,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-fix-boxy",
@@ -2165,7 +2165,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "percussion-fix-dull",
@@ -2182,7 +2182,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-bigger",
@@ -10320,27 +10320,6 @@
    "status": "answered"
   },
   {
-   "id": "kick-harder",
-   "q": "How do I make my kick hit harder?",
-   "aliases": [
-    "weak kick",
-    "kick has no punch",
-    "kick doesn't knock",
-    "make kick slap",
-    "kick needs impact"
-   ],
-   "source": "kick",
-   "intent": "punchier",
-   "genres": [
-    "afrobeats",
-    "hiphop",
-    "gospel",
-    "pop"
-   ],
-   "bucket": "answered",
-   "status": "answered"
-  },
-  {
    "id": "kick-vs-808",
    "q": "My kick and 808 are fighting. How do I fix it?",
    "aliases": [
@@ -10436,26 +10415,6 @@
    "genres": [
     "gospel",
     "ccm"
-   ],
-   "bucket": "answered",
-   "status": "answered"
-  },
-  {
-   "id": "snare-crack",
-   "q": "How do I get more crack out of my snare?",
-   "aliases": [
-    "snare sounds weak",
-    "snare needs snap",
-    "more snare attack",
-    "flat snare"
-   ],
-   "source": "snare",
-   "intent": "punchier",
-   "genres": [
-    "hiphop",
-    "pop",
-    "gospel",
-    "highlife"
    ],
    "bucket": "answered",
    "status": "answered"

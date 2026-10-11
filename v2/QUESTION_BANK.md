@@ -1,18 +1,18 @@
 # PulseRoom 2.0 — Question Bank
 
-Generated 2026-10-11 by `v2/build-question-bank.js`. **712 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
+Generated 2026-10-11 by `v2/build-question-bank.js`. **710 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
 
-**427 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
+**511 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
 
 | Bucket | Questions | Written |
 |---|---|---|
-| intent | 217 | 57 |
-| problem | 166 | 41 |
+| intent | 217 | 107 |
+| problem | 166 | 77 |
 | genre | 160 | 160 |
 | concept | 100 | 100 |
 | workflow | 50 | 50 |
-| answered | 19 | 19 |
-| **Total** | **712** | **427** |
+| answered | 17 | 17 |
+| **Total** | **710** | **511** |
 
 ---
 
@@ -65,7 +65,7 @@ Generated 2026-10-11 by `v2/build-question-bank.js`. **712 questions.** This is 
 - **How do I mix an 808 so it translates everywhere?**  
   `808-mix` · louder · hiphop, afrobeats, amapiano
 
-## Kick  `kick`  · 21
+## Kick  `kick`  · 20
 
 - **How do I make my kick hit harder?**  
   `kick-punchier` · punchier
@@ -107,10 +107,8 @@ Generated 2026-10-11 by `v2/build-question-bank.js`. **712 questions.** This is 
   `gt-leaky-kick-mic` · cleaner · gospel-trad
 - **How do I balance the log drum and the kick?**  
   `ab-logdrum-vs-kick` · cleaner · afrobeats
-- **How do I make my kick hit harder?**  
-  `kick-harder` · punchier · afrobeats, hiphop, gospel, pop
 
-## Snare  `snare`  · 21
+## Snare  `snare`  · 20
 
 - **How do I make my snare hit harder?**  
   `snare-punchier` · punchier
@@ -152,8 +150,6 @@ Generated 2026-10-11 by `v2/build-question-bank.js`. **712 questions.** This is 
   `snare-fix-honky` · honky
 - **How do I make a trap snare cut through?**  
   `hh-snare-cuts-through` · upfront · hiphop
-- **How do I get more crack out of my snare?**  
-  `snare-crack` · punchier · hiphop, pop, gospel, highlife
 
 ## Hats  `hats`  · 17
 

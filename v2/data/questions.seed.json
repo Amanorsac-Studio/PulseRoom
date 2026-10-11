@@ -3,72 +3,6 @@
  "note": "Seed batch for PulseRoom 2.0. Written to the final schema so the engine, visuals and voice can be built against real content.",
  "questions": [
   {
-   "id": "kick-harder",
-   "q": "How do I make my kick hit harder?",
-   "aliases": [
-    "weak kick",
-    "kick has no punch",
-    "kick doesn't knock",
-    "make kick slap",
-    "kick needs impact"
-   ],
-   "source": "kick",
-   "intent": "punchier",
-   "genres": [
-    "afrobeats",
-    "hiphop",
-    "gospel",
-    "pop"
-   ],
-   "short": "Let the beater click through before the compressor grabs it, then add weight underneath.",
-   "steps": [
-    "Compressor: 4:1, attack 20-30 ms, release 60-100 ms, aim for 3-6 dB of gain reduction.",
-    "EQ after the compressor: +2 dB at 50-60 Hz with a wide bell.",
-    "Cut 2-4 dB at 250-350 Hz to clear the cardboard.",
-    "Add 1-2 dB at 3-5 kHz for the beater, or layer a click sample for phone speakers."
-   ],
-   "params": {
-    "comp": {
-     "ratio": "4:1",
-     "attack": "20-30 ms",
-     "release": "60-100 ms",
-     "gr": "3-6 dB"
-    },
-    "eq": [
-     {
-      "f": 55,
-      "gain": 2,
-      "q": 1.0
-     },
-     {
-      "f": 300,
-      "gain": -3,
-      "q": 1.6
-     },
-     {
-      "f": 4000,
-      "gain": 1.5,
-      "q": 0.9
-     }
-    ]
-   },
-   "visual": {
-    "type": "comp-attack",
-    "compare": true
-   },
-   "why": "A fast attack flattens the transient your ear reads as the hit. Slowing it lets the beater pass before gain reduction starts, so the kick keeps its edge while the body stays controlled.",
-   "watch": "If it starts to click unpleasantly, the attack is too slow or the release too fast.",
-   "genreNotes": {
-    "afrobeats": "The log drum usually owns 50-70 Hz. High-pass the kick at 40 Hz and let it speak at 80-100 Hz rather than fighting underneath it.",
-    "gospel": "On a live kit, set the gate before any of this or you compress the bleed along with the drum."
-   },
-   "related": [
-    "kick-vs-808",
-    "kick-fix-boxy",
-    "drum-bus-glue"
-   ]
-  },
-  {
    "id": "kick-vs-808",
    "q": "My kick and 808 are fighting. How do I fix it?",
    "aliases": [
@@ -121,7 +55,7 @@
     "amapiano": "The log drum is the bass instrument — treat it as the 808 here and keep the kick short and high."
    },
    "related": [
-    "kick-harder",
+    "kick-punchier",
     "808-mix",
     "low-end-mono"
    ]
@@ -347,71 +281,6 @@
     "vocal-upfront",
     "vocal-bigger",
     "eq-masking-concept"
-   ]
-  },
-  {
-   "id": "snare-crack",
-   "q": "How do I get more crack out of my snare?",
-   "aliases": [
-    "snare sounds weak",
-    "snare needs snap",
-    "more snare attack",
-    "flat snare"
-   ],
-   "source": "snare",
-   "intent": "punchier",
-   "genres": [
-    "hiphop",
-    "pop",
-    "gospel",
-    "highlife"
-   ],
-   "short": "Protect the transient, then lift the crack band and let the ring go.",
-   "steps": [
-    "Compressor: 4:1, attack 5-15 ms, release 40-80 ms, 3-6 dB of gain reduction.",
-    "Sweep 400-700 Hz with a narrow boost to find the ugly ring, then cut it 3-5 dB.",
-    "Lift 2-3 dB at 3-6 kHz for the crack.",
-    "Add 150-250 Hz if the drum sounds small, but check it against the bass.",
-    "For rock-level aggression, crush a parallel copy at 10:1 and blend it underneath."
-   ],
-   "params": {
-    "comp": {
-     "ratio": "4:1",
-     "attack": "5-15 ms",
-     "release": "40-80 ms",
-     "gr": "3-6 dB"
-    },
-    "eq": [
-     {
-      "f": 550,
-      "gain": -4,
-      "q": 2.5
-     },
-     {
-      "f": 4500,
-      "gain": 2.5,
-      "q": 1.0
-     },
-     {
-      "f": 200,
-      "gain": 1.5,
-      "q": 1.0
-     }
-    ]
-   },
-   "visual": {
-    "type": "comp-attack",
-    "compare": true
-   },
-   "why": "The crack is a short burst of high-mid energy at the very start of the hit. A fast attack removes exactly that, which is why heavily compressed snares often sound duller rather than louder.",
-   "watch": "Boosting 3-6 kHz on a cheap sample lifts the noise with it. Layer a better sample instead of pushing the EQ further.",
-   "genreNotes": {
-    "highlife": "The snare sits inside a busy guitar and horn arrangement — favour the 2-3 kHz edge over the 5 kHz sizzle so it cuts without getting brittle."
-   },
-   "related": [
-    "kick-harder",
-    "drum-bus-glue",
-    "snare-fix-boxy"
    ]
   },
   {
@@ -913,8 +782,8 @@
     "hiphop": "Programmed drums need more help; parallel crush is doing most of the work."
    },
    "related": [
-    "kick-harder",
-    "snare-crack",
+    "kick-punchier",
+    "snare-punchier",
     "c-parallel-compression"
    ]
   },
