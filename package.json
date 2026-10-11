@@ -1,18 +1,18 @@
 {
   "name": "pulseroom",
   "productName": "PulseRoom",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Reverb & delay time calculator with EQ, compression and mixing guides for music producers",
   "main": "main.js",
   "author": "PulseRoom",
   "license": "MIT",
   "scripts": {
     "start": "node start.js",
-    "dist:win": "electron-builder --win",
-    "dist:mac": "electron-builder --mac",
+    "dist:win": "node node_modules/electron-builder/cli.js --win",
+    "dist:mac": "node node_modules/electron-builder/cli.js --mac",
     "build:www": "node build-www.js",
-    "cap:android": "node build-www.js && npx cap sync android",
-    "cap:ios": "node build-www.js && npx cap sync ios"
+    "cap:android": "node build-www.js && node node_modules/@capacitor/cli/bin/capacitor sync android",
+    "cap:ios": "node build-www.js && node node_modules/@capacitor/cli/bin/capacitor sync ios"
   },
   "devDependencies": {
     "electron": "^33.0.0",
@@ -30,7 +30,10 @@
       "main.js",
       "index.html",
       "styles.css",
+      "ask.css",
+      "answers.js",
       "app.js",
+      "ask.js",
       "icon.png"
     ],
     "win": {
