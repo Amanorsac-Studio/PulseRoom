@@ -50,4 +50,6 @@ Local commands: `npm run build:www` copies the app into `www/`; `npx cap add and
 
 Plain HTML / CSS / JavaScript inside Electron. No build step, no frameworks, fully offline.
 
+Set in Geist and Geist Mono (variable woff2, bundled in `fonts/` and loaded from disk, so the app renders identically on Windows, macOS, Android and iOS with no network call). Both are SIL Open Font License 1.1, Vercel in collaboration with basement.studio; the licence ships beside the files as the OFL requires.
+
 The Ask corpus lives in `v2/data/` as reviewed JSON, one file per batch. `node v2/validate.js` checks the schema and every cross-reference; `node scripts/build-answers.js` bundles the lot into `answers.js` as a plain global, because a `file://` page under `script-src 'self'` cannot fetch JSON. `node v2/build-question-bank.js` regenerates the backlog index and `v2/QUESTION_BANK.md`. Read-aloud uses the Web Speech API, so no audio ships.
