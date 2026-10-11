@@ -1,18 +1,18 @@
 # PulseRoom 2.0 — Question Bank
 
-Generated 2026-10-11 by `v2/build-question-bank.js`. **710 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
+Generated 2026-10-11 by `v2/build-question-bank.js`. **707 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
 
-**511 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
+**594 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
 
 | Bucket | Questions | Written |
 |---|---|---|
-| intent | 217 | 107 |
-| problem | 166 | 77 |
+| intent | 217 | 150 |
+| problem | 166 | 120 |
 | genre | 160 | 160 |
 | concept | 100 | 100 |
 | workflow | 50 | 50 |
-| answered | 17 | 17 |
-| **Total** | **710** | **511** |
+| answered | 14 | 14 |
+| **Total** | **707** | **594** |
 
 ---
 
@@ -461,7 +461,7 @@ Generated 2026-10-11 by `v2/build-question-bank.js`. **710 questions.** This is 
 - **Why does my synth bass sound phasey?**  
   `synthbass-fix-phasey` · phasey
 
-## Lead vocal  `leadvocal`  · 44
+## Lead vocal  `leadvocal`  · 41
 
 - **How do I get my lead vocal more upfront?**  
   `leadvocal-upfront` · upfront
@@ -543,14 +543,8 @@ Generated 2026-10-11 by `v2/build-question-bank.js`. **710 questions.** This is 
   `rb-duet-trading-lines` · glued · rnb
 - **How do I mix highlife vocals sung in Twi or Ga?**  
   `hl-twi-ga-vocals` · upfront · highlife
-- **Why do my vocals sound thin?**  
-  `vocal-thin` · warmer · rnb, afrobeats, gospel, pop, ccm
-- **How do I make my vocals sound big?**  
-  `vocal-bigger` · bigger · gospel, ccm, pop, rnb, afrobeats
 - **My reverb is making the mix muddy. How do I fix it?**  
   `reverb-muddy` · cleaner · gospel, ccm, pop, rnb
-- **How do I get my vocal to sit on top of the beat?**  
-  `vocal-upfront` · upfront · hiphop, afrobeats, rnb, pop
 
 ## Vocal doubles  `double`  · 12
 

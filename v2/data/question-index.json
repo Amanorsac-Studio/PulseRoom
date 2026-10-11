@@ -1,6 +1,6 @@
 {
  "generated": "2026-10-11",
- "count": 710,
+ "count": 707,
  "questions": [
   {
    "id": "808-bigger",
@@ -51,7 +51,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-louder",
@@ -68,7 +68,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-aggressive",
@@ -85,7 +85,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-upfront",
@@ -102,7 +102,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-smoother",
@@ -136,7 +136,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-fix-muddy",
@@ -171,7 +171,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-fix-masked",
@@ -189,7 +189,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-fix-thin",
@@ -206,7 +206,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-fix-dull",
@@ -223,7 +223,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "808-fix-phasey",
@@ -240,7 +240,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "kick-punchier",
@@ -2199,7 +2199,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-tighter",
@@ -2250,7 +2250,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-louder",
@@ -2267,7 +2267,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-upfront",
@@ -2301,7 +2301,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-natural",
@@ -2318,7 +2318,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-brighter",
@@ -2335,7 +2335,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-fix-muddy",
@@ -2370,7 +2370,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-fix-masked",
@@ -2405,7 +2405,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-fix-dull",
@@ -2422,7 +2422,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-fix-lifeless",
@@ -2439,7 +2439,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "bass-fix-boxy",
@@ -2456,7 +2456,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-bigger",
@@ -2473,7 +2473,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-tighter",
@@ -2490,7 +2490,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-cleaner",
@@ -2507,7 +2507,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-warmer",
@@ -2524,7 +2524,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-aggressive",
@@ -2541,7 +2541,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-louder",
@@ -2558,7 +2558,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-smoother",
@@ -2575,7 +2575,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-fix-muddy",
@@ -2593,7 +2593,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-fix-boomy",
@@ -2610,7 +2610,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-fix-masked",
@@ -2628,7 +2628,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-fix-harsh",
@@ -2646,7 +2646,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-fix-thin",
@@ -2663,7 +2663,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "synthbass-fix-phasey",
@@ -2680,7 +2680,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-upfront",
@@ -2697,7 +2697,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-bigger",
@@ -2714,7 +2714,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-brighter",
@@ -2765,7 +2765,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-smoother",
@@ -2850,7 +2850,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-wider",
@@ -2867,7 +2867,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-tighter",
@@ -2901,7 +2901,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-harsh",
@@ -3007,7 +3007,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-lifeless",
@@ -3024,7 +3024,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-boomy",
@@ -3041,7 +3041,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "leadvocal-fix-honky",
@@ -3058,7 +3058,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-wider",
@@ -3109,7 +3109,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-cleaner",
@@ -3126,7 +3126,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-back",
@@ -3143,7 +3143,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-natural",
@@ -3160,7 +3160,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-fix-phasey",
@@ -3195,7 +3195,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-fix-thin",
@@ -3212,7 +3212,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-fix-harsh",
@@ -3230,7 +3230,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "double-fix-muddy",
@@ -3248,7 +3248,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-wider",
@@ -3299,7 +3299,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-back",
@@ -3333,7 +3333,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-smoother",
@@ -3350,7 +3350,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-warmer",
@@ -3367,7 +3367,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-fix-masked",
@@ -3403,7 +3403,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-fix-harsh",
@@ -3421,7 +3421,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-fix-thin",
@@ -3438,7 +3438,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-fix-sibilant",
@@ -3456,7 +3456,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "harmony-fix-phasey",
@@ -3473,7 +3473,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-bigger",
@@ -3558,7 +3558,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-warmer",
@@ -3575,7 +3575,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-smoother",
@@ -3592,7 +3592,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-natural",
@@ -3609,7 +3609,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-upfront",
@@ -3626,7 +3626,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-fix-muddy",
@@ -3662,7 +3662,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-fix-harsh",
@@ -3680,7 +3680,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-fix-boomy",
@@ -3697,7 +3697,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-fix-sibilant",
@@ -3715,7 +3715,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-fix-lifeless",
@@ -3732,7 +3732,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "choir-fix-boxy",
@@ -3749,7 +3749,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-upfront",
@@ -3800,7 +3800,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-cleaner",
@@ -3834,7 +3834,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-tighter",
@@ -3851,7 +3851,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-smoother",
@@ -3868,7 +3868,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-warmer",
@@ -3885,7 +3885,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-fix-harsh",
@@ -3938,7 +3938,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-fix-masked",
@@ -3956,7 +3956,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-fix-muddy",
@@ -3974,7 +3974,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-fix-dull",
@@ -3991,7 +3991,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rapvocal-fix-boxy",
@@ -4008,7 +4008,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "adlib-wider",
@@ -4076,7 +4076,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "adlib-glued",
@@ -4093,7 +4093,7 @@
     "all"
    ],
    "bucket": "intent",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "adlib-fix-harsh",
@@ -4111,7 +4111,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "adlib-fix-sibilant",
@@ -4164,7 +4164,7 @@
     "all"
    ],
    "bucket": "problem",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "eguitar-bigger",
@@ -10339,49 +10339,6 @@
    "status": "answered"
   },
   {
-   "id": "vocal-thin",
-   "q": "Why do my vocals sound thin?",
-   "aliases": [
-    "vocal sounds weak",
-    "no body in vocal",
-    "vocal too small",
-    "thin vocal fix"
-   ],
-   "source": "leadvocal",
-   "intent": "warmer",
-   "genres": [
-    "rnb",
-    "afrobeats",
-    "gospel",
-    "pop",
-    "ccm"
-   ],
-   "bucket": "answered",
-   "status": "answered"
-  },
-  {
-   "id": "vocal-bigger",
-   "q": "How do I make my vocals sound big?",
-   "aliases": [
-    "huge vocal",
-    "wide vocal",
-    "vocal sounds small",
-    "make vocals massive",
-    "stadium vocal"
-   ],
-   "source": "leadvocal",
-   "intent": "bigger",
-   "genres": [
-    "gospel",
-    "ccm",
-    "pop",
-    "rnb",
-    "afrobeats"
-   ],
-   "bucket": "answered",
-   "status": "answered"
-  },
-  {
    "id": "vocal-stack-from-one-take",
    "q": "I only have a few vocal takes. How do I build a stack?",
    "aliases": [
@@ -10515,26 +10472,6 @@
     "ccm",
     "rnb",
     "jazz",
-    "pop"
-   ],
-   "bucket": "answered",
-   "status": "answered"
-  },
-  {
-   "id": "vocal-upfront",
-   "q": "How do I get my vocal to sit on top of the beat?",
-   "aliases": [
-    "vocal buried",
-    "vocal behind the beat",
-    "vocal not upfront",
-    "vocal gets lost"
-   ],
-   "source": "leadvocal",
-   "intent": "upfront",
-   "genres": [
-    "hiphop",
-    "afrobeats",
-    "rnb",
     "pop"
    ],
    "bucket": "answered",

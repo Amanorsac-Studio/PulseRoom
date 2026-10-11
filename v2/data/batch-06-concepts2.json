@@ -80,7 +80,7 @@
  "visual":{"type":"automation"},
  "why":"A throw is loud enough to be an event and short enough not to interfere, which is only possible because the send is at zero everywhere else. Leaving the delay up at a safe permanent level gives you neither the event nor the clarity.",
  "watch":"Automating the return instead of the send affects every source using that delay.",
- "related":["w-automate-effects","c-delays-behind-vocal","vocal-bigger"]},
+ "related":["w-automate-effects","c-delays-behind-vocal","leadvocal-bigger"]},
 
 {"id":"c-depth-without-reverb","q":"How do I create depth without reverb?","aliases":["depth without reverb","front to back without reverb","dry mix depth"],
  "source":"concept","intent":"learn","genres":["all"],

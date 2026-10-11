@@ -61,118 +61,6 @@
    ]
   },
   {
-   "id": "vocal-thin",
-   "q": "Why do my vocals sound thin?",
-   "aliases": [
-    "vocal sounds weak",
-    "no body in vocal",
-    "vocal too small",
-    "thin vocal fix"
-   ],
-   "source": "leadvocal",
-   "intent": "warmer",
-   "genres": [
-    "rnb",
-    "afrobeats",
-    "gospel",
-    "pop",
-    "ccm"
-   ],
-   "short": "You are probably high-passing too high and cutting the chest out of the voice.",
-   "steps": [
-    "Move the high-pass down to 80 Hz for most voices, 70 Hz for a deep male voice.",
-    "Add 1-2 dB with a wide bell at 180-250 Hz — that is chest, not mud.",
-    "Only cut 250-400 Hz if the voice sounds cloudy, and cut it wide and shallow.",
-    "Add saturation before you add more high end; harmonics read as body, brightness alone reads as thin."
-   ],
-   "params": {
-    "eq": [
-     {
-      "f": 80,
-      "gain": -24,
-      "q": 0.7,
-      "type": "highpass"
-     },
-     {
-      "f": 210,
-      "gain": 1.5,
-      "q": 0.8
-     }
-    ]
-   },
-   "visual": {
-    "type": "eq-curve",
-    "compare": true
-   },
-   "why": "Most tutorials teach an aggressive high-pass because they assume a muddy home recording. On a clean take it removes the weight that makes a voice sound like a person in a room.",
-   "watch": "If the vocal now feels boomy on headphones, the issue is the room on the recording, not the EQ — narrow a cut at the specific resonance rather than raising the filter.",
-   "genreNotes": {
-    "afrobeats": "Protect 180-350 Hz especially. The genre's vocals live in a conversational tone and go lifeless when thinned out for brightness.",
-    "gospel": "Lead singers often push hard — compress before EQ so the body you add does not jump on the loud notes."
-   },
-   "related": [
-    "vocal-bigger",
-    "vocal-upfront",
-    "leadvocal-fix-harsh"
-   ]
-  },
-  {
-   "id": "vocal-bigger",
-   "q": "How do I make my vocals sound big?",
-   "aliases": [
-    "huge vocal",
-    "wide vocal",
-    "vocal sounds small",
-    "make vocals massive",
-    "stadium vocal"
-   ],
-   "source": "leadvocal",
-   "intent": "bigger",
-   "genres": [
-    "gospel",
-    "ccm",
-    "pop",
-    "rnb",
-    "afrobeats"
-   ],
-   "short": "Size comes from layers and contrast, not from volume or more reverb.",
-   "steps": [
-    "Double the lead and pan the copies 25-40% left and right, 4-6 dB under the centre.",
-    "Keep the centre lead dry and upfront — it is the contrast that makes the sides feel wide.",
-    "Send to a plate reverb, 1.2-1.8 s, with 20-30 ms pre-delay so the words stay clear.",
-    "Add a 1/4 note delay on a send, filtered 300 Hz to 5 kHz, at 10-15% so repeats sit behind.",
-    "Automate the throws: effects up on the last word of a line, down during the line."
-   ],
-   "params": {
-    "reverb": {
-     "type": "plate",
-     "decay": "1.2-1.8 s",
-     "preDelay": "20-30 ms",
-     "send": "12-20%"
-    },
-    "delay": {
-     "division": "1/4",
-     "feedback": "20-30%",
-     "filter": "300 Hz - 5 kHz"
-    }
-   },
-   "visual": {
-    "type": "layering",
-    "voices": 3
-   },
-   "why": "Reverb alone pushes a voice backwards, which reads as distant rather than large. Width from real doubles plus a dry centre gives scale while keeping the words in your face.",
-   "watch": "Check mono. If the doubles vanish, they were timed too similarly — retake them rather than reaching for a widener.",
-   "genreNotes": {
-    "gospel": "With a choir behind the lead, keep the lead's reverb shorter than the choir's or everything blurs together.",
-    "ccm": "Long hall tails suit worship ballads, but duck the reverb under the vocal with a sidechain so lyrics stay intelligible."
-   },
-   "related": [
-    "vocal-stack-from-one-take",
-    "choir-vs-lead",
-    "reverb-muddy"
-   ]
-  },
-  {
    "id": "vocal-stack-from-one-take",
    "q": "I only have a few vocal takes. How do I build a stack?",
    "aliases": [
@@ -218,7 +106,7 @@
     "afrobeats": "Ad-libs respond especially well — treat each ad-lib as its own narrow pair rather than widening the lead."
    },
    "related": [
-    "vocal-bigger",
+    "leadvocal-bigger",
     "choir-vs-lead",
     "c-mono-compatibility"
    ]
@@ -278,8 +166,8 @@
     "gospel": "When the choir is the moment rather than the backing, invert this: duck the lead's reverb and let the choir take the presence band."
    },
    "related": [
-    "vocal-upfront",
-    "vocal-bigger",
+    "leadvocal-upfront",
+    "leadvocal-bigger",
     "eq-masking-concept"
    ]
   },
@@ -383,7 +271,7 @@
     "gospel": "A room with a live band already has natural ambience — you usually need far less added reverb than a programmed record."
    },
    "related": [
-    "vocal-bigger",
+    "leadvocal-bigger",
     "c-reverb-types",
     "predelay-concept"
    ]
@@ -559,64 +447,6 @@
    ]
   },
   {
-   "id": "vocal-upfront",
-   "q": "How do I get my vocal to sit on top of the beat?",
-   "aliases": [
-    "vocal buried",
-    "vocal behind the beat",
-    "vocal not upfront",
-    "vocal gets lost"
-   ],
-   "source": "leadvocal",
-   "intent": "upfront",
-   "genres": [
-    "hiphop",
-    "afrobeats",
-    "rnb",
-    "pop"
-   ],
-   "short": "Make room in the beat rather than turning the vocal up.",
-   "steps": [
-    "Find the vocal's presence range, usually 2-5 kHz, and dip the busiest instruments there by 2-3 dB.",
-    "Use serial compression on the vocal: two stages of 3 dB each rather than one of 6.",
-    "Add saturation — density makes a vocal feel close in a way that volume does not.",
-    "Keep the dry vocal in the centre and dry; push effects to sends.",
-    "Automate the beat down 1 dB under the verses if it is still fighting."
-   ],
-   "params": {
-    "comp": {
-     "stage1": "opto, 3:1, 2-3 dB",
-     "stage2": "FET, 4:1, fast, 2-3 dB"
-    },
-    "eq": [
-     {
-      "f": 3000,
-      "gain": -2.5,
-      "q": 1.0,
-      "label": "on the beat, not the vocal"
-     }
-    ]
-   },
-   "visual": {
-    "type": "eq-mask",
-    "sources": [
-     "vocal",
-     "beat"
-    ]
-   },
-   "why": "Raising the vocal fader raises it against everything equally, including the frequencies that are masking it. Dipping the beat only where the vocal lives creates a pocket, so the vocal sounds closer without being louder.",
-   "watch": "Dipping the beat too wide makes the production sound hollow in the gaps between lines — use a dynamic EQ keyed off the vocal if that happens.",
-   "genreNotes": {
-    "hiphop": "Rap vocals need faster, harder compression than sung vocals — 4:1 to 6:1 with a 1-5 ms attack keeps every syllable in front.",
-    "afrobeats": "Resist flattening the performance; the conversational dynamics are part of the style."
-   },
-   "related": [
-    "vocal-bigger",
-    "vocal-thin",
-    "eq-masking-concept"
-   ]
-  },
-  {
    "id": "predelay-concept",
    "q": "What is pre-delay and what should I set it to?",
    "aliases": [
@@ -653,7 +483,7 @@
    "related": [
     "reverb-muddy",
     "c-reverb-types",
-    "vocal-bigger"
+    "leadvocal-bigger"
    ]
   },
   {
@@ -686,7 +516,7 @@
    "genreNotes": {},
    "related": [
     "mix-muddy",
-    "vocal-upfront",
+    "leadvocal-upfront",
     "kick-vs-808"
    ]
   },
