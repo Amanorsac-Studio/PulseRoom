@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-10",
- "count": 713,
+ "generated": "2026-10-11",
+ "count": 712,
  "questions": [
   {
    "id": "808-bigger",
@@ -7470,7 +7470,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-groove-swings",
@@ -7482,7 +7482,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-conversational-but-loud",
@@ -7494,7 +7494,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-shakers-drive",
@@ -7506,7 +7506,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-percussion-layers",
@@ -7518,7 +7518,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-low-end-phone",
@@ -7530,7 +7530,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-guitar-riff-all-song",
@@ -7542,7 +7542,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-light-autotune",
@@ -7554,7 +7554,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-logdrum-vs-kick",
@@ -7566,7 +7566,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-adlibs-and-bgvs",
@@ -7578,7 +7578,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-cluttered-mids",
@@ -7590,7 +7590,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-hats-and-shakers",
@@ -7602,7 +7602,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-drop-lands",
@@ -7614,7 +7614,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-keys-under-groove",
@@ -7626,7 +7626,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-amapiano-influenced",
@@ -7638,7 +7638,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-congas-bongos",
@@ -7650,7 +7650,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-the-bounce",
@@ -7662,7 +7662,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-stacked-chorus",
@@ -7674,7 +7674,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-samples-highlife-guitar",
@@ -7687,7 +7687,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-club-system",
@@ -7699,7 +7699,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-no-real-chorus",
@@ -7711,7 +7711,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-feature-recorded-elsewhere",
@@ -7723,7 +7723,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-master-for-streaming",
@@ -7735,7 +7735,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "ab-vocal-sits-on-the-one",
@@ -7747,7 +7747,7 @@
     "afrobeats"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hh-tune-the-808",
@@ -7759,7 +7759,7 @@
     "hiphop"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hh-hats-dont-stab",
@@ -7771,7 +7771,7 @@
     "hiphop"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hh-every-word-clear",
@@ -7783,7 +7783,7 @@
     "hiphop"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hh-adlibs-around-main",
@@ -7807,7 +7807,7 @@
     "hiphop"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hh-beat-as-two-track",
@@ -7831,7 +7831,7 @@
     "hiphop"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hh-cheap-mic",
@@ -7855,7 +7855,7 @@
     "hiphop"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hh-808-on-small-speakers",
@@ -7867,7 +7867,7 @@
     "hiphop"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hh-doubled-rap-vocals",
@@ -8047,7 +8047,7 @@
     "rnb"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rb-warm-but-tight",
@@ -8059,7 +8059,7 @@
     "rnb"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rb-mostly-space",
@@ -8107,7 +8107,7 @@
     "rnb"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rb-six-vocal-layers",
@@ -8131,7 +8131,7 @@
     "rnb"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "rb-rhodes-and-pads",
@@ -8288,7 +8288,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-horn-section",
@@ -8300,7 +8300,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-groove-stays-light",
@@ -8312,7 +8312,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-walking-bass",
@@ -8324,7 +8324,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-percussion-vs-kit",
@@ -8336,7 +8336,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-open-and-airy",
@@ -8348,7 +8348,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-twi-ga-vocals",
@@ -8360,7 +8360,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-recorded-live-one-room",
@@ -8372,7 +8372,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-rhythm-guitar-masks-vocal",
@@ -8384,7 +8384,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-guitar-solo",
@@ -8396,7 +8396,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-keys-and-organ",
@@ -8444,7 +8444,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-song-modulates",
@@ -8456,7 +8456,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-congas-and-claves",
@@ -8468,7 +8468,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-fusion-with-afrobeats",
@@ -8505,7 +8505,7 @@
     "highlife"
    ],
    "bucket": "genre",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "hl-master-for-streaming",
@@ -10517,25 +10517,6 @@
     "hiphop",
     "afrobeats",
     "amapiano"
-   ],
-   "bucket": "answered",
-   "status": "answered"
-  },
-  {
-   "id": "highlife-horns",
-   "q": "How do I mix a highlife horn section?",
-   "aliases": [
-    "mixing horns",
-    "brass section mix",
-    "trumpet sax mix",
-    "horn section sits badly"
-   ],
-   "source": "horns",
-   "intent": "cleaner",
-   "genres": [
-    "highlife",
-    "gospel",
-    "jazz"
    ],
    "bucket": "answered",
    "status": "answered"

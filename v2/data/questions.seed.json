@@ -576,67 +576,6 @@
    ]
   },
   {
-   "id": "highlife-horns",
-   "q": "How do I mix a highlife horn section?",
-   "aliases": [
-    "mixing horns",
-    "brass section mix",
-    "trumpet sax mix",
-    "horn section sits badly"
-   ],
-   "source": "horns",
-   "intent": "cleaner",
-   "genres": [
-    "highlife",
-    "gospel",
-    "jazz"
-   ],
-   "short": "Treat the section as one instrument, then place it in the gap between guitars and vocals.",
-   "steps": [
-    "Bus all horns together and do most of the work on the bus, not the individual mics.",
-    "High-pass the bus at 120-150 Hz.",
-    "Cut 2-3 dB at 800 Hz - 1.2 kHz where brass gets honky.",
-    "Compress the bus 3:1, 10-20 ms attack, 2-4 dB, so the section breathes as one.",
-    "Pan the section as a unit — spread the players 30-60% rather than hard left and right.",
-    "Carve 2-4 kHz slightly if the horns fight the lead vocal."
-   ],
-   "params": {
-    "eq": [
-     {
-      "f": 135,
-      "gain": -24,
-      "q": 0.7,
-      "type": "highpass"
-     },
-     {
-      "f": 1000,
-      "gain": -2.5,
-      "q": 1.4
-     }
-    ],
-    "comp": {
-     "ratio": "3:1",
-     "attack": "10-20 ms",
-     "release": "100-200 ms",
-     "gr": "2-4 dB"
-    }
-   },
-   "visual": {
-    "type": "stereo-field"
-   },
-   "why": "Horns recorded individually and treated individually never glue into a section. Bus processing applies the same character to all of them, which is what makes an arrangement sound like one horn line rather than three separate players.",
-   "watch": "Brass transients are loud — if the compressor is grabbing 8 dB on the stabs, raise the threshold and use the fader instead.",
-   "genreNotes": {
-    "highlife": "Horns answer the vocal line rather than playing under it, so automate them up in the gaps and down under the verses.",
-    "jazz": "Keep the compression far lighter; the dynamics are the performance."
-   },
-   "related": [
-    "mix-muddy",
-    "guitar-highlife",
-    "c-bus-compression"
-   ]
-  },
-  {
    "id": "guitar-highlife",
    "q": "How do I mix highlife guitars so they don't clash?",
    "aliases": [
@@ -685,7 +624,7 @@
    },
    "related": [
     "mix-muddy",
-    "highlife-horns",
+    "hl-horn-section",
     "c-how-wide-too-wide"
    ]
   },

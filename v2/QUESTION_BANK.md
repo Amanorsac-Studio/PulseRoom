@@ -1,18 +1,18 @@
 # PulseRoom 2.0 — Question Bank
 
-Generated 2026-10-10 by `v2/build-question-bank.js`. **713 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
+Generated 2026-10-11 by `v2/build-question-bank.js`. **712 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
 
-**162 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
+**210 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
 
 | Bucket | Questions | Written |
 |---|---|---|
 | intent | 217 | 57 |
 | problem | 166 | 41 |
-| genre | 160 | 41 |
+| genre | 160 | 90 |
 | concept | 100 | 3 |
 | workflow | 50 | 0 |
-| answered | 20 | 20 |
-| **Total** | **713** | **162** |
+| answered | 19 | 19 |
+| **Total** | **712** | **210** |
 
 ---
 
@@ -1054,7 +1054,7 @@ Generated 2026-10-10 by `v2/build-question-bank.js`. **713 questions.** This is 
 - **Why do my strings sound dull?**  
   `strings-fix-dull` · dull
 
-## Horns  `horns`  · 18
+## Horns  `horns`  · 17
 
 - **How do I make my horns brighter?**  
   `horns-brighter` · brighter
@@ -1090,8 +1090,6 @@ Generated 2026-10-10 by `v2/build-question-bank.js`. **713 questions.** This is 
   `hl-horn-section` · glued · highlife
 - **How do I stop highlife horns sounding harsh?**  
   `hl-horns-not-harsh` · smoother · highlife
-- **How do I mix a highlife horn section?**  
-  `highlife-horns` · cleaner · highlife, gospel, jazz
 
 ## Mix  `mixbus`  · 62
 
