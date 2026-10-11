@@ -13,7 +13,11 @@
   --line-strong:   rgba(255, 255, 255, 0.12);
   --text:          #ECEEF3;
   --text-2:        #99A0AD;
-  --text-3:        #636A79;
+  /* Was #636A79, which measured 3.2:1 on a panel and 3.6:1 on the background.
+     This is the colour behind every placeholder, source label and axis mark in
+     the app, all of it under 12px, so it has to clear 4.5:1 on the lightest
+     surface it ever sits on (panel-3), not just on black. */
+  --text-3:        #858D9F;
 
   /* One accent carries the whole interface. */
   --accent:     #45C8D8;
@@ -56,6 +60,22 @@ body {
 }
 
 ::selection { background: rgba(var(--accent-rgb), 0.25); }
+
+/* Every number in this app is read in a column next to another number: delay
+   times, decibels, frequencies, LUFS. Proportional figures make those columns
+   shift as the tempo changes, so all digits are fixed-width everywhere. */
+body { font-variant-numeric: tabular-nums; }
+
+/* The app advertises keyboard navigation, so the keyboard has to be able to
+   see where it is. Mouse clicks stay unringed.
+   Marked important because several controls set `outline: none` from a
+   more specific selector, and a focus ring losing a specificity argument is
+   how keyboard users end up navigating blind. */
+:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) { outline: none; }
 
 /* scrollbars */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
@@ -106,12 +126,15 @@ body {
 
 .nav { display: flex; flex-direction: column; gap: 3px; }
 
+/* The active page is marked by a rail against the sidebar edge, not by a dot
+   with a glow behind it. A dot in front of every label reads as a status
+   light the interface never actually sets. */
 .nav-item {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 12px 10px 16px;
   background: transparent;
   border: none;
   border-radius: var(--r-ctl);
@@ -124,28 +147,26 @@ body {
   transition: background 0.15s ease, color 0.15s ease;
 }
 
+.nav-item::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 50%;
+  width: 2px; height: 0;
+  border-radius: 99px;
+  background: var(--accent);
+  transform: translateY(-50%);
+  transition: height 0.22s cubic-bezier(.32,.72,0,1);
+}
+
 .nav-item:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+.nav-item:hover::before { height: 12px; background: var(--line-strong); }
 
 .nav-item.active {
   background: rgba(255,255,255,0.06);
   color: var(--text);
+  font-weight: 600;
 }
-
-.nav-dot {
-  width: 7px; height: 7px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.14);
-  flex: none;
-  transition: background 0.15s ease, box-shadow 0.15s ease;
-}
-
-.nav-item[data-accent="delay"].active     .nav-dot { background: var(--c-delay);     box-shadow: 0 0 8px var(--c-delay); }
-.nav-item[data-accent="reverb"].active    .nav-dot { background: var(--c-reverb);    box-shadow: 0 0 8px var(--c-reverb); }
-.nav-item[data-accent="eq"].active        .nav-dot { background: var(--c-eq);        box-shadow: 0 0 8px var(--c-eq); }
-.nav-item[data-accent="comp"].active      .nav-dot { background: var(--c-comp);      box-shadow: 0 0 8px var(--c-comp); }
-.nav-item[data-accent="chains"].active    .nav-dot { background: var(--c-chains);    box-shadow: 0 0 8px var(--c-chains); }
-.nav-item[data-accent="guide"].active     .nav-dot { background: var(--c-guide);     box-shadow: 0 0 8px var(--c-guide); }
-.nav-item[data-accent="reference"].active .nav-dot { background: var(--c-reference); box-shadow: 0 0 8px var(--c-reference); }
+.nav-item.active::before { height: 18px; background: var(--accent); }
 
 .sidebar-foot {
   margin-top: auto;
@@ -323,7 +344,13 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .page.active { animation: none; }
-  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    /* Without this the looping animations — the voice meter, the empty-state
+       ring — keep cycling, just too fast to see. They have to actually stop. */
+    animation-iteration-count: 1 !important;
+  }
 }
 
 /* ---- page headers ---- */

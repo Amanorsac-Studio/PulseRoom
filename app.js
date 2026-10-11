@@ -1368,7 +1368,7 @@ async function analyzeFile(file) {
     const altNote = alt ? ` · could also be ${alt}` : '';
     toast(`Detected ${state.bpm} BPM (${conf} confidence)${altNote}`);
   } catch (err) {
-    toast(`Could not detect tempo — ${err.message}`);
+    toast(`Could not detect tempo. ${err.message}`);
   }
   btn.classList.remove('busy');
   btn.textContent = 'DETECT';

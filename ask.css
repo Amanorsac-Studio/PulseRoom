@@ -42,9 +42,13 @@
   font-size: 15px; line-height: 1; cursor: pointer;
 }
 
+/* The chip rail scrolls sideways in a 300px column. Without a fade the last
+   chip is simply sliced in half and nothing says there is more to the right. */
 .ask-chips {
   flex: none; display: flex; gap: 6px; overflow-x: auto;
   scrollbar-width: none; padding: 0 18px 10px;
+  mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%);
 }
 .ask-chips.tight { padding-bottom: 12px; }
 .ask-chips::-webkit-scrollbar { display: none; }
@@ -86,13 +90,14 @@
   display: flex; align-items: center; gap: 11px; width: 100%; text-align: left;
   background: none; border: none; border-bottom: 1px solid var(--line);
   border-left: 2px solid transparent;
-  padding: 11px 16px 11px 14px; color: var(--text); font: inherit;
+  padding: 11px 16px 11px 15px; color: var(--text); font: inherit;
   cursor: pointer; transition: background .15s;
 }
 .ask-row:hover { background: rgba(255,255,255,.025); }
+/* The left rail already says which row is open. A dot in front of all 707 of
+   them says nothing, seven hundred times. */
 .ask-row.sel { background: rgba(var(--accent-rgb), .08); border-left-color: var(--accent); }
-.ask-dot { width: 6px; height: 6px; border-radius: 99px; flex: none; background: var(--text-3); }
-.ask-row.sel .ask-dot { background: var(--accent); }
+.ask-row.sel .ask-rt b { color: var(--accent); }
 .ask-rt { flex: 1; min-width: 0; }
 .ask-rt b { display: block; font-size: 13.5px; font-weight: 530; letter-spacing: -.01em; line-height: 1.32; }
 .ask-rt small { display: block; color: var(--text-3); font-size: 11px; margin-top: 3px; font-family: var(--mono); }
@@ -102,12 +107,15 @@
 .ask-ring {
   width: 50px; height: 50px; margin: 0 auto 16px; border-radius: 99px;
   border: 1px solid var(--line-strong); display: grid; place-items: center;
-  color: var(--text-3); animation: askBreathe 3.4s ease-in-out infinite;
+  color: var(--text-3);
+  /* Was a permanent breathing loop. A "no match" panel is informational, and
+     a pulse on it reads as something still loading. It settles once. */
+  animation: askSettle .5s cubic-bezier(.32,.72,0,1);
 }
 .ask-ring svg { width: 20px; height: 20px; }
-@keyframes askBreathe {
-  0%, 100% { transform: scale(1); opacity: .75; }
-  50% { transform: scale(1.06); opacity: 1; }
+@keyframes askSettle {
+  from { transform: scale(.92); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
 }
 .ask-empty b { display: block; font-size: 15px; font-weight: 600; margin-bottom: 6px; }
 .ask-empty p { color: var(--text-2); font-size: 13px; line-height: 1.5; max-width: 30ch; margin: 0 auto 16px; }
@@ -119,9 +127,11 @@
 .ask-back { display: none; }
 
 .ask-q { font-size: 12.5px; color: var(--text-3); font-weight: 550; }
+/* The one-line verdict is the whole point of the page, so it scales with the
+   window instead of staying at 26px on a 1500px display. */
 .ask-short {
-  font-size: 26px; line-height: 1.2; letter-spacing: -.035em;
-  font-weight: 650; margin-top: 8px; max-width: 28ch;
+  font-size: clamp(24px, 2.1vw, 33px); line-height: 1.16; letter-spacing: -.035em;
+  font-weight: 650; margin-top: 8px; max-width: 24ch;
 }
 
 .ask-viz {
@@ -245,9 +255,13 @@
 }
 
 .ask-prose { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 16px; }
+/* Why / By genre / Related used to be three more uppercase micro-caps stacked
+   under the chart caption and the result count. Four identical labels in one
+   column is a texture, not a hierarchy. These read as headings instead, and
+   the chart caption is left as the only micro-cap in the answer. */
 .ask-prose h4 {
-  font-size: 10.5px; letter-spacing: .11em; text-transform: uppercase;
-  color: var(--text-3); font-weight: 650; margin-bottom: 7px;
+  font-size: 13px; letter-spacing: -.01em; color: var(--text);
+  font-weight: 620; margin-bottom: 8px;
 }
 .ask-prose p { font-size: 14px; line-height: 1.55; color: var(--text-2); max-width: 68ch; }
 .ask-gn + .ask-gn { margin-top: 8px; }
@@ -297,8 +311,10 @@
   .ask-row { padding: 14px 16px 14px 14px; }
   .ask-rt b { font-size: 15px; }
   .ask-arw { display: block; }
+  /* On the phone the list is a browse list, not a split view: nothing is open
+     yet, so no row may look open. */
   .ask-row.sel { background: none; border-left-color: transparent; }
-  .ask-row.sel .ask-dot { background: var(--text-3); }
+  .ask-row.sel .ask-rt b { color: var(--text); }
 
   /* sticky so the way back is always one tap away, however far you scroll */
   .ask-back {

@@ -236,8 +236,8 @@ function vizCompEnv(p) {
           calcMode="spline" keySplines=".25 0 .15 1"/></path></svg>`,
     marks: `<div class="ask-mk dim" style="left:2%;top:${y0}%;transform:translateY(-150%)">0 dB</div>
       <div class="ask-mk" style="left:${xs(t0)}%;top:4%;transform:translateX(4px)">HIT</div>
-      <div class="ask-mk hold" style="left:${xs(t0 + atk / 2)}%;bottom:4%;transform:translateX(-50%)">ATTACK ${c.attack || '—'}</div>
-      <div class="ask-mk boost" style="left:${xs(rs + rel / 2)}%;bottom:4%;transform:translateX(-50%)">RELEASE ${c.release || '—'}</div>
+      <div class="ask-mk hold" style="left:${xs(t0 + atk / 2)}%;bottom:4%;transform:translateX(-50%)">ATTACK ${c.attack || '-'}</div>
+      <div class="ask-mk boost" style="left:${xs(rs + rel / 2)}%;bottom:4%;transform:translateX(-50%)">RELEASE ${c.release || '-'}</div>
       <div class="ask-mk cut" style="left:${xs(ae + hold / 2)}%;top:${yG}%;transform:translate(-50%,6px)">${c.gr || ''}</div>`,
     scale: '', cap: 'Gain reduction over one hit' };
 }
@@ -509,7 +509,6 @@ const S = window.state;                               // shared app state
 
 function listRow(e, sel) {
   return `<button class="ask-row${sel ? ' sel' : ''}" data-ask="${e.id}">
-    <span class="ask-dot"></span>
     <span class="ask-rt"><b>${esc(e.q)}</b><small>${SRC_LABEL[e.src] || e.src}${
       e.g[0] && e.g[0] !== 'all' ? ' · ' + (GENRE_LABEL[e.g[0]] || e.g[0]) : ''}</small></span>
     <svg class="ask-arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -551,7 +550,7 @@ function deepLinks(p) {
       <u>Delay Calculator</u><b>${d.div} ${d.kind} at your tempo</b></button>`);
   const r = p.reverb && reverbStyle(p.reverb);
   if (r) out.push(`<button class="ask-jump" data-reverb="${r}">
-      <u>Reverb Designer</u><b>${RV_LABEL[r]} — full settings</b></button>`);
+      <u>Reverb Designer</u><b>${RV_LABEL[r]}, full settings</b></button>`);
   return out.length ? `<div class="ask-jumps">${out.join('')}</div>` : '';
 }
 
