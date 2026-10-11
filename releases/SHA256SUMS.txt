@@ -1,4 +1,7 @@
-# PulseRoom 1.1.0 — the Ask page, 707 answers
+# PulseRoom 1.2.0 - Geist typefaces, contrast and focus fixes
+8e02b8c227cfb17cb21562ef86c05d4140926f3dce36da2a228a6e37f413b89b *PulseRoom-Setup-1.2.0-Windows.exe
+
+# PulseRoom 1.1.0 - the Ask page, 707 answers (superseded by 1.2.0, never distributed)
 6c0b118a331ebb9eaae5c4b45780bdadd390e3ac0d8dd38562a3315fd6c94539 *PulseRoom-Setup-1.1.0-Windows.exe
 
 # PulseRoom 1.0.0
