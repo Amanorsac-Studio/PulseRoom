@@ -8745,7 +8745,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-mid-side-eq",
@@ -8805,7 +8805,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-eq-curve-reading",
@@ -9165,7 +9165,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-delay-for-depth",
@@ -9189,7 +9189,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-ping-pong",
@@ -9201,7 +9201,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-delay-feedback",
@@ -9213,7 +9213,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-delays-behind-vocal",
@@ -9225,7 +9225,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-effect-throw",
@@ -9237,7 +9237,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-depth-without-reverb",
@@ -9249,7 +9249,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-haas",
@@ -9261,7 +9261,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-delay-in-time-or-off",
@@ -9273,7 +9273,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-mono-compatibility",
@@ -9285,7 +9285,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-polarity-vs-phase",
@@ -9297,7 +9297,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-comb-filtering",
@@ -9309,7 +9309,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-correlation-meter",
@@ -9321,7 +9321,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-low-end-mono",
@@ -9333,7 +9333,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-mid-side-processing",
@@ -9345,7 +9345,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-how-wide-too-wide",
@@ -9357,7 +9357,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-fix-phase-two-mics",
@@ -9369,7 +9369,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-three-to-one-rule",
@@ -9381,7 +9381,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-widen-without-widener",
@@ -9393,7 +9393,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-what-saturation-adds",
@@ -9405,7 +9405,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-saturation-types",
@@ -9417,7 +9417,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-saturate-instead-of-eq",
@@ -9429,7 +9429,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-harmonics-low-end",
@@ -9441,7 +9441,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-too-much-saturation",
@@ -9453,7 +9453,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-masking",
@@ -9585,7 +9585,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-master-my-own-mix",
@@ -9597,7 +9597,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-stem-mastering",
@@ -9609,7 +9609,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-loudness-per-platform",
@@ -9621,7 +9621,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-limiter-off-for-engineer",
@@ -9633,7 +9633,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-mastering-chain-order",
@@ -9645,7 +9645,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-master-is-done",
@@ -9657,7 +9657,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-too-much-low-end",
@@ -9669,7 +9669,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-low-end-no-sub",
@@ -9681,7 +9681,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-sub-bass-lowmid",
@@ -9693,7 +9693,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-low-end-headphones",
@@ -9705,7 +9705,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "c-low-end-in-the-car",
@@ -9717,7 +9717,7 @@
     "all"
    ],
    "bucket": "concept",
-   "status": "todo"
+   "status": "answered"
   },
   {
    "id": "w-prepare-session",
