@@ -18,8 +18,11 @@ const state = {
   delayFilter: 'all',
   delayHighlight: null,
   reverbStyle: 'hall',
+  reverbTab: 'decay',
   eqInstrument: 'kick',
   compSource: 'kick',
+  refTab: 'loudness',
+  guideSection: 0,
   chainInstrument: 'leadvocal'
 };
 
@@ -338,8 +341,31 @@ function renderReverb() {
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-title">Decay envelope</div>
+        <div class="seg rv-seg" id="rvSeg" style="--accent:var(--c-reverb)">
+          <button data-t="decay"    class="${state.reverbTab === 'decay'    ? 'on' : ''}">Decay envelope</button>
+          <button data-t="send"     class="${state.reverbTab === 'send'     ? 'on' : ''}">Send EQ</button>
+          <button data-t="settings" class="${state.reverbTab === 'settings' ? 'on' : ''}">Settings</button>
+        </div>
+
+        <div class="card rv-panel">
+          ${state.reverbTab === 'send' ? `<div class="card-title">Send EQ curve</div>
+          <div class="card-sub">Filter the reverb return like this so the tail adds space, not mud or hiss.</div>
+          ${sendEqSvg(s.lowHz, s.highHz)}
+          <div class="spectrum-scale">${
+            [[20,'20'],[50,'50'],[100,'100'],[200,'200'],[500,'500'],[1000,'1k'],
+             [2000,'2k'],[5000,'5k'],[10000,'10k'],[20000,'20k']].map(([f, l]) => {
+              const x = Math.log10(f / 20) / Math.log10(1000) * 100;
+              return `<span style="left:${x.toFixed(2)}%;transform:translateX(${x <= 0 ? 0 : x >= 100 ? -100 : -50}%)">${l}</span>`;
+            }).join('')}</div>` :
+            state.reverbTab === 'settings' ? `<div class="card-title">Suggested settings for ${s.name}</div>
+          <div class="rv-settings">
+            <div class="rv-set"><div class="k">LOW CUT (send EQ)</div><div class="v">${s.lowcut}</div></div>
+            <div class="rv-set"><div class="k">HIGH CUT (send EQ)</div><div class="v">${s.highcut}</div></div>
+            <div class="rv-set"><div class="k">WET / SEND LEVEL</div><div class="v">${s.mix}</div></div>
+            <div class="rv-set"><div class="k">DIFFUSION</div><div class="v">${s.diffusion}</div></div>
+          </div>
+          <p class="comp-note" style="margin-top:12px"><strong>Where it shines:</strong> ${s.use}</p>` :
+            `<div class="card-title">Decay envelope</div>
           <div class="decay-vis">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
               <rect x="0" y="0" width="${preX}" height="100" fill="rgba(var(--accent-rgb),0.08)"/>
@@ -350,30 +376,7 @@ function renderReverb() {
               }).join(' ')}" fill="none" stroke="var(--accent)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
               <line x1="0" y1="92" x2="100" y2="92" stroke="rgba(255,255,255,0.12)" stroke-width="0.3"/>
             </svg>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Send EQ curve</div>
-          <div class="card-sub">Filter the reverb return like this so the tail adds space, not mud or hiss.</div>
-          ${sendEqSvg(s.lowHz, s.highHz)}
-          <div class="spectrum-scale">${
-            [[20,'20'],[50,'50'],[100,'100'],[200,'200'],[500,'500'],[1000,'1k'],
-             [2000,'2k'],[5000,'5k'],[10000,'10k'],[20000,'20k']].map(([f, l]) => {
-              const x = Math.log10(f / 20) / Math.log10(1000) * 100;
-              return `<span style="left:${x.toFixed(2)}%;transform:translateX(${x <= 0 ? 0 : x >= 100 ? -100 : -50}%)">${l}</span>`;
-            }).join('')}</div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Suggested settings for ${s.name}</div>
-          <div class="rv-settings">
-            <div class="rv-set"><div class="k">LOW CUT (send EQ)</div><div class="v">${s.lowcut}</div></div>
-            <div class="rv-set"><div class="k">HIGH CUT (send EQ)</div><div class="v">${s.highcut}</div></div>
-            <div class="rv-set"><div class="k">WET / SEND LEVEL</div><div class="v">${s.mix}</div></div>
-            <div class="rv-set"><div class="k">DIFFUSION</div><div class="v">${s.diffusion}</div></div>
-          </div>
-          <p class="comp-note" style="margin-top:12px"><strong>Where it shines:</strong> ${s.use}</p>
+          </div>`}
         </div>
 
         <div class="hint-strip" style="--accent:var(--c-reverb)">
@@ -385,6 +388,13 @@ function renderReverb() {
         </div>
       </div>
     </div>`;
+
+  $('#rvSeg').addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    state.reverbTab = b.dataset.t;
+    renderReverb();
+  });
 
   $('#rvStyles').addEventListener('click', e => {
     const b = e.target.closest('.rv-style');
@@ -1138,24 +1148,39 @@ const GUIDE_SECTIONS = [
 ];
 
 function renderGuide() {
-  const cards = GUIDE_SECTIONS.map((s, i) => `
-    <div class="guide-section">
-      <div class="guide-card ${i === 0 ? 'open' : ''}">
-        <button class="guide-head"><span>${s.t}</span><span class="chev">&#9654;</span></button>
-        <div class="guide-body">${s.body}</div>
-      </div>
-    </div>`).join('');
+  /* Was an accordion, which put one long section plus a stack of closed
+     headers past the bottom of the window. Master and detail instead: pick a
+     section on the left, read it on the right. The page holds still and only
+     the panel scrolls, which is the same shape Ask uses. */
+  const idx = Math.min(state.guideSection || 0, GUIDE_SECTIONS.length - 1);
+  const cur = GUIDE_SECTIONS[idx];
+
+  const list = GUIDE_SECTIONS.map((s, i) => `
+    <button class="guide-item ${i === idx ? 'on' : ''}" data-s="${i}">
+      <em>${String(i + 1).padStart(2, '0')}</em><span>${s.t}</span>
+    </button>`).join('');
 
   $('#page-guide').innerHTML = `
     <div class="page-head">
       <h1 class="page-title">Mixing <span class="tint" style="--accent:var(--c-guide)">Guide</span></h1>
-      <p class="page-desc">The habits and principles behind professional mixes, condensed. Read top to bottom once, then use it as a checklist per session.</p>
+      <p class="page-desc">The habits behind professional mixes. Use it as a checklist per session.</p>
     </div>
-    ${cards}`;
 
-  $$('#page-guide .guide-head').forEach(h =>
-    h.addEventListener('click', () => h.closest('.guide-card').classList.toggle('open'))
-  );
+    <div class="guide-layout" style="--accent:var(--c-guide)">
+      <div class="guide-list">${list}</div>
+      <div class="guide-panel">
+        <h2 class="guide-panel-title">${cur.t}</h2>
+        <div class="guide-body open">${cur.body}</div>
+      </div>
+    </div>`;
+
+  $('.guide-list').addEventListener('click', e => {
+    const b = e.target.closest('.guide-item');
+    if (!b) return;
+    state.guideSection = +b.dataset.s;
+    renderGuide();
+    $('.guide-panel').scrollTop = 0;
+  });
 }
 
 /* ============================================================
@@ -1217,37 +1242,47 @@ function renderReference() {
       <div class="hz">${n.hz < 100 ? n.hz.toFixed(1) : n.hz.toFixed(0)} Hz</div>
     </div>`).join('');
 
+  /* Four unrelated tables that used to stack into twice the window height.
+     Nobody reads them in sequence - you come here for one number - so they
+     become tabs and the page stops scrolling. */
+  const TABS = [
+    { k: 'loudness', label: 'Loudness',  title: 'Loudness targets',
+      sub: 'Integrated LUFS for delivery. Master to the platform, not to the meter war.',
+      body: `<div class="ref-rows wide">${rows(LUFS_TARGETS)}</div>` },
+    { k: 'freq', label: 'Frequency map', title: 'Frequency map',
+      sub: 'The seven zones every mix decision touches.',
+      body: `<div class="ref-rows wide">${rows(FREQ_BANDS)}</div>` },
+    { k: 'timing', label: 'Timing',      title: 'Timing &amp; psychoacoustics',
+      sub: 'The windows the ear actually resolves.',
+      body: `<div class="ref-rows wide">${rows(TIMING_FACTS)}</div>` },
+    { k: 'notes', label: 'Note frequencies', title: 'Note frequencies (C0-B4)',
+      sub: 'Tune 808s, kicks and resonant filters to the song key. Octave up doubles the value.',
+      body: `<div class="note-freq-grid">${notes}</div>` }
+  ];
+  const cur = TABS.find(t => t.k === state.refTab) || TABS[0];
+
   $('#page-reference').innerHTML = `
     <div class="page-head">
       <h1 class="page-title">Reference <span class="tint" style="--accent:var(--c-reference)">Tables</span></h1>
-      <p class="page-desc">The numbers producers look up constantly: loudness targets per platform, the frequency map, psychoacoustic timing windows, and note-to-frequency for tuning 808s and resonant filters.</p>
+      <p class="page-desc">The numbers producers look up constantly, one table at a time.</p>
     </div>
 
-    <div class="ref-two-col">
-      <div class="card">
-        <div class="card-title">Loudness targets</div>
-        <div class="card-sub">Integrated LUFS for delivery. Master to the platform, not to the meter war.</div>
-        <div class="ref-rows">${rows(LUFS_TARGETS)}</div>
-      </div>
-
-      <div>
-        <div class="card">
-          <div class="card-title">Frequency map</div>
-          <div class="card-sub">The seven zones every mix decision touches.</div>
-          <div class="ref-rows">${rows(FREQ_BANDS)}</div>
-        </div>
-        <div class="card">
-          <div class="card-title">Timing &amp; psychoacoustics</div>
-          <div class="ref-rows">${rows(TIMING_FACTS)}</div>
-        </div>
-      </div>
+    <div class="seg ref-seg" id="refSeg" style="--accent:var(--c-reference)">
+      ${TABS.map(t => `<button data-t="${t.k}" class="${t.k === cur.k ? 'on' : ''}">${t.label}</button>`).join('')}
     </div>
 
-    <div class="card" style="margin-top:18px">
-      <div class="card-title">Note frequencies (C0-B4)</div>
-      <div class="card-sub">Tune 808s, kicks and resonant filters to the song key. Octave up doubles the value.</div>
-      <div class="note-freq-grid">${notes}</div>
+    <div class="card ref-panel" style="--accent:var(--c-reference)">
+      <div class="card-title">${cur.title}</div>
+      <div class="card-sub">${cur.sub}</div>
+      ${cur.body}
     </div>`;
+
+  $('#refSeg').addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    state.refTab = b.dataset.t;
+    renderReference();
+  });
 }
 
 /* ============================================================
@@ -1558,6 +1593,8 @@ function showPage(page) {
   if (page !== 'delay') state.delayHighlight = null;
   // Ask fills the window and scrolls internally; every other page flows.
   $('.content').classList.toggle('ask-mode', page === 'ask');
+  // pages that fill the window and scroll inside a panel rather than flowing
+  $('.content').classList.toggle('fit-mode', page === 'guide');
   state.page = page;
   $$('.nav-item').forEach(b => b.classList.toggle('active', b.dataset.page === page));
   syncTabs(page);
