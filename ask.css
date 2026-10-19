@@ -5,11 +5,19 @@
    Tokens come from styles.css; nothing is redefined here.
    ============================================================ */
 
+/* Ask is the one page that fills the window rather than flowing down it. The
+   page itself must never scroll: the list scrolls inside its column and the
+   answer inside its own. That only works if every box between here and the
+   viewport has a real height, which is what .ask-mode on .content sets up -
+   without it this grid resolves against an auto-height parent and simply
+   grows to fit all 707 rows, which is what it used to do. */
 .ask-wrap {
   display: grid;
   grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   height: 100%;
-  margin: -26px -32px;
+  min-height: 0;
+  margin: 0;
 }
 
 /* ---------------- list column ---------------- */
@@ -296,7 +304,8 @@
 @media (max-width: 820px) {
   .ask-wrap {
     grid-template-columns: 100%;
-    margin: -18px -18px 0;
+    grid-template-rows: minmax(0, 1fr);
+    margin: 0;
     position: relative;
     overflow: hidden;
   }
@@ -362,3 +371,11 @@
   display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-top: 3px;
 }
 .ask-jump b::after { content: ' →'; color: var(--text-3); }
+
+
+/* ---------------- full-bleed host ---------------- */
+/* Applied to .content by showPage() while Ask is open. The page gets the whole
+   box with no padding and no scrollbar of its own, so the two columns inside
+   can own their scrolling. */
+.content.ask-mode { overflow: hidden; padding: 0; }
+.content.ask-mode #page-ask { max-width: none; height: 100%; margin: 0; }

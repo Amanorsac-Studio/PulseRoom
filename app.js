@@ -1556,6 +1556,8 @@ function syncTabs(page) {
 function showPage(page) {
   if (state.page !== page && window.askStopVoice) window.askStopVoice();
   if (page !== 'delay') state.delayHighlight = null;
+  // Ask fills the window and scrolls internally; every other page flows.
+  $('.content').classList.toggle('ask-mode', page === 'ask');
   state.page = page;
   $$('.nav-item').forEach(b => b.classList.toggle('active', b.dataset.page === page));
   syncTabs(page);
