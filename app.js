@@ -735,6 +735,77 @@ function compEnvelope(c) {
   return `<div class="comp-vis">${svg}<div class="cv-marks">${marks}</div></div>`;
 }
 
+/* ---------- compressor transfer curve ----------
+   The display every compressor puts front and centre: input level across,
+   output level up, the diagonal bending at the threshold. The data gives a
+   ratio and a target gain reduction but no threshold, so the threshold is
+   derived rather than invented - if the loudest peaks sit near 0 dBFS and you
+   want `gr` dB of reduction there, the threshold has to be gr/(1-1/ratio)
+   below them. That arithmetic is the thing engineers get wrong by feel, so it
+   is shown on the plot rather than hidden. */
+function compTransfer(c) {
+  const ratio = parseFloat(String(c.ratio).match(/[\d.]+/)[0]) || 4;
+  const gr = c.grN || 4;
+  const KNEE = 6;                                   // soft knee width in dB
+  const thr = Math.max(-33, -gr / (1 - 1 / ratio)); // implied by ratio and target GR
+
+  /* 0 dB is the loudest hit, not dBFS. A threshold is only ever meaningful
+     relative to the peaks hitting it, and -36 keeps the bend readable
+     instead of crowded into the corner. */
+  const LO = -36;
+  const px = db => ((db - LO) / -LO) * 100;
+  const py = db => 100 - ((db - LO) / -LO) * 100;
+
+  const out = x => {
+    if (x < thr - KNEE / 2) return x;
+    if (x > thr + KNEE / 2) return thr + (x - thr) / ratio;
+    const d = x - thr + KNEE / 2;                   // inside the knee
+    return x + (1 / ratio - 1) * d * d / (2 * KNEE);
+  };
+
+  const pts = [];
+  for (let i = 0; i <= 120; i++) {
+    const x = LO + (i / 120) * -LO;
+    pts.push(`${px(x).toFixed(2)},${py(out(x)).toFixed(2)}`);
+  }
+  const line = pts.join(' ');
+  const unity = `${px(LO)},${py(LO)} ${px(0)},${py(0)}`;
+
+  const grid = [-30, -24, -18, -12, -6].map(db => `
+    <line x1="${px(db).toFixed(1)}" y1="0" x2="${px(db).toFixed(1)}" y2="100"
+      stroke="rgba(255,255,255,0.045)" stroke-width="0.25"/>
+    <line x1="0" y1="${py(db).toFixed(1)}" x2="100" y2="${py(db).toFixed(1)}"
+      stroke="rgba(255,255,255,0.045)" stroke-width="0.25"/>`).join('');
+
+  const peakOut = out(0);
+  const svg = `
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      ${grid}
+      <polyline points="${unity}" fill="none" stroke="rgba(255,255,255,.13)"
+        stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke"/>
+      <line x1="${px(thr).toFixed(1)}" y1="0" x2="${px(thr).toFixed(1)}" y2="100"
+        stroke="var(--c-hold)" stroke-width="0.35" stroke-dasharray="2 2" opacity=".65"/>
+      <polyline points="${line}" fill="none" stroke="var(--accent)" stroke-width="1.9"
+        stroke-linejoin="round" vector-effect="non-scaling-stroke"
+        pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
+        <animate attributeName="stroke-dashoffset" from="100" to="0" dur=".9s" fill="freeze"
+          calcMode="spline" keySplines=".32 .72 0 1"/>
+      </polyline>
+      <line x1="${px(0).toFixed(1)}" y1="${py(0).toFixed(1)}"
+            x2="${px(0).toFixed(1)}" y2="${py(peakOut).toFixed(1)}"
+        stroke="var(--c-cut)" stroke-width="0.8" vector-effect="non-scaling-stroke"/>
+    </svg>`;
+
+  const marks = `
+    <div class="ct-mark thr" style="left:${px(thr).toFixed(2)}%">THRESHOLD <b>${thr.toFixed(0)} dB</b></div>
+    <div class="ct-mark ratio" style="left:${px(thr).toFixed(2)}%;top:${py(out(thr)).toFixed(2)}%"><b>${ratio}:1</b></div>
+    <div class="ct-mark gr" style="top:${((py(0) + py(peakOut)) / 2).toFixed(2)}%">${(0 - peakOut).toFixed(1)} dB GR</div>
+    <div class="ct-axis x">INPUT, dB BELOW PEAK</div>
+    <div class="ct-axis y">OUTPUT</div>`;
+
+  return `<div class="comp-vis ct">${svg}<div class="cv-marks">${marks}</div></div>`;
+}
+
 function renderComp() {
   const c = COMP_DATA[state.compSource];
 
@@ -746,12 +817,18 @@ function renderComp() {
   $('#page-comp').innerHTML = `
     <div class="page-head">
       <h1 class="page-title">Compression <span class="tint" style="--accent:var(--c-comp)">Settings</span></h1>
-      <p class="page-desc">Starting points per source. GR = gain reduction on the loudest hits. Set the threshold last: dial ratio, attack and release first, then lower the threshold until the meter shows the target GR.</p>
+      <p class="page-desc">Starting points per source. Dial ratio, attack and release first, then lower the threshold until the meter shows the target gain reduction.</p>
     </div>
 
     <div class="eq-picker" id="compPicker">${chips}</div>
 
     <div class="comp-layout" style="--accent:var(--c-comp)">
+      <div class="card" style="margin:0">
+        <div class="card-title">Transfer curve</div>
+        <div class="card-sub">Where the threshold has to sit to get that gain reduction at this ratio.</div>
+        ${compTransfer(c)}
+      </div>
+
       <div class="card" style="margin:0">
         <div class="card-title">Gain-reduction envelope</div>
         <div class="card-sub">What the compressor does to one loud hit with these settings.</div>
