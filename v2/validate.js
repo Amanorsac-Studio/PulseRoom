@@ -10,7 +10,11 @@ const path = require('path');
 const SOURCES = ['kick', 'snare', 'hats', 'toms', 'overheads', 'room', 'drumbus', '808',
   'bass', 'synthbass', 'leadvocal', 'double', 'harmony', 'choir', 'rapvocal', 'adlib',
   'eguitar', 'eguitar-clean', 'aguitar', 'piano', 'organ', 'rhodes', 'synthlead', 'pad',
-  'strings', 'horns', 'percussion', 'mixbus', 'concept'];
+  'strings', 'horns', 'percussion', 'mixbus', 'concept',
+  // instruments these genres are actually built on, which the first pass
+  // folded into generic sources and so could not answer about specifically
+  'talkbox', 'sax', 'congas', 'talkingdrum', 'logdrum', 'flute',
+  'vocalchop', 'fx'];
 const INTENTS = ['bigger', 'tighter', 'punchier', 'warmer', 'brighter', 'cleaner', 'wider',
   'upfront', 'back', 'louder', 'aggressive', 'smoother', 'glued', 'natural', 'learn'];
 const GENRES = ['afrobeats', 'highlife', 'rnb', 'hiphop', 'all',

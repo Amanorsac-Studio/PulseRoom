@@ -495,7 +495,9 @@ const SRC_LABEL = {
   harmony: 'Harmony', choir: 'Choir', rapvocal: 'Rap vocal', adlib: 'Ad-libs',
   eguitar: 'Distorted guitar', 'eguitar-clean': 'Clean guitar', aguitar: 'Acoustic',
   piano: 'Piano', organ: 'Organ', rhodes: 'Rhodes', synthlead: 'Synth lead', pad: 'Pad',
-  strings: 'Strings', horns: 'Horns', mixbus: 'Mix bus', concept: 'Concepts'
+  strings: 'Strings', horns: 'Horns', mixbus: 'Mix bus', concept: 'Concepts',
+  talkbox: 'Talkbox', sax: 'Saxophone', congas: 'Congas', talkingdrum: 'Talking drum',
+  logdrum: 'Log drum', flute: 'Flute', vocalchop: 'Vocal chops', fx: 'FX & transitions'
 };
 
 const GENRE_LABEL = {

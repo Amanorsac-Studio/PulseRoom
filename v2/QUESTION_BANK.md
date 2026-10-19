@@ -1,8 +1,8 @@
 # PulseRoom 2.0 — Question Bank
 
-Generated 2026-10-11 by `v2/build-question-bank.js`. **707 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
+Generated 2026-10-19 by `v2/build-question-bank.js`. **760 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
 
-**707 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
+**760 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
 
 | Bucket | Questions | Written |
 |---|---|---|
@@ -10,9 +10,9 @@ Generated 2026-10-11 by `v2/build-question-bank.js`. **707 questions.** This is 
 | problem | 166 | 166 |
 | genre | 160 | 160 |
 | concept | 100 | 100 |
+| answered | 67 | 67 |
 | workflow | 50 | 50 |
-| answered | 14 | 14 |
-| **Total** | **707** | **707** |
+| **Total** | **760** | **760** |
 
 ---
 

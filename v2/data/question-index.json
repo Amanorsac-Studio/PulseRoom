@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-11",
- "count": 707,
+ "generated": "2026-10-19",
+ "count": 760,
  "questions": [
   {
    "id": "808-bigger",
@@ -10578,6 +10578,987 @@
    "source": "mixbus",
    "intent": "cleaner",
    "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-clearer",
+   "q": "How do I make my talkbox clearer?",
+   "aliases": [
+    "talkbox mushy",
+    "talk box words unclear",
+    "can't hear talkbox words"
+   ],
+   "source": "talkbox",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-bigger",
+   "q": "How do I make my talkbox sound bigger?",
+   "aliases": [
+    "fat talkbox",
+    "talkbox needs size",
+    "wide talk box"
+   ],
+   "source": "talkbox",
+   "intent": "bigger",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-fix-harsh",
+   "q": "Why does my talkbox sound harsh?",
+   "aliases": [
+    "talkbox piercing",
+    "talk box hurts",
+    "harsh talkbox"
+   ],
+   "source": "talkbox",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-sits-in-mix",
+   "q": "How do I sit a talkbox in a full gospel mix?",
+   "aliases": [
+    "talkbox buried",
+    "talkbox fights the vocal",
+    "place the talk box"
+   ],
+   "source": "talkbox",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-tuning",
+   "q": "Why does my talkbox sound out of tune?",
+   "aliases": [
+    "talkbox pitch wrong",
+    "talk box off key",
+    "tune the talkbox"
+   ],
+   "source": "talkbox",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocoder-vs-talkbox",
+   "q": "What is the difference between a vocoder and a talkbox?",
+   "aliases": [
+    "vocoder or talkbox",
+    "which one talkbox vocoder",
+    "talk box vs vocoder"
+   ],
+   "source": "talkbox",
+   "intent": "learn",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb",
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-brighter",
+   "q": "How do I make my talkbox brighter?",
+   "aliases": [
+    "dull talkbox",
+    "talk box needs top",
+    "brighter talkbox"
+   ],
+   "source": "talkbox",
+   "intent": "brighter",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-cleaner",
+   "q": "How do I clean up my talkbox recording?",
+   "aliases": [
+    "noisy talkbox",
+    "talkbox bleed",
+    "talk box hiss"
+   ],
+   "source": "talkbox",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-warmer",
+   "q": "How do I make my talkbox warmer?",
+   "aliases": [
+    "warm talkbox",
+    "talkbox cold",
+    "talk box thin"
+   ],
+   "source": "talkbox",
+   "intent": "warmer",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-upfront",
+   "q": "How do I get my talkbox more upfront?",
+   "aliases": [
+    "talkbox too far back",
+    "bring talkbox forward",
+    "talk box needs presence"
+   ],
+   "source": "talkbox",
+   "intent": "upfront",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-warmer",
+   "q": "How do I make my saxophone warmer?",
+   "aliases": [
+    "warm sax",
+    "sax sounds thin",
+    "saxophone needs body"
+   ],
+   "source": "sax",
+   "intent": "warmer",
+   "genres": [
+    "gospel",
+    "highlife",
+    "rnb",
+    "gospel-trad"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-fix-harsh",
+   "q": "Why does my saxophone sound harsh?",
+   "aliases": [
+    "harsh sax",
+    "sax squawks",
+    "saxophone piercing"
+   ],
+   "source": "sax",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "highlife",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-upfront",
+   "q": "How do I get my sax solo to sit on top of the band?",
+   "aliases": [
+    "sax solo buried",
+    "feature the saxophone",
+    "sax needs to lead"
+   ],
+   "source": "sax",
+   "intent": "upfront",
+   "genres": [
+    "gospel",
+    "highlife",
+    "gospel-trad"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-natural",
+   "q": "How do I make my saxophone sound natural?",
+   "aliases": [
+    "sax sounds fake",
+    "sampled sax",
+    "natural saxophone"
+   ],
+   "source": "sax",
+   "intent": "natural",
+   "genres": [
+    "gospel",
+    "highlife",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-cleaner",
+   "q": "How do I clean up a saxophone recording?",
+   "aliases": [
+    "noisy sax",
+    "sax room sound",
+    "messy saxophone"
+   ],
+   "source": "sax",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "highlife",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-bigger",
+   "q": "How do I make my sax sound bigger?",
+   "aliases": [
+    "fat sax",
+    "sax needs size",
+    "big saxophone"
+   ],
+   "source": "sax",
+   "intent": "bigger",
+   "genres": [
+    "gospel",
+    "highlife",
+    "gospel-trad"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-brighter",
+   "q": "How do I make my saxophone brighter?",
+   "aliases": [
+    "dull sax",
+    "sax needs edge",
+    "brighter saxophone"
+   ],
+   "source": "sax",
+   "intent": "brighter",
+   "genres": [
+    "gospel",
+    "highlife",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-fix-masked",
+   "q": "Why does my sax disappear under the organ?",
+   "aliases": [
+    "sax lost in gospel mix",
+    "organ covers the sax",
+    "sax buried"
+   ],
+   "source": "sax",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "gospel-trad",
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-tighter",
+   "q": "How do I tighten up a saxophone part?",
+   "aliases": [
+    "sax uneven",
+    "sax too dynamic",
+    "control the saxophone"
+   ],
+   "source": "sax",
+   "intent": "tighter",
+   "genres": [
+    "gospel",
+    "highlife",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-fix-thin",
+   "q": "Why does my saxophone sound thin?",
+   "aliases": [
+    "thin sax",
+    "sax has no body",
+    "weak saxophone"
+   ],
+   "source": "sax",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "highlife",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "congas-punchier",
+   "q": "How do I make my congas hit harder?",
+   "aliases": [
+    "weak congas",
+    "congas need punch",
+    "conga slaps"
+   ],
+   "source": "congas",
+   "intent": "punchier",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "congas-cleaner",
+   "q": "How do I clean up my congas?",
+   "aliases": [
+    "messy congas",
+    "congas bleed",
+    "tidy up the congas"
+   ],
+   "source": "congas",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "congas-wider",
+   "q": "How do I make my congas wider?",
+   "aliases": [
+    "wide congas",
+    "spread the congas",
+    "conga stereo"
+   ],
+   "source": "congas",
+   "intent": "wider",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "congas-fix-boxy",
+   "q": "Why do my congas sound boxy?",
+   "aliases": [
+    "boxy congas",
+    "hollow congas",
+    "cardboard congas"
+   ],
+   "source": "congas",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "congas-natural",
+   "q": "How do I make programmed congas sound played?",
+   "aliases": [
+    "fake congas",
+    "programmed congas stiff",
+    "humanise congas"
+   ],
+   "source": "congas",
+   "intent": "natural",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "congas-sits-with-kit",
+   "q": "How do I fit congas around a drum kit?",
+   "aliases": [
+    "congas fight the kit",
+    "percussion and drums clash",
+    "congas over drums"
+   ],
+   "source": "congas",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "congas-warmer",
+   "q": "How do I make my congas warmer?",
+   "aliases": [
+    "warm congas",
+    "congas too bright",
+    "congas harsh"
+   ],
+   "source": "congas",
+   "intent": "warmer",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkingdrum-punchier",
+   "q": "How do I make my talking drum cut through?",
+   "aliases": [
+    "talking drum buried",
+    "dondo weak",
+    "talking drum needs punch"
+   ],
+   "source": "talkingdrum",
+   "intent": "punchier",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkingdrum-cleaner",
+   "q": "How do I clean up a talking drum?",
+   "aliases": [
+    "noisy talking drum",
+    "talking drum messy",
+    "dondo cleanup"
+   ],
+   "source": "talkingdrum",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkingdrum-sits-in-mix",
+   "q": "Where does the talking drum sit in a highlife mix?",
+   "aliases": [
+    "place the talking drum",
+    "talking drum panning",
+    "talking drum level"
+   ],
+   "source": "talkingdrum",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkingdrum-natural",
+   "q": "How do I make a sampled talking drum sound real?",
+   "aliases": [
+    "fake talking drum",
+    "programmed talking drum",
+    "talking drum sample stiff"
+   ],
+   "source": "talkingdrum",
+   "intent": "natural",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "logdrum-tuning",
+   "q": "How do I tune an amapiano log drum?",
+   "aliases": [
+    "log drum out of tune",
+    "tune the log drum",
+    "amapiano log drum key"
+   ],
+   "source": "logdrum",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "logdrum-vs-bass",
+   "q": "How do I stop the log drum and the bass fighting?",
+   "aliases": [
+    "log drum masks bass",
+    "amapiano low end clash",
+    "log drum bass conflict"
+   ],
+   "source": "logdrum",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "logdrum-punchier",
+   "q": "How do I make my log drum hit harder?",
+   "aliases": [
+    "weak log drum",
+    "log drum needs punch",
+    "amapiano log drum power"
+   ],
+   "source": "logdrum",
+   "intent": "punchier",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "logdrum-cleaner",
+   "q": "How do I clean up a log drum?",
+   "aliases": [
+    "muddy log drum",
+    "log drum messy",
+    "tidy log drum"
+   ],
+   "source": "logdrum",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "logdrum-groove",
+   "q": "Why does my log drum pattern feel stiff?",
+   "aliases": [
+    "log drum robotic",
+    "amapiano groove stiff",
+    "log drum timing"
+   ],
+   "source": "logdrum",
+   "intent": "natural",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "flute-cleaner",
+   "q": "How do I clean up a flute recording?",
+   "aliases": [
+    "breathy flute",
+    "noisy flute",
+    "flute hiss"
+   ],
+   "source": "flute",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "flute-warmer",
+   "q": "How do I make my flute warmer?",
+   "aliases": [
+    "thin flute",
+    "flute too bright",
+    "warm flute"
+   ],
+   "source": "flute",
+   "intent": "warmer",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "flute-sits-in-mix",
+   "q": "How do I stop my flute disappearing in the mix?",
+   "aliases": [
+    "flute buried",
+    "can't hear the flute",
+    "flute lost"
+   ],
+   "source": "flute",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "flute-natural",
+   "q": "How do I make a sampled flute sound played?",
+   "aliases": [
+    "fake flute",
+    "programmed flute stiff",
+    "flute sample realistic"
+   ],
+   "source": "flute",
+   "intent": "natural",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "flute-brighter",
+   "q": "How do I make my flute brighter?",
+   "aliases": [
+    "dull flute",
+    "flute needs air",
+    "brighter flute"
+   ],
+   "source": "flute",
+   "intent": "brighter",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocalchop-cleaner",
+   "q": "How do I clean up my vocal chops?",
+   "aliases": [
+    "messy vocal chops",
+    "chops clicking",
+    "vocal chop artefacts"
+   ],
+   "source": "vocalchop",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "gospel-trap",
+    "hiphop",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocalchop-bigger",
+   "q": "How do I make my vocal chops sound bigger?",
+   "aliases": [
+    "wide vocal chops",
+    "chops need size",
+    "big vocal chop"
+   ],
+   "source": "vocalchop",
+   "intent": "bigger",
+   "genres": [
+    "afrobeats",
+    "gospel-trap",
+    "hiphop",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocalchop-fix-robotic",
+   "q": "Why do my vocal chops sound robotic?",
+   "aliases": [
+    "chops sound fake",
+    "vocal chop artefacts",
+    "chops too processed"
+   ],
+   "source": "vocalchop",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "gospel-trap",
+    "hiphop",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocalchop-sits-in-mix",
+   "q": "How do I sit vocal chops under a lead vocal?",
+   "aliases": [
+    "chops fight the vocal",
+    "vocal chops too loud",
+    "chops mask the singer"
+   ],
+   "source": "vocalchop",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "gospel-trap",
+    "hiphop",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocalchop-groove",
+   "q": "How do I make vocal chops groove?",
+   "aliases": [
+    "chops feel stiff",
+    "vocal chop rhythm",
+    "chops timing"
+   ],
+   "source": "vocalchop",
+   "intent": "natural",
+   "genres": [
+    "afrobeats",
+    "gospel-trap",
+    "hiphop",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "fx-riser",
+   "q": "How do I mix a riser so it builds without swamping the track?",
+   "aliases": [
+    "riser too loud",
+    "build-up sweep",
+    "riser mixing"
+   ],
+   "source": "fx",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "fx-impact",
+   "q": "How do I make a drop impact hit hard without clipping?",
+   "aliases": [
+    "impact too loud",
+    "boom hit distorting",
+    "drop impact mixing"
+   ],
+   "source": "fx",
+   "intent": "punchier",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "fx-transitions",
+   "q": "How do I use FX to join two sections smoothly?",
+   "aliases": [
+    "section transitions",
+    "joining sections",
+    "transition effects"
+   ],
+   "source": "fx",
+   "intent": "learn",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap",
+    "rnb",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "fx-cleaner",
+   "q": "How do I stop my FX cluttering the mix?",
+   "aliases": [
+    "too many effects",
+    "fx clutter",
+    "sweeps everywhere"
+   ],
+   "source": "fx",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "fx-reverse",
+   "q": "How do I use a reverse reverb or reverse cymbal properly?",
+   "aliases": [
+    "reverse reverb",
+    "backwards cymbal",
+    "reverse swell"
+   ],
+   "source": "fx",
+   "intent": "learn",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap",
+    "rnb",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "fx-noise-layer",
+   "q": "How do I use a noise or vinyl layer without adding hiss?",
+   "aliases": [
+    "vinyl crackle",
+    "noise floor layer",
+    "tape noise layer"
+   ],
+   "source": "fx",
+   "intent": "warmer",
+   "genres": [
+    "rnb",
+    "hiphop",
+    "gospel-urban",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "fx-filter-sweep",
+   "q": "How do I automate a filter sweep that sounds musical?",
+   "aliases": [
+    "filter automation",
+    "sweep sounds fake",
+    "filter build"
+   ],
+   "source": "fx",
+   "intent": "learn",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap",
     "all"
    ],
    "bucket": "answered",
