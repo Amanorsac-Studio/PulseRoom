@@ -666,35 +666,61 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
   color: var(--chip, var(--c-eq));
 }
 
+/* The analyser panel. Deeper than the old one because a curve needs vertical
+   room to read as a curve: at 200px a 6 dB bell is a bump, at 280 it is a
+   shape you can judge. Inset shadow instead of a flat fill, the way a plugin
+   display sits below its faceplate. */
 .eq-spectrum {
   position: relative;
-  height: 200px;
-  background: var(--sunken);
-  border: 1px solid var(--line);
+  height: 268px;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.028), transparent 70%),
+    var(--sunken);
+  border: 1px solid var(--line-strong);
   border-radius: var(--r-card);
   margin-bottom: 6px;
   overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), inset 0 -14px 34px rgba(0,0,0,.35);
 }
 .eq-spectrum svg { display: block; width: 100%; height: 100%; }
 
+/* dB scale down the right edge, as every equaliser has */
+.eq-db { position: absolute; inset: 0; pointer-events: none; }
+.eq-db span {
+  position: absolute; right: 8px; transform: translateY(-50%);
+  font-family: var(--mono); font-size: 9.5px; color: var(--text-3);
+}
+
 .eq-marks { position: absolute; inset: 0; pointer-events: none; }
-.eq-mark {
+
+/* A band handle: the node sits ON the curve, the label hangs off it. */
+.eq-node {
   position: absolute;
-  transform: translateX(-50%);
-  text-align: center;
+  transform: translate(-50%, -50%);
   white-space: nowrap;
   opacity: 0;
-  animation: eqMarkIn 0.45s cubic-bezier(.32,.72,0,1) forwards;
+  animation: eqNodeIn .5s cubic-bezier(.32,.72,0,1) forwards;
 }
-@keyframes eqMarkIn { to { opacity: 1; } }
-.eq-mark b { display: block; font-size: 12px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
-.eq-mark i {
-  display: block; font-style: normal; font-family: var(--mono);
-  font-size: 10.5px; margin-top: 2px;
+@keyframes eqNodeIn { from { opacity: 0; transform: translate(-50%,-50%) scale(.7); }
+                      to   { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+.eq-node i {
+  display: block; width: 11px; height: 11px; border-radius: 99px;
+  background: var(--bg); border: 2px solid var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), .12);
 }
-.eq-mark.boost i { color: var(--c-boost); }
-.eq-mark.cut   i { color: var(--c-cut); }
-.eq-mark.info  i { color: var(--c-info); }
+.eq-node b, .eq-node u {
+  position: absolute; left: 17px; text-decoration: none; display: block;
+}
+.eq-node b { top: -13px; font-size: 11.5px; font-weight: 600; color: var(--text); letter-spacing: -.01em; }
+.eq-node u { top: 1px; font-family: var(--mono); font-size: 10px; }
+.eq-node.flip b, .eq-node.flip u { left: auto; right: 17px; text-align: right; }
+
+.eq-node.boost i { border-color: var(--c-boost); box-shadow: 0 0 0 3px rgba(79,213,143,.14); }
+.eq-node.cut   i { border-color: var(--c-cut);   box-shadow: 0 0 0 3px rgba(242,96,127,.14); }
+.eq-node.info  i { border-color: var(--c-info);  box-shadow: 0 0 0 3px rgba(95,157,255,.14); }
+.eq-node.boost u { color: var(--c-boost); }
+.eq-node.cut   u { color: var(--c-cut); }
+.eq-node.info  u { color: var(--c-info); }
 
 .spectrum-scale {
   position: relative;
@@ -706,7 +732,10 @@ select.ctl:focus, input.ctl:focus { border-color: var(--accent); }
 }
 .spectrum-scale span { position: absolute; top: 0; white-space: nowrap; }
 
-.eq-bands { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* Auto-fit rather than a fixed pair, so a source with five bands lays out in
+   two rows instead of three and the page still fits the window without
+   scrolling. Lead vocal is the one that overflows at two columns. */
+.eq-bands { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; }
 
 .eq-band {
   display: flex;

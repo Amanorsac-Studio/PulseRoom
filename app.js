@@ -485,6 +485,49 @@ const EQ_DATA = {
 
 const logPos = f => Math.log10(f / 20) / Math.log10(20000 / 20) * 100;
 
+/* ---------- EQ curve ----------
+   The cheat-sheet data is a set of frequency zones, but a zone is not how an
+   equaliser is shaped. A plugin reading "cut, 20 to 100 Hz" fits a high-pass,
+   not a dip with a rise under it; "boost, 10k to 16k" is a shelf, not a bell
+   floating in the air. Classifying them first is the whole difference between
+   a chart about EQ and something that looks like an EQ. */
+function eqFilter(b) {
+  const fc = Math.sqrt(b.lo * b.hi);            // geometric mean: the midpoint on a log axis
+  const oct = Math.log2(b.hi / b.lo);
+  const q = Math.sqrt(Math.pow(2, oct)) / (Math.pow(2, oct) - 1);   // bandwidth -> Q
+  const gain = b.type === 'boost' ? 5.5 : b.type === 'cut' ? -5.5 : 0;
+
+  if (b.type === 'cut' && b.lo <= 25)  return { kind: 'hp', fc: b.hi, gain, q, b };
+  if (b.type === 'cut' && b.hi >= 14000) return { kind: 'lp', fc: b.lo, gain, q, b };
+  if (b.hi >= 14000)                   return { kind: 'hshelf', fc: b.lo, gain, q, b };
+  return { kind: 'bell', fc, gain, q: Math.max(0.5, Math.min(q, 6)), b };
+}
+
+/* Magnitude in dB at one frequency. The bell is a gaussian in log-frequency,
+   which is not the textbook biquad but tracks it closely enough to read as
+   real and stays stable at the extreme Q values narrow zones produce. */
+function filterDb(f, flt) {
+  if (flt.kind === 'hp') return -12 * Math.max(0, Math.log2(flt.fc / f));
+  if (flt.kind === 'lp') return -12 * Math.max(0, Math.log2(f / flt.fc));
+  if (flt.kind === 'hshelf') return flt.gain / (1 + Math.pow(flt.fc / f, 2.2));
+  if (flt.kind === 'lshelf') return flt.gain / (1 + Math.pow(f / flt.fc, 2.2));
+  const t = Math.log2(f / flt.fc) * flt.q;
+  return flt.gain * Math.exp(-t * t * 1.6);
+}
+
+const EQ_RANGE = 18;                                   // +/- dB shown on the curve
+const eqY = db => 50 - (Math.max(-EQ_RANGE, Math.min(EQ_RANGE, db)) / EQ_RANGE) * 44;
+
+function eqCurve(filters) {
+  const pts = [];
+  for (let i = 0; i <= 240; i++) {
+    const t = i / 240, f = 20 * Math.pow(1000, t);
+    const db = filters.reduce((n, flt) => n + filterDb(f, flt), 0);
+    pts.push([t * 100, eqY(db)]);
+  }
+  return pts;
+}
+
 function renderEQ() {
   const inst = EQ_DATA[state.eqInstrument];
 
@@ -497,47 +540,38 @@ function renderEQ() {
   // Full-height columns read as "this part of the spectrum"; floating boxes
   // read as nothing. Labels are HTML on top of the SVG, because the chart is
   // drawn with preserveAspectRatio="none" and SVG text stretches with it.
-  const TOP = { boost: 10, cut: 40, info: 25 };
+  const filters = inst.bands.map(eqFilter);
+  const pts = eqCurve(filters);
+  const line = pts.map(p => `${p[0].toFixed(2)},${p[1].toFixed(2)}`).join(' ');
+  const flat = pts.map(p => `${p[0].toFixed(2)},50`).join(' ');
+  // the fill closes back along the 0 dB line, so boosts shade up and cuts down
+  const area = `M0,50 L${line.replace(/ /g, ' L')} L100,50 Z`;
 
-  const regions = inst.bands.map((b, i) => {
-    const x = logPos(b.lo), w = logPos(b.hi) - x;
-    return `
-      <g opacity="0">
-        <rect x="${x.toFixed(1)}" y="6" width="${w.toFixed(1)}" height="88" rx="1.5"
-          fill="${colors[b.type]}" opacity="0.13"/>
-        <rect x="${x.toFixed(1)}" y="6" width="${w.toFixed(1)}" height="2" rx="1"
-          fill="${colors[b.type]}"/>
-        <line x1="${x.toFixed(1)}" y1="6" x2="${x.toFixed(1)}" y2="94"
-          stroke="${colors[b.type]}" stroke-width="0.3" opacity="0.55"/>
-        <line x1="${(x + w).toFixed(1)}" y1="6" x2="${(x + w).toFixed(1)}" y2="94"
-          stroke="${colors[b.type]}" stroke-width="0.3" opacity="0.55"/>
-        <animate attributeName="opacity" from="0" to="1" dur="0.45s"
-          begin="${(i * 0.08).toFixed(2)}s" fill="freeze"/>
-      </g>`;
-  }).join('');
-
-  // labels float above the chart so they keep the real font at the real size
-  const marks = inst.bands.map((b, i) => {
-    const x = logPos(b.lo), w = logPos(b.hi) - x;
-    const rng = `${b.lo >= 1000 ? (b.lo / 1000) + 'k' : b.lo}–${b.hi >= 1000 ? (b.hi / 1000) + 'k' : b.hi}`;
-    return `<div class="eq-mark ${b.type}" style="left:${(x + w / 2).toFixed(2)}%;top:${TOP[b.type]}%;
-      animation-delay:${(i * 0.08 + 0.2).toFixed(2)}s">
-      <b>${b.title}</b><i>${rng} Hz</i></div>`;
-  }).join('');
-
-  const gridlines = [50, 100, 200, 500, 1000, 2000, 5000, 10000].map(f =>
+  const gridlines = [30, 50, 100, 200, 500, 1000, 2000, 5000, 10000].map(f =>
     `<line x1="${logPos(f).toFixed(1)}" y1="0" x2="${logPos(f).toFixed(1)}" y2="100"
-       stroke="rgba(255,255,255,0.06)" stroke-width="0.25"/>`
+       stroke="rgba(255,255,255,0.05)" stroke-width="0.22"/>`
   ).join('');
 
-  // a quiet pink-noise silhouette, so the panel reads as a spectrum and not a bar chart
-  let floor = 'M0,94';
-  for (let i = 0; i <= 60; i++) {
-    const t = i / 60, f = 20 * Math.pow(1000, t);
-    const y = 94 - (38 - 13 * Math.log10(f / 40)) * (f < 40 ? 0.45 : 1);
-    floor += `L${(t * 100).toFixed(1)},${Math.max(40, Math.min(94, y)).toFixed(1)}`;
-  }
-  floor += 'L100,94Z';
+  const dbLines = [12, 6, -6, -12].map(db =>
+    `<line x1="0" y1="${eqY(db).toFixed(1)}" x2="100" y2="${eqY(db).toFixed(1)}"
+       stroke="rgba(255,255,255,0.045)" stroke-width="0.22"/>`
+  ).join('');
+
+  // handles sit on the curve where each band actually peaks, as a plugin's do
+  const handles = inst.bands.map((b, i) => {
+    const flt = filters[i];
+    const fx = flt.kind === 'hp' || flt.kind === 'lp' ? flt.fc : flt.fc;
+    const db = filters.reduce((n, f2) => n + filterDb(fx, f2), 0);
+    const x = logPos(fx), y = eqY(db);
+    const side = x > 72 ? ' flip' : '';
+    const rng = `${b.lo >= 1000 ? (b.lo / 1000) + 'k' : b.lo}–${b.hi >= 1000 ? (b.hi / 1000) + 'k' : b.hi}`;
+    return `<div class="eq-node ${b.type}${side}" data-band="${i}"
+      style="left:${x.toFixed(2)}%;top:${y.toFixed(2)}%;animation-delay:${(i * 0.07 + 0.5).toFixed(2)}s">
+      <i></i><b>${b.title}</b><u>${rng} Hz</u></div>`;
+  }).join('');
+
+  const dbScale = [12, 6, 0, -6, -12].map(db =>
+    `<span style="top:${eqY(db).toFixed(2)}%">${db > 0 ? '+' : ''}${db}</span>`).join('');
 
   const bands = inst.bands.map(b => `
     <div class="eq-band ${b.type}">
@@ -556,11 +590,28 @@ function renderEQ() {
 
     <div class="eq-spectrum">
       <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="eqFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0"   stop-color="var(--accent)" stop-opacity="0.30"/>
+            <stop offset="0.5" stop-color="var(--accent)" stop-opacity="0.05"/>
+            <stop offset="1"   stop-color="var(--accent)" stop-opacity="0.30"/>
+          </linearGradient>
+        </defs>
         ${gridlines}
-        <path d="${floor}" fill="rgba(255,255,255,0.035)"/>
-        ${regions}
+        ${dbLines}
+        <line x1="0" y1="50" x2="100" y2="50"
+          stroke="rgba(255,255,255,0.14)" stroke-width="0.3" stroke-dasharray="1.4 1.4"/>
+        <path d="${area}" fill="url(#eqFill)"/>
+        <polyline points="${flat}" fill="none" stroke="rgba(255,255,255,.10)"
+          stroke-width="1" vector-effect="non-scaling-stroke"/>
+        <polyline points="${line}" fill="none" stroke="var(--accent)" stroke-width="1.8"
+          stroke-linejoin="round" vector-effect="non-scaling-stroke">
+          <animate attributeName="points" dur="0.75s" values="${flat};${line}" fill="freeze"
+            calcMode="spline" keySplines=".32 .72 0 1"/>
+        </polyline>
       </svg>
-      <div class="eq-marks">${marks}</div>
+      <div class="eq-db">${dbScale}</div>
+      <div class="eq-marks">${handles}</div>
     </div>
     <div class="spectrum-scale">${
       [[20,'20'],[50,'50'],[100,'100'],[200,'200'],[500,'500'],[1000,'1k'],
@@ -568,12 +619,6 @@ function renderEQ() {
         const x = logPos(f);
         return `<span style="left:${x.toFixed(2)}%;transform:translateX(${x <= 0 ? 0 : x >= 100 ? -100 : -50}%)">${l}</span>`;
       }).join('')}</div>
-
-    <div class="legend">
-      <span><i style="background:var(--c-boost)"></i>Boost zone</span>
-      <span><i style="background:var(--c-cut)"></i>Cut zone</span>
-      <span><i style="background:var(--c-info)"></i>Listen &amp; decide</span>
-    </div>
 
     <div class="eq-bands">${bands}</div>`;
 
