@@ -1,22 +1,22 @@
 # PulseRoom 2.0 — Question Bank
 
-Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
+Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
 
-**829 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
+**884 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
 
 | Bucket | Questions | Written |
 |---|---|---|
 | intent | 217 | 217 |
+| answered | 191 | 191 |
 | problem | 166 | 166 |
 | genre | 160 | 160 |
-| answered | 136 | 136 |
 | concept | 100 | 100 |
 | workflow | 50 | 50 |
-| **Total** | **829** | **829** |
+| **Total** | **884** | **884** |
 
 ---
 
-## 808  `808`  · 24
+## 808  `808`  · 27
 
 - **How do I make my 808 sound bigger?**  
   `808-bigger` · bigger
@@ -66,8 +66,14 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `808-mix` · louder · hiphop, afrobeats, amapiano
 - **How do I put an 808 under a live choir without mud?**  
   `gx-sub-under-the-choir` · cleaner · gospel-trap, gospel
+- **How do I check the low end for car systems?**  
+  `ab-low-end-on-a-car-system` · cleaner · afrobeats, hiphop
+- **How do I stop a sampled loop clashing with the 808?**  
+  `hh-sample-and-808-clash` · cleaner · hiphop, gospel-trap
+- **How do I use an 808 in R&B without it taking over?**  
+  `rb-808-in-rnb` · cleaner · rnb, gospel-urban
 
-## Kick  `kick`  · 20
+## Kick  `kick`  · 21
 
 - **How do I make my kick hit harder?**  
   `kick-punchier` · punchier
@@ -109,8 +115,10 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `gt-leaky-kick-mic` · cleaner · gospel-trad
 - **How do I balance the log drum and the kick?**  
   `ab-logdrum-vs-kick` · cleaner · afrobeats
+- **Why does my Afrobeats kick feel weak even when it is loud?**  
+  `ab-kick-is-not-the-anchor` · punchier · afrobeats
 
-## Snare  `snare`  · 20
+## Snare  `snare`  · 21
 
 - **How do I make my snare hit harder?**  
   `snare-punchier` · punchier
@@ -152,8 +160,10 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `snare-fix-honky` · honky
 - **How do I make a trap snare cut through?**  
   `hh-snare-cuts-through` · upfront · hiphop
+- **How do I keep the snare cutting over a loud 808?**  
+  `hh-snare-against-808` · punchier · hiphop, gospel-trap
 
-## Hats  `hats`  · 18
+## Hats  `hats`  · 19
 
 - **How do I tighten up my hats?**  
   `hats-tighter` · tighter
@@ -191,6 +201,8 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `hh-hat-roll` · smoother · hiphop
 - **How do I keep fast hat rolls from getting harsh?**  
   `gx-hat-rolls-not-harsh` · smoother · gospel-trap, hiphop
+- **Where should the open hat sit in an Afrobeats pattern?**  
+  `ab-open-hat-placement` · tighter · afrobeats
 
 ## Toms  `toms`  · 14
 
@@ -277,7 +289,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
 - **How do I mix a congregation mic without it sounding like noise?**  
   `gw-congregation-mic` · natural · gospel-worship
 
-## Drum bus  `drumbus`  · 38
+## Drum bus  `drumbus`  · 42
 
 - **How do I glue my drums into one kit?**  
   `drumbus-glued` · glued
@@ -355,8 +367,16 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `gw-softer-drums` · natural · gospel-worship, gospel
 - **How do I make a live band sound as tight as a programmed one?**  
   `gu-live-band-sounds-programmed` · tighter · gospel-urban, rnb
+- **How do I get weight into boom-bap drums without a sub?**  
+  `hh-boom-bap-drum-weight` · bigger · hiphop
+- **How do I mix a laid-back palm-wine style groove?**  
+  `hl-palm-wine-feel` · natural · highlife
+- **How do I keep R&B drums present but behind the vocal?**  
+  `rb-drums-that-stay-back` · back · rnb, gospel-urban
+- **Why does my R&B track feel slower or faster than the tempo?**  
+  `rb-tempo-feels-wrong` · natural · rnb, gospel-urban
 
-## Percussion  `percussion`  · 26
+## Percussion  `percussion`  · 29
 
 - **How do I make my percussion brighter?**  
   `percussion-brighter` · brighter
@@ -410,8 +430,14 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `ga-polyrhythm-clarity` · cleaner · gospel-african, highlife, afrobeats
 - **How do I mix the bell pattern so it stays audible?**  
   `ga-bell-pattern` · upfront · gospel-african, highlife, afrobeats
+- **Why does my Afrobeats percussion sound sampled?**  
+  `ab-percussion-sounds-sampled` · natural · afrobeats, gospel-african
+- **How do I get the shaker swing right in amapiano?**  
+  `ab-amapiano-shaker-swing` · natural · afrobeats
+- **How do I mix claves and the bell together?**  
+  `hl-claves-and-bell` · cleaner · highlife, gospel-african, afrobeats
 
-## Bass  `bass`  · 26
+## Bass  `bass`  · 29
 
 - **How do I make my bass sound bigger?**  
   `bass-bigger` · bigger
@@ -465,8 +491,14 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `ga-bass-that-sings` · cleaner · gospel-african, highlife, afrobeats
 - **How do I use a live bass and an 808 together?**  
   `gu-bass-that-sits-under-808` · cleaner · gospel-urban, rnb, hiphop
+- **What happens when there is a bass, an 808 and a log drum?**  
+  `ab-bass-and-logdrum-and-808` · cleaner · afrobeats
+- **How should the bass and kick relate in highlife?**  
+  `hl-bass-and-kick-relationship` · cleaner · highlife
+- **How do I give highlife a modern low end without losing the style?**  
+  `hl-modern-highlife-low-end` · bigger · highlife, afrobeats
 
-## Synth bass  `synthbass`  · 13
+## Synth bass  `synthbass`  · 14
 
 - **How do I make my synth bass sound bigger?**  
   `synthbass-bigger` · bigger
@@ -494,8 +526,10 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `synthbass-fix-thin` · thin
 - **Why does my synth bass sound phasey?**  
   `synthbass-fix-phasey` · phasey
+- **When should I add a sub layer under the bass?**  
+  `ab-when-to-use-sub-bass` · bigger · afrobeats, hiphop
 
-## Lead vocal  `leadvocal`  · 47
+## Lead vocal  `leadvocal`  · 51
 
 - **How do I get my lead vocal more upfront?**  
   `leadvocal-upfront` · upfront
@@ -591,8 +625,16 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `gx-vocal-over-sparse-beat` · cleaner · gospel-trap, hiphop
 - **How do I keep fast vocal runs clear?**  
   `gu-vocal-runs-clarity` · cleaner · gospel-urban, gospel, rnb
+- **How do I keep an Afrobeats vocal from sounding over-produced?**  
+  `ab-vocal-not-too-produced` · natural · afrobeats
+- **How do I keep a vocal clear when it switches language mid-line?**  
+  `ab-vocal-in-pidgin-and-english` · cleaner · afrobeats, highlife
+- **How do I keep a highlife vocal in front of a busy band?**  
+  `hl-vocal-sits-in-front` · upfront · highlife
+- **How do I make an R&B vocal feel intimate?**  
+  `rb-vocal-closer-than-the-beat` · upfront · rnb, gospel-urban
 
-## Vocal doubles  `double`  · 12
+## Vocal doubles  `double`  · 13
 
 - **How do I make my vocal doubles wider?**  
   `double-wider` · wider
@@ -618,8 +660,10 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `double-fix-muddy` · muddy
 - **How do I mix doubled rap vocals?**  
   `hh-doubled-rap-vocals` · tighter · hiphop
+- **How tight should an R&B vocal double be?**  
+  `rb-vocal-double-timing` · cleaner · rnb, gospel-urban
 
-## Harmony stack  `harmony`  · 27
+## Harmony stack  `harmony`  · 30
 
 - **How do I make my harmony stack wider?**  
   `harmony-wider` · wider
@@ -675,6 +719,12 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `gc-tuning-stacked-harmony` · cleaner · gospel-contemporary, gospel
 - **How wide should urban gospel backgrounds be?**  
   `gu-background-vocal-width` · wider · gospel-urban, rnb
+- **How do I mix a group chant or crowd vocal?**  
+  `ab-crowd-and-chant` · bigger · afrobeats, highlife, hiphop
+- **How do I stack six vocal layers without mud?**  
+  `rb-stacking-without-mud` · cleaner · rnb, gospel-urban
+- **How do I separate backgrounds from the lead when it is the same singer?**  
+  `rb-background-and-lead-same-singer` · cleaner · rnb, gospel-urban
 
 ## Choir  `choir`  · 25
 
@@ -729,7 +779,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
 - **Should I use a choir sample or record a real one?**  
   `gx-choir-sample-vs-real` · learn · gospel-trap, gospel
 
-## Rap vocal  `rapvocal`  · 21
+## Rap vocal  `rapvocal`  · 24
 
 - **How do I get my rap vocal more upfront?**  
   `rapvocal-upfront` · upfront
@@ -773,8 +823,14 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `hh-feature-different-room` · glued · hiphop
 - **How do I fix a rap vocal that was recorded too hot?**  
   `hh-recorded-too-hot` · cleaner · hiphop
+- **How do I keep a double-time verse intelligible?**  
+  `hh-double-time-clarity` · cleaner · hiphop, gospel-trap
+- **What order should a rap vocal chain go in?**  
+  `hh-vocal-chain-order` · learn · hiphop, gospel-trap
+- **How do I balance two rappers with very different delivery?**  
+  `hh-two-rappers-different-levels` · smoother · hiphop, gospel-trap
 
-## Ad-libs  `adlib`  · 15
+## Ad-libs  `adlib`  · 16
 
 - **How do I make my ad-libs wider?**  
   `adlib-wider` · wider
@@ -806,6 +862,8 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `ga-vocal-ad-libs-crowd` · upfront · gospel-african, gospel
 - **How many ad-lib layers are too many?**  
   `gu-stacking-ad-libs` · cleaner · gospel-urban, rnb, hiphop
+- **How do I place ad-libs so they do not crowd the main vocal?**  
+  `hh-background-ad-libs-space` · cleaner · hiphop, gospel-trap
 
 ## Distorted guitar  `eguitar`  · 15
 
@@ -840,7 +898,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
 - **How do I mix highlife guitars so they don't clash?**  
   `guitar-highlife` · cleaner · highlife, afrobeats, gospel
 
-## Clean electric guitar  `eguitar-clean`  · 24
+## Clean electric guitar  `eguitar-clean`  · 27
 
 - **How do I make my clean electric guitar warmer?**  
   `eguitar-clean-warmer` · warmer
@@ -890,6 +948,12 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `gw-electric-swells` · wider · gospel-worship, gospel
 - **What guitar tone suits African gospel?**  
   `ga-guitar-tone-for-highlife-gospel` · brighter · gospel-african, highlife
+- **How do I lock the guitar and the shaker together?**  
+  `ab-guitar-and-shaker-lock` · tighter · afrobeats, highlife
+- **How do I mix two guitars playing one interlocking part?**  
+  `hl-two-guitars-one-part` · wider · highlife, gospel-african
+- **How do I get the classic highlife guitar tone?**  
+  `hl-guitar-tone-single-coil` · brighter · highlife, gospel-african
 
 ## Acoustic guitar  `aguitar`  · 16
 
@@ -1006,7 +1070,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
 - **How do I use a Hammond in a trap beat?**  
   `gx-organ-in-a-trap-beat` · cleaner · gospel-trap, gospel
 
-## Rhodes  `rhodes`  · 14
+## Rhodes  `rhodes`  · 15
 
 - **How do I make my Rhodes warmer?**  
   `rhodes-warmer` · warmer
@@ -1036,6 +1100,8 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `rb-rhodes-and-pads` · cleaner · rnb
 - **How do I mix dense neo-soul chords without mud?**  
   `gu-neo-soul-chords` · cleaner · gospel-urban, rnb
+- **How do I stop lush chords clashing with the bass?**  
+  `rb-chord-voicings-and-bass` · cleaner · rnb, gospel-urban
 
 ## Synth lead  `synthlead`  · 14
 
@@ -1134,7 +1200,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
 - **How do I make a small string section sound full?**  
   `gc-live-strings-budget` · bigger · gospel-contemporary, gospel
 
-## Horns  `horns`  · 18
+## Horns  `horns`  · 21
 
 - **How do I make my horns brighter?**  
   `horns-brighter` · brighter
@@ -1172,8 +1238,14 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `hl-horns-not-harsh` · smoother · highlife
 - **How do I fit a horn section around a choir?**  
   `ga-brass-and-choir` · cleaner · gospel-african, gospel
+- **How do I mix horns in an Afrobeats track?**  
+  `ab-horns-in-afrobeats` · punchier · afrobeats, highlife
+- **How do I stop the horns burying the guitars?**  
+  `hl-brass-and-guitar-share` · cleaner · highlife, gospel-african
+- **What do I do about a horn section that is slightly out of tune?**  
+  `hl-live-horn-tuning` · cleaner · highlife, gospel-african
 
-## Mix  `mixbus`  · 83
+## Mix  `mixbus`  · 101
 
 - **How do I glue my mix together on the bus?**  
   `mixbus-glued` · glued
@@ -1341,6 +1413,42 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **829 questions.** This is 
   `gu-gospel-chords-rnb-drums` · glued · gospel-urban, rnb
 - **How do I know when an urban gospel mix is finished?**  
   `gu-when-to-stop-mixing` · learn · gospel-urban, gospel, rnb
+- **How do I make an Afrobeats intro hold attention?**  
+  `ab-intro-that-holds` · cleaner · afrobeats
+- **How do I handle a beat switch mid-song?**  
+  `ab-when-the-beat-switches` · glued · afrobeats, hiphop
+- **What should I reference an Afrobeats mix against?**  
+  `ab-reference-against-afrobeats` · learn · afrobeats
+- **My Afrobeats track is busy but it does not move. Why?**  
+  `ab-song-is-too-busy` · cleaner · afrobeats
+- **The beat came mastered and I cannot mix under it. What now?**  
+  `hh-beat-too-loud-to-mix` · cleaner · hiphop, gospel-trap
+- **How do I mix a rap song when I only have a two-track beat?**  
+  `hh-mixing-with-no-stems` · cleaner · hiphop, gospel-trap
+- **How do I make the hook feel bigger than the verse?**  
+  `hh-hook-vs-verse-space` · bigger · hiphop, gospel-trap
+- **When should I clip instead of limit?**  
+  `hh-clipping-not-limiting` · louder
+- **How wide should a hip-hop beat be?**  
+  `hh-stereo-width-on-a-beat` · wider · hiphop, gospel-trap
+- **Does trap need reverb at all?**  
+  `hh-reverb-in-trap` · learn · hiphop, gospel-trap
+- **How do I gain stage a beat I did not make?**  
+  `hh-gain-staging-a-beat` · cleaner · hiphop, gospel-trap
+- **How do I get the sound of an old highlife record?**  
+  `hl-tape-era-sound` · warmer · highlife
+- **How do I keep a seven-minute highlife track moving?**  
+  `hl-long-form-arrangement` · cleaner · highlife
+- **How do I mix a highlife band recorded live in one room?**  
+  `hl-recording-a-full-band-live` · glued · highlife, gospel-african
+- **How do I use reverb in R&B without washing the mix?**  
+  `rb-reverb-that-does-not-wash` · cleaner · rnb, gospel-urban
+- **How do I make an R&B mix modern without it sounding cold?**  
+  `rb-modern-but-not-cold` · warmer · rnb, gospel-urban
+- **How do I mix R&B knowing most people use headphones?**  
+  `rb-mixing-for-headphones` · cleaner · rnb, gospel-urban
+- **How do I create depth in a sparse R&B arrangement?**  
+  `rb-sparse-arrangement-depth` · bigger · rnb, gospel-urban
 
 ## Concepts, technique and workflow  `concept`  · 153
 

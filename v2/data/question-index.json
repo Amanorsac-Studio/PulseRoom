@@ -1,6 +1,6 @@
 {
  "generated": "2026-10-22",
- "count": 829,
+ "count": 884,
  "questions": [
   {
    "id": "808-bigger",
@@ -12742,6 +12742,930 @@
     "gospel-urban",
     "gospel",
     "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-kick-is-not-the-anchor",
+   "q": "Why does my Afrobeats kick feel weak even when it is loud?",
+   "aliases": [
+    "afrobeats kick thin",
+    "kick not anchoring",
+    "weak afro kick"
+   ],
+   "source": "kick",
+   "intent": "punchier",
+   "genres": [
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-vocal-not-too-produced",
+   "q": "How do I keep an Afrobeats vocal from sounding over-produced?",
+   "aliases": [
+    "afro vocal too processed",
+    "natural afrobeats vocal",
+    "vocal sounds fake"
+   ],
+   "source": "leadvocal",
+   "intent": "natural",
+   "genres": [
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-guitar-and-shaker-lock",
+   "q": "How do I lock the guitar and the shaker together?",
+   "aliases": [
+    "guitar shaker groove",
+    "afro guitar timing",
+    "lock the groove afrobeats"
+   ],
+   "source": "eguitar-clean",
+   "intent": "tighter",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-bass-and-logdrum-and-808",
+   "q": "What happens when there is a bass, an 808 and a log drum?",
+   "aliases": [
+    "three low instruments",
+    "too much low end afrobeats",
+    "808 bass log drum"
+   ],
+   "source": "bass",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-intro-that-holds",
+   "q": "How do I make an Afrobeats intro hold attention?",
+   "aliases": [
+    "intro too long",
+    "afro intro boring",
+    "opening bars"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-horns-in-afrobeats",
+   "q": "How do I mix horns in an Afrobeats track?",
+   "aliases": [
+    "afro horns",
+    "brass afrobeats",
+    "horn stabs afro"
+   ],
+   "source": "horns",
+   "intent": "punchier",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-when-the-beat-switches",
+   "q": "How do I handle a beat switch mid-song?",
+   "aliases": [
+    "beat change afrobeats",
+    "switch halfway",
+    "two beats one song"
+   ],
+   "source": "mixbus",
+   "intent": "glued",
+   "genres": [
+    "afrobeats",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-percussion-sounds-sampled",
+   "q": "Why does my Afrobeats percussion sound sampled?",
+   "aliases": [
+    "percussion fake afrobeats",
+    "programmed percussion stiff",
+    "afro percussion not real"
+   ],
+   "source": "percussion",
+   "intent": "natural",
+   "genres": [
+    "afrobeats",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-vocal-in-pidgin-and-english",
+   "q": "How do I keep a vocal clear when it switches language mid-line?",
+   "aliases": [
+    "pidgin and english vocal",
+    "code switching vocal",
+    "mixed language lyric"
+   ],
+   "source": "leadvocal",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-reference-against-afrobeats",
+   "q": "What should I reference an Afrobeats mix against?",
+   "aliases": [
+    "afro reference track",
+    "what to compare to",
+    "reference afrobeats"
+   ],
+   "source": "mixbus",
+   "intent": "learn",
+   "genres": [
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-crowd-and-chant",
+   "q": "How do I mix a group chant or crowd vocal?",
+   "aliases": [
+    "gang vocals afrobeats",
+    "crowd chant",
+    "group shout vocal"
+   ],
+   "source": "harmony",
+   "intent": "bigger",
+   "genres": [
+    "afrobeats",
+    "highlife",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-song-is-too-busy",
+   "q": "My Afrobeats track is busy but it does not move. Why?",
+   "aliases": [
+    "busy but static",
+    "lots of parts no groove",
+    "afro track not moving"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-open-hat-placement",
+   "q": "Where should the open hat sit in an Afrobeats pattern?",
+   "aliases": [
+    "open hat afrobeats",
+    "hat placement afro",
+    "where to put the open hi hat"
+   ],
+   "source": "hats",
+   "intent": "tighter",
+   "genres": [
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-low-end-on-a-car-system",
+   "q": "How do I check the low end for car systems?",
+   "aliases": [
+    "car test afrobeats",
+    "boot bass",
+    "sound system low end"
+   ],
+   "source": "808",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-amapiano-shaker-swing",
+   "q": "How do I get the shaker swing right in amapiano?",
+   "aliases": [
+    "amapiano swing",
+    "shaker feel amapiano",
+    "piano groove shaker"
+   ],
+   "source": "percussion",
+   "intent": "natural",
+   "genres": [
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ab-when-to-use-sub-bass",
+   "q": "When should I add a sub layer under the bass?",
+   "aliases": [
+    "sub layer afrobeats",
+    "add sub under bass",
+    "sine layer"
+   ],
+   "source": "synthbass",
+   "intent": "bigger",
+   "genres": [
+    "afrobeats",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-beat-too-loud-to-mix",
+   "q": "The beat came mastered and I cannot mix under it. What now?",
+   "aliases": [
+    "mastered beat too loud",
+    "beat is limited",
+    "no headroom in the beat"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-double-time-clarity",
+   "q": "How do I keep a double-time verse intelligible?",
+   "aliases": [
+    "fast rap clarity",
+    "double time verse",
+    "rapping fast unclear"
+   ],
+   "source": "rapvocal",
+   "intent": "cleaner",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-sample-and-808-clash",
+   "q": "How do I stop a sampled loop clashing with the 808?",
+   "aliases": [
+    "sample has bass",
+    "loop low end",
+    "sample and 808 fight"
+   ],
+   "source": "808",
+   "intent": "cleaner",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-mixing-with-no-stems",
+   "q": "How do I mix a rap song when I only have a two-track beat?",
+   "aliases": [
+    "no stems",
+    "two track beat mixing",
+    "only have the instrumental"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-snare-against-808",
+   "q": "How do I keep the snare cutting over a loud 808?",
+   "aliases": [
+    "snare lost under 808",
+    "snare vs 808",
+    "trap snare weak"
+   ],
+   "source": "snare",
+   "intent": "punchier",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-vocal-chain-order",
+   "q": "What order should a rap vocal chain go in?",
+   "aliases": [
+    "rap vocal chain",
+    "plugin order rap",
+    "vocal processing order"
+   ],
+   "source": "rapvocal",
+   "intent": "learn",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-background-ad-libs-space",
+   "q": "How do I place ad-libs so they do not crowd the main vocal?",
+   "aliases": [
+    "adlib placement",
+    "ad libs crowding",
+    "rap adlib space"
+   ],
+   "source": "adlib",
+   "intent": "cleaner",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-boom-bap-drum-weight",
+   "q": "How do I get weight into boom-bap drums without a sub?",
+   "aliases": [
+    "boom bap low end",
+    "old school drum weight",
+    "sample drums thin"
+   ],
+   "source": "drumbus",
+   "intent": "bigger",
+   "genres": [
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-two-rappers-different-levels",
+   "q": "How do I balance two rappers with very different delivery?",
+   "aliases": [
+    "two rappers levels",
+    "verse levels differ",
+    "guest rapper quieter"
+   ],
+   "source": "rapvocal",
+   "intent": "smoother",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-hook-vs-verse-space",
+   "q": "How do I make the hook feel bigger than the verse?",
+   "aliases": [
+    "hook not big enough",
+    "chorus bigger rap",
+    "hook lift"
+   ],
+   "source": "mixbus",
+   "intent": "bigger",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-clipping-not-limiting",
+   "q": "When should I clip instead of limit?",
+   "aliases": [
+    "clipper vs limiter",
+    "soft clipping rap",
+    "clip the drums"
+   ],
+   "source": "mixbus",
+   "intent": "louder",
+   "genres": [
+    "hiphop",
+    "gospel-trap",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-stereo-width-on-a-beat",
+   "q": "How wide should a hip-hop beat be?",
+   "aliases": [
+    "beat too wide",
+    "trap stereo width",
+    "how wide hip hop"
+   ],
+   "source": "mixbus",
+   "intent": "wider",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-reverb-in-trap",
+   "q": "Does trap need reverb at all?",
+   "aliases": [
+    "reverb in trap",
+    "dry trap mix",
+    "no reverb hip hop"
+   ],
+   "source": "mixbus",
+   "intent": "learn",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hh-gain-staging-a-beat",
+   "q": "How do I gain stage a beat I did not make?",
+   "aliases": [
+    "beat levels wrong",
+    "gain staging someone elses beat",
+    "imported beat levels"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-palm-wine-feel",
+   "q": "How do I mix a laid-back palm-wine style groove?",
+   "aliases": [
+    "palm wine highlife",
+    "old highlife feel",
+    "relaxed highlife"
+   ],
+   "source": "drumbus",
+   "intent": "natural",
+   "genres": [
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-two-guitars-one-part",
+   "q": "How do I mix two guitars playing one interlocking part?",
+   "aliases": [
+    "highlife guitar pair",
+    "two guitars one line",
+    "interlocking guitar mix"
+   ],
+   "source": "eguitar-clean",
+   "intent": "wider",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-brass-and-guitar-share",
+   "q": "How do I stop the horns burying the guitars?",
+   "aliases": [
+    "horns over guitars highlife",
+    "brass covers guitar",
+    "horn and guitar clash"
+   ],
+   "source": "horns",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-vocal-sits-in-front",
+   "q": "How do I keep a highlife vocal in front of a busy band?",
+   "aliases": [
+    "highlife vocal buried",
+    "vocal over busy band",
+    "singer lost highlife"
+   ],
+   "source": "leadvocal",
+   "intent": "upfront",
+   "genres": [
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-live-horn-tuning",
+   "q": "What do I do about a horn section that is slightly out of tune?",
+   "aliases": [
+    "horns out of tune",
+    "brass tuning live",
+    "section intonation"
+   ],
+   "source": "horns",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-tape-era-sound",
+   "q": "How do I get the sound of an old highlife record?",
+   "aliases": [
+    "vintage highlife",
+    "1970s highlife sound",
+    "old record tone"
+   ],
+   "source": "mixbus",
+   "intent": "warmer",
+   "genres": [
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-bass-and-kick-relationship",
+   "q": "How should the bass and kick relate in highlife?",
+   "aliases": [
+    "highlife bass kick",
+    "walking bass and kick",
+    "bass kick highlife"
+   ],
+   "source": "bass",
+   "intent": "cleaner",
+   "genres": [
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-long-form-arrangement",
+   "q": "How do I keep a seven-minute highlife track moving?",
+   "aliases": [
+    "long highlife song",
+    "extended arrangement",
+    "track too long"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-claves-and-bell",
+   "q": "How do I mix claves and the bell together?",
+   "aliases": [
+    "clave and bell",
+    "two timeline instruments",
+    "claves highlife"
+   ],
+   "source": "percussion",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "gospel-african",
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-recording-a-full-band-live",
+   "q": "How do I mix a highlife band recorded live in one room?",
+   "aliases": [
+    "one room band highlife",
+    "live band bleed",
+    "whole band at once"
+   ],
+   "source": "mixbus",
+   "intent": "glued",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-modern-highlife-low-end",
+   "q": "How do I give highlife a modern low end without losing the style?",
+   "aliases": [
+    "modern highlife bass",
+    "update highlife low end",
+    "highlife with sub"
+   ],
+   "source": "bass",
+   "intent": "bigger",
+   "genres": [
+    "highlife",
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "hl-guitar-tone-single-coil",
+   "q": "How do I get the classic highlife guitar tone?",
+   "aliases": [
+    "highlife guitar sound",
+    "classic african guitar tone",
+    "clean guitar highlife"
+   ],
+   "source": "eguitar-clean",
+   "intent": "brighter",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-vocal-closer-than-the-beat",
+   "q": "How do I make an R&B vocal feel intimate?",
+   "aliases": [
+    "intimate rnb vocal",
+    "vocal feels close",
+    "breathy rnb vocal"
+   ],
+   "source": "leadvocal",
+   "intent": "upfront",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-chord-voicings-and-bass",
+   "q": "How do I stop lush chords clashing with the bass?",
+   "aliases": [
+    "rnb chords and bass",
+    "keys clash with bass",
+    "chord voicing low"
+   ],
+   "source": "rhodes",
+   "intent": "cleaner",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-drums-that-stay-back",
+   "q": "How do I keep R&B drums present but behind the vocal?",
+   "aliases": [
+    "rnb drums level",
+    "drums behind vocal",
+    "soft drums present"
+   ],
+   "source": "drumbus",
+   "intent": "back",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-stacking-without-mud",
+   "q": "How do I stack six vocal layers without mud?",
+   "aliases": [
+    "too many vocal layers",
+    "stack sounds muddy",
+    "rnb stack cleanup"
+   ],
+   "source": "harmony",
+   "intent": "cleaner",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-reverb-that-does-not-wash",
+   "q": "How do I use reverb in R&B without washing the mix?",
+   "aliases": [
+    "rnb reverb amount",
+    "reverb too washy",
+    "smooth reverb rnb"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-808-in-rnb",
+   "q": "How do I use an 808 in R&B without it taking over?",
+   "aliases": [
+    "rnb 808",
+    "808 too heavy rnb",
+    "sub in rnb"
+   ],
+   "source": "808",
+   "intent": "cleaner",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-background-and-lead-same-singer",
+   "q": "How do I separate backgrounds from the lead when it is the same singer?",
+   "aliases": [
+    "same voice lead and bgv",
+    "self harmony separation",
+    "one singer all parts"
+   ],
+   "source": "harmony",
+   "intent": "cleaner",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-tempo-feels-wrong",
+   "q": "Why does my R&B track feel slower or faster than the tempo?",
+   "aliases": [
+    "feels slow rnb",
+    "tempo feels off",
+    "groove drags"
+   ],
+   "source": "drumbus",
+   "intent": "natural",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-saxophone-or-guitar-solo",
+   "q": "How do I mix an instrumental solo in an R&B song?",
+   "aliases": [
+    "rnb solo mix",
+    "solo section rnb",
+    "feature an instrument"
+   ],
+   "source": "sax",
+   "intent": "upfront",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-modern-but-not-cold",
+   "q": "How do I make an R&B mix modern without it sounding cold?",
+   "aliases": [
+    "modern rnb warmth",
+    "clean but not sterile",
+    "contemporary rnb tone"
+   ],
+   "source": "mixbus",
+   "intent": "warmer",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-vocal-double-timing",
+   "q": "How tight should an R&B vocal double be?",
+   "aliases": [
+    "double too tight",
+    "vocal double timing",
+    "how aligned should doubles be"
+   ],
+   "source": "double",
+   "intent": "cleaner",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-mixing-for-headphones",
+   "q": "How do I mix R&B knowing most people use headphones?",
+   "aliases": [
+    "headphone mix rnb",
+    "mix for earbuds",
+    "headphone listening"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "rb-sparse-arrangement-depth",
+   "q": "How do I create depth in a sparse R&B arrangement?",
+   "aliases": [
+    "sparse mix depth",
+    "few elements depth",
+    "minimal rnb space"
+   ],
+   "source": "mixbus",
+   "intent": "bigger",
+   "genres": [
+    "rnb",
+    "gospel-urban"
    ],
    "bucket": "answered",
    "status": "answered"
