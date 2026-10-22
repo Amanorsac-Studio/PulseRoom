@@ -1,6 +1,6 @@
 {
  "generated": "2026-10-22",
- "count": 884,
+ "count": 1000,
  "questions": [
   {
    "id": "808-bigger",
@@ -13666,6 +13666,1905 @@
    "genres": [
     "rnb",
     "gospel-urban"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-formants",
+   "q": "What are formants and why do they matter?",
+   "aliases": [
+    "formant shifting",
+    "why pitched vocals sound wrong",
+    "formants explained"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-vocal-tuning-artefacts",
+   "q": "Why does tuned vocal sound artificial even on slow settings?",
+   "aliases": [
+    "autotune artefacts",
+    "tuning sounds fake",
+    "pitch correction wobble"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-zero-crossing",
+   "q": "Why do my edits click?",
+   "aliases": [
+    "clicks at edits",
+    "pops in audio",
+    "edit click"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-log-frequency",
+   "q": "Why is the frequency axis logarithmic?",
+   "aliases": [
+    "why log scale eq",
+    "frequency spacing",
+    "log vs linear frequency"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-phase-rotation",
+   "q": "What does a phase rotator or all-pass filter do?",
+   "aliases": [
+    "all pass filter",
+    "phase rotation",
+    "rotate the phase"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-resonance-vs-harmonic",
+   "q": "How do I tell a resonance from a harmonic?",
+   "aliases": [
+    "resonance or harmonic",
+    "what to cut",
+    "ringing frequency"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-solo-lies",
+   "q": "Why does everything sound worse when I solo it?",
+   "aliases": [
+    "solo sounds bad",
+    "mix in context",
+    "soloing is misleading"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-mixes-sound-small",
+   "q": "Why does my mix sound small compared to commercial records?",
+   "aliases": [
+    "mix sounds small",
+    "not big like records",
+    "amateur sounding mix"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-when-to-use-dynamic-eq-vs-multiband",
+   "q": "Dynamic EQ or multiband compression?",
+   "aliases": [
+    "dynamic eq vs multiband",
+    "which one multiband",
+    "multiband or dynamic"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-bass-disappears-in-mono",
+   "q": "Why does my bass get quieter in mono?",
+   "aliases": [
+    "bass weaker mono",
+    "low end cancels",
+    "mono bass loss"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-headroom-is-for",
+   "q": "Why do I need headroom if digital does not care?",
+   "aliases": [
+    "why leave headroom",
+    "digital headroom myth",
+    "24 bit headroom"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-intersample-peaks",
+   "q": "What are intersample peaks and should I care?",
+   "aliases": [
+    "true peak over",
+    "isp overs",
+    "inter sample peaks"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-reference-at-same-loudness",
+   "q": "Why must I level-match when comparing?",
+   "aliases": [
+    "level matched comparison",
+    "loudness matching ab",
+    "fair comparison"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-stereo-image-really-is",
+   "q": "How does the ear actually locate sound?",
+   "aliases": [
+    "how panning works",
+    "stereo perception",
+    "localisation"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-pre-fader-vs-post-fader",
+   "q": "Should my sends be pre-fader or post-fader?",
+   "aliases": [
+    "pre or post fader",
+    "send routing",
+    "fader and send relationship"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-my-low-end-changes-rooms",
+   "q": "Why does my low end sound different in every room?",
+   "aliases": [
+    "bass different everywhere",
+    "low end inconsistent",
+    "room changes the bass"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-attack-time-myth",
+   "q": "Does a fast attack always kill the transient?",
+   "aliases": [
+    "fast attack transient",
+    "attack time compression",
+    "does attack remove punch"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-two-compressors",
+   "q": "Why use two compressors instead of one?",
+   "aliases": [
+    "serial compression why",
+    "two compressors better",
+    "stacked compression"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-eq-order-on-a-bus",
+   "q": "Should EQ come before or after compression on a bus?",
+   "aliases": [
+    "bus eq order",
+    "eq before bus comp",
+    "mix bus chain order"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-glue-actually-is",
+   "q": "What does glue actually mean?",
+   "aliases": [
+    "mix glue",
+    "what is glue",
+    "glue compression meaning"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-parallel-vs-serial-routing",
+   "q": "What is the difference between parallel and serial processing?",
+   "aliases": [
+    "parallel vs serial",
+    "blend processing",
+    "new york routing"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-a-transient-is",
+   "q": "What exactly is a transient?",
+   "aliases": [
+    "transient meaning",
+    "what is attack",
+    "transient explained"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-a-limiter-removes",
+   "q": "What is a limiter actually taking away?",
+   "aliases": [
+    "what limiting does",
+    "limiter damage",
+    "loudness cost"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-mixes-translate-badly",
+   "q": "Why does my mix fall apart on other systems?",
+   "aliases": [
+    "mix does not translate",
+    "sounds bad elsewhere",
+    "translation problem"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-when-to-use-mid-side",
+   "q": "When should I reach for mid/side?",
+   "aliases": [
+    "mid side when",
+    "ms processing use",
+    "when to use ms"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-makes-a-vocal-sit",
+   "q": "What actually makes a vocal sit in a mix?",
+   "aliases": [
+    "vocal sitting",
+    "vocal not sitting",
+    "how to seat a vocal"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-arrangement-is-mixing",
+   "q": "How much of mixing is really arrangement?",
+   "aliases": [
+    "arrangement vs mixing",
+    "fix it in the mix",
+    "is it the arrangement"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-saturation-does-to-low-end",
+   "q": "Why does saturation make bass audible on small speakers?",
+   "aliases": [
+    "saturate the bass",
+    "bass on phone",
+    "harmonics low end"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-the-sidechain-filter-does",
+   "q": "Why high-pass a compressor's sidechain?",
+   "aliases": [
+    "sidechain hpf",
+    "filter the detector",
+    "compressor low end pumping"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-headphones-mislead",
+   "q": "What do headphones get wrong?",
+   "aliases": [
+    "headphone mixing problems",
+    "mixing on headphones",
+    "headphones lie"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-oversampling-fixes",
+   "q": "When does oversampling actually matter?",
+   "aliases": [
+    "when to oversample",
+    "oversampling worth it",
+    "aliasing audible"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-makes-drums-punch",
+   "q": "What actually makes drums punch?",
+   "aliases": [
+    "drum punch",
+    "why drums lack impact",
+    "punchy drums"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-the-mix-changes-at-volume",
+   "q": "Why does my balance change when I turn it up?",
+   "aliases": [
+    "balance changes with volume",
+    "loud vs quiet mix",
+    "different at low volume"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-to-fix-first",
+   "q": "What should I fix first in a bad mix?",
+   "aliases": [
+    "where to start fixing",
+    "mix triage",
+    "first thing to fix"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-not-just-use-presets",
+   "q": "What is wrong with presets?",
+   "aliases": [
+    "are presets bad",
+    "using presets",
+    "preset starting point"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-when-is-distortion-wanted",
+   "q": "When is distortion a feature rather than a fault?",
+   "aliases": [
+    "good distortion",
+    "intentional distortion",
+    "when to distort"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-how-loud-should-the-vocal-be",
+   "q": "How loud should the lead vocal be?",
+   "aliases": [
+    "vocal level",
+    "how loud vocal",
+    "vocal balance"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-is-a-null-test-for",
+   "q": "What can a null test tell me?",
+   "aliases": [
+    "null test use",
+    "phase null test",
+    "does this plugin change anything"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-how-many-plugins",
+   "q": "How many plugins should be on a channel?",
+   "aliases": [
+    "too many plugins",
+    "plugin count",
+    "how much processing"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-key-does-to-mixing",
+   "q": "Does the song's key affect mixing decisions?",
+   "aliases": [
+    "key and mixing",
+    "tuning drums to key",
+    "does key matter"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-why-stems-differ-from-mix",
+   "q": "Why do my stems not sum to the same mix?",
+   "aliases": [
+    "stems dont match",
+    "stem sum different",
+    "stems sound wrong"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-makes-a-mix-sound-expensive",
+   "q": "What makes a mix sound expensive?",
+   "aliases": [
+    "expensive sounding mix",
+    "professional sound",
+    "polished mix"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-ear-fatigue",
+   "q": "How do I know when my ears are gone?",
+   "aliases": [
+    "ear fatigue",
+    "listening fatigue",
+    "tired ears mixing"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-mixing-someone-elses-genre",
+   "q": "How do I mix a genre I do not know?",
+   "aliases": [
+    "unfamiliar genre",
+    "mixing new style",
+    "genre i dont know"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-what-mastering-cannot-fix",
+   "q": "What can mastering not fix?",
+   "aliases": [
+    "mastering limits",
+    "can mastering fix",
+    "what mastering wont do"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-when-to-use-a-clipper",
+   "q": "Where does a clipper belong in the chain?",
+   "aliases": [
+    "clipper placement",
+    "where to clip",
+    "clipper before limiter"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-brief-the-artist",
+   "q": "What should I ask before starting a mix?",
+   "aliases": [
+    "questions for the artist",
+    "mix brief",
+    "before you mix"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-import-a-rough-mix",
+   "q": "Should I listen to the artist's rough mix?",
+   "aliases": [
+    "rough mix reference",
+    "producers rough",
+    "listen to the demo"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-label-and-route-first",
+   "q": "How much setup should I do before mixing?",
+   "aliases": [
+    "session prep",
+    "setup before mixing",
+    "organise first"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-mixing-on-a-laptop",
+   "q": "Can I mix properly on a laptop?",
+   "aliases": [
+    "laptop mixing",
+    "mixing without studio",
+    "mobile setup"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-how-many-revisions",
+   "q": "How many mix revisions are reasonable?",
+   "aliases": [
+    "revision rounds",
+    "how many revisions",
+    "mix revisions included"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-when-the-recording-is-bad",
+   "q": "What do I do when the recording is simply bad?",
+   "aliases": [
+    "bad recording",
+    "cant fix the source",
+    "poor quality tracks"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-mic-placement-basics",
+   "q": "What mic placement decisions matter most?",
+   "aliases": [
+    "mic position",
+    "how to place a mic",
+    "recording technique"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-recording-vocals-at-home",
+   "q": "How do I record a decent vocal at home?",
+   "aliases": [
+    "home vocal recording",
+    "bedroom vocals",
+    "record vocals untreated room"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-checking-phase-while-recording",
+   "q": "How do I check phase while recording?",
+   "aliases": [
+    "phase check recording",
+    "multi mic phase",
+    "polarity while tracking"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-comping-without-losing-feel",
+   "q": "How do I comp a vocal without it sounding assembled?",
+   "aliases": [
+    "comping vocals",
+    "vocal comp edits",
+    "assembled vocal"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-printing-effects",
+   "q": "Should I print effects or keep them live?",
+   "aliases": [
+    "commit effects",
+    "print reverb",
+    "bounce in place"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-session-file-hygiene",
+   "q": "How do I keep a session from becoming unmanageable?",
+   "aliases": [
+    "messy session",
+    "session organisation",
+    "too many tracks"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-working-to-a-deadline",
+   "q": "How do I mix well when I have no time?",
+   "aliases": [
+    "fast mix",
+    "deadline mixing",
+    "quick turnaround"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-backing-up-properly",
+   "q": "How should I back up a project?",
+   "aliases": [
+    "backup projects",
+    "lost a session",
+    "project backup"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-delivering-to-a-client",
+   "q": "What should I send a client with the final mix?",
+   "aliases": [
+    "mix delivery",
+    "what to send client",
+    "final deliverables"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-tv-and-instrumental-versions",
+   "q": "What alternate versions should I print?",
+   "aliases": [
+    "tv mix",
+    "instrumental version",
+    "alternate mixes"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-getting-useful-feedback",
+   "q": "How do I get useful feedback on a mix?",
+   "aliases": [
+    "mix feedback",
+    "ask for notes",
+    "critique my mix"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-mixing-your-own-music",
+   "q": "How do I mix my own music objectively?",
+   "aliases": [
+    "mixing my own songs",
+    "too close to the song",
+    "self mixing"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-template-that-helps",
+   "q": "What belongs in a mix template?",
+   "aliases": [
+    "mix template contents",
+    "starting template",
+    "session template"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-when-to-recall-vs-restart",
+   "q": "Should I recall an old mix or start again?",
+   "aliases": [
+    "recall or remix",
+    "old session revisit",
+    "start over mixing"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-loudness-for-different-platforms",
+   "q": "Do I need different masters for different platforms?",
+   "aliases": [
+    "one master or many",
+    "platform masters",
+    "different loudness targets"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-collaborating-with-a-producer",
+   "q": "How do I work with a producer who keeps changing the arrangement?",
+   "aliases": [
+    "arrangement keeps changing",
+    "producer changes",
+    "moving target mix"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-mixing-with-a-bad-room",
+   "q": "What do I do if I cannot treat my room?",
+   "aliases": [
+    "untreated room mixing",
+    "bad room",
+    "cant treat the room"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-saving-a-vocal-chain",
+   "q": "Should I reuse the same vocal chain on every song?",
+   "aliases": [
+    "same chain every song",
+    "reuse vocal chain",
+    "chain per song"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-when-to-send-for-mastering",
+   "q": "When is a mix ready for mastering?",
+   "aliases": [
+    "ready to master",
+    "send for mastering",
+    "mix finished for master"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-dealing-with-plugin-latency",
+   "q": "How do I deal with plugin latency?",
+   "aliases": [
+    "latency compensation",
+    "plugins out of time",
+    "pdc problems"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "w-knowing-what-to-charge",
+   "q": "How do I decide what to charge for a mix?",
+   "aliases": [
+    "mixing rates",
+    "what to charge",
+    "pricing a mix"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-fix-dull",
+   "q": "Why does my mix sound dull after mastering?",
+   "aliases": [
+    "master is dull",
+    "lost top end mastering",
+    "dull after limiting"
+   ],
+   "source": "mixbus",
+   "intent": "brighter",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-reference-match",
+   "q": "How do I match my mix to a reference?",
+   "aliases": [
+    "match reference tonal balance",
+    "sound like the reference",
+    "reference matching"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-low-end-control",
+   "q": "How do I control the low end on the mix bus?",
+   "aliases": [
+    "bus low end",
+    "tighten low end master",
+    "mix bus bass control"
+   ],
+   "source": "mixbus",
+   "intent": "tighter",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-stereo-width-check",
+   "q": "How do I check the stereo width of a master?",
+   "aliases": [
+    "check width master",
+    "too wide master",
+    "stereo check"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-when-to-stop-limiting",
+   "q": "How much limiting is too much?",
+   "aliases": [
+    "how much limiting",
+    "limiter amount",
+    "over limited"
+   ],
+   "source": "mixbus",
+   "intent": "louder",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-does-it-need-a-master",
+   "q": "Does every mix need mastering?",
+   "aliases": [
+    "do i need mastering",
+    "skip mastering",
+    "self master"
+   ],
+   "source": "mixbus",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-fade-and-spacing",
+   "q": "How do I set fades and spacing on a release?",
+   "aliases": [
+    "track fades",
+    "album spacing",
+    "fade out length"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-checking-the-master",
+   "q": "What do I check before releasing a master?",
+   "aliases": [
+    "final checks master",
+    "before release checklist",
+    "master qc"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-what-goes-on-the-bus",
+   "q": "What should actually be on my mix bus?",
+   "aliases": [
+    "mix bus chain",
+    "what plugins on master",
+    "bus processing"
+   ],
+   "source": "mixbus",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-fix-small-on-phone",
+   "q": "Why does my master sound small on a phone?",
+   "aliases": [
+    "master small on phone",
+    "thin on phone speaker",
+    "phone playback weak"
+   ],
+   "source": "mixbus",
+   "intent": "bigger",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-album-consistency",
+   "q": "How do I make an album sound like one record?",
+   "aliases": [
+    "album consistency",
+    "songs sound different",
+    "cohesive album"
+   ],
+   "source": "mixbus",
+   "intent": "glued",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-when-the-client-wants-louder",
+   "q": "The client says it is not loud enough. What now?",
+   "aliases": [
+    "client wants louder",
+    "make it louder",
+    "not as loud as other songs"
+   ],
+   "source": "mixbus",
+   "intent": "louder",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-fix-crowded-top",
+   "q": "Why is the top end of my mix crowded?",
+   "aliases": [
+    "cluttered highs",
+    "busy top end",
+    "harsh cymbals and vocals"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-should-i-use-analog-emulation",
+   "q": "Do analogue emulations on the bus actually help?",
+   "aliases": [
+    "console emulation",
+    "tape plugin on bus",
+    "analog emulation worth it"
+   ],
+   "source": "mixbus",
+   "intent": "warmer",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-print-or-render",
+   "q": "Should I print the mix in real time or render offline?",
+   "aliases": [
+    "bounce offline",
+    "real time bounce",
+    "render vs print"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-fix-no-depth",
+   "q": "Why does my mix sound flat and two-dimensional?",
+   "aliases": [
+    "no depth in mix",
+    "flat mix",
+    "everything up front"
+   ],
+   "source": "mixbus",
+   "intent": "bigger",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "mixbus-fix-inconsistent-sections",
+   "q": "Why do sections of my song sound like different mixes?",
+   "aliases": [
+    "chorus sounds different",
+    "sections inconsistent",
+    "verse and chorus mismatch"
+   ],
+   "source": "mixbus",
+   "intent": "glued",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkingdrum-wider",
+   "q": "How do I make a talking drum sound wider?",
+   "aliases": [
+    "wide talking drum",
+    "spread the talking drum",
+    "talking drum stereo"
+   ],
+   "source": "talkingdrum",
+   "intent": "wider",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkingdrum-warmer",
+   "q": "How do I make a talking drum warmer?",
+   "aliases": [
+    "thin talking drum",
+    "warm up the talking drum",
+    "talking drum too bright"
+   ],
+   "source": "talkingdrum",
+   "intent": "warmer",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "logdrum-wider",
+   "q": "How wide should a log drum be?",
+   "aliases": [
+    "log drum stereo",
+    "widen log drum",
+    "amapiano bass width"
+   ],
+   "source": "logdrum",
+   "intent": "wider",
+   "genres": [
+    "afrobeats",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "logdrum-sits-with-vocal",
+   "q": "How do I keep a log drum from swallowing the vocal?",
+   "aliases": [
+    "log drum masks vocal",
+    "amapiano vocal buried",
+    "log drum too dominant"
+   ],
+   "source": "logdrum",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "flute-wider",
+   "q": "How do I give a flute width without losing its place?",
+   "aliases": [
+    "wide flute",
+    "flute stereo",
+    "spread the flute"
+   ],
+   "source": "flute",
+   "intent": "wider",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "flute-with-vocals",
+   "q": "How do I stop a flute clashing with the lead vocal?",
+   "aliases": [
+    "flute over vocal",
+    "flute and singer clash",
+    "flute masks vocal"
+   ],
+   "source": "flute",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "flute-upfront",
+   "q": "How do I feature a flute solo?",
+   "aliases": [
+    "flute solo mix",
+    "feature the flute",
+    "flute lead line"
+   ],
+   "source": "flute",
+   "intent": "upfront",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocalchop-tuning",
+   "q": "How do I tune vocal chops to the track?",
+   "aliases": [
+    "chops out of key",
+    "tune vocal chops",
+    "chop pitch"
+   ],
+   "source": "vocalchop",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "gospel-trap",
+    "hiphop",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "vocalchop-as-the-hook",
+   "q": "How do I mix vocal chops when they are the hook?",
+   "aliases": [
+    "chop hook",
+    "chops carry the song",
+    "featured vocal chops"
+   ],
+   "source": "vocalchop",
+   "intent": "upfront",
+   "genres": [
+    "afrobeats",
+    "gospel-trap",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "congas-upfront",
+   "q": "How do I bring congas forward in a mix?",
+   "aliases": [
+    "congas too quiet",
+    "feature the congas",
+    "congas need presence"
+   ],
+   "source": "congas",
+   "intent": "upfront",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "congas-smoother",
+   "q": "How do I even out a conga performance?",
+   "aliases": [
+    "congas uneven",
+    "inconsistent conga hits",
+    "smooth the congas"
+   ],
+   "source": "congas",
+   "intent": "smoother",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "fx-white-noise-sweep",
+   "q": "How do I mix a noise sweep so it does not mask everything?",
+   "aliases": [
+    "noise sweep",
+    "white noise riser",
+    "sweep too loud"
+   ],
+   "source": "fx",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap",
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "fx-vocal-stutter",
+   "q": "How do I mix a vocal stutter or glitch effect?",
+   "aliases": [
+    "stutter edit",
+    "vocal glitch",
+    "repeat effect"
+   ],
+   "source": "fx",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-wider",
+   "q": "How do I make a talkbox part sit wide?",
+   "aliases": [
+    "wide talkbox",
+    "talkbox stereo",
+    "spread talk box"
+   ],
+   "source": "talkbox",
+   "intent": "wider",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "talkbox-with-the-band",
+   "q": "How do I fit a talkbox into a full band arrangement?",
+   "aliases": [
+    "talkbox in a band",
+    "talkbox over guitars",
+    "place talkbox in mix"
+   ],
+   "source": "talkbox",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-wider",
+   "q": "How do I give a saxophone width?",
+   "aliases": [
+    "wide sax",
+    "sax stereo",
+    "spread the saxophone"
+   ],
+   "source": "sax",
+   "intent": "wider",
+   "genres": [
+    "gospel",
+    "highlife",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "sax-section-vs-solo",
+   "q": "Should a sax be mixed differently in a section than as a solo?",
+   "aliases": [
+    "sax in a section",
+    "horn section sax",
+    "solo vs section sax"
+   ],
+   "source": "sax",
+   "intent": "glued",
+   "genres": [
+    "gospel",
+    "highlife",
+    "gospel-african"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "overheads-are-the-kit",
+   "q": "Should the overheads or the close mics be the kit?",
+   "aliases": [
+    "overhead led drums",
+    "close mics or overheads",
+    "build the kit from"
+   ],
+   "source": "overheads",
+   "intent": "natural",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "overheads-cymbals-too-loud",
+   "q": "The cymbals are too loud in my overheads. What now?",
+   "aliases": [
+    "cymbals dominate overheads",
+    "too much cymbal",
+    "overheads all cymbal"
+   ],
+   "source": "overheads",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "room-mic-as-an-instrument",
+   "q": "How do I use room mics as an effect rather than ambience?",
+   "aliases": [
+    "room mic compression",
+    "smashed room mics",
+    "room as effect"
+   ],
+   "source": "room",
+   "intent": "aggressive",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "room-how-much",
+   "q": "How much room mic should I use?",
+   "aliases": [
+    "room mic level",
+    "how much room",
+    "room blend amount"
+   ],
+   "source": "room",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "double-how-many",
+   "q": "How many vocal doubles do I actually need?",
+   "aliases": [
+    "number of doubles",
+    "two or four doubles",
+    "how many vocal takes"
+   ],
+   "source": "double",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "double-plugin-or-real",
+   "q": "Is a doubler plugin as good as recording a second take?",
+   "aliases": [
+    "doubler plugin vs real double",
+    "fake double vocal",
+    "should i record a double"
+   ],
+   "source": "double",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "toms-in-a-sparse-mix",
+   "q": "How do I mix toms when they only play twice?",
+   "aliases": [
+    "tom fills only",
+    "occasional toms",
+    "tom level fills"
+   ],
+   "source": "toms",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "strings-in-a-small-arrangement",
+   "q": "How do I use strings in a sparse arrangement?",
+   "aliases": [
+    "strings in a small mix",
+    "strings sparse song",
+    "minimal strings"
+   ],
+   "source": "strings",
+   "intent": "natural",
+   "genres": [
+    "all",
+    "rnb",
+    "gospel-contemporary"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "synthbass-vs-808",
+   "q": "What is the difference between a synth bass and an 808?",
+   "aliases": [
+    "808 or synth bass",
+    "synth bass vs 808",
+    "which bass sound"
+   ],
+   "source": "synthbass",
+   "intent": "learn",
+   "genres": [
+    "all",
+    "hiphop",
+    "afrobeats"
    ],
    "bucket": "answered",
    "status": "answered"

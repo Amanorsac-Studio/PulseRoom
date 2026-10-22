@@ -1,0 +1,1204 @@
+{
+ "_note": "Batch 15 — the last 26, filling out the sources batch 11 introduced and the three that stayed thinnest. Closes the bank at 1000.",
+ "questions": [
+  {
+   "id": "talkingdrum-wider",
+   "q": "How do I make a talking drum sound wider?",
+   "aliases": [
+    "wide talking drum",
+    "spread the talking drum",
+    "talking drum stereo"
+   ],
+   "source": "talkingdrum",
+   "intent": "wider",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african"
+   ],
+   "short": "One room send, panned wide. The drum itself should stay a point source.",
+   "steps": [
+    "Keep the dry signal narrow and off centre.",
+    "Send it to a room reverb panned full width.",
+    "If there are two drums, pan them apart rather than widening one.",
+    "High-pass the reverb return at 300 Hz.",
+    "Check mono; the drum should still land in one place."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 300,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "room",
+     "decay": "0.8 s",
+     "width": "100%",
+     "send": "12–18%"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "A talking drum speaks, and speech has to come from somewhere definite for the ear to follow it. Widening the source blurs the location and the phrasing stops reading as an utterance.",
+   "watch": "A widened talking drum loses the conversational quality that is the entire instrument.",
+   "related": [
+    "talkingdrum-sits-in-mix",
+    "congas-wider",
+    "c-widen-without-widener"
+   ]
+  },
+  {
+   "id": "talkingdrum-warmer",
+   "q": "How do I make a talking drum warmer?",
+   "aliases": [
+    "thin talking drum",
+    "warm up the talking drum",
+    "talking drum too bright"
+   ],
+   "source": "talkingdrum",
+   "intent": "warmer",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african"
+   ],
+   "short": "Lower the high-pass and add tape. The warmth is in the body, below where you filtered.",
+   "steps": [
+    "Lower the high-pass to 90–100 Hz.",
+    "Lift 1.5 dB at 200–350 Hz for the body.",
+    "Add tape saturation rather than more EQ.",
+    "Reduce 4–6 kHz if the strike is stinging.",
+    "Use a room rather than a plate."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 95,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 280,
+      "gain": 1.5,
+      "q": 1,
+      "type": "bell"
+     }
+    ],
+    "reverb": {
+     "type": "room",
+     "decay": "0.8 s",
+     "send": "12–18%"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "The body of a talking drum sits lower than its strike suggests, and a default 120 Hz high-pass removes most of it. What remains is the attack with no resonance behind it, which reads as thin rather than bright.",
+   "watch": "Too much 250 Hz and it stops cutting through the guitars.",
+   "related": [
+    "talkingdrum-cleaner",
+    "congas-warmer",
+    "talkingdrum-punchier"
+   ]
+  },
+  {
+   "id": "logdrum-wider",
+   "q": "How wide should a log drum be?",
+   "aliases": [
+    "log drum stereo",
+    "widen log drum",
+    "amapiano bass width"
+   ],
+   "source": "logdrum",
+   "intent": "wider",
+   "genres": [
+    "afrobeats",
+    "hiphop"
+   ],
+   "short": "Mono below 120 Hz. Any width belongs to the harmonics, not the fundamental.",
+   "steps": [
+    "Keep everything below 120 Hz strictly mono.",
+    "If you want width, add a saturated harmonic layer and widen only that.",
+    "Check mono — a widened log drum can lose most of its level.",
+    "Use a short stereo delay on the harmonic layer rather than a widener.",
+    "Keep the dry fundamental centred."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 120,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "stereo-field",
+    "compare": true
+   },
+   "why": "Low frequencies carry most of the energy and cancel badly when summed, and the ear cannot localise them anyway. Widening the fundamental costs level on every mono system and buys nothing even on stereo ones.",
+   "watch": "Clubs sum the low end. A wide log drum can simply disappear there.",
+   "related": [
+    "logdrum-vs-bass",
+    "c-low-end-mono",
+    "c-why-bass-disappears-in-mono"
+   ]
+  },
+  {
+   "id": "logdrum-sits-with-vocal",
+   "q": "How do I keep a log drum from swallowing the vocal?",
+   "aliases": [
+    "log drum masks vocal",
+    "amapiano vocal buried",
+    "log drum too dominant"
+   ],
+   "source": "logdrum",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop"
+   ],
+   "short": "Duck it under the vocal and keep its harmonics out of 1–3 kHz.",
+   "steps": [
+    "Sidechain the log drum 2–3 dB to the lead vocal.",
+    "Cut 2 dB at 1–3 kHz on the log drum's saturated layer.",
+    "Shorten its tail so it clears before the next vocal phrase.",
+    "Check the arrangement — the hook may want the log drum, not the words.",
+    "Keep the vocal centred and the log drum's harmonics slightly off centre."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 2000,
+      "gain": -2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "2–3 dB"
+    }
+   },
+   "visual": {
+    "type": "sidechain"
+   },
+   "why": "A saturated log drum generates harmonics right through the vocal's intelligibility range, which is the price of making it audible on small speakers. Ducking returns that band only while words are being sung.",
+   "watch": "In amapiano the log drum often is the hook. Check before protecting the vocal.",
+   "related": [
+    "logdrum-punchier",
+    "vocalchop-sits-in-mix",
+    "c-what-makes-a-vocal-sit"
+   ]
+  },
+  {
+   "id": "flute-wider",
+   "q": "How do I give a flute width without losing its place?",
+   "aliases": [
+    "wide flute",
+    "flute stereo",
+    "spread the flute"
+   ],
+   "source": "flute",
+   "intent": "wider",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "short": "Width from the space, not the source. A doubled flute line beats any widener.",
+   "steps": [
+    "Record the line twice and pan the takes apart if the part allows.",
+    "Otherwise keep it mono and send to a wide hall.",
+    "High-pass the reverb return at 300 Hz.",
+    "Use a stereo delay with different times per side.",
+    "Check mono; the flute should still sit in one place."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 300,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "hall",
+     "decay": "1.8 s",
+     "width": "100%",
+     "send": "20–28%"
+    },
+    "delay": {
+     "type": "stereo",
+     "time": "1/16",
+     "mix": "8–12%"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "A flute is a single quiet source with a lot of breath noise, and widening plugins amplify that noise across the stereo field rather than the note. A second take or a wide space adds width without multiplying the air.",
+   "watch": "Widening a breathy flute spreads the breath, which is the last thing you want wide.",
+   "related": [
+    "flute-sits-in-mix",
+    "flute-cleaner",
+    "c-widen-without-widener"
+   ]
+  },
+  {
+   "id": "flute-with-vocals",
+   "q": "How do I stop a flute clashing with the lead vocal?",
+   "aliases": [
+    "flute over vocal",
+    "flute and singer clash",
+    "flute masks vocal"
+   ],
+   "source": "flute",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "short": "Move it in time or in octave. They occupy the same range and both carry melody.",
+   "steps": [
+    "Arrange the flute into the gaps between vocal phrases.",
+    "If they overlap, move the flute up an octave.",
+    "Duck the flute 3 dB under the vocal.",
+    "Cut 2 dB at 1–3 kHz on the flute.",
+    "Pan the flute 40% off centre."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 2000,
+      "gain": -2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "A flute and a voice are both sustained melodic sources in the same register, so a listener tracking one loses the other. Separation has to come from arrangement, because no EQ distinguishes two melodies in the same band.",
+   "watch": "A flute answering the vocal works. A flute accompanying it rarely does.",
+   "related": [
+    "flute-sits-in-mix",
+    "synthlead-fix-masked",
+    "c-arrangement-is-mixing"
+   ]
+  },
+  {
+   "id": "flute-upfront",
+   "q": "How do I feature a flute solo?",
+   "aliases": [
+    "flute solo mix",
+    "feature the flute",
+    "flute lead line"
+   ],
+   "source": "flute",
+   "intent": "upfront",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "short": "Compress hard for consistency and bring the band down around it.",
+   "steps": [
+    "Compress at 4:1 with 5 dB; a flute's dynamic range is wide.",
+    "Automate the band down 2–3 dB for the solo.",
+    "Move the flute toward the centre for its section.",
+    "Give it the lead vocal's reverb so the handover sounds deliberate.",
+    "Keep some breath; it identifies the instrument."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "gr": "5 dB"
+    },
+    "reverb": {
+     "send": "matched to lead vocal"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A flute is one of the quietest instruments in any arrangement, so it loses a level contest with anything amplified. Making room is the only approach that keeps it sounding like a flute rather than a compressed one.",
+   "watch": "Compressing a flute hard raises the breath to the level of the notes.",
+   "related": [
+    "rb-saxophone-or-guitar-solo",
+    "flute-natural",
+    "sax-upfront"
+   ]
+  },
+  {
+   "id": "vocalchop-tuning",
+   "q": "How do I tune vocal chops to the track?",
+   "aliases": [
+    "chops out of key",
+    "tune vocal chops",
+    "chop pitch"
+   ],
+   "source": "vocalchop",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "gospel-trap",
+    "hiphop",
+    "rnb"
+   ],
+   "short": "Tune the chop, then check it against the chord, not just the key.",
+   "steps": [
+    "Identify the chop's root note before pitching anything.",
+    "Tune it to a note in the current chord, not just the song key.",
+    "If the chord changes under a held chop, re-pitch it per chord.",
+    "Re-chop from the source rather than pitching a pitched file.",
+    "Check the chop against the bass, which exposes wrong notes fastest."
+   ],
+   "params": {},
+   "visual": {
+    "type": "levels"
+   },
+   "why": "A chop carries a pitch whether or not it was chosen, so it functions harmonically even when it is being used rhythmically. A chop on the key's root over a chord that does not contain it clashes exactly as a wrong bass note would.",
+   "watch": "A chop that works over one chord can be wrong over the next. Check the whole progression.",
+   "related": [
+    "vocalchop-fix-robotic",
+    "c-what-key-does-to-mixing",
+    "logdrum-tuning"
+   ]
+  },
+  {
+   "id": "vocalchop-as-the-hook",
+   "q": "How do I mix vocal chops when they are the hook?",
+   "aliases": [
+    "chop hook",
+    "chops carry the song",
+    "featured vocal chops"
+   ],
+   "source": "vocalchop",
+   "intent": "upfront",
+   "genres": [
+    "afrobeats",
+    "gospel-trap",
+    "hiphop"
+   ],
+   "short": "Treat them as the lead. Everything else moves out of their way.",
+   "steps": [
+    "Give them the centre and the lead vocal's level.",
+    "Duck the keys and pads 2–3 dB under them.",
+    "Keep them drier than you would as a texture.",
+    "Lift 2 dB at 2–4 kHz for definition.",
+    "Automate them down when the actual vocal returns."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 3000,
+      "gain": 2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4 dB"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A hook is whatever the listener remembers, and the mix has to agree with the arrangement about what that is. Chops mixed as background while carrying the hook leave the song with no clear centre.",
+   "watch": "If both the chops and a sung hook are present, one of them is not the hook.",
+   "related": [
+    "vocalchop-sits-in-mix",
+    "vocalchop-bigger",
+    "hh-hook-vs-verse-space"
+   ]
+  },
+  {
+   "id": "congas-upfront",
+   "q": "How do I bring congas forward in a mix?",
+   "aliases": [
+    "congas too quiet",
+    "feature the congas",
+    "congas need presence"
+   ],
+   "source": "congas",
+   "intent": "upfront",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "short": "Compress for consistency and give them 3–5 kHz. Keep them dry.",
+   "steps": [
+    "Compress at 4:1 with 4 dB so every stroke lands the same.",
+    "Lift 2 dB at 3–5 kHz for the slap.",
+    "Reduce the reverb; dry percussion reads as close.",
+    "Pan them to a distinct position away from the hats.",
+    "Cut 3–5 kHz on the hats to make room."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4 dB"
+    },
+    "eq": [
+     {
+      "f": 4000,
+      "gain": 2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "Hand drums vary enormously in level between open tones, slaps and heel strokes, so the quiet strokes vanish while the loud ones poke out. Compression makes the pattern continuous, which reads as presence without more level.",
+   "watch": "Compressed congas expose the room. Gate or edit if the bleed rises.",
+   "related": [
+    "congas-punchier",
+    "ga-shaker-drives-the-song",
+    "percussion-upfront"
+   ]
+  },
+  {
+   "id": "congas-smoother",
+   "q": "How do I even out a conga performance?",
+   "aliases": [
+    "congas uneven",
+    "inconsistent conga hits",
+    "smooth the congas"
+   ],
+   "source": "congas",
+   "intent": "smoother",
+   "genres": [
+    "highlife",
+    "afrobeats",
+    "gospel-african",
+    "all"
+   ],
+   "short": "Compress gently and ride the loud strokes. Do not flatten the open and slap difference.",
+   "steps": [
+    "Compress at 3:1 with 3 dB and a slow attack so slaps keep their crack.",
+    "Ride the few strokes that still jump rather than compressing harder.",
+    "Keep the difference between open tones and slaps; it is the vocabulary.",
+    "Use a transient designer rather than more compression if slaps are harsh.",
+    "Check the pattern against the shaker for consistency."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "3:1",
+     "attack": "20 ms",
+     "gr": "3 dB"
+    }
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "The contrast between an open tone and a slap is how a hand drummer phrases, so compressing until every stroke matches removes the phrasing. The goal is consistency between bars, not between strokes.",
+   "watch": "Over-compressed congas sound like a loop even when they were played.",
+   "related": [
+    "congas-natural",
+    "congas-upfront",
+    "c-compress-keep-dynamics"
+   ]
+  },
+  {
+   "id": "fx-white-noise-sweep",
+   "q": "How do I mix a noise sweep so it does not mask everything?",
+   "aliases": [
+    "noise sweep",
+    "white noise riser",
+    "sweep too loud"
+   ],
+   "source": "fx",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap",
+    "all"
+   ],
+   "short": "Band-limit it hard. Full-range noise masks the whole mix at once.",
+   "steps": [
+    "High-pass at 500 Hz and low-pass at 10 kHz.",
+    "Automate the level from silence rather than fading a loud sweep.",
+    "Duck it 4 dB under the vocal.",
+    "Pan it wide and keep the centre clear.",
+    "End it exactly on the downbeat."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 500,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 10000,
+      "gain": -18,
+      "q": 0.7,
+      "type": "lp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "White noise contains energy at every frequency, so it masks every element simultaneously rather than competing with one. Restricting it to a band limits the damage to the part of the spectrum where the effect is actually audible.",
+   "watch": "A sweep that is quiet enough not to mask is often too quiet to work. Band-limit instead.",
+   "related": [
+    "fx-riser",
+    "fx-noise-layer",
+    "fx-cleaner"
+   ]
+  },
+  {
+   "id": "fx-vocal-stutter",
+   "q": "How do I mix a vocal stutter or glitch effect?",
+   "aliases": [
+    "stutter edit",
+    "vocal glitch",
+    "repeat effect"
+   ],
+   "source": "fx",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap"
+   ],
+   "short": "Keep it in time, fade every edit, and let it resolve on the beat.",
+   "steps": [
+    "Lock the repeat rate to a note value rather than an arbitrary time.",
+    "Fade every slice, 2–5 ms, or it will click.",
+    "Resolve the stutter exactly on the downbeat.",
+    "Duck the music slightly under it so the effect reads.",
+    "Use it once or twice, not throughout."
+   ],
+   "params": {},
+   "visual": {
+    "type": "delay-grid"
+   },
+   "why": "A stutter works as a rhythmic device, so it has to be in time with the music to read as deliberate rather than as a dropout. The clicks that make these effects sound amateur come from the edit points, not the processing.",
+   "watch": "An unresolved stutter sounds like a streaming error.",
+   "related": [
+    "c-zero-crossing",
+    "fx-transitions",
+    "vocalchop-cleaner"
+   ]
+  },
+  {
+   "id": "talkbox-wider",
+   "q": "How do I make a talkbox part sit wide?",
+   "aliases": [
+    "wide talkbox",
+    "talkbox stereo",
+    "spread talk box"
+   ],
+   "source": "talkbox",
+   "intent": "wider",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "short": "Two performances, or a stereo delay. Never a widener on a single take.",
+   "steps": [
+    "Record the part twice and pan the takes apart.",
+    "If only one take exists, use a stereo delay with different times per side.",
+    "Keep everything below 200 Hz mono and centred.",
+    "Send to a wide chamber rather than widening the source.",
+    "Check mono; a widened single take will hollow out."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "delay": {
+     "type": "stereo",
+     "time": "1/16 and 1/8",
+     "mix": "12–18%"
+    },
+    "reverb": {
+     "type": "chamber",
+     "decay": "1.4 s",
+     "send": "12–18%"
+    }
+   },
+   "visual": {
+    "type": "stereo-field",
+    "compare": true
+   },
+   "why": "A talkbox is recorded with one microphone at one tube, so there is no stereo information to expand. Any width has to be manufactured from genuinely different signals or from a space, both of which survive mono summing.",
+   "watch": "A widened talkbox loses intelligibility, which is the one thing it cannot afford.",
+   "related": [
+    "talkbox-bigger",
+    "talkbox-clearer",
+    "c-widen-without-widener"
+   ]
+  },
+  {
+   "id": "talkbox-with-the-band",
+   "q": "How do I fit a talkbox into a full band arrangement?",
+   "aliases": [
+    "talkbox in a band",
+    "talkbox over guitars",
+    "place talkbox in mix"
+   ],
+   "source": "talkbox",
+   "intent": "cleaner",
+   "genres": [
+    "gospel",
+    "gospel-urban",
+    "rnb"
+   ],
+   "short": "Carve the guitars and keys at 1–4 kHz. It needs the formant range to itself.",
+   "steps": [
+    "Cut 2–3 dB at 1–4 kHz on guitars and keys while the talkbox plays.",
+    "Duck the band 2 dB under it.",
+    "Pan the talkbox opposite the busiest mid-range instrument.",
+    "Keep the band's reverb short so the talkbox stays legible.",
+    "Automate the carve rather than leaving it on throughout."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 2500,
+      "gain": -2.5,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "2 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "A talkbox communicates through formants in the same 1–4 kHz band guitars and electric pianos occupy most densely. Unlike a voice it has no low fundamental to anchor it, so losing that band means losing the part entirely.",
+   "watch": "Carving 1–4 kHz from the band makes the band sound hollow. Automate it.",
+   "related": [
+    "talkbox-sits-in-mix",
+    "talkbox-clearer",
+    "gc-crowded-mids"
+   ]
+  },
+  {
+   "id": "sax-wider",
+   "q": "How do I give a saxophone width?",
+   "aliases": [
+    "wide sax",
+    "sax stereo",
+    "spread the saxophone"
+   ],
+   "source": "sax",
+   "intent": "wider",
+   "genres": [
+    "gospel",
+    "highlife",
+    "rnb"
+   ],
+   "short": "A wide room, not a wide source. A sax is one instrument in one place.",
+   "steps": [
+    "Keep the dry signal centred or slightly off and send to a wide room.",
+    "Double the line an octave down if the arrangement allows.",
+    "Use a stereo delay rather than a widener.",
+    "High-pass the reverb return at 250 Hz.",
+    "Check mono; the sax should stay in one position."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 250,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "room",
+     "decay": "1.4 s",
+     "width": "100%",
+     "send": "18–25%"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "A saxophone radiates from one bell, and a listener in a room hears it from one direction with the space around it. Widening the source contradicts that and the instrument stops sounding physically present.",
+   "watch": "A widened sax solo loses the focus that makes a solo feel like a performance.",
+   "related": [
+    "sax-bigger",
+    "sax-upfront",
+    "c-widen-without-widener"
+   ]
+  },
+  {
+   "id": "sax-section-vs-solo",
+   "q": "Should a sax be mixed differently in a section than as a solo?",
+   "aliases": [
+    "sax in a section",
+    "horn section sax",
+    "solo vs section sax"
+   ],
+   "source": "sax",
+   "intent": "glued",
+   "genres": [
+    "gospel",
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "Yes. In a section it blends; as a solo it leads. Different compression, different space.",
+   "steps": [
+    "In a section, bus it with the other horns and compress the bus, not the track.",
+    "In a solo, compress the track individually for consistency.",
+    "Give the solo the lead vocal's reverb; give the section a shared room.",
+    "Narrow the solo toward the centre; keep the section wide.",
+    "Automate between the two treatments if the part does both."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4 dB"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "A section instrument should lose its individual identity into a blended whole, while a solo instrument needs the opposite. Treating both the same produces either a section that will not blend or a solo that will not lead.",
+   "watch": "Compressing a section's tracks individually is what stops them gluing.",
+   "related": [
+    "sax-upfront",
+    "horns-glued",
+    "hl-live-horn-tuning"
+   ]
+  },
+  {
+   "id": "overheads-are-the-kit",
+   "q": "Should the overheads or the close mics be the kit?",
+   "aliases": [
+    "overhead led drums",
+    "close mics or overheads",
+    "build the kit from"
+   ],
+   "source": "overheads",
+   "intent": "natural",
+   "genres": [
+    "all"
+   ],
+   "short": "Overheads for a real kit, close mics for a produced one. Decide before you start.",
+   "steps": [
+    "For a natural sound, balance the overheads first and add close mics underneath.",
+    "For a produced sound, build from close mics and use overheads for cymbals only.",
+    "Check polarity between overheads and close mics either way.",
+    "High-pass the overheads at 100–200 Hz if close mics carry the low end.",
+    "Do not do both halfway; the kit will sound indistinct."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 150,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "The overheads contain the whole kit in its real balance, so leading with them gives a coherent instrument while leading with close mics gives control. Mixing the two approaches equally produces a kit that is neither natural nor tight.",
+   "watch": "Close mics arrive before the overheads. Check polarity and alignment first.",
+   "related": [
+    "overheads-cleaner",
+    "gw-softer-drums",
+    "c-fix-phase-two-mics"
+   ]
+  },
+  {
+   "id": "overheads-cymbals-too-loud",
+   "q": "The cymbals are too loud in my overheads. What now?",
+   "aliases": [
+    "cymbals dominate overheads",
+    "too much cymbal",
+    "overheads all cymbal"
+   ],
+   "source": "overheads",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "short": "It is a mic position problem. Shelve the top and lean on the close mics.",
+   "steps": [
+    "Shelve 2–3 dB above 8 kHz rather than cutting narrow.",
+    "Raise the close mics so the overheads can sit lower.",
+    "Use dynamic EQ at 6–10 kHz for the loudest crashes.",
+    "Compress the overheads gently to even out cymbal peaks.",
+    "Next time, raise the overheads and point them at the whole kit."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 9000,
+      "gain": -2.5,
+      "q": 0.7,
+      "type": "shelf"
+     },
+     {
+      "f": 8000,
+      "gain": -3,
+      "q": 2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "gr": "3 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "Overheads placed close to the cymbals capture them far louder relative to the drums than a listener would hear. That ratio is fixed at the moment of recording, so EQ can only reduce the symptom.",
+   "watch": "Shelving the overheads too far removes the kit's air along with the crashes.",
+   "related": [
+    "overheads-are-the-kit",
+    "overheads-fix-harsh",
+    "w-mic-placement-basics"
+   ]
+  },
+  {
+   "id": "room-mic-as-an-instrument",
+   "q": "How do I use room mics as an effect rather than ambience?",
+   "aliases": [
+    "room mic compression",
+    "smashed room mics",
+    "room as effect"
+   ],
+   "source": "room",
+   "intent": "aggressive",
+   "genres": [
+    "all"
+   ],
+   "short": "Compress them hard and blend underneath. The room becomes the sustain the kit lacks.",
+   "steps": [
+    "Compress at 10:1 or higher with 10–20 dB of gain reduction.",
+    "High-pass at 150–200 Hz so it adds size, not mud.",
+    "Blend underneath the clean kit rather than replacing it.",
+    "Gate it to the snare if the sustain is too constant.",
+    "Check mono; crushed room mics often have phase problems."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "10:1",
+     "gr": "10–20 dB"
+    },
+    "eq": [
+     {
+      "f": 180,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "Heavy compression on a distant pair raises the room's decay to the level of the hits, which is the sound of a kit filling a space. Used in parallel it adds that sustain without losing the clean kit's attack.",
+   "watch": "Crushed room mics raise every noise in the room, including the drummer.",
+   "related": [
+    "room-bigger",
+    "c-parallel-compression",
+    "gt-drums-in-a-live-room"
+   ]
+  },
+  {
+   "id": "room-how-much",
+   "q": "How much room mic should I use?",
+   "aliases": [
+    "room mic level",
+    "how much room",
+    "room blend amount"
+   ],
+   "source": "room",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "short": "Until you notice it, then back off. Most mixes use more than they should.",
+   "steps": [
+    "Raise the room until you clearly hear it, then lower it 2–3 dB.",
+    "High-pass at 150–250 Hz so it adds depth rather than mud.",
+    "Check it against the other reverbs in the mix; they compete.",
+    "Automate it up for choruses and down for verses.",
+    "Mute it and see whether you miss it."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "reverb-tail"
+   },
+   "why": "Room mics carry the whole kit plus the space, so they add level across the spectrum as well as depth. Past a certain point they stop adding size and start reducing definition, and that point arrives earlier than most people expect.",
+   "watch": "Room mics and a drum reverb do the same job. Using both usually means too much.",
+   "related": [
+    "room-cleaner",
+    "gw-room-is-the-reverb",
+    "c-depth-without-reverb"
+   ]
+  },
+  {
+   "id": "double-how-many",
+   "q": "How many vocal doubles do I actually need?",
+   "aliases": [
+    "number of doubles",
+    "two or four doubles",
+    "how many vocal takes"
+   ],
+   "source": "double",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "short": "Two, panned opposite, for most things. Four only if they are genuinely different takes.",
+   "steps": [
+    "Use two doubles panned hard for width.",
+    "Add two more only for a wall effect on a hook.",
+    "Do not use a doubler plugin as a substitute; it cancels in mono.",
+    "Align consonants only, not whole waveforms.",
+    "High-pass the doubles above the lead."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 250,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "Each additional double adds less width and more mud, because the differences between takes are what create width and the common content is what accumulates. Beyond about four the returns stop and the low-mid buildup continues.",
+   "watch": "Four doubles that sound identical are one vocal four times louder.",
+   "related": [
+    "double-cleaner",
+    "rb-vocal-double-timing",
+    "gu-background-vocal-width"
+   ]
+  },
+  {
+   "id": "double-plugin-or-real",
+   "q": "Is a doubler plugin as good as recording a second take?",
+   "aliases": [
+    "doubler plugin vs real double",
+    "fake double vocal",
+    "should i record a double"
+   ],
+   "source": "double",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "short": "No. A plugin applies a fixed delay, and a fixed delay is what causes comb filtering.",
+   "steps": [
+    "Record a real second take wherever the performance allows it.",
+    "If you must use a doubler, check it in mono before committing.",
+    "Prefer doublers that vary pitch and timing continuously over fixed-delay ones.",
+    "Use a plugin for a quick width effect, never as the main double on a hook.",
+    "High-pass whichever you use so the low end is not duplicated."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 250,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "stereo-field",
+    "compare": true
+   },
+   "why": "Two real takes differ in pitch and timing continuously, which produces thickness. A fixed delay produces a predictable interference pattern instead, which is comb filtering and cancels when the mix is summed to mono.",
+   "watch": "A doubler that sounds wide on headphones can leave the vocal hollow on a phone.",
+   "related": [
+    "double-how-many",
+    "c-comb-filtering",
+    "c-widen-without-widener"
+   ]
+  },
+  {
+   "id": "toms-in-a-sparse-mix",
+   "q": "How do I mix toms when they only play twice?",
+   "aliases": [
+    "tom fills only",
+    "occasional toms",
+    "tom level fills"
+   ],
+   "source": "toms",
+   "intent": "cleaner",
+   "genres": [
+    "all"
+   ],
+   "short": "Gate or edit the gaps, then automate them up for the fill.",
+   "steps": [
+    "Edit the tom tracks to silence except where they play.",
+    "Automate them up 2–3 dB for the fill, since a static level will be wrong.",
+    "Add reverb only on the fills.",
+    "High-pass at 60–80 Hz; toms carry less low end than they seem to.",
+    "Check they do not swamp the mix when they arrive."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 70,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "Tom mics are open through the entire song capturing bleed, while the toms themselves play for a few seconds. A level set for the fills leaves the bleed too loud, and a level set for the bleed leaves the fills too quiet.",
+   "watch": "Gating toms can clip the start of a fast fill. Editing is safer.",
+   "related": [
+    "toms-cleaner",
+    "gt-live-drum-bleed",
+    "w-automate-not-set-forget"
+   ]
+  },
+  {
+   "id": "strings-in-a-small-arrangement",
+   "q": "How do I use strings in a sparse arrangement?",
+   "aliases": [
+    "strings in a small mix",
+    "strings sparse song",
+    "minimal strings"
+   ],
+   "source": "strings",
+   "intent": "natural",
+   "genres": [
+    "all",
+    "rnb",
+    "gospel-contemporary"
+   ],
+   "short": "Fewer parts, more space. One cello line does more than a full section here.",
+   "steps": [
+    "Use one or two lines rather than a full section.",
+    "Give them a hall with a long pre-delay so they sit behind.",
+    "Automate the dynamics continuously; a static string line is obviously sampled.",
+    "High-pass the high parts at 250 Hz and let a low line carry weight.",
+    "Let them enter and leave rather than playing throughout."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 250,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "hall",
+     "decay": "2.4 s",
+     "predelay": "30 ms",
+     "send": "25–32%"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "In a sparse arrangement there is no masking, so a full sampled section exposes every limitation of the library. A single line has fewer artefacts to notice and leaves the space that made the arrangement sparse in the first place.",
+   "watch": "Sampled sections sound most artificial when they are most exposed.",
+   "related": [
+    "strings-natural",
+    "rb-sparse-arrangement-depth",
+    "gc-live-strings-budget"
+   ]
+  },
+  {
+   "id": "synthbass-vs-808",
+   "q": "What is the difference between a synth bass and an 808?",
+   "aliases": [
+    "808 or synth bass",
+    "synth bass vs 808",
+    "which bass sound"
+   ],
+   "source": "synthbass",
+   "intent": "learn",
+   "genres": [
+    "all",
+    "hiphop",
+    "afrobeats"
+   ],
+   "short": "An 808 is a sustained sine with a long decay. A synth bass has harmonics and plays faster.",
+   "steps": [
+    "Use an 808 for sustained root notes with space around them.",
+    "Use a synth bass for moving lines that need to be followed.",
+    "An 808 needs saturation to be audible on small speakers; a synth bass usually does not.",
+    "Do not use both unless they play in different registers.",
+    "Tune the 808 to the key; a synth bass line usually tunes itself."
+   ],
+   "params": {},
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "An 808 is essentially a long sine wave, so nearly all its energy is at the fundamental and it needs harmonics added to survive small speakers. A synth bass already contains harmonics, which is why it reads on a laptop without help but also why it occupies more of the mids.",
+   "watch": "A synth bass with the filter open competes with the vocal. An 808 does not.",
+   "related": [
+    "synthbass-cleaner",
+    "ab-bass-and-logdrum-and-808",
+    "c-what-saturation-does-to-low-end"
+   ]
+  }
+ ]
+}

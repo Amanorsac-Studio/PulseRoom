@@ -1,18 +1,18 @@
 # PulseRoom 2.0 — Question Bank
 
-Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
+Generated 2026-10-22 by `v2/build-question-bank.js`. **1000 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
 
-**884 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
+**1000 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
 
 | Bucket | Questions | Written |
 |---|---|---|
+| answered | 307 | 307 |
 | intent | 217 | 217 |
-| answered | 191 | 191 |
 | problem | 166 | 166 |
 | genre | 160 | 160 |
 | concept | 100 | 100 |
 | workflow | 50 | 50 |
-| **Total** | **884** | **884** |
+| **Total** | **1000** | **1000** |
 
 ---
 
@@ -204,7 +204,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
 - **Where should the open hat sit in an Afrobeats pattern?**  
   `ab-open-hat-placement` · tighter · afrobeats
 
-## Toms  `toms`  · 14
+## Toms  `toms`  · 15
 
 - **How do I make my toms hit harder?**  
   `toms-punchier` · punchier
@@ -234,8 +234,10 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
   `toms-fix-muddy` · muddy
 - **Why do my toms disappear in the mix?**  
   `toms-fix-masked` · masked
+- **How do I mix toms when they only play twice?**  
+  `toms-in-a-sparse-mix` · cleaner
 
-## Overheads  `overheads`  · 12
+## Overheads  `overheads`  · 14
 
 - **How do I make my overheads wider?**  
   `overheads-wider` · wider
@@ -261,8 +263,12 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
   `overheads-fix-dull` · dull
 - **Why do my overheads disappear in the mix?**  
   `overheads-fix-masked` · masked
+- **Should the overheads or the close mics be the kit?**  
+  `overheads-are-the-kit` · natural
+- **The cymbals are too loud in my overheads. What now?**  
+  `overheads-cymbals-too-loud` · cleaner
 
-## Room mics  `room`  · 12
+## Room mics  `room`  · 14
 
 - **How do I make my room mics sound bigger?**  
   `room-bigger` · bigger
@@ -288,6 +294,10 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
   `room-fix-phasey` · phasey
 - **How do I mix a congregation mic without it sounding like noise?**  
   `gw-congregation-mic` · natural · gospel-worship
+- **How do I use room mics as an effect rather than ambience?**  
+  `room-mic-as-an-instrument` · aggressive
+- **How much room mic should I use?**  
+  `room-how-much` · cleaner
 
 ## Drum bus  `drumbus`  · 42
 
@@ -498,7 +508,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
 - **How do I give highlife a modern low end without losing the style?**  
   `hl-modern-highlife-low-end` · bigger · highlife, afrobeats
 
-## Synth bass  `synthbass`  · 14
+## Synth bass  `synthbass`  · 15
 
 - **How do I make my synth bass sound bigger?**  
   `synthbass-bigger` · bigger
@@ -528,6 +538,8 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
   `synthbass-fix-phasey` · phasey
 - **When should I add a sub layer under the bass?**  
   `ab-when-to-use-sub-bass` · bigger · afrobeats, hiphop
+- **What is the difference between a synth bass and an 808?**  
+  `synthbass-vs-808` · learn
 
 ## Lead vocal  `leadvocal`  · 51
 
@@ -634,7 +646,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
 - **How do I make an R&B vocal feel intimate?**  
   `rb-vocal-closer-than-the-beat` · upfront · rnb, gospel-urban
 
-## Vocal doubles  `double`  · 13
+## Vocal doubles  `double`  · 15
 
 - **How do I make my vocal doubles wider?**  
   `double-wider` · wider
@@ -662,6 +674,10 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
   `hh-doubled-rap-vocals` · tighter · hiphop
 - **How tight should an R&B vocal double be?**  
   `rb-vocal-double-timing` · cleaner · rnb, gospel-urban
+- **How many vocal doubles do I actually need?**  
+  `double-how-many` · learn
+- **Is a doubler plugin as good as recording a second take?**  
+  `double-plugin-or-real` · learn
 
 ## Harmony stack  `harmony`  · 30
 
@@ -1169,7 +1185,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
 - **How do I fit piano, pad and organ in a worship song?**  
   `gw-keys-pad-piano-organ` · cleaner · gospel-worship, gospel
 
-## Strings  `strings`  · 14
+## Strings  `strings`  · 15
 
 - **How do I make my strings wider?**  
   `strings-wider` · wider
@@ -1199,6 +1215,8 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
   `strings-fix-dull` · dull
 - **How do I make a small string section sound full?**  
   `gc-live-strings-budget` · bigger · gospel-contemporary, gospel
+- **How do I use strings in a sparse arrangement?**  
+  `strings-in-a-small-arrangement` · natural
 
 ## Horns  `horns`  · 21
 
@@ -1245,7 +1263,7 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
 - **What do I do about a horn section that is slightly out of tune?**  
   `hl-live-horn-tuning` · cleaner · highlife, gospel-african
 
-## Mix  `mixbus`  · 101
+## Mix  `mixbus`  · 118
 
 - **How do I glue my mix together on the bus?**  
   `mixbus-glued` · glued
@@ -1449,8 +1467,42 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
   `rb-mixing-for-headphones` · cleaner · rnb, gospel-urban
 - **How do I create depth in a sparse R&B arrangement?**  
   `rb-sparse-arrangement-depth` · bigger · rnb, gospel-urban
+- **Why does my mix sound dull after mastering?**  
+  `mixbus-fix-dull` · brighter
+- **How do I match my mix to a reference?**  
+  `mixbus-reference-match` · cleaner
+- **How do I control the low end on the mix bus?**  
+  `mixbus-low-end-control` · tighter
+- **How do I check the stereo width of a master?**  
+  `mixbus-stereo-width-check` · cleaner
+- **How much limiting is too much?**  
+  `mixbus-when-to-stop-limiting` · louder
+- **Does every mix need mastering?**  
+  `mixbus-does-it-need-a-master` · learn
+- **How do I set fades and spacing on a release?**  
+  `mixbus-fade-and-spacing` · cleaner
+- **What do I check before releasing a master?**  
+  `mixbus-checking-the-master` · cleaner
+- **What should actually be on my mix bus?**  
+  `mixbus-what-goes-on-the-bus` · learn
+- **Why does my master sound small on a phone?**  
+  `mixbus-fix-small-on-phone` · bigger
+- **How do I make an album sound like one record?**  
+  `mixbus-album-consistency` · glued
+- **The client says it is not loud enough. What now?**  
+  `mixbus-when-the-client-wants-louder` · louder
+- **Why is the top end of my mix crowded?**  
+  `mixbus-fix-crowded-top` · cleaner
+- **Do analogue emulations on the bus actually help?**  
+  `mixbus-should-i-use-analog-emulation` · warmer
+- **Should I print the mix in real time or render offline?**  
+  `mixbus-print-or-render` · cleaner
+- **Why does my mix sound flat and two-dimensional?**  
+  `mixbus-fix-no-depth` · bigger
+- **Why do sections of my song sound like different mixes?**  
+  `mixbus-fix-inconsistent-sections` · glued
 
-## Concepts, technique and workflow  `concept`  · 153
+## Concepts, technique and workflow  `concept`  · 226
 
 - **What is gain staging and why does it matter?**  
   `c-gain-staging` · learn
@@ -1758,4 +1810,150 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **884 questions.** This is 
   `eq-masking-concept` · learn
 - **Should my low end be mono?**  
   `low-end-mono` · learn
+- **What are formants and why do they matter?**  
+  `c-formants` · learn
+- **Why does tuned vocal sound artificial even on slow settings?**  
+  `c-vocal-tuning-artefacts` · learn
+- **Why do my edits click?**  
+  `c-zero-crossing` · learn
+- **Why is the frequency axis logarithmic?**  
+  `c-log-frequency` · learn
+- **What does a phase rotator or all-pass filter do?**  
+  `c-phase-rotation` · learn
+- **How do I tell a resonance from a harmonic?**  
+  `c-resonance-vs-harmonic` · learn
+- **Why does everything sound worse when I solo it?**  
+  `c-why-solo-lies` · learn
+- **Why does my mix sound small compared to commercial records?**  
+  `c-why-mixes-sound-small` · learn
+- **Dynamic EQ or multiband compression?**  
+  `c-when-to-use-dynamic-eq-vs-multiband` · learn
+- **Why does my bass get quieter in mono?**  
+  `c-why-bass-disappears-in-mono` · learn
+- **Why do I need headroom if digital does not care?**  
+  `c-what-headroom-is-for` · learn
+- **What are intersample peaks and should I care?**  
+  `c-intersample-peaks` · learn
+- **Why must I level-match when comparing?**  
+  `c-why-reference-at-same-loudness` · learn
+- **How does the ear actually locate sound?**  
+  `c-what-stereo-image-really-is` · learn
+- **Should my sends be pre-fader or post-fader?**  
+  `c-pre-fader-vs-post-fader` · learn
+- **Why does my low end sound different in every room?**  
+  `c-why-my-low-end-changes-rooms` · learn
+- **Does a fast attack always kill the transient?**  
+  `c-attack-time-myth` · learn
+- **Why use two compressors instead of one?**  
+  `c-why-two-compressors` · learn
+- **Should EQ come before or after compression on a bus?**  
+  `c-eq-order-on-a-bus` · learn
+- **What does glue actually mean?**  
+  `c-what-glue-actually-is` · learn
+- **What is the difference between parallel and serial processing?**  
+  `c-parallel-vs-serial-routing` · learn
+- **What exactly is a transient?**  
+  `c-what-a-transient-is` · learn
+- **What is a limiter actually taking away?**  
+  `c-what-a-limiter-removes` · learn
+- **Why does my mix fall apart on other systems?**  
+  `c-why-mixes-translate-badly` · learn
+- **When should I reach for mid/side?**  
+  `c-when-to-use-mid-side` · learn
+- **What actually makes a vocal sit in a mix?**  
+  `c-what-makes-a-vocal-sit` · learn
+- **How much of mixing is really arrangement?**  
+  `c-arrangement-is-mixing` · learn
+- **Why does saturation make bass audible on small speakers?**  
+  `c-what-saturation-does-to-low-end` · learn
+- **Why high-pass a compressor's sidechain?**  
+  `c-what-the-sidechain-filter-does` · learn
+- **What do headphones get wrong?**  
+  `c-why-headphones-mislead` · learn
+- **When does oversampling actually matter?**  
+  `c-what-oversampling-fixes` · learn
+- **What actually makes drums punch?**  
+  `c-what-makes-drums-punch` · learn
+- **Why does my balance change when I turn it up?**  
+  `c-why-the-mix-changes-at-volume` · learn
+- **What should I fix first in a bad mix?**  
+  `c-what-to-fix-first` · learn
+- **What is wrong with presets?**  
+  `c-why-not-just-use-presets` · learn
+- **When is distortion a feature rather than a fault?**  
+  `c-when-is-distortion-wanted` · learn
+- **How loud should the lead vocal be?**  
+  `c-how-loud-should-the-vocal-be` · learn
+- **What can a null test tell me?**  
+  `c-what-is-a-null-test-for` · learn
+- **How many plugins should be on a channel?**  
+  `c-how-many-plugins` · learn
+- **Does the song's key affect mixing decisions?**  
+  `c-what-key-does-to-mixing` · learn
+- **Why do my stems not sum to the same mix?**  
+  `c-why-stems-differ-from-mix` · learn
+- **What makes a mix sound expensive?**  
+  `c-what-makes-a-mix-sound-expensive` · learn
+- **How do I know when my ears are gone?**  
+  `c-ear-fatigue` · learn
+- **How do I mix a genre I do not know?**  
+  `c-mixing-someone-elses-genre` · learn
+- **What can mastering not fix?**  
+  `c-what-mastering-cannot-fix` · learn
+- **Where does a clipper belong in the chain?**  
+  `c-when-to-use-a-clipper` · learn
+- **What should I ask before starting a mix?**  
+  `w-brief-the-artist` · learn
+- **Should I listen to the artist's rough mix?**  
+  `w-import-a-rough-mix` · learn
+- **How much setup should I do before mixing?**  
+  `w-label-and-route-first` · learn
+- **Can I mix properly on a laptop?**  
+  `w-mixing-on-a-laptop` · learn
+- **How many mix revisions are reasonable?**  
+  `w-how-many-revisions` · learn
+- **What do I do when the recording is simply bad?**  
+  `w-when-the-recording-is-bad` · learn
+- **What mic placement decisions matter most?**  
+  `w-mic-placement-basics` · learn
+- **How do I record a decent vocal at home?**  
+  `w-recording-vocals-at-home` · learn
+- **How do I check phase while recording?**  
+  `w-checking-phase-while-recording` · learn
+- **How do I comp a vocal without it sounding assembled?**  
+  `w-comping-without-losing-feel` · learn
+- **Should I print effects or keep them live?**  
+  `w-printing-effects` · learn
+- **How do I keep a session from becoming unmanageable?**  
+  `w-session-file-hygiene` · learn
+- **How do I mix well when I have no time?**  
+  `w-working-to-a-deadline` · learn
+- **How should I back up a project?**  
+  `w-backing-up-properly` · learn
+- **What should I send a client with the final mix?**  
+  `w-delivering-to-a-client` · learn
+- **What alternate versions should I print?**  
+  `w-tv-and-instrumental-versions` · learn
+- **How do I get useful feedback on a mix?**  
+  `w-getting-useful-feedback` · learn
+- **How do I mix my own music objectively?**  
+  `w-mixing-your-own-music` · learn
+- **What belongs in a mix template?**  
+  `w-template-that-helps` · learn
+- **Should I recall an old mix or start again?**  
+  `w-when-to-recall-vs-restart` · learn
+- **Do I need different masters for different platforms?**  
+  `w-loudness-for-different-platforms` · learn
+- **How do I work with a producer who keeps changing the arrangement?**  
+  `w-collaborating-with-a-producer` · learn
+- **What do I do if I cannot treat my room?**  
+  `w-mixing-with-a-bad-room` · learn
+- **Should I reuse the same vocal chain on every song?**  
+  `w-saving-a-vocal-chain` · learn
+- **When is a mix ready for mastering?**  
+  `w-when-to-send-for-mastering` · learn
+- **How do I deal with plugin latency?**  
+  `w-dealing-with-plugin-latency` · learn
+- **How do I decide what to charge for a mix?**  
+  `w-knowing-what-to-charge` · learn
 
