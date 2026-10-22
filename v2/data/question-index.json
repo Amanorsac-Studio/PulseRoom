@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-19",
- "count": 760,
+ "generated": "2026-10-22",
+ "count": 829,
  "questions": [
   {
    "id": "808-bigger",
@@ -11560,6 +11560,1188 @@
     "hiphop",
     "gospel-trap",
     "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-organ-bass-pedals",
+   "q": "Should the organ pedals or the bass guitar hold the low end?",
+   "aliases": [
+    "organ pedals vs bass",
+    "hammond pedals too low",
+    "who plays the bass in church"
+   ],
+   "source": "organ",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-preacher-mic-in-mix",
+   "q": "How do I mix the preacher's mic into a live recording?",
+   "aliases": [
+    "pastor mic",
+    "preaching over music",
+    "speech mic in gospel mix"
+   ],
+   "source": "leadvocal",
+   "intent": "upfront",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-piano-and-organ-together",
+   "q": "How do I fit the piano and the organ in the same mix?",
+   "aliases": [
+    "piano vs organ church",
+    "keys fighting in gospel",
+    "two keyboard players"
+   ],
+   "source": "piano",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-hand-clap-layer",
+   "q": "How do I mix hand claps in a traditional gospel record?",
+   "aliases": [
+    "church claps",
+    "clapping track",
+    "hand claps gospel"
+   ],
+   "source": "percussion",
+   "intent": "punchier",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-choir-and-band-balance",
+   "q": "How loud should the choir be against the band?",
+   "aliases": [
+    "choir vs band level",
+    "choir too quiet",
+    "band drowns the choir"
+   ],
+   "source": "choir",
+   "intent": "upfront",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-b3-leslie-mic-bleed",
+   "q": "How do I deal with Leslie mics picking up the whole band?",
+   "aliases": [
+    "leslie bleed",
+    "organ mics hear drums",
+    "b3 mic bleed"
+   ],
+   "source": "organ",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-recording-whole-service",
+   "q": "How do I mix a recording of a whole service?",
+   "aliases": [
+    "live service recording",
+    "sunday recording mix",
+    "full service mix"
+   ],
+   "source": "mixbus",
+   "intent": "glued",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-old-recordings-warmth",
+   "q": "How do I get that warm older gospel record sound?",
+   "aliases": [
+    "vintage gospel sound",
+    "old church record warmth",
+    "classic gospel tone"
+   ],
+   "source": "mixbus",
+   "intent": "warmer",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-drums-in-a-live-room",
+   "q": "How do I mix drums recorded in a reflective church?",
+   "aliases": [
+    "church drum sound",
+    "boomy live drums",
+    "drums in a hall"
+   ],
+   "source": "drumbus",
+   "intent": "tighter",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-no-rehearsal-timing",
+   "q": "How do I fix a band that was not quite together?",
+   "aliases": [
+    "sloppy live band",
+    "timing is loose gospel",
+    "band not tight"
+   ],
+   "source": "drumbus",
+   "intent": "tighter",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-mono-pa-playback",
+   "q": "How do I mix for a church PA that is mono?",
+   "aliases": [
+    "mono church speakers",
+    "sanctuary pa mono",
+    "mix for the building"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-bass-amp-and-di",
+   "q": "How do I blend the bass amp and the DI in church?",
+   "aliases": [
+    "bass di and mic",
+    "blend bass amp",
+    "church bass tone"
+   ],
+   "source": "bass",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gt-when-everyone-solos",
+   "q": "How do I mix a section where everyone is playing at once?",
+   "aliases": [
+    "everyone soloing",
+    "gospel band all playing",
+    "too much happening"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-vocal-rides-not-compression",
+   "q": "Should I compress or ride a contemporary gospel lead?",
+   "aliases": [
+    "ride the vocal",
+    "compress or automate vocal",
+    "gospel vocal dynamics"
+   ],
+   "source": "leadvocal",
+   "intent": "smoother",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-click-track-feel",
+   "q": "How do I keep a click-track session from sounding stiff?",
+   "aliases": [
+    "recorded to click stiff",
+    "gospel to a click",
+    "click track feel"
+   ],
+   "source": "drumbus",
+   "intent": "natural",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-choir-and-stacks-together",
+   "q": "How do I use a choir and stacked backgrounds in the same song?",
+   "aliases": [
+    "choir and bgvs",
+    "stacks plus choir",
+    "two background layers"
+   ],
+   "source": "choir",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-live-strings-budget",
+   "q": "How do I make a small string section sound full?",
+   "aliases": [
+    "four violins sound thin",
+    "small string section",
+    "budget strings gospel"
+   ],
+   "source": "strings",
+   "intent": "bigger",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-mix-for-youtube",
+   "q": "How do I mix a gospel record for YouTube?",
+   "aliases": [
+    "youtube loudness gospel",
+    "mix for streaming church",
+    "online video mix"
+   ],
+   "source": "mixbus",
+   "intent": "louder",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-modern-drums-old-songs",
+   "q": "How do I put modern drums under a traditional song?",
+   "aliases": [
+    "update an old gospel song",
+    "modern drums hymn",
+    "contemporary arrangement old song"
+   ],
+   "source": "drumbus",
+   "intent": "punchier",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-wide-keys-narrow-vocal",
+   "q": "How wide should the keys be behind a lead vocal?",
+   "aliases": [
+    "keys too wide",
+    "narrow the keys",
+    "gospel keys width"
+   ],
+   "source": "piano",
+   "intent": "wider",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-tuning-stacked-harmony",
+   "q": "How much should I tune stacked gospel harmonies?",
+   "aliases": [
+    "autotune the stacks",
+    "tune gospel harmony",
+    "pitch correct bgvs"
+   ],
+   "source": "harmony",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-breaking-the-wall",
+   "q": "Why does my contemporary gospel mix sound like a wall?",
+   "aliases": [
+    "mix is a wall of sound",
+    "no space gospel mix",
+    "everything at once"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-recording-at-church-on-sunday",
+   "q": "How do I mix a Sunday recording to sound like a studio record?",
+   "aliases": [
+    "sunday live to record",
+    "church recording sounds live",
+    "polish a live service"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-second-verse-smaller",
+   "q": "How do I stop the second verse feeling like a step backwards?",
+   "aliases": [
+    "verse two drops energy",
+    "song loses momentum",
+    "second verse flat"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gc-guitar-in-a-keys-band",
+   "q": "Where does the guitar sit when the keys carry everything?",
+   "aliases": [
+    "guitar in gospel band",
+    "no room for guitar",
+    "keys and guitar clash"
+   ],
+   "source": "eguitar-clean",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-leading-not-performing",
+   "q": "How do I mix worship so it leads rather than performs?",
+   "aliases": [
+    "worship mix feels like a show",
+    "leading worship mix",
+    "not a performance"
+   ],
+   "source": "mixbus",
+   "intent": "natural",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-pad-swells",
+   "q": "How do I mix pad swells so they lift without swamping?",
+   "aliases": [
+    "worship pad swell",
+    "pads too loud",
+    "swell under vocals"
+   ],
+   "source": "pad",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-electric-swells",
+   "q": "How do I mix ambient electric guitar swells?",
+   "aliases": [
+    "worship guitar swells",
+    "ambient guitar pad",
+    "volume swell guitar"
+   ],
+   "source": "eguitar-clean",
+   "intent": "wider",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-click-in-ears-only",
+   "q": "How do I keep the click out of a live worship recording?",
+   "aliases": [
+    "click bleeding into mics",
+    "metronome in recording",
+    "click track bleed"
+   ],
+   "source": "drumbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-one-vocal-many-songs",
+   "q": "How do I keep a worship vocal consistent across a whole set?",
+   "aliases": [
+    "vocal changes between songs",
+    "consistent vocal live set",
+    "vocal tone varies"
+   ],
+   "source": "leadvocal",
+   "intent": "smoother",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-room-is-the-reverb",
+   "q": "Should I add reverb if the room is already live?",
+   "aliases": [
+    "church is reverberant",
+    "do i need reverb live",
+    "natural room reverb"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-in-ear-mix-vs-record",
+   "q": "Why does the mix sound different from what the band hears?",
+   "aliases": [
+    "iem mix vs foh",
+    "band hears something else",
+    "monitor mix differs"
+   ],
+   "source": "mixbus",
+   "intent": "learn",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-keys-pad-piano-organ",
+   "q": "How do I fit piano, pad and organ in a worship song?",
+   "aliases": [
+    "three keyboards",
+    "too many keys worship",
+    "pad piano organ clash"
+   ],
+   "source": "pad",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-softer-drums",
+   "q": "How do I mix drums for a quiet worship song?",
+   "aliases": [
+    "gentle drums worship",
+    "soft drum mix",
+    "drums for a ballad"
+   ],
+   "source": "drumbus",
+   "intent": "natural",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-vocal-in-a-big-room",
+   "q": "How do I mix a worship vocal recorded in a big room?",
+   "aliases": [
+    "vocal has room sound",
+    "live vocal too roomy",
+    "church vocal reverb"
+   ],
+   "source": "leadvocal",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-ending-that-does-not-end",
+   "q": "How do I mix a spontaneous ending that keeps going?",
+   "aliases": [
+    "worship tag goes on",
+    "spontaneous ending",
+    "long outro worship"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gw-acoustic-and-vocal-only",
+   "q": "How do I mix a song that is only voice and acoustic guitar?",
+   "aliases": [
+    "sparse worship mix",
+    "just guitar and vocal",
+    "two element mix"
+   ],
+   "source": "aguitar",
+   "intent": "natural",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-shaker-drives-the-song",
+   "q": "How do I mix a shaker so it drives the whole track?",
+   "aliases": [
+    "shaker too quiet",
+    "shaker groove african",
+    "shaker level"
+   ],
+   "source": "percussion",
+   "intent": "upfront",
+   "genres": [
+    "gospel-african",
+    "afrobeats",
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-choir-in-local-language",
+   "q": "How do I keep a choir intelligible in a language the mix engineer does not speak?",
+   "aliases": [
+    "choir in twi",
+    "local language choir",
+    "cant understand the choir"
+   ],
+   "source": "choir",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-brass-and-choir",
+   "q": "How do I fit a horn section around a choir?",
+   "aliases": [
+    "horns and choir clash",
+    "brass over choir",
+    "horn section african gospel"
+   ],
+   "source": "horns",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-live-and-programmed-together",
+   "q": "How do I blend live percussion with programmed drums?",
+   "aliases": [
+    "hybrid african drums",
+    "live percussion over programmed",
+    "mixing both drum types"
+   ],
+   "source": "percussion",
+   "intent": "glued",
+   "genres": [
+    "gospel-african",
+    "afrobeats",
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-bass-that-sings",
+   "q": "How do I mix a bass line that plays melodies?",
+   "aliases": [
+    "melodic bass african",
+    "bass plays a tune",
+    "busy bass line"
+   ],
+   "source": "bass",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "highlife",
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-outdoor-recording",
+   "q": "How do I mix a recording made outdoors?",
+   "aliases": [
+    "outdoor crusade recording",
+    "open air service",
+    "no room sound"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-polyrhythm-clarity",
+   "q": "How do I keep a polyrhythmic arrangement from sounding cluttered?",
+   "aliases": [
+    "too many rhythms",
+    "polyrhythm muddy",
+    "african percussion clutter"
+   ],
+   "source": "percussion",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "highlife",
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-vocal-ad-libs-crowd",
+   "q": "How do I mix ad-libs over a responding congregation?",
+   "aliases": [
+    "adlibs and crowd",
+    "leader over congregation",
+    "call response levels"
+   ],
+   "source": "adlib",
+   "intent": "upfront",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-guitar-tone-for-highlife-gospel",
+   "q": "What guitar tone suits African gospel?",
+   "aliases": [
+    "african gospel guitar",
+    "highlife gospel guitar tone",
+    "clean guitar africa"
+   ],
+   "source": "eguitar-clean",
+   "intent": "brighter",
+   "genres": [
+    "gospel-african",
+    "highlife"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-recording-with-one-mic",
+   "q": "How do I mix a group recorded on a single microphone?",
+   "aliases": [
+    "one mic recording",
+    "single mic choir",
+    "no multitrack"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-bell-pattern",
+   "q": "How do I mix the bell pattern so it stays audible?",
+   "aliases": [
+    "gankogui mix",
+    "cowbell pattern africa",
+    "bell too quiet"
+   ],
+   "source": "percussion",
+   "intent": "upfront",
+   "genres": [
+    "gospel-african",
+    "highlife",
+    "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "ga-mix-translates-to-radio",
+   "q": "How do I mix African gospel for local radio?",
+   "aliases": [
+    "radio playback africa",
+    "fm radio gospel mix",
+    "radio processing"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-sub-under-the-choir",
+   "q": "How do I put an 808 under a live choir without mud?",
+   "aliases": [
+    "808 and choir low end",
+    "sub under choir",
+    "trap bass with choir"
+   ],
+   "source": "808",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-preach-sample-in-beat",
+   "q": "How do I mix a preaching sample into a beat?",
+   "aliases": [
+    "sermon sample",
+    "preaching vocal sample",
+    "sample a sermon"
+   ],
+   "source": "vocalchop",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-organ-in-a-trap-beat",
+   "q": "How do I use a Hammond in a trap beat?",
+   "aliases": [
+    "organ over 808",
+    "hammond in gospel trap",
+    "church organ trap"
+   ],
+   "source": "organ",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-hat-rolls-not-harsh",
+   "q": "How do I keep fast hat rolls from getting harsh?",
+   "aliases": [
+    "hat rolls painful",
+    "trap hats harsh",
+    "fast hats sting"
+   ],
+   "source": "hats",
+   "intent": "smoother",
+   "genres": [
+    "gospel-trap",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-choir-sample-vs-real",
+   "q": "Should I use a choir sample or record a real one?",
+   "aliases": [
+    "sampled choir gospel trap",
+    "fake choir",
+    "real choir or sample"
+   ],
+   "source": "choir",
+   "intent": "learn",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-mix-for-tiktok",
+   "q": "How do I mix a gospel trap record for short video?",
+   "aliases": [
+    "tiktok mix",
+    "reels audio",
+    "short video gospel"
+   ],
+   "source": "mixbus",
+   "intent": "louder",
+   "genres": [
+    "gospel-trap",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-keys-between-808-hits",
+   "q": "How do I fit keys between the 808 hits?",
+   "aliases": [
+    "keys and 808 timing",
+    "piano over trap bass",
+    "keys in the gaps"
+   ],
+   "source": "piano",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-vocal-over-sparse-beat",
+   "q": "How do I mix a vocal over a very sparse beat?",
+   "aliases": [
+    "sparse trap vocal",
+    "vocal exposed",
+    "minimal beat vocal"
+   ],
+   "source": "leadvocal",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-tag-and-producer-drop",
+   "q": "How do I mix a producer tag so it is not jarring?",
+   "aliases": [
+    "producer tag level",
+    "tag too loud",
+    "beat tag mixing"
+   ],
+   "source": "fx",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gx-sunday-to-streaming",
+   "q": "How do I turn a Sunday live take into a streaming single?",
+   "aliases": [
+    "live take to single",
+    "release a live recording",
+    "church recording to spotify"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-neo-soul-chords",
+   "q": "How do I mix dense neo-soul chords without mud?",
+   "aliases": [
+    "jazzy chords muddy",
+    "extended chords gospel",
+    "neo soul keys"
+   ],
+   "source": "rhodes",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-vocal-runs-clarity",
+   "q": "How do I keep fast vocal runs clear?",
+   "aliases": [
+    "runs get lost",
+    "melisma clarity",
+    "fast vocal licks"
+   ],
+   "source": "leadvocal",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-urban",
+    "gospel",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-live-band-sounds-programmed",
+   "q": "How do I make a live band sound as tight as a programmed one?",
+   "aliases": [
+    "live band tight",
+    "band not as tight as beat",
+    "tighten a live rhythm section"
+   ],
+   "source": "drumbus",
+   "intent": "tighter",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-bass-that-sits-under-808",
+   "q": "How do I use a live bass and an 808 together?",
+   "aliases": [
+    "bass and 808 urban gospel",
+    "live bass with 808",
+    "two basses"
+   ],
+   "source": "bass",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-urban",
+    "rnb",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-smooth-top-end",
+   "q": "How do I get a smooth expensive top end on urban gospel?",
+   "aliases": [
+    "silky top end",
+    "expensive high frequencies",
+    "smooth highs rnb"
+   ],
+   "source": "mixbus",
+   "intent": "smoother",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-stacking-ad-libs",
+   "q": "How many ad-lib layers are too many?",
+   "aliases": [
+    "too many adlibs",
+    "adlib stacks urban",
+    "layering ad-libs"
+   ],
+   "source": "adlib",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-urban",
+    "rnb",
+    "hiphop"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-warm-not-dark",
+   "q": "How do I make a mix warm without making it dark?",
+   "aliases": [
+    "warm but clear",
+    "not dull warmth",
+    "warm mix bright vocal"
+   ],
+   "source": "mixbus",
+   "intent": "warmer",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-gospel-chords-rnb-drums",
+   "q": "How do I mix gospel harmony over R&B drums?",
+   "aliases": [
+    "gospel chords rnb beat",
+    "church keys modern drums",
+    "hybrid gospel rnb"
+   ],
+   "source": "mixbus",
+   "intent": "glued",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-background-vocal-width",
+   "q": "How wide should urban gospel backgrounds be?",
+   "aliases": [
+    "bgv width",
+    "how wide backgrounds",
+    "stack width rnb"
+   ],
+   "source": "harmony",
+   "intent": "wider",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "gu-when-to-stop-mixing",
+   "q": "How do I know when an urban gospel mix is finished?",
+   "aliases": [
+    "when is the mix done",
+    "stop mixing",
+    "mix finished"
+   ],
+   "source": "mixbus",
+   "intent": "learn",
+   "genres": [
+    "gospel-urban",
+    "gospel",
+    "rnb"
    ],
    "bucket": "answered",
    "status": "answered"

@@ -1,0 +1,3155 @@
+{
+ "_note": "Batch 12 — 78 Gospel answers, thirteen for each of the six sub-styles. The bank had 461 generic answers against 12 per gospel style, which is backwards for an app built for this market. These are the problems that only happen in a church, on a Sunday, with a band that rehearsed once.",
+ "questions": [
+  {
+   "id": "gt-organ-bass-pedals",
+   "q": "Should the organ pedals or the bass guitar hold the low end?",
+   "aliases": [
+    "organ pedals vs bass",
+    "hammond pedals too low",
+    "who plays the bass in church"
+   ],
+   "source": "organ",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "One of them. Two roots an octave apart beat against each other and never lock.",
+   "steps": [
+    "Decide by the arrangement: if the organist is carrying it, high-pass the bass guitar at 120 Hz.",
+    "If the bassist is carrying it, high-pass the organ at 200 Hz and let the pedals add weight only.",
+    "Check they are playing the same note — a pedal on the third under a root is mud, not harmony.",
+    "Mono everything below 120 Hz.",
+    "Sidechain whichever is secondary by 2 dB to the other."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "2 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Organ pedals and a bass guitar are never perfectly in tune with each other, so two fundamentals in the same octave produce slow beating rather than a clean sum. The low end sounds unstable and no EQ fixes it, because both signals are correct on their own.",
+   "watch": "In older churches the pedals are the bass. Removing them removes the sound of the room.",
+   "related": [
+    "organ-fix-boomy",
+    "gt-bass-pick-and-slap",
+    "gt-hammond-swallowing"
+   ]
+  },
+  {
+   "id": "gt-preacher-mic-in-mix",
+   "q": "How do I mix the preacher's mic into a live recording?",
+   "aliases": [
+    "pastor mic",
+    "preaching over music",
+    "speech mic in gospel mix"
+   ],
+   "source": "leadvocal",
+   "intent": "upfront",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Intelligibility beats tone. High-pass at 120 Hz, compress hard, and duck the band.",
+   "steps": [
+    "High-pass at 100–120 Hz; a handheld on a pulpit is all proximity and plosive.",
+    "Compress at 5:1 with 6–10 dB — speech dynamics are wider than singing.",
+    "Lift 2–3 dB at 2–4 kHz for consonants.",
+    "Duck the band 4–6 dB under speech, automated by section.",
+    "Gate or ride the mic out when nobody is speaking; the organ bleeds into it."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 110,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 3000,
+      "gain": 2.5,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "5:1",
+     "gr": "6–10 dB"
+    }
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "Speech carries meaning in the consonants, which are 15–20 dB quieter than the vowels around them. A compression setting that would ruin a sung vocal is the correct one for a spoken one, because the goal is being understood rather than sounding good.",
+   "watch": "A preacher mic left open through the music picks up the whole room and smears it.",
+   "related": [
+    "gt-leaky-kick-mic",
+    "gx-adlibs-around-preaching",
+    "leadvocal-upfront"
+   ]
+  },
+  {
+   "id": "gt-piano-and-organ-together",
+   "q": "How do I fit the piano and the organ in the same mix?",
+   "aliases": [
+    "piano vs organ church",
+    "keys fighting in gospel",
+    "two keyboard players"
+   ],
+   "source": "piano",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Split them by register and by pan. They cannot both own the middle.",
+   "steps": [
+    "Give the piano the top: high-pass it at 200 Hz and let it play above the organ.",
+    "Give the organ the middle and bottom; high-pass it at 150 Hz.",
+    "Pan them opposite, 30–40% each.",
+    "Cut 2 dB at 300–500 Hz on whichever is less important to the song.",
+    "Duck the organ 2 dB when the piano plays a fill."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 400,
+      "gain": -2,
+      "q": 1.3,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Piano and Hammond cover almost the same range and both sustain, so they mask each other continuously rather than occasionally. Separating them by octave in the arrangement is the only fix that leaves both sounding like themselves.",
+   "watch": "Two players improvising in the same octave is an arrangement problem the mix cannot solve.",
+   "related": [
+    "gt-hammond-swallowing",
+    "gc-crowded-mids",
+    "piano-cleaner"
+   ]
+  },
+  {
+   "id": "gt-hand-clap-layer",
+   "q": "How do I mix hand claps in a traditional gospel record?",
+   "aliases": [
+    "church claps",
+    "clapping track",
+    "hand claps gospel"
+   ],
+   "source": "percussion",
+   "intent": "punchier",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Layer a recorded group over the live claps. One clap track is never wide enough.",
+   "steps": [
+    "Layer a recorded group clap under the live ones for body.",
+    "High-pass at 200 Hz; claps need no low end.",
+    "Lift 2 dB at 1–3 kHz for the slap of the hands.",
+    "Spread the layers 50–70% wide and keep the live track centred.",
+    "Compress the group at 4:1 with 4 dB so every clap lands the same."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 2000,
+      "gain": 2,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4 dB"
+    }
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "A congregation clapping is dozens of slightly different attacks spread across a room, and a close-miked pair of hands is one. Layering restores the density that makes the clap read as a crowd rather than a person.",
+   "watch": "Perfectly quantised claps sound like a drum machine. Leave the timing spread.",
+   "related": [
+    "gt-tambourine",
+    "gc-bgvs-feel-like-choir",
+    "percussion-wider"
+   ]
+  },
+  {
+   "id": "gt-choir-and-band-balance",
+   "q": "How loud should the choir be against the band?",
+   "aliases": [
+    "choir vs band level",
+    "choir too quiet",
+    "band drowns the choir"
+   ],
+   "source": "choir",
+   "intent": "upfront",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "The choir is the lead instrument. Automate the band down rather than the choir up.",
+   "steps": [
+    "Set the choir first, then build the band under it.",
+    "Automate the band down 2–3 dB wherever the choir is singing.",
+    "Cut 2 dB at 1–3 kHz on the organ and guitars, not on the choir.",
+    "Keep the choir wide and the band narrower underneath.",
+    "Ride the choir up another 1–2 dB on the final chorus."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 2000,
+      "gain": -2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "gr": "2–3 dB"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A choir of twenty is quieter per-voice than any amplified instrument, and raising it to compete makes the room mics louder with it. Lowering the band preserves the choir's dynamic range, which is the thing that makes it sound like a choir.",
+   "watch": "Raising a choir far enough to win brings the whole room up with it.",
+   "related": [
+    "gt-lead-vs-twenty-voices",
+    "gt-band-gets-loud",
+    "choir-upfront"
+   ]
+  },
+  {
+   "id": "gt-b3-leslie-mic-bleed",
+   "q": "How do I deal with Leslie mics picking up the whole band?",
+   "aliases": [
+    "leslie bleed",
+    "organ mics hear drums",
+    "b3 mic bleed"
+   ],
+   "source": "organ",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Gate nothing. Use the bleed as room and fix the balance in the arrangement.",
+   "steps": [
+    "Do not gate a Leslie; the rotor swell triggers a gate at random.",
+    "High-pass the Leslie mics at 200 Hz to remove kick bleed.",
+    "Accept the bleed as room sound and reduce the dedicated room mics to compensate.",
+    "If the snare is too loud in the Leslie, move the mics closer to the cabinet next time.",
+    "Pan the Leslie pair wide so the bleed spreads rather than building in the centre."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "The Leslie's horn sweeps continuously, so the level at the mic rises and falls on its own. A gate cannot tell that swell apart from the bleed it is supposed to remove, which is why gated Leslie tracks chatter.",
+   "watch": "Bleed is only a problem if you planned to use the track in isolation. In a live gospel mix it is glue.",
+   "related": [
+    "gt-leslie-cabinet",
+    "gt-live-drum-bleed",
+    "organ-cleaner"
+   ]
+  },
+  {
+   "id": "gt-recording-whole-service",
+   "q": "How do I mix a recording of a whole service?",
+   "aliases": [
+    "live service recording",
+    "sunday recording mix",
+    "full service mix"
+   ],
+   "source": "mixbus",
+   "intent": "glued",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Mix the loudest moment first, then automate everything else up to meet it.",
+   "steps": [
+    "Find the loudest point — usually the shout — and balance that first.",
+    "Automate quieter sections up rather than compressing the whole recording down.",
+    "Ride the preacher mic and the choir independently through the service.",
+    "Use one room reverb across everything so the sections share a space.",
+    "Keep a consistent tonal balance; the listener hears it as one event."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1–2 dB"
+    },
+    "reverb": {
+     "type": "room",
+     "decay": "1.4 s",
+     "send": "10–16%"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A service covers an enormous dynamic range, from one voice speaking to a full band and choir. Compressing that range flattens the arc that gives the recording meaning, where automating it preserves the shape while keeping everything audible.",
+   "watch": "Mixing the quiet parts first leaves no headroom for the shout.",
+   "related": [
+    "gt-shout-section",
+    "gt-vamp-four-minutes",
+    "w-automate-not-set-forget"
+   ]
+  },
+  {
+   "id": "gt-old-recordings-warmth",
+   "q": "How do I get that warm older gospel record sound?",
+   "aliases": [
+    "vintage gospel sound",
+    "old church record warmth",
+    "classic gospel tone"
+   ],
+   "source": "mixbus",
+   "intent": "warmer",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Less top, more saturation, and real dynamics. Mostly it is restraint.",
+   "steps": [
+    "Roll off 2 dB above 12 kHz across the mix.",
+    "Add tape saturation on the bus, driven until just audible.",
+    "Reduce compression everywhere by a third; those records breathe.",
+    "Use one chamber reverb for everything rather than a space per source.",
+    "Keep the arrangement sparse — fewer tracks is most of the sound."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 12000,
+      "gain": -2,
+      "q": 0.7,
+      "type": "shelf"
+     }
+    ],
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1–2 dB"
+    },
+    "reverb": {
+     "type": "chamber",
+     "decay": "1.8 s",
+     "send": "15–22%"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "Those records sound warm partly because of tape and partly because there were eight tracks and one reverb chamber. The limitation is the aesthetic, so adding modern width and separation moves away from it however good the plugins are.",
+   "watch": "Warmth from rolling off top end costs clarity on phone speakers. Check both.",
+   "related": [
+    "gt-modern-without-losing-church",
+    "mixbus-warmer",
+    "mixbus-natural"
+   ]
+  },
+  {
+   "id": "gt-drums-in-a-live-room",
+   "q": "How do I mix drums recorded in a reflective church?",
+   "aliases": [
+    "church drum sound",
+    "boomy live drums",
+    "drums in a hall"
+   ],
+   "source": "drumbus",
+   "intent": "tighter",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Cut the room's resonance, shorten the tails, and use the room rather than fighting it.",
+   "steps": [
+    "Sweep 200–500 Hz on the overheads for the room's note and cut 3–4 dB.",
+    "Gate the close mics tightly; the room lives in the overheads.",
+    "Shorten the kick and tom tails with a transient designer.",
+    "Use the room mics deliberately at a low level instead of adding reverb.",
+    "High-pass the room mics at 200 Hz so they add space, not mud."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 350,
+      "gain": -3.5,
+      "q": 2,
+      "type": "bell"
+     },
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A church is tuned by its dimensions, so it has a strong resonance in the low mids that every open mic captures. Notching that one frequency removes most of what reads as boom while leaving the sense of the space intact.",
+   "watch": "Removing all the room makes a gospel record sound like a demo. Keep some.",
+   "related": [
+    "gt-live-drum-bleed",
+    "w-room-on-every-mic",
+    "room-cleaner"
+   ]
+  },
+  {
+   "id": "gt-no-rehearsal-timing",
+   "q": "How do I fix a band that was not quite together?",
+   "aliases": [
+    "sloppy live band",
+    "timing is loose gospel",
+    "band not tight"
+   ],
+   "source": "drumbus",
+   "intent": "tighter",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Align to the drummer, not the grid. Move whole phrases rather than hits.",
+   "steps": [
+    "Pick the drummer as the reference and leave them untouched.",
+    "Nudge whole bars of bass or guitar rather than individual notes.",
+    "Do not quantise a live gospel band; the push and pull is the feel.",
+    "Fix only what is audibly wrong — usually one or two entries.",
+    "Use the room mics to blur small discrepancies rather than editing them out."
+   ],
+   "params": {},
+   "visual": {
+    "type": "delay-grid"
+   },
+   "why": "A live band negotiates time collectively, so what reads as sloppy is often one instrument disagreeing with the rest rather than everyone drifting. Finding that one and moving it costs minutes, where quantising everything removes the groove the players built.",
+   "watch": "Quantised gospel sounds like a different genre. The looseness is the point.",
+   "related": [
+    "gt-live-drum-bleed",
+    "ga-drums-sound-stiff",
+    "gt-recording-whole-service"
+   ]
+  },
+  {
+   "id": "gt-mono-pa-playback",
+   "q": "How do I mix for a church PA that is mono?",
+   "aliases": [
+    "mono church speakers",
+    "sanctuary pa mono",
+    "mix for the building"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Check everything in mono and keep the important things centred.",
+   "steps": [
+    "Fold the mix to mono and balance it there, then check stereo.",
+    "Keep the lead vocal, kick, bass and snare centred.",
+    "Remove any stereo widener; it will cancel.",
+    "Check the choir and keys do not vanish when summed.",
+    "Leave width as a bonus for headphone listeners, not a requirement."
+   ],
+   "params": {},
+   "visual": {
+    "type": "stereo-field",
+    "compare": true
+   },
+   "why": "Most sanctuary systems sum to mono or place the listener far off-axis from one speaker, so anything that depends on stereo difference disappears for the congregation. Mixing in mono first guarantees the version most people hear is the one you balanced.",
+   "watch": "A mix balanced only in stereo can lose entire parts in the building.",
+   "related": [
+    "c-mono-compatibility",
+    "gw-iem-and-release",
+    "mixbus-fix-phasey"
+   ]
+  },
+  {
+   "id": "gt-bass-amp-and-di",
+   "q": "How do I blend the bass amp and the DI in church?",
+   "aliases": [
+    "bass di and mic",
+    "blend bass amp",
+    "church bass tone"
+   ],
+   "source": "bass",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "DI for the low end, amp for the character, and check polarity before anything else.",
+   "steps": [
+    "Flip the polarity on the amp mic and keep whichever is fuller.",
+    "Use the DI below 150 Hz and the amp above it.",
+    "High-pass the amp at 120 Hz so the two do not fight for the fundamental.",
+    "Time-align the amp to the DI if the DAW makes it easy.",
+    "Compress the blend, not each track separately."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 120,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3–5 dB"
+    }
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "The amp mic is a metre or so behind the DI in time, so the two signals partially cancel in the low end where the wavelengths are longest. Splitting them by frequency sidesteps the problem entirely rather than trying to fix the phase relationship.",
+   "watch": "Blending both full-range without checking polarity can lose most of the bass.",
+   "related": [
+    "gt-bass-pick-and-slap",
+    "c-fix-phase-two-mics",
+    "bass-cleaner"
+   ]
+  },
+  {
+   "id": "gt-when-everyone-solos",
+   "q": "How do I mix a section where everyone is playing at once?",
+   "aliases": [
+    "everyone soloing",
+    "gospel band all playing",
+    "too much happening"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trad",
+    "gospel"
+   ],
+   "short": "Pick who is leading each bar and duck the rest. Somebody has to be in front.",
+   "steps": [
+    "Decide who leads each phrase — usually it alternates between organ, guitar and voice.",
+    "Automate the others down 2–3 dB while that one speaks.",
+    "Narrow the supporting parts and widen the leading one.",
+    "Cut the overlapping band on whoever is not leading.",
+    "If nothing can be lowered, the arrangement is the problem."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "3:1",
+     "gr": "2–3 dB"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "Traditional gospel is conversational and the lead moves between players bar by bar, so a static balance is wrong for most of the song. Automating the conversation is the mix doing what the musicians were already doing.",
+   "watch": "Every player believes they were leading. Mix for the song, then explain it.",
+   "related": [
+    "gt-band-gets-loud",
+    "ga-call-and-response",
+    "gt-vamp-four-minutes"
+   ]
+  },
+  {
+   "id": "gc-vocal-rides-not-compression",
+   "q": "Should I compress or ride a contemporary gospel lead?",
+   "aliases": [
+    "ride the vocal",
+    "compress or automate vocal",
+    "gospel vocal dynamics"
+   ],
+   "source": "leadvocal",
+   "intent": "smoother",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Ride first, compress second. A singer who moves from a whisper to a belt needs both.",
+   "steps": [
+    "Ride the fader by hand until the performance sits roughly level.",
+    "Then compress 3:1 at 3 dB for the fine detail.",
+    "Add a second compressor at 4:1 and 3 dB for the peaks.",
+    "Do not ask one compressor to handle 20 dB of range.",
+    "Automate the reverb send down on the loud sections."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "3:1",
+     "gr": "3 dB"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "Gospel vocals cover a wider dynamic range than almost any other genre, and a compressor set to control the belt will strangle the verse. Riding handles the macro shape so the compressor only has to handle the syllables.",
+   "watch": "Heavy compression on a gospel vocal removes the build the singer performed.",
+   "related": [
+    "gc-stacked-vocals",
+    "gc-final-chorus-lift",
+    "leadvocal-smoother"
+   ]
+  },
+  {
+   "id": "gc-click-track-feel",
+   "q": "How do I keep a click-track session from sounding stiff?",
+   "aliases": [
+    "recorded to click stiff",
+    "gospel to a click",
+    "click track feel"
+   ],
+   "source": "drumbus",
+   "intent": "natural",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Let the humans push and pull against the click rather than correcting them to it.",
+   "steps": [
+    "Leave the players where they landed; do not quantise to the click.",
+    "If the drummer pushes the chorus, keep it — that is the lift.",
+    "Only align parts that are audibly wrong against the drummer, not the grid.",
+    "Vary programmed elements slightly so they are not perfectly rigid.",
+    "Automate small tempo changes if the song needs to breathe."
+   ],
+   "params": {},
+   "visual": {
+    "type": "delay-grid"
+   },
+   "why": "The click guarantees the song does not drift, but the feel comes from where the players sit relative to it. Quantising to the click removes the only expressive timing information a click session still has.",
+   "watch": "A perfectly on-grid gospel record reads as a demo however good the playing was.",
+   "related": [
+    "gc-programmed-plus-live-drummer",
+    "gt-no-rehearsal-timing",
+    "ab-groove-swings"
+   ]
+  },
+  {
+   "id": "gc-choir-and-stacks-together",
+   "q": "How do I use a choir and stacked backgrounds in the same song?",
+   "aliases": [
+    "choir and bgvs",
+    "stacks plus choir",
+    "two background layers"
+   ],
+   "source": "choir",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Give them different jobs and different widths. They cannot both be the pad.",
+   "steps": [
+    "Let the stacks be tight and wide; let the choir be loose and deep.",
+    "High-pass the stacks at 200 Hz and leave the choir fuller.",
+    "Pan the stacks hard and keep the choir slightly narrower.",
+    "Use different reverbs: plate on the stacks, hall on the choir.",
+    "Never have both at full level — one supports the other."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "hall",
+     "decay": "2.2 s",
+     "send": "20–28%"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "Stacks and a choir are both groups of voices singing harmony, so they mask each other almost perfectly. Differentiating them by width, depth and reverb gives the ear two separate objects instead of one crowded one.",
+   "watch": "Both at full level produces mud that sounds like neither.",
+   "related": [
+    "gc-bgvs-feel-like-choir",
+    "gc-stacked-vocals",
+    "choir-vs-lead"
+   ]
+  },
+  {
+   "id": "gc-live-strings-budget",
+   "q": "How do I make a small string section sound full?",
+   "aliases": [
+    "four violins sound thin",
+    "small string section",
+    "budget strings gospel"
+   ],
+   "source": "strings",
+   "intent": "bigger",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Record them twice and pan the passes. Four players recorded twice is eight.",
+   "steps": [
+    "Record the section twice and pan the two passes apart.",
+    "Add a sampled low part if there is no cello.",
+    "Use one hall across both passes so they share a space.",
+    "Avoid widening plugins; the second pass is the width.",
+    "Keep the players slightly apart in timing — do not align the passes."
+   ],
+   "params": {
+    "reverb": {
+     "type": "hall",
+     "decay": "2.4 s",
+     "send": "25–32%"
+    }
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "A string section sounds large because many players are slightly out of time and tune with each other. Doubling the passes doubles that spread, which is the actual mechanism, where a widener only manipulates an existing image.",
+   "watch": "Aligning the two passes defeats the whole point and makes them sound like one.",
+   "related": [
+    "strings-bigger",
+    "strings-fix-thin",
+    "gc-final-chorus-lift"
+   ]
+  },
+  {
+   "id": "gc-mix-for-youtube",
+   "q": "How do I mix a gospel record for YouTube?",
+   "aliases": [
+    "youtube loudness gospel",
+    "mix for streaming church",
+    "online video mix"
+   ],
+   "source": "mixbus",
+   "intent": "louder",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Target −14 LUFS and keep the dynamics. YouTube turns loud mixes down anyway.",
+   "steps": [
+    "Master to around −14 LUFS integrated, true peak −1 dBTP.",
+    "Do not squash to −8; the platform normalises it back and you lose the punch.",
+    "Check it on a phone speaker, which is where most of the views are.",
+    "Keep the vocal clearly above the band; small speakers lose the middle.",
+    "Leave the quiet sections quiet — the contrast survives normalisation."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1–2 dB"
+    }
+   },
+   "visual": {
+    "type": "levels"
+   },
+   "why": "YouTube normalises loud uploads downward, so a heavily limited master arrives at the same level as a dynamic one but with the transients already destroyed. The dynamic master wins at identical playback loudness.",
+   "watch": "Comparing your mix to a loud reference without matching levels will mislead you every time.",
+   "related": [
+    "gc-compete-with-radio",
+    "gx-streaming-loudness",
+    "c-what-lufs"
+   ]
+  },
+  {
+   "id": "gc-modern-drums-old-songs",
+   "q": "How do I put modern drums under a traditional song?",
+   "aliases": [
+    "update an old gospel song",
+    "modern drums hymn",
+    "contemporary arrangement old song"
+   ],
+   "source": "drumbus",
+   "intent": "punchier",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Keep the kick and snare modern and leave the cymbals live. The hybrid is the sound.",
+   "steps": [
+    "Replace or layer the kick and snare for weight and consistency.",
+    "Keep the live overheads and hats; programmed cymbals read as fake immediately.",
+    "Match the room on the samples to the live overheads using a short room send.",
+    "Keep the drummer's timing rather than quantising to the samples.",
+    "High-pass the samples at 40 Hz so they do not swamp the organ."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 40,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "room",
+     "decay": "0.7 s",
+     "send": "8–14%"
+    }
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "Cymbals are the hardest thing to program convincingly because they are continuous and never repeat, while kick and snare are short and benefit from consistency. Splitting the kit along that line gets modern weight without the giveaway.",
+   "watch": "Sampled cymbals under live overheads double the cymbals and smear them.",
+   "related": [
+    "gc-programmed-plus-live-drummer",
+    "gc-drums-hit-like-a-record",
+    "gt-modern-without-losing-church"
+   ]
+  },
+  {
+   "id": "gc-wide-keys-narrow-vocal",
+   "q": "How wide should the keys be behind a lead vocal?",
+   "aliases": [
+    "keys too wide",
+    "narrow the keys",
+    "gospel keys width"
+   ],
+   "source": "piano",
+   "intent": "wider",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Wide enough to surround, not so wide the centre empties. Usually 60–70%.",
+   "steps": [
+    "Narrow full-width keys to 60–70% so the centre stays occupied.",
+    "Keep everything below 200 Hz mono.",
+    "High-pass the keys at 150–200 Hz to leave room for the bass.",
+    "Check mono: if the keys vanish, the width is fake.",
+    "Widen on the chorus and narrow on the verse rather than holding one setting."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 180,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "stereo-field",
+    "compare": true
+   },
+   "why": "A fully wide keyboard patch puts most of its energy in the sides, which is where the vocal reverb and the backgrounds also live. Narrowing it returns the sides to the elements that need them and gives the vocal a bed rather than a competitor.",
+   "watch": "Very wide keys collapse to nothing on a phone, which is where the song is heard.",
+   "related": [
+    "gc-pad-under-busy",
+    "piano-wider",
+    "c-how-wide-too-wide"
+   ]
+  },
+  {
+   "id": "gc-tuning-stacked-harmony",
+   "q": "How much should I tune stacked gospel harmonies?",
+   "aliases": [
+    "autotune the stacks",
+    "tune gospel harmony",
+    "pitch correct bgvs"
+   ],
+   "source": "harmony",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Tighter than the lead, looser than you think. Perfect tuning kills the blend.",
+   "steps": [
+    "Tune the stacks more than the lead — small errors multiply across layers.",
+    "Leave a few cents of spread between layers; identical pitch fuses them into one voice.",
+    "Correct obvious errors rather than running everything at full strength.",
+    "Check the thirds especially; they expose tuning faster than roots.",
+    "Listen to the stack alone and in the mix before deciding."
+   ],
+   "params": {},
+   "visual": {
+    "type": "layering"
+   },
+   "why": "A stack sounds wide because each layer is slightly different in pitch and timing. Tuning every layer to the exact same cent removes that difference, and the stack collapses into something that sounds like one heavily processed voice.",
+   "watch": "Over-tuned gospel stacks sound synthetic in a genre built on real voices.",
+   "related": [
+    "gc-stacked-vocals",
+    "harmony-cleaner",
+    "gx-heavy-autotune"
+   ]
+  },
+  {
+   "id": "gc-breaking-the-wall",
+   "q": "Why does my contemporary gospel mix sound like a wall?",
+   "aliases": [
+    "mix is a wall of sound",
+    "no space gospel mix",
+    "everything at once"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Nothing ever stops. Mute parts by section rather than mixing them quieter.",
+   "steps": [
+    "Mute something in every section — pads in the verse, guitars in the intro.",
+    "Give the first chorus less than the last so the song can grow.",
+    "Take the drums out somewhere, even for a bar.",
+    "Reduce the number of simultaneous sustaining parts to three.",
+    "Check each section in isolation: can you name what is playing?"
+   ],
+   "params": {},
+   "visual": {
+    "type": "automation"
+   },
+   "why": "Contemporary gospel arrangements stack keys, pads, organ, guitars and stacks, all of which sustain. When nothing stops there is no contrast, and the ear reads constant density as loudness rather than as power.",
+   "watch": "Every player wants their part in. The song needs most of them out most of the time.",
+   "related": [
+    "gc-crowded-mids",
+    "gc-pad-under-busy",
+    "mixbus-bigger"
+   ]
+  },
+  {
+   "id": "gc-recording-at-church-on-sunday",
+   "q": "How do I mix a Sunday recording to sound like a studio record?",
+   "aliases": [
+    "sunday live to record",
+    "church recording sounds live",
+    "polish a live service"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Replace what you can, tighten what you cannot, and keep the congregation.",
+   "steps": [
+    "Replace or layer the kick and snare for consistency.",
+    "Gate the close mics hard; the room belongs in the overheads only.",
+    "Re-record the lead vocal if the performance allows it.",
+    "Keep a little congregation and room — removing it entirely sounds wrong.",
+    "Automate the band down under the vocal, section by section."
+   ],
+   "params": {
+    "reverb": {
+     "type": "room",
+     "decay": "1.0 s",
+     "send": "10–16%"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "A live recording's problems are bleed and inconsistency, both of which are fixable on the percussive sources and almost none of which are fixable on the sustained ones. Spending the effort on drums and vocals gets most of the way to a studio sound.",
+   "watch": "Removing the congregation removes the reason a live gospel record exists.",
+   "related": [
+    "gt-recording-whole-service",
+    "gw-congregation-mic",
+    "gc-drums-hit-like-a-record"
+   ]
+  },
+  {
+   "id": "gc-second-verse-smaller",
+   "q": "How do I stop the second verse feeling like a step backwards?",
+   "aliases": [
+    "verse two drops energy",
+    "song loses momentum",
+    "second verse flat"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Change what is playing, not how loud it is. Verse two needs a new element, not more level.",
+   "steps": [
+    "Add one element verse two did not have — a shaker, a counter-line, a pad.",
+    "Keep the level similar to verse one; it is contrast that is missing, not volume.",
+    "Remove something too, so the texture differs rather than just grows.",
+    "Let the bass play more actively than in verse one.",
+    "Save the full arrangement for the last chorus."
+   ],
+   "params": {},
+   "visual": {
+    "type": "automation"
+   },
+   "why": "After a chorus the ear has adapted to a fuller texture, so an identical second verse sounds smaller even at the same level. Changing the texture resets attention, where raising the level only spends headroom you need later.",
+   "watch": "Making verse two louder leaves nowhere for the final chorus to go.",
+   "related": [
+    "gc-final-chorus-lift",
+    "gc-switches-halfway",
+    "gw-six-minute-build"
+   ]
+  },
+  {
+   "id": "gc-guitar-in-a-keys-band",
+   "q": "Where does the guitar sit when the keys carry everything?",
+   "aliases": [
+    "guitar in gospel band",
+    "no room for guitar",
+    "keys and guitar clash"
+   ],
+   "source": "eguitar-clean",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-contemporary",
+    "gospel"
+   ],
+   "short": "Above or below the keys, never in the same octave. Usually a high line or a low pad.",
+   "steps": [
+    "Move the guitar part out of the keys' register in the arrangement.",
+    "High-pass it at 200 Hz so the keys and bass keep the bottom.",
+    "Cut 2 dB at 1–3 kHz on the keys where the guitar needs definition.",
+    "Pan it opposite the main keyboard.",
+    "Give it a role: swells, a riff, or rhythm — not chords the keys already play."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 2000,
+      "gain": 2,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "A guitar playing the same chord voicings as a piano in the same octave adds density without adding information, so it is heard as mud rather than as a guitar. Changing the part is the only fix that leaves both audible.",
+   "watch": "If removing the guitar changes nothing, the part is the problem, not the mix.",
+   "related": [
+    "gc-crowded-mids",
+    "eguitar-clean-fix-masked",
+    "gw-two-ambient-guitars"
+   ]
+  },
+  {
+   "id": "gw-leading-not-performing",
+   "q": "How do I mix worship so it leads rather than performs?",
+   "aliases": [
+    "worship mix feels like a show",
+    "leading worship mix",
+    "not a performance"
+   ],
+   "source": "mixbus",
+   "intent": "natural",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "The congregation should feel invited, not impressed. Less polish, more room.",
+   "steps": [
+    "Keep the lead vocal present but not larger than life — less compression, less reverb.",
+    "Leave the congregation mic audible throughout, not just in the big moments.",
+    "Reduce the stacks; a wall of produced vocals reads as a record, not a room.",
+    "Use one natural room rather than a plate on everything.",
+    "Keep the dynamics; worship builds and releases."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "3:1",
+     "gr": "3 dB"
+    },
+    "reverb": {
+     "type": "room",
+     "decay": "1.4 s",
+     "send": "15–20%"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "Production signals performance. The more a worship mix sounds engineered, the more it positions the listener as an audience rather than a participant, which works against what the recording is for.",
+   "watch": "Under-producing can tip into sounding careless. Natural is a choice, not an absence of work.",
+   "related": [
+    "gw-honest-not-produced",
+    "gw-congregation-mic",
+    "mixbus-natural"
+   ]
+  },
+  {
+   "id": "gw-pad-swells",
+   "q": "How do I mix pad swells so they lift without swamping?",
+   "aliases": [
+    "worship pad swell",
+    "pads too loud",
+    "swell under vocals"
+   ],
+   "source": "pad",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "Automate them in and out, and filter them hard. A pad at a fixed level is a blanket.",
+   "steps": [
+    "Automate the pad level across every section rather than setting it once.",
+    "High-pass at 300 Hz and low-pass at 8 kHz.",
+    "Duck the pad 3 dB under the lead vocal.",
+    "Let it swell into the chorus and fall away in the verse.",
+    "Mute it entirely somewhere so its return means something."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 300,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 8000,
+      "gain": -18,
+      "q": 0.7,
+      "type": "lp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3 dB"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A pad has no transients, so the ear stops registering it within seconds at a constant level while it continues to fill the spectrum. Automation is what turns it from a permanent fog into a dynamic element.",
+   "watch": "A pad you can clearly hear is usually too loud. Judge it by muting.",
+   "related": [
+    "gc-pad-under-busy",
+    "pad-fix-masked",
+    "gw-six-minute-build"
+   ]
+  },
+  {
+   "id": "gw-electric-swells",
+   "q": "How do I mix ambient electric guitar swells?",
+   "aliases": [
+    "worship guitar swells",
+    "ambient guitar pad",
+    "volume swell guitar"
+   ],
+   "source": "eguitar-clean",
+   "intent": "wider",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "Long delay, long reverb, no attack. It is a texture, so remove everything percussive.",
+   "steps": [
+    "Use a volume pedal or automation to remove the pick attack entirely.",
+    "Add a dotted-eighth delay with high feedback, filtered dark.",
+    "Add a hall at 2.5–3.5 s and let it blur.",
+    "High-pass at 250 Hz so the swells do not cloud the low mids.",
+    "Pan two guitars opposite with different delay times."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 250,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "delay": {
+     "time": "1/8 dotted",
+     "mix": "25–35%"
+    },
+    "reverb": {
+     "type": "hall",
+     "decay": "3.0 s",
+     "send": "25–35%"
+    }
+   },
+   "visual": {
+    "type": "reverb-tail"
+   },
+   "why": "A swell works by having no identifiable start, which is what lets it sit under a vocal without competing. Any surviving pick attack turns it back into a guitar part and the ear starts tracking it as an event rather than a texture.",
+   "watch": "Two swelling guitars with the same delay time fuse into one. Use different times.",
+   "related": [
+    "gw-two-ambient-guitars",
+    "eguitar-clean-wider",
+    "pad-fix-lifeless"
+   ]
+  },
+  {
+   "id": "gw-click-in-ears-only",
+   "q": "How do I keep the click out of a live worship recording?",
+   "aliases": [
+    "click bleeding into mics",
+    "metronome in recording",
+    "click track bleed"
+   ],
+   "source": "drumbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "It leaks from the drummer's ears into the overheads. Notch it and tighten the gates.",
+   "steps": [
+    "Find the click's pitch and notch it narrowly on the overheads.",
+    "Tighten the gates on the close mics so they do not open between hits.",
+    "Ask the drummer for closed-back headphones or in-ears next time.",
+    "High-pass the room mics; the click leaks as a high transient.",
+    "If it is only in the gaps, edit those sections silent."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 2000,
+      "gain": -10,
+      "q": 18,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A click is a narrow-band repeated transient, which makes it both very audible and very easy to notch. Because its pitch never changes, one narrow cut removes it almost completely with no audible cost elsewhere.",
+   "watch": "A wide cut at the click's frequency takes the snare's body with it.",
+   "related": [
+    "gw-iem-and-release",
+    "gt-live-drum-bleed",
+    "w-remove-hum"
+   ]
+  },
+  {
+   "id": "gw-one-vocal-many-songs",
+   "q": "How do I keep a worship vocal consistent across a whole set?",
+   "aliases": [
+    "vocal changes between songs",
+    "consistent vocal live set",
+    "vocal tone varies"
+   ],
+   "source": "leadvocal",
+   "intent": "smoother",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "One chain for the set, automated per song. Not a different treatment each time.",
+   "steps": [
+    "Build one vocal chain and use it across every song.",
+    "Automate the level and the reverb send per song rather than changing the EQ.",
+    "Ride the fader within songs for the dynamic moments.",
+    "Match the loud songs to the quiet ones by ear at the same playback level.",
+    "Keep the de-esser constant; changing it mid-set is audible."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "3:1",
+     "gr": "3–4 dB"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A listener hears a worship set as one continuous event, so tonal changes between songs read as mistakes rather than as choices. Automation changes the balance without changing the identity of the voice.",
+   "watch": "Re-EQing per song makes the singer sound like a different person each time.",
+   "related": [
+    "gw-quiet-then-belts",
+    "gt-recording-whole-service",
+    "leadvocal-smoother"
+   ]
+  },
+  {
+   "id": "gw-room-is-the-reverb",
+   "q": "Should I add reverb if the room is already live?",
+   "aliases": [
+    "church is reverberant",
+    "do i need reverb live",
+    "natural room reverb"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "Usually not. Use the room mics as the reverb and add only pre-delay-style depth.",
+   "steps": [
+    "Balance the room mics first and treat them as the reverb return.",
+    "High-pass the room mics at 250 Hz so they add space, not mud.",
+    "Add artificial reverb only to sources with no room — DI bass, programmed parts.",
+    "If you must add reverb, keep the decay shorter than the building's.",
+    "Check in mono; room mics can cancel against the close mics."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 250,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "reverb-tail"
+   },
+   "why": "Adding a reverb with a longer decay than the real room puts two incompatible spaces on top of each other, and the ear hears the mismatch as blur rather than as depth. The building has already supplied a convincing space for free.",
+   "watch": "Room mics are delayed relative to the close mics. Check polarity and alignment.",
+   "related": [
+    "gw-reverb-for-ballad",
+    "gt-drums-in-a-live-room",
+    "c-reverb-types"
+   ]
+  },
+  {
+   "id": "gw-in-ear-mix-vs-record",
+   "q": "Why does the mix sound different from what the band hears?",
+   "aliases": [
+    "iem mix vs foh",
+    "band hears something else",
+    "monitor mix differs"
+   ],
+   "source": "mixbus",
+   "intent": "learn",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "They are different products. The band's mix is for playing; yours is for listening.",
+   "steps": [
+    "Do not use the monitor mix as a starting point for the record.",
+    "Build the recording mix from scratch with the record's priorities.",
+    "Expect the band to want more of themselves than the record needs.",
+    "Keep the two sessions separate so changes do not leak between them.",
+    "Explain the difference before anyone hears the mix."
+   ],
+   "params": {},
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "A monitor mix exists so players can hear their cues, which usually means their own instrument much louder than a listener would ever want. A recording mix serves the song. The two goals genuinely conflict.",
+   "watch": "Mixing the record to please the band produces a mix nobody else enjoys.",
+   "related": [
+    "gw-iem-and-release",
+    "gt-band-gets-loud",
+    "w-reference-level-every-session"
+   ]
+  },
+  {
+   "id": "gw-keys-pad-piano-organ",
+   "q": "How do I fit piano, pad and organ in a worship song?",
+   "aliases": [
+    "three keyboards",
+    "too many keys worship",
+    "pad piano organ clash"
+   ],
+   "source": "pad",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "Three sustained sources is one too many. Pick two and filter the third hard.",
+   "steps": [
+    "Decide which two carry the song and reduce the third to a texture.",
+    "High-pass the pad at 300 Hz, the piano at 180 Hz, the organ at 200 Hz.",
+    "Separate them by octave in the arrangement, not just by EQ.",
+    "Pan all three to different positions.",
+    "Mute each in turn — whichever you do not miss stays out."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 300,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "All three sustain continuously in the same mid-range, so they mask each other without pause. Three simultaneous sustained sources is past the point where EQ can separate them, because the information overlaps rather than merely the frequencies.",
+   "watch": "Filtering all three leaves a mix that is clean and empty. Remove one instead.",
+   "related": [
+    "gw-piano-and-pad-same-range",
+    "gt-piano-and-organ-together",
+    "gc-crowded-mids"
+   ]
+  },
+  {
+   "id": "gw-softer-drums",
+   "q": "How do I mix drums for a quiet worship song?",
+   "aliases": [
+    "gentle drums worship",
+    "soft drum mix",
+    "drums for a ballad"
+   ],
+   "source": "drumbus",
+   "intent": "natural",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "Favour the overheads, reduce the close mics, and keep the dynamics.",
+   "steps": [
+    "Build the kit from the overheads and add close mics underneath, not the reverse.",
+    "Compress very lightly, 2:1 at 2 dB, so the playing breathes.",
+    "Use brushes or rods in the arrangement if the part allows.",
+    "Keep the room mics up; space suits a quiet song.",
+    "Avoid sample replacement; consistency is the wrong goal here."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "2:1",
+     "gr": "2 dB"
+    },
+    "reverb": {
+     "type": "room",
+     "decay": "1.2 s",
+     "send": "12–18%"
+    }
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "A quiet song's drums carry feel rather than impact, and feel lives in the difference between a soft and a hard hit. Close mics and compression both reduce that difference, which is exactly backwards for this material.",
+   "watch": "Overhead-led kits are quieter overall. Make room rather than compressing them up.",
+   "related": [
+    "gw-intimate-then-huge",
+    "gt-drums-in-a-live-room",
+    "drumbus-glued"
+   ]
+  },
+  {
+   "id": "gw-vocal-in-a-big-room",
+   "q": "How do I mix a worship vocal recorded in a big room?",
+   "aliases": [
+    "vocal has room sound",
+    "live vocal too roomy",
+    "church vocal reverb"
+   ],
+   "source": "leadvocal",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "You cannot remove the room. Work with it and add nothing.",
+   "steps": [
+    "Add no reverb; the room already supplied it.",
+    "High-pass at 100 Hz and notch the room's resonance at 200–400 Hz.",
+    "Compress gently; heavy compression pulls the room up between phrases.",
+    "Use a de-esser, as room reflections exaggerate sibilance.",
+    "Gate or edit gaps to stop the room washing between lines."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 100,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 300,
+      "gain": -3,
+      "q": 2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "gr": "3 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "Room on a vocal is baked into the recording at the same frequencies as the voice, so it cannot be separated. Heavy compression makes it worse by raising the reflections during the gaps, which is why a gentle setting sounds drier than an aggressive one.",
+   "watch": "Adding reverb to a roomy vocal puts two spaces on top of each other.",
+   "related": [
+    "gw-room-is-the-reverb",
+    "gw-congregation-mic",
+    "leadvocal-cleaner"
+   ]
+  },
+  {
+   "id": "gw-ending-that-does-not-end",
+   "q": "How do I mix a spontaneous ending that keeps going?",
+   "aliases": [
+    "worship tag goes on",
+    "spontaneous ending",
+    "long outro worship"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "Give it shape with automation. A repeated section needs a reason to continue.",
+   "steps": [
+    "Change something every repetition — add a part, remove a part, open a filter.",
+    "Let the band drop to almost nothing at least once.",
+    "Automate the reverb longer as it goes to suggest space opening up.",
+    "Build the congregation mic up through the section.",
+    "Decide where it peaks and mix toward that point."
+   ],
+   "params": {
+    "reverb": {
+     "decay": "2.5 s",
+     "send": "automated"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A repeated vamp has no inherent arc, so without changes it reads as a loop rather than a build. The mix has to supply the structure the arrangement is not providing.",
+   "watch": "Raising everything gradually across four minutes leaves no headroom at the peak.",
+   "related": [
+    "gw-spontaneous-section",
+    "gt-vamp-four-minutes",
+    "gw-six-minute-build"
+   ]
+  },
+  {
+   "id": "gw-acoustic-and-vocal-only",
+   "q": "How do I mix a song that is only voice and acoustic guitar?",
+   "aliases": [
+    "sparse worship mix",
+    "just guitar and vocal",
+    "two element mix"
+   ],
+   "source": "aguitar",
+   "intent": "natural",
+   "genres": [
+    "gospel-worship",
+    "gospel"
+   ],
+   "short": "With two elements every flaw is audible. Spend the time on the performances.",
+   "steps": [
+    "High-pass the guitar at 80 Hz only — it is carrying the low end alone.",
+    "Keep the vocal close and dry; there is nothing to hide behind.",
+    "Use one shared room so the two sound like they are together.",
+    "Compress both lightly; the dynamics are the arrangement.",
+    "Pan the guitar slightly off centre and leave the vocal in the middle."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 80,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "gr": "2–3 dB"
+    },
+    "reverb": {
+     "type": "room",
+     "decay": "1.4 s",
+     "send": "15–20%"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "With only two sources there is no masking, so every breath, fret squeak and tuning drift is fully exposed. That also means almost no processing is required — the mix is mostly choosing takes.",
+   "watch": "The usual high-pass at 120 Hz leaves a two-element mix with no bottom at all.",
+   "related": [
+    "gw-acoustic-led",
+    "aguitar-natural",
+    "gu-bridge-drops-to-vocals-keys"
+   ]
+  },
+  {
+   "id": "ga-shaker-drives-the-song",
+   "q": "How do I mix a shaker so it drives the whole track?",
+   "aliases": [
+    "shaker too quiet",
+    "shaker groove african",
+    "shaker level"
+   ],
+   "source": "percussion",
+   "intent": "upfront",
+   "genres": [
+    "gospel-african",
+    "afrobeats",
+    "highlife"
+   ],
+   "short": "Compress it for consistency and let it sit louder than feels right.",
+   "steps": [
+    "Compress at 4:1 with 4–6 dB so every stroke lands the same.",
+    "High-pass at 400 Hz; a shaker needs nothing below that.",
+    "Pan it 20–40% off centre, away from the hats.",
+    "Let it sit louder than you think — it is the engine, not decoration.",
+    "Leave the timing spread; do not quantise it."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 400,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4–6 dB"
+    }
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "A shaker carries the subdivision that everything else hangs on, and its strokes vary a lot in level when played by hand. Compression makes the pulse continuous, which is what lets the listener feel the tempo without the shaker being loud.",
+   "watch": "A shaker loud enough to drive the track is often loud enough to sting. De-ess it.",
+   "related": [
+    "ab-shakers-drive",
+    "ga-percussion-vs-programmed",
+    "percussion-upfront"
+   ]
+  },
+  {
+   "id": "ga-choir-in-local-language",
+   "q": "How do I keep a choir intelligible in a language the mix engineer does not speak?",
+   "aliases": [
+    "choir in twi",
+    "local language choir",
+    "cant understand the choir"
+   ],
+   "source": "choir",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "short": "Mix for consonants, not for words. Protect 2–5 kHz and let a speaker check it.",
+   "steps": [
+    "Protect 2–5 kHz on the choir by cutting the same band on organ and guitars.",
+    "Avoid heavy de-essing; many languages carry meaning in the consonants you would remove.",
+    "Keep the reverb shorter than you would on English lyrics.",
+    "Have someone who speaks the language check intelligibility before you finish.",
+    "Ride the choir up slightly where the phrasing is dense."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 3500,
+      "gain": 2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "reverb": {
+     "decay": "1.4 s",
+     "send": "15–22%"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Intelligibility is carried by consonants at 2–5 kHz in every language, so the technical target does not change. What changes is that you cannot self-check the result, which makes protecting that band and getting a second opinion more important rather than less.",
+   "watch": "Long reverb smears consonants. In a tonal language that can change meaning.",
+   "related": [
+    "ga-call-and-response",
+    "hl-twi-ga-vocals",
+    "choir-cleaner"
+   ]
+  },
+  {
+   "id": "ga-brass-and-choir",
+   "q": "How do I fit a horn section around a choir?",
+   "aliases": [
+    "horns and choir clash",
+    "brass over choir",
+    "horn section african gospel"
+   ],
+   "source": "horns",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "short": "They answer each other. Automate so they are never at full level together.",
+   "steps": [
+    "Arrange them as call and response rather than simultaneously.",
+    "Automate the horns down 3–4 dB whenever the choir sings.",
+    "Cut 2 dB at 1–3 kHz on the horns where the choir needs room.",
+    "Pan the horns wider than the choir, or narrower — just not the same.",
+    "Let the horns take the gaps between choir phrases."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 2000,
+      "gain": -2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3–4 dB"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "Horns and massed voices occupy almost the same range with similar sustain and similar harmonic density. Playing them together halves the clarity of both, which is why the traditional arrangement alternates them.",
+   "watch": "Carving enough space for both at once leaves both sounding thin.",
+   "related": [
+    "ga-horn-section",
+    "ga-call-and-response",
+    "horns-fix-masked"
+   ]
+  },
+  {
+   "id": "ga-live-and-programmed-together",
+   "q": "How do I blend live percussion with programmed drums?",
+   "aliases": [
+    "hybrid african drums",
+    "live percussion over programmed",
+    "mixing both drum types"
+   ],
+   "source": "percussion",
+   "intent": "glued",
+   "genres": [
+    "gospel-african",
+    "afrobeats",
+    "highlife"
+   ],
+   "short": "Put them in the same room and let the live parts keep their timing.",
+   "steps": [
+    "Send both to one short room reverb so they share a space.",
+    "Do not quantise the live percussion to the programmed grid.",
+    "High-pass the live percussion at 150 Hz so the programmed kick keeps the bottom.",
+    "Bus them together and compress lightly, 3:1 at 2–3 dB.",
+    "Pan the live parts wider than the programmed ones."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 150,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "gr": "2–3 dB"
+    },
+    "reverb": {
+     "type": "room",
+     "decay": "0.7 s",
+     "send": "10–16%"
+    }
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "Programmed drums are dry and perfectly timed while live percussion is roomy and human, and the ear notices the mismatch as two separate recordings. A shared room is what makes them sound like they happened together.",
+   "watch": "Quantising the live parts to fix the clash removes the reason they were recorded.",
+   "related": [
+    "ga-percussion-vs-programmed",
+    "ga-drums-sound-stiff",
+    "gc-programmed-plus-live-drummer"
+   ]
+  },
+  {
+   "id": "ga-bass-that-sings",
+   "q": "How do I mix a bass line that plays melodies?",
+   "aliases": [
+    "melodic bass african",
+    "bass plays a tune",
+    "busy bass line"
+   ],
+   "source": "bass",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "highlife",
+    "afrobeats"
+   ],
+   "short": "Keep the mids so the notes are legible. A melodic bass is a lead instrument.",
+   "steps": [
+    "Lift 2–3 dB at 700 Hz–1.5 kHz so the melody reads.",
+    "Compress at 4:1 with 4–6 dB so every note is the same size.",
+    "High-pass at 40 Hz to control the sub while keeping the body.",
+    "Sidechain to the kick by 2 dB rather than carving a hole.",
+    "Keep it mono and centred."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 1000,
+      "gain": 2.5,
+      "q": 1,
+      "type": "bell"
+     },
+     {
+      "f": 40,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4–6 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A bass playing a melody has to be followed note by note, which depends on the mid-range where pitch is legible rather than on the sub where it is felt. Mixing it for weight alone makes the melody disappear while the low end stays loud.",
+   "watch": "Boosting the mids on a bass can expose fret noise and poor technique.",
+   "related": [
+    "ga-melodic-bass",
+    "hl-walking-bass",
+    "bass-cleaner"
+   ]
+  },
+  {
+   "id": "ga-outdoor-recording",
+   "q": "How do I mix a recording made outdoors?",
+   "aliases": [
+    "outdoor crusade recording",
+    "open air service",
+    "no room sound"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "short": "There is no room, so add one. And expect wind and crowd on every mic.",
+   "steps": [
+    "Add a room or hall reverb to everything; outdoors has no reflections.",
+    "High-pass aggressively — wind noise sits below 100 Hz on every open mic.",
+    "Use the crowd as an element rather than trying to remove it.",
+    "Notch any PA feedback ring you find.",
+    "Expect inconsistent levels as performers move; ride rather than compress."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 120,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "hall",
+     "decay": "1.8 s",
+     "send": "18–25%"
+    }
+   },
+   "visual": {
+    "type": "reverb-tail"
+   },
+   "why": "Outdoors there are no early reflections, so sources sound small and disconnected in a way listeners read as amateur. Adding an artificial space supplies the cue the recording is missing rather than decorating one it already has.",
+   "watch": "Wind noise is often inaudible on speakers and obvious on headphones.",
+   "related": [
+    "ga-phone-speakers",
+    "gw-room-is-the-reverb",
+    "w-clean-noisy-recording"
+   ]
+  },
+  {
+   "id": "ga-polyrhythm-clarity",
+   "q": "How do I keep a polyrhythmic arrangement from sounding cluttered?",
+   "aliases": [
+    "too many rhythms",
+    "polyrhythm muddy",
+    "african percussion clutter"
+   ],
+   "source": "percussion",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "highlife",
+    "afrobeats"
+   ],
+   "short": "Separate the parts by frequency and position, not by level.",
+   "steps": [
+    "Give each percussion part its own band: shaker high, congas mid, bell top.",
+    "Pan them to distinct positions and keep them there.",
+    "High-pass everything except the lowest drum at 200 Hz or above.",
+    "Compress the percussion bus gently so they move together.",
+    "Mute each in turn — the pattern should still work."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "gr": "2–3 dB"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "Polyrhythm depends on the listener tracking several patterns at once, which requires each one to be separable. Frequency and position are the two cues that let the ear follow a line, and level is not one of them.",
+   "watch": "Lowering a part to reduce clutter usually just makes it inaudible rather than clearer.",
+   "related": [
+    "ga-percussion-vs-programmed",
+    "ab-percussion-layers",
+    "percussion-wider"
+   ]
+  },
+  {
+   "id": "ga-vocal-ad-libs-crowd",
+   "q": "How do I mix ad-libs over a responding congregation?",
+   "aliases": [
+    "adlibs and crowd",
+    "leader over congregation",
+    "call response levels"
+   ],
+   "source": "adlib",
+   "intent": "upfront",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "short": "The leader must always win. Duck the congregation mic under every ad-lib.",
+   "steps": [
+    "Duck the congregation mic 4–6 dB whenever the leader sings.",
+    "Compress the ad-libs hard, 5:1 at 6 dB, so they stay present.",
+    "High-pass the ad-libs at 150 Hz; they are usually off-mic and boomy.",
+    "Keep the congregation wide and the leader centred.",
+    "Automate rather than relying on the compressor to do the ducking."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 150,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "5:1",
+     "gr": "6 dB"
+    }
+   },
+   "visual": {
+    "type": "sidechain"
+   },
+   "why": "Call and response only works if the call is clearly heard, and a congregation responding is dozens of voices against one. Ducking preserves the conversation where raising the leader just makes the whole section louder.",
+   "watch": "Ducking the congregation too hard breaks the sense of a room full of people.",
+   "related": [
+    "ga-call-and-response",
+    "gw-congregation-mic",
+    "adlib-cleaner"
+   ]
+  },
+  {
+   "id": "ga-guitar-tone-for-highlife-gospel",
+   "q": "What guitar tone suits African gospel?",
+   "aliases": [
+    "african gospel guitar",
+    "highlife gospel guitar tone",
+    "clean guitar africa"
+   ],
+   "source": "eguitar-clean",
+   "intent": "brighter",
+   "genres": [
+    "gospel-african",
+    "highlife"
+   ],
+   "short": "Clean, bright and compressed, with the pick attack intact.",
+   "steps": [
+    "Keep it clean; distortion buries the interlocking lines.",
+    "Compress at 4:1 with 4 dB so every note in the pattern is even.",
+    "Lift 2 dB at 3–5 kHz for the pick.",
+    "High-pass at 150 Hz to leave the bass alone.",
+    "Add a short room rather than a long reverb so the pattern stays legible."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 150,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 4000,
+      "gain": 2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "The style depends on hearing individual notes inside fast repeating figures, which requires attack and even level. Distortion and long reverb both smear exactly the detail the part exists to deliver.",
+   "watch": "Compressing a clean guitar hard raises string noise. De-ess after.",
+   "related": [
+    "ga-guitar-percussion-lock",
+    "hl-interlocking-guitars",
+    "eguitar-clean-brighter"
+   ]
+  },
+  {
+   "id": "ga-recording-with-one-mic",
+   "q": "How do I mix a group recorded on a single microphone?",
+   "aliases": [
+    "one mic recording",
+    "single mic choir",
+    "no multitrack"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "short": "You are mixing a photograph. Fix the tone, add space, and leave the balance alone.",
+   "steps": [
+    "Accept that the internal balance is fixed; only tone and space are available.",
+    "High-pass at 80–100 Hz and notch any room resonance.",
+    "Add a reverb that matches the implied room rather than a larger one.",
+    "Compress gently, 2:1 at 2–3 dB; heavy compression pumps the whole group.",
+    "Use dynamic EQ for any one frequency that jumps."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 90,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 350,
+      "gain": -3,
+      "q": 2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "2:1",
+     "gr": "2–3 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A single mic captures the balance the players created in the room, which cannot be undone afterwards. That makes the mix a restoration job rather than a construction one, and heavy processing damages it rather than improving it.",
+   "watch": "Compression on a one-mic recording raises the room and the quietest singer together.",
+   "related": [
+    "ga-outdoor-recording",
+    "gt-recording-whole-service",
+    "w-clean-noisy-recording"
+   ]
+  },
+  {
+   "id": "ga-bell-pattern",
+   "q": "How do I mix the bell pattern so it stays audible?",
+   "aliases": [
+    "gankogui mix",
+    "cowbell pattern africa",
+    "bell too quiet"
+   ],
+   "source": "percussion",
+   "intent": "upfront",
+   "genres": [
+    "gospel-african",
+    "highlife",
+    "afrobeats"
+   ],
+   "short": "Give it the top of the spectrum and keep it dry. The bell is the timeline.",
+   "steps": [
+    "High-pass at 500 Hz; the bell lives entirely above that.",
+    "Lift 2 dB at 2–4 kHz for the strike.",
+    "Keep it dry — reverb on a timeline pattern smears it.",
+    "Pan it to one side and leave it there.",
+    "Compress at 4:1 with 3 dB for consistency."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 500,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 3000,
+      "gain": 2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "The bell carries the timeline that every other part orients to, so it has to be continuously audible rather than merely present. Filtering it into a narrow high band keeps it clear of the drums without needing level.",
+   "watch": "Reverb on the bell blurs the timeline and the whole groove loosens.",
+   "related": [
+    "ga-polyrhythm-clarity",
+    "ga-guitar-percussion-lock",
+    "percussion-upfront"
+   ]
+  },
+  {
+   "id": "ga-mix-translates-to-radio",
+   "q": "How do I mix African gospel for local radio?",
+   "aliases": [
+    "radio playback africa",
+    "fm radio gospel mix",
+    "radio processing"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-african",
+    "gospel"
+   ],
+   "short": "Radio compresses hard. Leave headroom, control the low mids, keep the vocal clear.",
+   "steps": [
+    "Master to −12 to −14 LUFS; station processing will handle the rest.",
+    "Control 200–400 Hz tightly — broadcast compression exaggerates it.",
+    "Keep the vocal 2 dB above where you would for streaming.",
+    "Keep the low end mono and controlled.",
+    "Check the mix on a small speaker at low volume."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 300,
+      "gain": -1.5,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1–2 dB"
+    }
+   },
+   "visual": {
+    "type": "levels"
+   },
+   "why": "Broadcast processors apply heavy multiband compression, which brings up whatever was quiet and flattens whatever was loud. A mix with controlled low mids and a clear vocal survives that treatment; a dense one turns to mush.",
+   "watch": "A heavily limited master gives the station's processor nothing to work with.",
+   "related": [
+    "ga-phone-speakers",
+    "gc-compete-with-radio",
+    "c-what-lufs"
+   ]
+  },
+  {
+   "id": "gx-sub-under-the-choir",
+   "q": "How do I put an 808 under a live choir without mud?",
+   "aliases": [
+    "808 and choir low end",
+    "sub under choir",
+    "trap bass with choir"
+   ],
+   "source": "808",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "short": "The choir has more low end than you think. High-pass it and let the 808 own below 100.",
+   "steps": [
+    "High-pass the choir at 150–200 Hz; massed voices carry a lot of low energy.",
+    "Let the 808 own everything below 100 Hz.",
+    "Sidechain the choir 2 dB to the 808 on the hits.",
+    "Keep both mono below 120 Hz.",
+    "Check on a phone — the choir should still sound full."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 180,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "2 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Twenty voices singing a chord put significant energy below 200 Hz even though no single voice does. That accumulated low end is invisible on any one track and obvious on the bus, which is why choirs need filtering that soloists do not.",
+   "watch": "High-passing the choir too far makes it sound like a sample rather than a room of people.",
+   "related": [
+    "gx-808-under-choir",
+    "gx-808-and-organ-both-low",
+    "choir-cleaner"
+   ]
+  },
+  {
+   "id": "gx-preach-sample-in-beat",
+   "q": "How do I mix a preaching sample into a beat?",
+   "aliases": [
+    "sermon sample",
+    "preaching vocal sample",
+    "sample a sermon"
+   ],
+   "source": "vocalchop",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "short": "Match it to the beat's space, not the pulpit's. Filter the room out and add yours.",
+   "steps": [
+    "High-pass at 200 Hz to remove the original room's low end.",
+    "Notch the strongest room resonance you can find, usually 200–500 Hz.",
+    "Add the beat's own reverb so it belongs to this recording.",
+    "Compress at 5:1 with 6 dB; preaching is far more dynamic than singing.",
+    "Duck the music 2–3 dB under the words."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 350,
+      "gain": -3,
+      "q": 2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "5:1",
+     "gr": "6 dB"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "A sampled sermon carries the acoustics of the room it was preached in, which clashes with the space the beat implies. Stripping the original room and substituting the track's own is what makes the sample sound placed rather than pasted.",
+   "watch": "Clearance matters. A recognisable sermon is someone's intellectual property.",
+   "related": [
+    "gx-adlibs-around-preaching",
+    "gt-preacher-mic-in-mix",
+    "vocalchop-sits-in-mix"
+   ]
+  },
+  {
+   "id": "gx-organ-in-a-trap-beat",
+   "q": "How do I use a Hammond in a trap beat?",
+   "aliases": [
+    "organ over 808",
+    "hammond in gospel trap",
+    "church organ trap"
+   ],
+   "source": "organ",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "short": "High-pass it hard and use it in bursts. An organ that never stops swallows a trap beat.",
+   "steps": [
+    "High-pass at 250–300 Hz; the 808 owns everything below.",
+    "Use it in stabs and turnarounds rather than sustained throughout.",
+    "Pull in the lower drawbars so the registration itself is thinner.",
+    "Duck it 3 dB under the vocal.",
+    "Pan it off centre and keep it narrower than you would in a live mix."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 280,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A trap arrangement depends on space between the 808 hits, and a Hammond with drawbars out fills every gap by design. The two instincts are opposed, so the organ has to be rationed rather than balanced.",
+   "watch": "An organ filtered that hard sounds thin soloed. Judge it against the beat.",
+   "related": [
+    "gx-808-and-organ-both-low",
+    "gx-trap-drums-live-keys",
+    "organ-cleaner"
+   ]
+  },
+  {
+   "id": "gx-hat-rolls-not-harsh",
+   "q": "How do I keep fast hat rolls from getting harsh?",
+   "aliases": [
+    "hat rolls painful",
+    "trap hats harsh",
+    "fast hats sting"
+   ],
+   "source": "hats",
+   "intent": "smoother",
+   "genres": [
+    "gospel-trap",
+    "hiphop"
+   ],
+   "short": "Dynamic EQ at 6–10 kHz and vary the velocity. A roll at one level is a buzzsaw.",
+   "steps": [
+    "Vary the velocity across the roll so it is not a constant tone.",
+    "Dynamic EQ at 6–10 kHz cutting 3 dB on the loudest hits.",
+    "Low-pass at 14 kHz; nothing useful lives above it.",
+    "Reduce the roll's level relative to the main hat pattern.",
+    "Pan the rolls slightly off centre."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 8000,
+      "gain": -3,
+      "q": 2.2,
+      "type": "bell"
+     },
+     {
+      "f": 14000,
+      "gain": -18,
+      "q": 0.7,
+      "type": "lp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A roll repeats the same sample fast enough that the repetitions fuse into a steady tone rather than reading as separate hits. That tone sits in the most sensitive part of hearing, which is why rolls fatigue faster than any other element.",
+   "watch": "A static cut at 8 kHz dulls the main hat pattern too. Use dynamic EQ.",
+   "related": [
+    "gx-triplet-hat-rolls",
+    "hats-fix-harsh",
+    "c-dynamic-eq"
+   ]
+  },
+  {
+   "id": "gx-choir-sample-vs-real",
+   "q": "Should I use a choir sample or record a real one?",
+   "aliases": [
+    "sampled choir gospel trap",
+    "fake choir",
+    "real choir or sample"
+   ],
+   "source": "choir",
+   "intent": "learn",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "short": "Samples for pads and stabs, real voices for anything with words.",
+   "steps": [
+    "Use samples for wordless ahs and sustained pads — they work well there.",
+    "Record real voices for anything with lyrics; sampled diction is the giveaway.",
+    "Layer a small real group over a sample to add human variation.",
+    "Filter the sample at 200 Hz so it sits behind the real voices.",
+    "Avoid sampled choirs singing the hook; it rarely survives scrutiny."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "Sample libraries record vowels well and consonants badly, because consonants vary enormously between words and cannot be generalised. Anything with text exposes that limitation immediately, while sustained vowels hide it completely.",
+   "watch": "Four real voices layered under a sample does more than a bigger sample library.",
+   "related": [
+    "gx-sampled-live-choir",
+    "gc-bgvs-feel-like-choir",
+    "choir-natural"
+   ]
+  },
+  {
+   "id": "gx-mix-for-tiktok",
+   "q": "How do I mix a gospel trap record for short video?",
+   "aliases": [
+    "tiktok mix",
+    "reels audio",
+    "short video gospel"
+   ],
+   "source": "mixbus",
+   "intent": "louder",
+   "genres": [
+    "gospel-trap",
+    "hiphop"
+   ],
+   "short": "Front-load the hook and make sure it works on a phone speaker with no sub.",
+   "steps": [
+    "Make sure the strongest moment happens in the first few seconds.",
+    "Saturate the 808 so the bass line reads with no sub at all.",
+    "Keep the vocal well above the beat; phone speakers lose the middle.",
+    "Check the mix on an actual phone, not a simulation.",
+    "Avoid long intros; the first bar is the whole audition."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 1000,
+      "gain": 2,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1–2 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A phone speaker reproduces almost nothing below 300 Hz, so the entire low end of the record is reconstructed by the ear from harmonics. A mix that depends on sub energy disappears on the platform where most of the listening happens.",
+   "watch": "Mixing loud for short video still gets normalised. Clarity beats level.",
+   "related": [
+    "gx-streaming-loudness",
+    "ga-phone-speakers",
+    "hh-808-on-small-speakers"
+   ]
+  },
+  {
+   "id": "gx-keys-between-808-hits",
+   "q": "How do I fit keys between the 808 hits?",
+   "aliases": [
+    "keys and 808 timing",
+    "piano over trap bass",
+    "keys in the gaps"
+   ],
+   "source": "piano",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "short": "Arrange them into the gaps and high-pass hard. The 808's spaces are the keys' room.",
+   "steps": [
+    "Write the keys to play where the 808 is not; the gaps are the opportunity.",
+    "High-pass the keys at 200–250 Hz.",
+    "Sidechain the keys 2 dB to the 808 so they duck on the hits.",
+    "Keep the keys narrow; width competes with the vocal.",
+    "Cut 200–400 Hz on the keys if the mix clouds."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 220,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "2 dB",
+     "release": "100 ms"
+    }
+   },
+   "visual": {
+    "type": "sidechain"
+   },
+   "why": "Trap arrangements are defined by space, and an 808 occupies a specific moment rather than continuously. Keys written into the gaps use room that already exists rather than fighting for room that does not.",
+   "watch": "Sidechaining keys too hard makes them pump audibly in a sparse arrangement.",
+   "related": [
+    "gx-trap-drums-live-keys",
+    "gx-organ-in-a-trap-beat",
+    "gx-808-and-organ-both-low"
+   ]
+  },
+  {
+   "id": "gx-vocal-over-sparse-beat",
+   "q": "How do I mix a vocal over a very sparse beat?",
+   "aliases": [
+    "sparse trap vocal",
+    "vocal exposed",
+    "minimal beat vocal"
+   ],
+   "source": "leadvocal",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "hiphop"
+   ],
+   "short": "Every flaw is audible with nothing to hide behind. Spend the time on editing.",
+   "steps": [
+    "Edit breaths, clicks and timing before any processing.",
+    "Compress in two gentle stages rather than one hard one.",
+    "Use delay rather than reverb so the vocal stays defined.",
+    "De-ess carefully; there is nothing masking sibilance.",
+    "Keep the reverb short — a long tail in a sparse beat sounds like a different room."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "3:1",
+     "gr": "3 dB"
+    },
+    "delay": {
+     "time": "1/8 dotted",
+     "mix": "10–15%"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "In a dense mix the other instruments mask small vocal problems, and in a sparse one nothing does. The same performance that passed over a full beat will expose every edit point when the arrangement drops away.",
+   "watch": "Adding reverb to hide problems in a sparse mix just makes the problems reverberant.",
+   "related": [
+    "gx-hit-without-burying-message",
+    "rapvocal-cleaner",
+    "gu-bridge-drops-to-vocals-keys"
+   ]
+  },
+  {
+   "id": "gx-tag-and-producer-drop",
+   "q": "How do I mix a producer tag so it is not jarring?",
+   "aliases": [
+    "producer tag level",
+    "tag too loud",
+    "beat tag mixing"
+   ],
+   "source": "fx",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "hiphop"
+   ],
+   "short": "Match it to the record's tone and tuck it under the first vocal line.",
+   "steps": [
+    "EQ the tag to match the record's brightness; most are far brighter.",
+    "Place it under the first vocal phrase rather than in silence.",
+    "Duck it 3 dB under anything else playing.",
+    "Add the record's reverb so it shares the space.",
+    "Keep it 6–10 dB below the lead vocal."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 10000,
+      "gain": -2,
+      "q": 0.7,
+      "type": "shelf"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A tag is usually rendered loud and bright so it survives on any beat, which makes it stand out tonally from the record it lands in. Matching its tone and giving it something to hide behind is what turns it from an interruption into a signature.",
+   "watch": "A tag in silence is the most noticeable possible placement.",
+   "related": [
+    "fx-cleaner",
+    "gx-drop",
+    "fx-transitions"
+   ]
+  },
+  {
+   "id": "gx-sunday-to-streaming",
+   "q": "How do I turn a Sunday live take into a streaming single?",
+   "aliases": [
+    "live take to single",
+    "release a live recording",
+    "church recording to spotify"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-trap",
+    "gospel"
+   ],
+   "short": "Replace the drums, re-cut the lead, keep the room. The congregation is the asset.",
+   "steps": [
+    "Replace or layer kick and snare; they are the least forgiving and the easiest to fix.",
+    "Re-record the lead vocal to the live take if the performance allows.",
+    "Keep the congregation and room mics - they are why anyone wants a live version.",
+    "Edit out announcements and gaps so the arrangement is a song length.",
+    "Master to around -14 LUFS, true peak -1 dBTP."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1-2 dB"
+    },
+    "reverb": {
+     "type": "room",
+     "decay": "1.2 s",
+     "send": "10-16%"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "A live recording's weaknesses are concentrated in the drums and the lead vocal, and both are replaceable without touching what makes the take valuable. The congregation, the room and the band's interaction cannot be recreated, so everything else is negotiable and those are not.",
+   "watch": "Replacing so much that the congregation sounds pasted on defeats the exercise.",
+   "related": [
+    "gc-recording-at-church-on-sunday",
+    "gt-recording-whole-service",
+    "gx-streaming-loudness"
+   ]
+  },
+  {
+   "id": "gu-neo-soul-chords",
+   "q": "How do I mix dense neo-soul chords without mud?",
+   "aliases": [
+    "jazzy chords muddy",
+    "extended chords gospel",
+    "neo soul keys"
+   ],
+   "source": "rhodes",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "short": "Voice them higher and filter below 200 Hz. Extensions belong above the bass.",
+   "steps": [
+    "Move the voicings up an octave; ninths and elevenths in the bass register are mud.",
+    "High-pass the keys at 180–220 Hz.",
+    "Cut 2–3 dB at 250–400 Hz.",
+    "Let the bass state the root and the keys state the colour.",
+    "Shorten the release so chords stop overlapping."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 320,
+      "gain": -2.5,
+      "q": 1.3,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "Extended chords stack intervals close together, and close intervals low down beat against each other rather than sounding rich. The same voicing an octave up reads as sophisticated because the partials have room to separate.",
+   "watch": "Raising the voicing changes the arrangement. Ask before rewriting the keyboard part.",
+   "related": [
+    "gu-keys-and-live-bass",
+    "rhodes-fix-muddy",
+    "gc-crowded-mids"
+   ]
+  },
+  {
+   "id": "gu-vocal-runs-clarity",
+   "q": "How do I keep fast vocal runs clear?",
+   "aliases": [
+    "runs get lost",
+    "melisma clarity",
+    "fast vocal licks"
+   ],
+   "source": "leadvocal",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-urban",
+    "gospel",
+    "rnb"
+   ],
+   "short": "Shorten the reverb and compress faster during runs. The tail is what blurs them.",
+   "steps": [
+    "Automate the reverb send down during runs and up on held notes.",
+    "Use a faster compressor attack through run sections so every note lands.",
+    "Lift 2 dB at 2–4 kHz for note definition.",
+    "Reduce the delay feedback during runs.",
+    "Check the run at low volume; blur shows up there first."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 3000,
+      "gain": 2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "reverb": {
+     "decay": "1.2 s",
+     "send": "automated down"
+    }
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A run is many notes inside the decay time of a normal vocal reverb, so each note's tail overlaps the next and the detail smears. Shortening the space for those bars is what lets the listener hear the notes the singer actually sang.",
+   "watch": "A dry run in a wet song sounds disconnected. Automate rather than switching off.",
+   "related": [
+    "gu-heavy-vibrato",
+    "leadvocal-cleaner",
+    "gc-vocal-rides-not-compression"
+   ]
+  },
+  {
+   "id": "gu-live-band-sounds-programmed",
+   "q": "How do I make a live band sound as tight as a programmed one?",
+   "aliases": [
+    "live band tight",
+    "band not as tight as beat",
+    "tighten a live rhythm section"
+   ],
+   "source": "drumbus",
+   "intent": "tighter",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "short": "Consistency, not timing. Compress for even level and leave the feel alone.",
+   "steps": [
+    "Compress each drum for consistent level rather than editing timing.",
+    "Layer samples under kick and snare for weight that does not vary.",
+    "Compress the bass hard, 4:1 at 5 dB, so every note is equal.",
+    "Fix only the entries that are audibly late.",
+    "Leave the push and pull; that is what a programmed track cannot do."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "gr": "5 dB"
+    }
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "What reads as tight in a programmed track is consistent level as much as perfect timing, and level is the part a mix can fix. Chasing timing instead removes the human feel that was the reason to use a band.",
+   "watch": "Editing a live band onto the grid usually makes it sound worse, not tighter.",
+   "related": [
+    "gu-half-live-half-programmed",
+    "gc-programmed-plus-live-drummer",
+    "gt-no-rehearsal-timing"
+   ]
+  },
+  {
+   "id": "gu-bass-that-sits-under-808",
+   "q": "How do I use a live bass and an 808 together?",
+   "aliases": [
+    "bass and 808 urban gospel",
+    "live bass with 808",
+    "two basses"
+   ],
+   "source": "bass",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-urban",
+    "rnb",
+    "hiphop"
+   ],
+   "short": "808 takes the sub, bass takes the mids. Split them at 100 Hz and commit.",
+   "steps": [
+    "High-pass the live bass at 100–120 Hz and let the 808 own below.",
+    "Lift 2 dB at 700 Hz–1.5 kHz on the bass so the line is legible.",
+    "Make sure they are playing compatible notes, not just compatible frequencies.",
+    "Sidechain the bass 2 dB to the 808.",
+    "Mono both below 120 Hz."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 110,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 1000,
+      "gain": 2,
+      "q": 1,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "2 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Two bass instruments in the same octave is a harmony problem before it is a mix problem. Splitting them by frequency gives each a job, but only if the notes agree — a live bass walking under a static 808 will still clash.",
+   "watch": "The live bass will sound thin soloed after this. That is the correct outcome.",
+   "related": [
+    "gu-keys-and-live-bass",
+    "gx-808-and-organ-both-low",
+    "808-cleaner"
+   ]
+  },
+  {
+   "id": "gu-smooth-top-end",
+   "q": "How do I get a smooth expensive top end on urban gospel?",
+   "aliases": [
+    "silky top end",
+    "expensive high frequencies",
+    "smooth highs rnb"
+   ],
+   "source": "mixbus",
+   "intent": "smoother",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "short": "De-ess and remove harshness before adding air. Smooth is an absence, not an addition.",
+   "steps": [
+    "De-ess every vocal and the cymbals before touching the bus.",
+    "Dynamic EQ at 3–6 kHz on the mix to catch the harsh moments.",
+    "Only then add a 1 dB shelf above 10 kHz.",
+    "Use saturation rather than EQ to add perceived brightness.",
+    "Check at a low level, where harshness is easiest to judge."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 4500,
+      "gain": -2,
+      "q": 2,
+      "type": "bell"
+     },
+     {
+      "f": 11000,
+      "gain": 1,
+      "q": 0.7,
+      "type": "shelf"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "What people describe as an expensive top end is usually the absence of harshness at 3–6 kHz rather than the presence of air above 10 kHz. Adding air to a harsh mix makes it harsher, which is why the order of operations decides the result.",
+   "watch": "A mix that sounds smooth and dull on big speakers may be right on phones. Check both.",
+   "related": [
+    "gu-smooth-not-dull",
+    "mixbus-brighter",
+    "c-dynamic-eq"
+   ]
+  },
+  {
+   "id": "gu-stacking-ad-libs",
+   "q": "How many ad-lib layers are too many?",
+   "aliases": [
+    "too many adlibs",
+    "adlib stacks urban",
+    "layering ad-libs"
+   ],
+   "source": "adlib",
+   "intent": "cleaner",
+   "genres": [
+    "gospel-urban",
+    "rnb",
+    "hiphop"
+   ],
+   "short": "Three positions, not three per position. Width comes from placement, not count.",
+   "steps": [
+    "Keep one ad-lib per moment per position — left, right, and far back.",
+    "High-pass all of them at 200–300 Hz.",
+    "Duck every ad-lib 3–4 dB under the lead.",
+    "Use different processing per position so they are distinguishable.",
+    "Mute the whole group and un-mute only what the song needs."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 250,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3–4 dB"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "Ad-libs are the same voice as the lead, so each layer masks the lead a little more while adding almost no new information. Beyond about three positions the additions are inaudible individually but very audible as a loss of clarity.",
+   "watch": "Ad-libs that are inaudible alone still cost the lead its space. Mute rather than lower.",
+   "related": [
+    "gx-adlibs-around-preaching",
+    "adlib-cleaner",
+    "gu-rnb-style-stacks"
+   ]
+  },
+  {
+   "id": "gu-warm-not-dark",
+   "q": "How do I make a mix warm without making it dark?",
+   "aliases": [
+    "warm but clear",
+    "not dull warmth",
+    "warm mix bright vocal"
+   ],
+   "source": "mixbus",
+   "intent": "warmer",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "short": "Saturate the low mids, do not boost them, and keep the vocal's presence intact.",
+   "steps": [
+    "Add tape or tube saturation rather than an EQ boost at 200–400 Hz.",
+    "Protect 2–5 kHz on the lead vocal; that is what keeps it clear.",
+    "Roll off above 14 kHz rather than cutting at 8 kHz.",
+    "Cut 300 Hz on the instruments rather than boosting it on the bus.",
+    "Compare at matched loudness; saturation flatters."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 14000,
+      "gain": -1.5,
+      "q": 0.7,
+      "type": "shelf"
+     }
+    ],
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1–2 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "Warmth and darkness both come from the ratio of low mids to highs, but saturation adds harmonic density without removing information. Boosting low mids and cutting highs achieves a similar balance while throwing away the detail that keeps a mix legible.",
+   "watch": "Saturation raises level. Match loudness before deciding it sounds better.",
+   "related": [
+    "gu-modern-but-warm",
+    "mixbus-warmer",
+    "c-saturation-types"
+   ]
+  },
+  {
+   "id": "gu-gospel-chords-rnb-drums",
+   "q": "How do I mix gospel harmony over R&B drums?",
+   "aliases": [
+    "gospel chords rnb beat",
+    "church keys modern drums",
+    "hybrid gospel rnb"
+   ],
+   "source": "mixbus",
+   "intent": "glued",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "short": "Let the drums be dry and modern and the keys be wide and churchy. The contrast is the sound.",
+   "steps": [
+    "Keep the drums tight, dry and close; that is the modern half.",
+    "Let the keys and vocals keep their width and space.",
+    "Share one short room across everything so they belong together.",
+    "High-pass the keys at 200 Hz so the drums keep the low end.",
+    "Do not reverb the drums to match the keys — the difference is the point."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "room",
+     "decay": "0.8 s",
+     "send": "8–14%"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "The genre works by placing two eras next to each other, so flattening them into one space removes what makes it distinctive. A small shared room is enough to make them sound like one record without erasing the contrast.",
+   "watch": "Making the drums as wet as the keys turns a hybrid record into a muddy one.",
+   "related": [
+    "gu-half-live-half-programmed",
+    "gu-modern-but-warm",
+    "gc-modern-drums-old-songs"
+   ]
+  },
+  {
+   "id": "gu-background-vocal-width",
+   "q": "How wide should urban gospel backgrounds be?",
+   "aliases": [
+    "bgv width",
+    "how wide backgrounds",
+    "stack width rnb"
+   ],
+   "source": "harmony",
+   "intent": "wider",
+   "genres": [
+    "gospel-urban",
+    "rnb"
+   ],
+   "short": "As wide as the number of real takes allows. Four takes is wide; one widened is phasey.",
+   "steps": [
+    "Record each harmony twice and pan the pairs opposite.",
+    "Keep the centre empty for the lead — do not place any stack there.",
+    "High-pass the stacks at 200–250 Hz.",
+    "Check mono: real doubles survive, widened singles collapse.",
+    "Narrow the stacks slightly on the verse and open them on the chorus."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 220,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "stereo-field",
+    "compare": true
+   },
+   "why": "Width in vocal stacks is real difference between channels, which only two separate performances can supply. A widener applied to one take fabricates that difference and it cancels the moment the mix is summed.",
+   "watch": "Stacks that fill the centre leave the lead nowhere to sit.",
+   "related": [
+    "gu-rnb-style-stacks",
+    "harmony-wider",
+    "c-widen-without-widener"
+   ]
+  },
+  {
+   "id": "gu-when-to-stop-mixing",
+   "q": "How do I know when an urban gospel mix is finished?",
+   "aliases": [
+    "when is the mix done",
+    "stop mixing",
+    "mix finished"
+   ],
+   "source": "mixbus",
+   "intent": "learn",
+   "genres": [
+    "gospel-urban",
+    "gospel",
+    "rnb"
+   ],
+   "short": "When the changes stop being improvements and start being alternatives.",
+   "steps": [
+    "Sleep on it and listen once cold the next morning.",
+    "Check it on a phone, in a car, and on headphones before deciding.",
+    "If your last three changes could be reversed without loss, stop.",
+    "Ask whether the vocal is clear and the low end is controlled — the rest is taste.",
+    "Print it and move on; a mix can always be different, not always better."
+   ],
+   "params": {},
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "Past a certain point, additional changes trade one defensible balance for another rather than fixing anything. Recognising that point is what separates finishing a record from circling one, and ear fatigue makes it very hard to see from inside the session.",
+   "watch": "A mix that sounds worse the next morning was finished two hours before you stopped.",
+   "related": [
+    "c-mix-sounds-worse-later",
+    "w-reference-level-every-session",
+    "mixbus-fix-lifeless"
+   ]
+  }
+ ]
+}
