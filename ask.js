@@ -465,6 +465,14 @@ function drawViz(entry) {
  * 3. Voice — the OS speaks, so nothing ships as audio
  * ---------------------------------------------------------- */
 
+/* Read-aloud is finished and works, but it speaks in whatever voice the OS
+   provides - Microsoft David on Windows, which sounds like a 2009 screen
+   reader and wrong in a paid studio tool. Shipping it that way sets the wrong
+   expectation for the feature we actually intend: Nene's own cloned voice,
+   rendered offline. Hidden for this release, not removed. Flip to true when
+   the rendered audio ships; everything below it already works. */
+const VOICE_ENABLED = false;
+
 const speech = window.speechSynthesis || null;
 let speaking = false;
 
@@ -582,13 +590,13 @@ function answerHtml(e) {
       ${v.scale || '<div class="ask-scale"></div>'}
     </div>
 
-    <div class="ask-voice${speaking ? ' on' : ''}">
+    ${VOICE_ENABLED ? `<div class="ask-voice${speaking ? ' on' : ''}">
       <button class="ask-play" aria-label="Read this answer aloud">${speaking
         ? '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>'
         : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6L19 12 8 5.2Z"/></svg>'}</button>
       <span class="ask-wave">${Array.from({ length: 22 }, (_, i) => `<i style="--i:${i % 7}"></i>`).join('')}</span>
       <small>${speech ? (speaking ? 'reading' : 'read aloud') : 'no voice on this device'}</small>
-    </div>
+    </div>` : ''}
 
     <ol class="ask-steps">${e.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>
 
@@ -643,14 +651,18 @@ window.renderAsk = function renderAsk() {
         <div class="ask-search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.4-3.4"/></svg>
           <input id="askInput" value="${esc(S.askQuery)}" autocomplete="off" spellcheck="false"
-            placeholder="Say it the way it sounds in your head" />
+            maxlength="120" placeholder="Say it the way it sounds in your head" />
           ${S.askQuery ? '<button class="ask-clear" id="askClear" aria-label="Clear">&times;</button>' : ''}
         </div>
 
-        <div class="ask-chips">${srcChips.map(([k, l, n]) =>
-          `<button class="ask-chip${S.askSource === k ? ' on' : ''}" data-src="${k}">${l}<em>${n}</em></button>`).join('')}</div>
-        <div class="ask-chips tight">${genreChips.map(([k, l]) =>
-          `<button class="ask-chip${S.askGenre === k ? ' on' : ''}" data-genre="${k}">${l}</button>`).join('')}</div>
+        <div class="ask-filters">
+          <select id="askSrc" class="ask-select" aria-label="Filter by source">
+            ${srcChips.map(([k, l, n]) =>
+              `<option value="${k}"${S.askSource === k ? ' selected' : ''}>${l} (${n})</option>`).join('')}
+          </select>
+          <div class="ask-chips wrap">${genreChips.map(([k, l]) =>
+            `<button class="ask-chip${S.askGenre === k ? ' on' : ''}" data-genre="${k}">${l}</button>`).join('')}</div>
+        </div>
 
         <div class="ask-count">
           <span>${S.askQuery.trim() ? (fellBack ? 'Closest matches' : 'Results') : 'All answers'}</span>
@@ -686,6 +698,13 @@ document.addEventListener('input', e => {
   window.renderAsk();
   const el = document.getElementById('askInput');
   if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+});
+
+/* The source filter is a select now that there are 37 of them. */
+document.addEventListener('change', e => {
+  if (e.target.id !== 'askSrc') return;
+  S.askSource = e.target.value;
+  window.renderAsk();
 });
 
 document.addEventListener('click', e => {

@@ -379,3 +379,23 @@
    can own their scrolling. */
 .content.ask-mode { overflow: hidden; padding: 0; }
 .content.ask-mode #page-ask { max-width: none; height: 100%; margin: 0; }
+
+/* ---------- filters ---------- */
+/* The source rail became 37 entries scrolling sideways behind a fade, which
+   hid most of them with no way to know they existed. A select shows every one
+   and costs a single row. Genres are few and short, so they wrap instead. */
+.ask-filters { flex: none; padding: 0 18px 10px; display: grid; gap: 8px; }
+
+.ask-select {
+  width: 100%; height: 34px;
+  background: var(--panel-2); border: 1px solid var(--line-strong);
+  border-radius: 9px; color: var(--text); font: inherit; font-size: 13px;
+  padding: 0 10px; cursor: pointer;
+}
+.ask-select:hover { border-color: rgba(255,255,255,.22); }
+
+.ask-chips.wrap {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  overflow: visible; padding: 0;
+  mask-image: none; -webkit-mask-image: none;
+}
