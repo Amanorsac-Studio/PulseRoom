@@ -68,6 +68,10 @@ jobs:
     # macOS runners bill ~10x. Signing Standard section 6: gate to tags and
     # manual dispatch so a routine push cannot burn the allowance.
     if: github.event_name == 'workflow_dispatch' || github.ref_type == 'tag'
+    env:
+      # `secrets` cannot be read from a step-level `if`, so the presence check
+      # goes through env instead.
+      HAS_MAC_CERT: ${{ secrets.MAC_CERT_P12 != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -77,7 +81,7 @@ jobs:
       - run: npm install dmg-license --no-save || true
 
       - name: Import Developer ID certificate
-        if: ${{ secrets.MAC_CERT_P12 != '' }}
+        if: env.HAS_MAC_CERT == 'true'
         env:
           MAC_CERT_P12: ${{ secrets.MAC_CERT_P12 }}
           MAC_CERT_PASSWORD: ${{ secrets.MAC_CERT_PASSWORD }}
@@ -117,7 +121,7 @@ jobs:
           fi
 
       - name: Verify the verdict a customer's Mac reaches
-        if: ${{ secrets.MAC_CERT_P12 != '' }}
+        if: env.HAS_MAC_CERT == 'true'
         run: |
           for d in dist/*.dmg; do
             echo "== $d"
