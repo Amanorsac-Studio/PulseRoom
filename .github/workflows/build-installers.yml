@@ -7,6 +7,11 @@ name: Build installers
 
 on:
   workflow_dispatch:
+    inputs:
+      upload_to_testflight:
+        description: 'Send the signed .ipa to App Store Connect (TestFlight)'
+        type: boolean
+        default: false
   push:
     tags: ['v*']
 
@@ -72,6 +77,7 @@ jobs:
       # `secrets` cannot be read from a step-level `if`, so the presence check
       # goes through env instead.
       HAS_MAC_CERT: ${{ secrets.MAC_CERT_P12 != '' }}
+      HAS_ASC_KEY: ${{ secrets.ASC_KEY_P8 != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -120,14 +126,45 @@ jobs:
             rm -f asc.p8
           fi
 
+      # electron-builder notarizes the .app and then wraps it in a DMG, so the
+      # DMG itself carries no ticket. The customer downloads the DMG, so that
+      # is the thing Gatekeeper judges first: the last build produced two DMGs
+      # that spctl rejected and stapler called unticketed, and the job stayed
+      # green because both checks ended in `|| echo ::warning`.
+      - name: Notarize and staple the disk images
+        if: env.HAS_MAC_CERT == 'true' && env.HAS_ASC_KEY == 'true'
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          set -eo pipefail
+          KEY="$RUNNER_TEMP/asc.p8"
+          printf '%s' "$ASC_KEY_P8" > "$KEY"
+          for d in dist/*.dmg; do
+            echo "== notarizing $(basename "$d")"
+            xcrun notarytool submit "$d" --wait --timeout 30m               --key "$KEY" --key-id "$ASC_KEY_ID" --issuer "$ASC_ISSUER_ID"
+            xcrun stapler staple "$d"
+          done
+          rm -f "$KEY"
+
+      # Fatal now. An installer a customer's Mac refuses is not a release,
+      # and a warning in a green run is one nobody reads.
       - name: Verify the verdict a customer's Mac reaches
         if: env.HAS_MAC_CERT == 'true'
         run: |
+          set -eo pipefail
+          fail=0
           for d in dist/*.dmg; do
             echo "== $d"
-            spctl --assess -vv --type install "$d" || echo "::warning::spctl refused $d"
-            xcrun stapler validate "$d" || echo "::warning::not stapled: $d"
+            spctl --assess -vv --type install "$d" || { echo "::error::spctl refused $d"; fail=1; }
+            xcrun stapler validate "$d"            || { echo "::error::not stapled: $d"; fail=1; }
           done
+          if [ "$fail" = 1 ]; then
+            echo "::error::At least one DMG would be blocked on a customer's Mac."
+            exit 1
+          fi
+          echo "Both disk images are signed, notarized and stapled."
 
       - name: Report what was produced
         run: |
@@ -188,23 +225,42 @@ jobs:
             ./gradlew assembleDebug --no-daemon
           fi
 
+      # Verifies the ARTIFACT, not the flag. The previous version piped
+      # apksigner through `grep ... || true` and only tailed jarsigner, so a
+      # bundle jarsigner called unsigned still left the job green. It did:
+      # the build had been signed with the Apple certificate.
       - name: Collect and verify artifacts
         run: |
-          set -e
+          set -eo pipefail
           OUT="$GITHUB_WORKSPACE"
-          if [ "${ANDROID_SIGNED}" = "true" ]; then
-            cp android/app/build/outputs/bundle/release/app-release.aab "$OUT/PulseRoom-${APP_VERSION}-Android.aab"
-            cp android/app/build/outputs/apk/release/app-release.apk    "$OUT/PulseRoom-${APP_VERSION}-Android.apk"
-            APKSIGNER="$(ls -d $ANDROID_HOME/build-tools/*/apksigner | tail -1)"
-            echo "--- APK signature ---"
-            "$APKSIGNER" verify --print-certs "$OUT/PulseRoom-${APP_VERSION}-Android.apk" | grep -Ei "Signer #1 certificate (DN|SHA-256)" || true
-            echo "--- AAB signature ---"
-            jarsigner -verify "$OUT/PulseRoom-${APP_VERSION}-Android.aab" | tail -2
-          else
+          if [ "${ANDROID_SIGNED}" != "true" ]; then
             cp android/app/build/outputs/apk/debug/app-debug.apk "$OUT/PulseRoom-${APP_VERSION}-Android-debug.apk"
             echo "::warning::Debug APK only — Google Play requires a signed .aab (see ANDROID_SIGNING.md)."
+            ls -la "$OUT"/PulseRoom-*Android* || true
+            exit 0
           fi
-          ls -la "$OUT"/PulseRoom-*Android* 2>/dev/null
+
+          cp android/app/build/outputs/bundle/release/app-release.aab "$OUT/PulseRoom-${APP_VERSION}-Android.aab"
+          cp android/app/build/outputs/apk/release/app-release.apk    "$OUT/PulseRoom-${APP_VERSION}-Android.apk"
+          APKSIGNER="$(ls -d $ANDROID_HOME/build-tools/*/apksigner | tail -1)"
+
+          echo "--- APK signature ---"
+          # No `|| true`: an APK whose signature does not verify is a failure.
+          "$APKSIGNER" verify --verbose --print-certs "$OUT/PulseRoom-${APP_VERSION}-Android.apk"
+
+          echo "--- AAB signature ---"
+          # jarsigner exits 0 while printing "treated as unsigned", so the
+          # text is what decides, not the exit code.
+          jarsigner -verify -strict "$OUT/PulseRoom-${APP_VERSION}-Android.aab" > aab-verify.txt 2>&1 || true
+          tail -5 aab-verify.txt
+          if grep -qi "treated as unsigned\|not parsable or not verifiable" aab-verify.txt; then
+            echo "::error::The .aab is not verifiably signed. Google Play will reject it. See the signing report above for which secret supplied the key."
+            exit 1
+          fi
+          grep -qi "jar verified" aab-verify.txt || {
+            echo "::error::jarsigner did not report the .aab as verified."; exit 1; }
+
+          ls -la "$OUT"/PulseRoom-*Android*
 
       - uses: actions/upload-artifact@v4
         with:
@@ -257,6 +313,10 @@ jobs:
           # Must match the version record in App Store Connect, otherwise the
           # uploaded build cannot be selected for that version.
           IOS_MARKETING_VERSION: '1.0'
+          # Default false, including on a tag push: a tag means build it, not
+          # ship it. Building a signed .ipa and sending it to Apple are
+          # separate decisions.
+          UPLOAD_TO_TESTFLIGHT: ${{ github.event.inputs.upload_to_testflight || 'false' }}
         continue-on-error: true
         run: |
           set -o pipefail
@@ -307,10 +367,10 @@ jobs:
       - name: Require a signed iOS build
         run: |
           if [ "${{ steps.iosbuild.outputs.ios_signed }}" != "true" ]; then
-            echo "::error::iOS build was NOT signed, so nothing reached TestFlight. See the 'iOS signing' summary above for the reason."
+            echo "::error::iOS build was NOT signed. See the 'iOS signing' summary above for the reason."
             exit 1
           fi
-          echo "Signed and uploaded."
+          echo "Signed."
 
   ios-screenshots:
     runs-on: macos-latest

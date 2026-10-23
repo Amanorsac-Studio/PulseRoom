@@ -3,15 +3,27 @@
  * PulseRoom — prepare the generated Android project for a Play release build.
  *
  *  - stamps versionName (package.json) and versionCode (GitHub run number)
- *  - finds the upload keystore among the repository/organization secrets and
- *    wires a release signingConfig into app/build.gradle
+ *  - decodes the upload keystore and wires a release signingConfig into
+ *    app/build.gradle
  *
- * The keystore is located by CONTENT, not by secret name: every secret is
- * checked for keystore magic bytes, then each candidate password is verified
- * with keytool and the key alias is read back from the keystore itself. That
- * way the secrets can be called anything.
+ * The keystore comes from NAMED secrets only. An earlier version of this
+ * script searched every secret for "keystore magic bytes" so that the secrets
+ * could be called anything. That was wrong in a way that shipped: a PKCS#12
+ * file begins 0x30 0x82, which is just a DER SEQUENCE, and so does every
+ * certificate and private key in the repository. The scan matched
+ * MAC_CERT_P12 - the Apple Distribution certificate - signed the Android
+ * build with it, and reported success. jarsigner then called the bundle
+ * unsigned, which Play would have rejected. Worse, had Play accepted it, the
+ * first upload would have locked the listing to the wrong key permanently.
  *
- * Values are never printed — only names and outcomes.
+ * It also tried every other secret as the keystore password, which is a
+ * trial decryption of unrelated secrets and has no business in a build.
+ *
+ * So: named secrets, no content search, no password guessing. If the keystore
+ * does not decode, say exactly what arrived instead and stop. Substituting a
+ * different credential is never the helpful choice.
+ *
+ * Values are never printed - only names, sizes and outcomes.
  * ========================================================================== */
 'use strict';
 
@@ -27,52 +39,22 @@ const TMP = process.env.RUNNER_TEMP || os.tmpdir();
 const version = require(path.join(ROOT, 'package.json')).version;
 const versionCode = parseInt(process.env.GITHUB_RUN_NUMBER || '1', 10);
 
-/* ------------------------------------------------------- gather candidates -- */
+/* ------------------------------------------------------------- the inputs -- */
+// The workflow resolves each of these from several accepted secret names, so
+// one env var here may stand for any of them.
+const B64 = (process.env.ANDROID_KEYSTORE_B64 || '').trim();
+const STOREPASS = process.env.ANDROID_KEYSTORE_PASSWORD || '';
+const ALIAS_IN = (process.env.ANDROID_KEY_ALIAS || '').trim();
+const KEYPASS_IN = process.env.ANDROID_KEY_PASSWORD || '';
 
-const secrets = new Map();
-if (process.env.ALL_SECRETS) {
-  try {
-    for (const [k, v] of Object.entries(JSON.parse(process.env.ALL_SECRETS))) {
-      if (typeof v === 'string' && v.length) secrets.set(k, v);
-    }
-  } catch { console.log('::warning::could not parse the secrets bundle'); }
-}
-// explicit env wins if provided
-for (const k of ['ANDROID_KEYSTORE_B64', 'ANDROID_KEYSTORE_PASSWORD', 'ANDROID_KEY_ALIAS', 'ANDROID_KEY_PASSWORD']) {
-  if (process.env[k]) secrets.set(k, process.env[k]);
-}
+// Names only, so a missing secret is diagnosable without revealing values.
+let visible = [];
+try {
+  visible = Object.keys(JSON.parse(process.env.ALL_SECRETS || '{}')).sort();
+} catch { console.log('::warning::could not parse the secrets bundle'); }
+console.log(`Secrets visible to this job (${visible.length}): ${visible.join(', ') || 'none'}`);
 
-console.log(`Secrets available to this job: ${secrets.size}`);
-if (secrets.size) console.log(`  names: ${[...secrets.keys()].sort().join(', ')}`);
-
-/* ------------------------------------------------- find the keystore by bytes -- */
-
-const isKeystore = buf =>
-  buf.length > 300 && (
-    buf.readUInt32BE(0) === 0xfeedfeed ||            // JKS
-    (buf[0] === 0x30 && buf[1] === 0x82) ||          // PKCS#12 (DER SEQUENCE)
-    buf.readUInt32BE(0) === 0xcececece               // BKS
-  );
-
-function decodeMaybe(value) {
-  const cleaned = value.trim()
-    .replace(/^["']|["']$/g, '')   // stray quotes around the value
-    .replace(/^data:[^,]*,/, '')   // data: prefix
-    .replace(/\s/g, '');
-  if (!/^[A-Za-z0-9+/=]+$/.test(cleaned) || cleaned.length < 400) return null;
-  try {
-    const buf = Buffer.from(cleaned, 'base64');
-    return isKeystore(buf) ? buf : null;
-  } catch { return null; }
-}
-
-let keystoreName = null, keystoreBuf = null;
-for (const [name, value] of secrets) {
-  const buf = decodeMaybe(value);
-  if (buf) { keystoreName = name; keystoreBuf = buf; break; }
-}
-
-/* ------------------------------------------------------------ configure it -- */
+/* ------------------------------------------------------- version stamping -- */
 
 let gradle = fs.readFileSync(GRADLE, 'utf8');
 const beforeVersions = gradle;
@@ -84,81 +66,134 @@ console.log(`Version: ${version} (versionCode ${versionCode})`);
 
 function finish(signed, reason = '') {
   fs.writeFileSync(GRADLE, gradle);
-  const names = [...secrets.keys()].sort();
   if (process.env.GITHUB_ENV) {
     fs.appendFileSync(process.env.GITHUB_ENV,
       `ANDROID_SIGNED=${signed ? 'true' : 'false'}\nANDROID_SIGN_REASON=${reason.replace(/[\r\n]+/g, ' ')}\n`);
   }
   if (process.env.GITHUB_STEP_SUMMARY) {
     fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, [
-      `## Android signing: ${signed ? 'ready' : 'NOT ready'}`,
-      '',
-      `${signed ? 'A Play-ready .aab was built.' : '**' + reason + '**'}`,
-      '',
-      `Secrets visible to this job (${names.length}): ${names.length ? '`' + names.join('`, `') + '`' : '_none_'}`,
-      ''
+      `## Android signing: ${signed ? 'ready' : 'NOT ready'}`, '',
+      signed ? 'A Play-ready .aab was built.' : `**${reason}**`, '',
+      `Secrets visible to this job (${visible.length}): ` +
+        (visible.length ? '`' + visible.join('`, `') + '`' : '_none_'), ''
     ].join('\n'));
   }
   if (!signed) console.log('::error::' + reason);
 }
 
-if (!keystoreBuf) {
-  finish(false, 'No secret contains an Android keystore. Checked ' + secrets.size + ' secret(s) for JKS/PKCS12/BKS content.');
+/* --------------------------------------------------------- decode the b64 -- */
+// Diagnose rather than fall back. Each failure below names what actually
+// arrived, because a vague "no keystore found" is what sent the last build
+// looking for one elsewhere, and it found the wrong thing.
+
+if (!B64) {
+  finish(false, 'No Android keystore secret is set. Expected ANDROID_KEYSTORE_BASE64 ' +
+    '(or ANDROID_SIGNING_KEY_BASE64, KEYSTORE_BASE64, UPLOAD_KEYSTORE_BASE64, ' +
+    'ANDROID_KEYSTORE_B64, SIGNING_KEY) to hold the base64 of an upload keystore.');
   process.exit(0);
 }
-console.log(`Keystore: found in secret "${keystoreName}" (${keystoreBuf.length} bytes)`);
+
+const cleaned = B64.replace(/^["']|["']$/g, '').replace(/^data:[^,]*,/, '').replace(/\s/g, '');
+if (!/^[A-Za-z0-9+/=]+$/.test(cleaned)) {
+  finish(false, `The Android keystore secret is ${B64.length} characters but is not base64. ` +
+    'Produce it with: base64 -w0 upload.jks   (macOS: base64 -i upload.jks)');
+  process.exit(0);
+}
+
+let buf;
+try {
+  buf = Buffer.from(cleaned, 'base64');
+} catch {
+  finish(false, 'The Android keystore secret is not decodable base64.');
+  process.exit(0);
+}
+
+if (buf.length < 300) {
+  finish(false, `The Android keystore secret decodes to only ${buf.length} bytes, which is too ` +
+    'small to be a keystore. It is probably truncated, or base64 of a file path rather than of the file.');
+  process.exit(0);
+}
+
+// What actually arrived, reported either way, so a wrong file is obvious.
+const magic = buf.readUInt32BE(0);
+const kind =
+  magic === 0xfeedfeed ? 'JKS' :
+  magic === 0xcececece ? 'BKS' :
+  (buf[0] === 0x30 && buf[1] === 0x82) ? 'DER, PKCS#12-shaped' : null;
+
+if (!kind) {
+  const head = buf.subarray(0, 16).toString('hex').replace(/(..)/g, '$1 ').trim();
+  const asText = buf.subarray(0, 40).toString('utf8').replace(/[^\x20-\x7e]/g, '.');
+  finish(false, `The Android keystore secret decoded to ${buf.length} bytes that are not a keystore. ` +
+    `First bytes: ${head}  (as text: "${asText}"). ` +
+    'If that looks like base64 or PEM text, the value was encoded twice.');
+  process.exit(0);
+}
+console.log(`Keystore: ${buf.length} bytes, ${kind}`);
 
 const keystorePath = path.join(TMP, 'pulseroom-upload.jks');
-fs.writeFileSync(keystorePath, keystoreBuf);
+fs.writeFileSync(keystorePath, buf);
 
-// candidate passwords: every short secret value, most-likely names first
-const looksLikePassword = v => v.length > 0 && v.length < 200 && !/\s{2,}/.test(v);
-const ranked = [...secrets.entries()]
-  .filter(([n, v]) => n !== keystoreName && looksLikePassword(v))
-  .sort(([a], [b]) => {
-    const score = n => (/STORE.*PASS|KEYSTORE.*PASS|PASSWORD/i.test(n) ? 0 : /PASS/i.test(n) ? 1 : 2);
-    return score(a) - score(b);
-  });
+/* ----------------------------------------- open it with the configured password -- */
 
-function keytoolList(storepass) {
-  const r = spawnSync('keytool', ['-list', '-v', '-keystore', keystorePath, '-storepass', storepass], { encoding: 'utf8' });
-  return r.status === 0 ? r.stdout : null;
-}
-
-const keytoolOk = spawnSync('keytool', ['-help'], { encoding: 'utf8' }).error === undefined;
-if (!keytoolOk) console.log('::warning::keytool is unavailable — cannot verify the keystore password here.');
-let storePassword = null, listing = null;
-for (const [name, value] of ranked) {
-  listing = keytoolList(value);
-  if (listing) { storePassword = value; console.log(`Keystore password: matched secret "${name}"`); break; }
-}
-
-if (!storePassword) {
-  finish(false, keytoolOk
-    ? `Keystore found in secret "${keystoreName}", but none of the ${ranked.length} other secret(s) unlocked it — the keystore password is missing or wrong.`
-    : 'Keystore found but keytool is unavailable, so the password could not be verified.');
+if (spawnSync('keytool', ['-help'], { encoding: 'utf8' }).error) {
+  finish(false, 'keytool is unavailable, so the keystore cannot be verified. Refusing to sign unverified.');
   process.exit(0);
 }
 
-// alias: prefer an explicit one that actually exists, else the first key entry
-const aliases = [...listing.matchAll(/Alias name:\s*(.+)/g)].map(m => m[1].trim());
-const explicitAlias = [...secrets.entries()].find(([n]) => /ALIAS/i.test(n));
-let keyAlias = aliases[0];
-if (explicitAlias && aliases.includes(explicitAlias[1].trim())) keyAlias = explicitAlias[1].trim();
-if (!keyAlias) {
-  finish(false, 'The keystore opened but contains no key entries.');
+if (!STOREPASS) {
+  finish(false, 'The keystore decoded but no keystore password secret is set. Expected ' +
+    'ANDROID_KEYSTORE_PASSWORD (or ANDROID_STORE_PASSWORD, KEYSTORE_PASSWORD, ' +
+    'ANDROID_SIGNING_STORE_PASSWORD, STORE_PASSWORD).');
   process.exit(0);
 }
-console.log(`Key alias: ${keyAlias}${aliases.length > 1 ? ` (of ${aliases.length} entries)` : ''}`);
 
-// key password: an explicit one if it works, otherwise the store password
-let keyPassword = storePassword;
-const explicitKeyPass = [...secrets.entries()].find(([n]) => /KEY.*PASS/i.test(n));
-if (explicitKeyPass) {
-  const probe = spawnSync('keytool', ['-keypasswd', '-keystore', keystorePath, '-storepass', storePassword,
-    '-alias', keyAlias, '-keypass', explicitKeyPass[1], '-new', explicitKeyPass[1]], { encoding: 'utf8' });
-  if (probe.status === 0) { keyPassword = explicitKeyPass[1]; console.log(`Key password: matched secret "${explicitKeyPass[0]}"`); }
+const list = spawnSync('keytool',
+  ['-list', '-v', '-keystore', keystorePath, '-storepass', STOREPASS], { encoding: 'utf8' });
+
+if (list.status !== 0) {
+  finish(false, `The keystore (${kind}, ${buf.length} bytes) did not open with the configured ` +
+    'keystore password. Either that password secret is wrong, or the keystore secret holds a ' +
+    'different file than the upload keystore.');
+  process.exit(0);
 }
+
+// A certificate-only PKCS#12 lists entries but holds no signing key. That is
+// exactly what the Apple certificate was, so this is checked, not assumed.
+const entries = [...list.stdout.matchAll(/Alias name:\s*(.+)\r?\n(?:[\s\S]*?Entry type:\s*(\S+))?/g)]
+  .map(m => ({ alias: m[1].trim(), type: (m[2] || '').trim() }));
+const keyEntries = entries.filter(e => /PrivateKeyEntry/i.test(e.type));
+
+if (!keyEntries.length) {
+  finish(false, `The keystore opened but holds no PrivateKeyEntry - ${entries.length} entry(ies): ` +
+    entries.map(e => `${e.alias} (${e.type || 'unknown type'})`).join(', ') +
+    '. A certificate on its own cannot sign an app; this needs the upload keystore and its private key.');
+  process.exit(0);
+}
+
+const keyAlias = (ALIAS_IN && keyEntries.some(e => e.alias === ALIAS_IN))
+  ? ALIAS_IN
+  : keyEntries[0].alias;
+if (ALIAS_IN && keyAlias !== ALIAS_IN) {
+  console.log(`::warning::configured key alias "${ALIAS_IN}" is not in the keystore; using "${keyAlias}"`);
+}
+console.log(`Key alias: ${keyAlias}${keyEntries.length > 1 ? ` (of ${keyEntries.length} keys)` : ''}`);
+
+// Only the configured key password is tried, and only against this keystore.
+let keyPassword = STOREPASS;
+if (KEYPASS_IN && KEYPASS_IN !== STOREPASS) {
+  const probe = spawnSync('keytool', ['-keypasswd', '-keystore', keystorePath,
+    '-storepass', STOREPASS, '-alias', keyAlias,
+    '-keypass', KEYPASS_IN, '-new', KEYPASS_IN], { encoding: 'utf8' });
+  if (probe.status === 0) {
+    keyPassword = KEYPASS_IN;
+    console.log('Key password: using the configured key password.');
+  } else {
+    console.log('::warning::the configured key password did not open the key; using the keystore password.');
+  }
+}
+
+/* ------------------------------------------------------ wire it into gradle -- */
 
 const signingBlock = `    signingConfigs {
         release {
@@ -180,11 +215,11 @@ gradle = gradle.replace(anchor, (m, i1, i2) =>
 if (process.env.GITHUB_ENV) {
   fs.appendFileSync(process.env.GITHUB_ENV, [
     `ANDROID_KEYSTORE_PATH=${keystorePath}`,
-    `ANDROID_KEYSTORE_PASSWORD=${storePassword}`,
+    `ANDROID_KEYSTORE_PASSWORD=${STOREPASS}`,
     `ANDROID_KEY_ALIAS=${keyAlias}`,
     `ANDROID_KEY_PASSWORD=${keyPassword}`,
     ''
   ].join('\n'));
 }
-console.log('Release signing configured — building a Play-ready .aab and a signed .apk.');
+console.log('Release signing configured - building a Play-ready .aab and a signed .apk.');
 finish(true);

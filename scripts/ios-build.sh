@@ -200,7 +200,16 @@ codesign -dv --verbose=2 "$TMP/verify/Payload/App.app" 2>&1 | sed -n '1,10p'
 { echo "ios_signed=true"; echo "ios_method=$METHOD_OLD"; } >> "${GITHUB_OUTPUT:-/dev/null}"
 
 # --------------------------------------------------------- TestFlight upload --
-if [ "$METHOD_OLD" = "app-store" ] && have "${ASC_KEY_PATH:-}"; then
+# Off unless asked for. This used to run whenever the signing key was present,
+# which meant every green build put a binary on Apple's servers - including
+# while the instruction was to test on the PC before anything went to a store.
+# Building a signed .ipa and shipping it are separate decisions, so they are
+# separate switches: set UPLOAD_TO_TESTFLIGHT=true to send it.
+if [ "${UPLOAD_TO_TESTFLIGHT:-false}" != "true" ]; then
+  echo "--- not uploading: UPLOAD_TO_TESTFLIGHT is not set ---"
+  echo "A signed .ipa is attached to the run. To send it to TestFlight, run the"
+  echo "workflow with the 'upload_to_testflight' input set to true."
+elif [ "$METHOD_OLD" = "app-store" ] && have "${ASC_KEY_PATH:-}"; then
   echo "--- uploading to App Store Connect ---"
   KEYDIR="$HOME/.appstoreconnect/private_keys"
   mkdir -p "$KEYDIR" && cp "$ASC_KEY_PATH" "$KEYDIR/AuthKey_${ASC_KEY_ID}.p8"
