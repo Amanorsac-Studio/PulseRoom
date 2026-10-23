@@ -115,13 +115,14 @@ the checks exist to answer, against the app's own code rather than the runtime
 it is bundled with. If the studio wants the literal byte search instead, the
 key would have to ship as a binary resource.
 
-## Open: the mobile builds are not licensed
+## Decided: the mobile builds carry no key
 
 The iOS and Android builds ship with **no licensing at all**. `build-www.js`
 does not copy `preload.js` or `license/`, and `license.js` stands down when the
 bridge is absent rather than locking out a store build it cannot activate.
 
-This is deliberate and needs a studio decision, not a patch:
+**Studio decision, 23 October 2026: confirmed. Mobile ships with no key.**
+The reasoning it rests on:
 
 - The standard is written for desktop apps and plugins — DPAPI and Keychain,
   installers, a key bought on amanorsac.studio.
@@ -130,9 +131,17 @@ This is deliberate and needs a studio decision, not a patch:
   permits, so the mobile products are a different commercial shape, not the
   same one with a different build target.
 
-Until that is settled, the honest options are to ship mobile as paid-on-store
-with no key, or not to ship mobile. **What must not happen** is the half-built
-licence path the standard's own introduction warns about.
+So iOS and Android are paid-on-store products: the store takes the payment and
+the install *is* the entitlement. Desktop is the licensed product, bought on
+amanorsac.studio.
+
+Two things follow, and both are already true rather than planned. The mobile
+bundle contains no signing key and no server URL - verified by scanning `www/`
+after a build, not assumed. And `license.js` stands down when the bridge is
+absent, so a phone shows the app rather than an activation screen it could
+never satisfy. This is the "ships with no licensing" case the standard allows
+in its introduction, not the half-built licence path it warns about, and §10
+item 5 wants that stated in writing at delivery for the mobile builds.
 
 ## Still needed from the studio
 
@@ -143,6 +152,5 @@ licence path the standard's own introduction warns about.
    examples here and is **not** assumed anywhere in the code.
 2. **A test key**, to run A3–A9 and complete the R12 report.
 3. **The R7 decision** above.
-4. **The mobile decision** above.
 5. For §10 delivery: the display name, version string, platforms and price,
    plus installer filenames and byte sizes — the store looks a file up by name.
