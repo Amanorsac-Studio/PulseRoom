@@ -24,6 +24,7 @@ Verify before any production push or store submission.
 | SEC-4 database lockdown | n/a | No database, no storage buckets, no accounts. |
 | SEC-5 consent before tracking | pass | No analytics, no pixels, no cookies, no session replay, no telemetry. Verified by grep: zero occurrences of `fetch(`, `XMLHttpRequest`, `sendBeacon`, or any analytics SDK in shipped code. |
 | SEC-6 legal paperwork | **FAIL** | No Terms, Privacy Policy or Cookie Notice published. Blocks submission. See below. |
+| SEC-9 signed installers | partial | macOS and iOS signed; Android and Windows not. See Platform notes. |
 | SEC-7 secrets server-side | pass | Secret scan clean. The two matches are documentation and CI code naming secret variables, not secret values. No keys in the bundle. |
 | Dependency audit | pass | `npm audit --omit=dev`: 0 vulnerabilities. |
 
@@ -103,7 +104,18 @@ serves from a local origin rather than `file://`. That is a real difference in
 posture between the desktop and mobile builds and should be revisited if the
 app ever loads remote content.
 
-**Installers are unsigned.** Windows will show a SmartScreen warning on first
-run. Code signing is a cost decision, not a technical blocker, and it is worth
-making before a paid release: an unsigned installer for a paid product reads as
-untrustworthy regardless of the code inside it.
+**Signing, per platform.** Not one answer, so SEC-9 is partly met.
+
+| Platform | State |
+|---|---|
+| macOS | Signed with the Developer ID certificate and notarized. The .app was already notarized; the DMG a customer downloads was not, so `spctl` rejected both disk images while the job stayed green on a warning. The DMGs are now notarized and stapled too, and that check fails the build. |
+| iOS | Signed with the Apple Distribution certificate; the chain to Apple Root CA is verified in the build log. |
+| Android | **Not signed.** The keystore was located by scanning secrets for keystore-shaped bytes, which matched the Apple certificate, and the build was signed with that. jarsigner called the result unsigned. Now reads named secrets only and fails if the artifact does not verify — which means the real `ANDROID_KEYSTORE_BASE64` secret has to be fixed before a Play upload. |
+| Windows | **Not signed.** `WIN_CERT_P12` does not exist, so SmartScreen warns on first run. A cost decision rather than a technical blocker, and worth making before a paid release: an unsigned installer for a paid product reads as untrustworthy regardless of the code inside it. |
+
+**Signing material must not be interchangeable.** The Android failure above was
+not a signing problem, it was an identification problem: a build that accepts
+whichever credential happens to parse will eventually sign with the wrong one,
+and report success. Each platform's key is now named explicitly, no build step
+tries a secret it was not given, and no step trial-decrypts one secret with
+another.

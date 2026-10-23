@@ -198,6 +198,8 @@ Three things to keep out of any copy until they ship:
   studio tool. It returns when the rendered audio in Nene's own voice is built.
 - **The 1,000th answer is not a round-number claim.** It is 1,000 exactly,
   validated, with no duplicates. Say the number plainly.
-- **Installers are not yet signed.** Until the signing secrets are set, Windows
-  shows a SmartScreen warning and macOS Gatekeeper blocks the app. Nothing
-  should be marketed as "download and run" before that is true.
+- **Only some installers are signed.** macOS is signed and notarized, and the
+  disk images are stapled, so a Mac download runs clean. iOS is signed. Windows
+  is not: SmartScreen warns on first run until a certificate exists. Android is
+  not, and cannot go to Play until its upload keystore is fixed. "Download and
+  run" is honest for macOS today and for nothing else.
