@@ -8,6 +8,11 @@ name: Build installers
 on:
   workflow_dispatch:
     inputs:
+      platforms:
+        description: 'Which platforms to build'
+        type: choice
+        default: all
+        options: [all, macos, windows, android, ios]
       upload_to_testflight:
         description: 'Send the signed .ipa to App Store Connect (TestFlight)'
         type: boolean
@@ -23,6 +28,7 @@ concurrency:
 jobs:
   windows:
     runs-on: windows-latest
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.platforms == 'all' || inputs.platforms == 'windows' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -72,7 +78,10 @@ jobs:
     runs-on: macos-latest
     # macOS runners bill ~10x. Signing Standard section 6: gate to tags and
     # manual dispatch so a routine push cannot burn the allowance.
-    if: github.event_name == 'workflow_dispatch' || github.ref_type == 'tag'
+    if: >-
+      (github.event_name == 'workflow_dispatch' || github.ref_type == 'tag')
+      && (github.event_name != 'workflow_dispatch'
+          || inputs.platforms == 'all' || inputs.platforms == 'macos')
     env:
       # `secrets` cannot be read from a step-level `if`, so the presence check
       # goes through env instead.
@@ -154,8 +163,15 @@ jobs:
           fail=0
           for d in dist/*.dmg; do
             echo "== $d"
-            spctl --assess -vv --type install "$d" || { echo "::error::spctl refused $d"; fail=1; }
-            xcrun stapler validate "$d"            || { echo "::error::not stapled: $d"; fail=1; }
+            # --type open, not --type install. `install` is for .pkg installer
+            # packages and reports "rejected" for a disk image however good it
+            # is - which is exactly what it did to two DMGs that notarytool had
+            # already Accepted and stapler had already stapled. The primary
+            # signature context is what Gatekeeper uses on a downloaded image.
+            spctl --assess -vv --type open --context context:primary-signature "$d"               || { echo "::error::Gatekeeper refused $d"; fail=1; }
+            # The ticket is the thing that makes it work offline and on first
+            # launch, so this stays as the harder of the two checks.
+            xcrun stapler validate "$d" || { echo "::error::not stapled: $d"; fail=1; }
           done
           if [ "$fail" = 1 ]; then
             echo "::error::At least one DMG would be blocked on a customer's Mac."
@@ -179,6 +195,7 @@ jobs:
 
   android:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.platforms == 'all' || inputs.platforms == 'android' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -274,6 +291,7 @@ jobs:
 
   ios:
     runs-on: macos-latest
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.platforms == 'all' || inputs.platforms == 'ios' }}
     permissions:
       contents: write
     steps:
@@ -371,6 +389,7 @@ jobs:
 
   ios-screenshots:
     runs-on: macos-latest
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.platforms == 'all' || inputs.platforms == 'ios' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
