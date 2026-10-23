@@ -135,20 +135,32 @@ jobs:
             export APPLE_API_KEY="$PWD/asc.p8"
             npx electron-builder --mac --publish never
 
-            # electron-builder notarizes the .app and then wraps it in a DMG,
-            # so the DMG carries no ticket of its own. The customer downloads
-            # the DMG, so that is what Gatekeeper judges first: the previous
-            # build produced two that spctl rejected and stapler called
-            # unticketed, and the job stayed green because both checks ended
-            # in `|| echo ::warning`.
+            # electron-builder signs and notarizes the .app, then wraps it in
+            # a disk image that is neither. The customer downloads the disk
+            # image, so that is what Gatekeeper judges first, and an unsigned
+            # one is assessed as "no usable signature" however good the app
+            # inside it is - which is what two stapled, Accepted DMGs did.
+            #
+            # Order matters and is the whole fix: sign the image, THEN
+            # notarize it, THEN staple. Notarizing first would mean the ticket
+            # covered a file that signing then changed.
             #
             # Done here, in the step that already holds the key, rather than
             # in a step of its own. A second step meant writing the secret to
             # disk a second time, which is both a wider exposure and the shape
             # of an exfiltration, and GitHub's scanner flagged the whole
             # workflow for review on exactly that. One write, one delete.
+            IDENTITY="$(security find-identity -v -p codesigning               | awk -F'"' '/Developer ID Application/{print $2; exit}')"
+            if [ -z "$IDENTITY" ]; then
+              echo "::error::No Developer ID Application identity in the keychain; the disk images cannot be signed."
+              exit 1
+            fi
+            echo "signing disk images as: $IDENTITY"
+
             for d in dist/*.dmg; do
-              echo "== notarizing $(basename "$d")"
+              echo "== $(basename "$d")"
+              codesign --force --timestamp --sign "$IDENTITY" "$d"
+              codesign --verify --strict --verbose=2 "$d"
               xcrun notarytool submit "$d" --wait --timeout 30m                 --key "$PWD/asc.p8"                 --key-id "$APPLE_API_KEY_ID" --issuer "$APPLE_API_ISSUER"
               xcrun stapler staple "$d"
             done
