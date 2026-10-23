@@ -16,6 +16,28 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Cheap, non-blocking, runs on Linux. v2/validate.js catches an id used
+  # twice and a question repeated verbatim; it cannot catch two questions
+  # that mean the same thing in different words. The bank shipped three of
+  # those before this existed.
+  review-answers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+      - name: Near-duplicate questions
+        continue-on-error: true
+        env:
+          # Any OpenAI-compatible free tier. With no key the local
+          # similarity pass still runs and reports.
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: node scripts/review-answers.js --threshold 0.72 >> $GITHUB_STEP_SUMMARY
+
   windows:
     runs-on: windows-latest
     steps:

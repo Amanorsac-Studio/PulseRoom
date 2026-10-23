@@ -57,7 +57,7 @@
    "related": [
     "kick-punchier",
     "808-mix",
-    "low-end-mono"
+    "c-low-end-mono"
    ]
   },
   {
@@ -273,7 +273,7 @@
    "related": [
     "leadvocal-bigger",
     "c-reverb-types",
-    "predelay-concept"
+    "c-predelay"
    ]
   },
   {
@@ -328,7 +328,7 @@
    },
    "related": [
     "kick-vs-808",
-    "low-end-mono",
+    "c-low-end-mono",
     "mix-translation"
    ]
   },
@@ -447,46 +447,6 @@
    ]
   },
   {
-   "id": "predelay-concept",
-   "q": "What is pre-delay and what should I set it to?",
-   "aliases": [
-    "pre delay explained",
-    "what does predelay do",
-    "reverb predelay setting"
-   ],
-   "source": "concept",
-   "intent": "learn",
-   "genres": [
-    "all"
-   ],
-   "short": "Pre-delay is the gap before the reverb starts, and it is what keeps words clear inside a big space.",
-   "steps": [
-    "Start at 20-40 ms for vocals — enough to separate the word from its tail.",
-    "Sync it to the song: a 1/64 note at your tempo is a reliable starting point.",
-    "More pre-delay makes the source sound closer and the space bigger.",
-    "Less pre-delay glues the source into the space, which suits pads and strings.",
-    "Zero pre-delay on a vocal is what makes it sound like it is singing from inside a cave."
-   ],
-   "params": {
-    "reverb": {
-     "preDelay": "20-40 ms, or a 1/64 note"
-    }
-   },
-   "visual": {
-    "type": "reverb-tail",
-    "showPreDelay": true,
-    "tempoSynced": true
-   },
-   "why": "Your ear locates a sound by its first arrival and judges the room by what follows. Separating the two lets the brain hear a close singer in a large room, rather than a distant singer.",
-   "watch": "Pre-delay longer than about 80 ms starts to be heard as a distinct slapback rather than a room.",
-   "genreNotes": {},
-   "related": [
-    "reverb-muddy",
-    "c-reverb-types",
-    "leadvocal-bigger"
-   ]
-  },
-  {
    "id": "eq-masking-concept",
    "q": "What is masking and how do I hear it?",
    "aliases": [
@@ -518,48 +478,6 @@
     "mix-muddy",
     "leadvocal-upfront",
     "kick-vs-808"
-   ]
-  },
-  {
-   "id": "low-end-mono",
-   "q": "Should my low end be mono?",
-   "aliases": [
-    "mono bass",
-    "bass in stereo",
-    "low frequency mono",
-    "mono below 120"
-   ],
-   "source": "concept",
-   "intent": "learn",
-   "genres": [
-    "all"
-   ],
-   "short": "Yes, below roughly 120 Hz — stereo low end falls apart on club systems and phones.",
-   "steps": [
-    "Put a mono-maker or mid/side EQ on the mix bus and set it to collapse everything below 120-150 Hz.",
-    "Check the mix in mono and listen for the bass changing level — that means phase problems.",
-    "Keep kick and bass dead centre; width belongs to everything above them.",
-    "Test on a phone speaker, which is mono, before deciding you are finished."
-   ],
-   "params": {
-    "width": {
-     "monoBelow": "120-150 Hz"
-    }
-   },
-   "visual": {
-    "type": "stereo-field",
-    "monoCheck": true
-   },
-   "why": "Low frequencies have long wavelengths, so stereo differences down there are mostly phase differences. Played on a mono system they cancel, and the bass can simply disappear.",
-   "watch": "Collapsing too high, above about 200 Hz, starts to narrow instruments that should stay wide.",
-   "genreNotes": {
-    "amapiano": "Club playback is the target — be strict about this one.",
-    "afrobeats": "Most listening is on phones, which are mono; the low end has to survive the collapse."
-   },
-   "related": [
-    "808-mix",
-    "mix-translation",
-    "c-how-wide-too-wide"
    ]
   },
   {
@@ -707,7 +625,7 @@
    },
    "related": [
     "808-mix",
-    "low-end-mono",
+    "c-low-end-mono",
     "c-what-lufs"
    ]
   }

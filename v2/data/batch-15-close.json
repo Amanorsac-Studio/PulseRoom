@@ -1199,6 +1199,85 @@
     "ab-bass-and-logdrum-and-808",
     "c-what-saturation-does-to-low-end"
    ]
+  },
+  {
+   "id": "c-how-a-deesser-works",
+   "q": "What is a de-esser actually doing?",
+   "aliases": [
+    "how de-essers work",
+    "de-esser explained",
+    "what does a deesser do"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "short": "A compressor that only listens to one band. It ducks the whole signal, or just that band, when the band gets loud.",
+   "steps": [
+    "Set it to listen around 5-8 kHz for most voices, lower for deeper ones.",
+    "Choose split-band mode so only the sibilance ducks, not the whole vocal.",
+    "Aim for 3-6 dB of reduction on the worst esses, not constant movement.",
+    "Listen to what it removes, in isolation, rather than to the result.",
+    "If it lisps, the band is too wide or the reduction too deep."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 6500,
+      "gain": -4,
+      "q": 3,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3-6 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "Sibilance is brief and narrow, so a static EQ cut would dull every soft consonant to fix a handful of hard ones. A de-esser only acts while the chosen band exceeds its threshold, which is why it can be aggressive without being audible.",
+   "watch": "Monitor the de-esser's own output. If you can hear words in it, it is taking too much.",
+   "related": [
+    "leadvocal-fix-sibilant",
+    "c-dynamic-eq",
+    "gu-smooth-top-end"
+   ]
+  },
+  {
+   "id": "c-does-the-daw-matter",
+   "q": "Does it matter which DAW I mix in?",
+   "aliases": [
+    "daw sound difference",
+    "does pro tools sound better",
+    "daw summing"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "short": "Not for sound. They sum identically. It matters for how fast you work.",
+   "steps": [
+    "Expect no audible difference in summing between current DAWs; this is testable and has been tested.",
+    "Differences you hear usually come from pan law or default plugin settings, not the mixer.",
+    "Check the pan law setting if a project sounds different after importing it.",
+    "Choose on workflow, stock plugins and what your collaborators use.",
+    "Spend the money on monitoring or treatment rather than on a second DAW."
+   ],
+   "params": {},
+   "visual": {
+    "type": "levels"
+   },
+   "why": "Digital summing is addition, and every DAW adds the same numbers the same way in floating point. A null test between two DAWs with no plugins cancels to silence, which is the only evidence that settles the question.",
+   "watch": "Pan law differs between DAWs and will change a mix on import. That is a setting, not a sound.",
+   "related": [
+    "c-null-test",
+    "w-template-that-helps",
+    "c-what-to-fix-first"
+   ]
   }
  ]
 }

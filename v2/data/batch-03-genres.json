@@ -1,496 +1,2343 @@
 {
-"_note": "Batch 3 — Afrobeats, Highlife, Hip-hop/Trap and R&B playbooks. 44 answers. The Afrobeats log drum entries say plainly that published sources disagree about its frequency range and that measuring your own sample beats any printed band, because that is the honest state of the material.",
-"questions": [
-
-{"id":"ab-log-drum","q":"How do I mix an afrobeats log drum?","aliases":["log drum mix","logdrum","amapiano log drum","how to mix log drum"],
- "source":"808","intent":"bigger","genres":["afrobeats"],
- "short":"Tune it to the key first, then saturate. Measure your own sample rather than trusting a published band.",
- "steps":["Tune it to the root of the song. An out-of-tune log drum cannot be fixed with EQ.","Open an analyser on your own sample and find its fundamental — published guides disagree by an octave.","Saturate until the harmonics an octave above the fundamental are audible on a laptop.","High-pass at 25–30 Hz and keep everything below 120 Hz mono.","Shorten the decay so each note ends before the next; overlap is what makes it mush."],
- "params":{"eq":[{"f":28,"gain":-18,"q":0.7,"type":"hp"}]},
- "visual":{"type":"eq-curve"},
- "why":"The log drum is a pitched sub instrument, so its spectrum moves with the sample and the key. Published advice puts it anywhere from 200–400 Hz to 200–800 Hz with no measurement behind either number, which is why the analyser on your own sound is the only reliable starting point.",
- "watch":"Saturating past the point where it stops feeling like sub turns a log drum into a distorted bass guitar.",
- "genreNotes":{"afrobeats":"In amapiano-leaning tracks the log drum carries the groove and the kick serves it. In Nigerian afrobeats the kick usually leads."},
- "related":["ab-logdrum-vs-kick","808-bigger","c-harmonics-low-end"]},
-
-{"id":"ab-logdrum-vs-kick","q":"How do I balance the log drum and the kick?","aliases":["log drum and kick clash","kick vs log drum","logdrum fights kick","afrobeats low end"],
- "source":"kick","intent":"cleaner","genres":["afrobeats"],
- "short":"Give the log drum the sub and the kick the punch. They cannot both own 60 Hz.",
- "steps":["Let the log drum own 30–70 Hz and high-pass the kick at 50–60 Hz.","Give the kick 80–120 Hz for body and 3–5 kHz for the beater.","Sidechain the log drum to the kick, 2–3 dB, 10 ms attack, release before the next hit.","Check in mono on a phone — if only one of them survives, the split is wrong.","If the groove still feels crowded, shorten the log drum, do not lower the kick."],
- "params":{"eq":[{"f":55,"gain":-18,"q":0.7,"type":"hp"},{"f":100,"gain":2,"q":1,"type":"bell"},{"f":4000,"gain":2,"q":1.1,"type":"bell"}],"comp":{"gr":"2–3 dB","attack":"10 ms"}},
- "visual":{"type":"eq-mask","compare":true},
- "why":"Both are low-frequency transient sources, so they sum into a single undefined thud rather than masking each other politely. Separating them by role gives the ear two events it can tell apart, which is what makes the groove read.",
- "watch":"High-passing the kick above 60 Hz leaves it thin on systems that do reproduce sub, like a club rig.",
- "related":["ab-log-drum","kick-vs-808","hh-sidechain-808-to-kick"]},
-
-{"id":"ab-groove-swings","q":"How do I mix afrobeats drums so the groove swings?","aliases":["afrobeats groove stiff","drums dont swing","afrobeats bounce","groove feels robotic"],
- "source":"drumbus","intent":"natural","genres":["afrobeats","highlife","gospel-african"],
- "short":"Stop quantising and stop over-compressing. The swing is in the timing you are flattening.",
- "steps":["Leave the percussion off the grid. Nudging it 10–25 ms late is the groove, not an error.","Keep the drum bus compression light, 2–3 dB with a slow attack.","Vary the velocity of repeated hits by 15–25 so the pattern breathes.","Do not gate the hand percussion; its decay carries the feel.","Check the groove with everything else muted — if it does not swing alone, no mix will save it."],
- "params":{"comp":{"ratio":"2:1","attack":"30 ms","gr":"2–3 dB"}},
- "visual":{"type":"delay-grid"},
- "why":"Swing lives in small timing offsets between the parts. Quantising removes those offsets and heavy compression removes the velocity differences that remain, so both of the usual tidying-up moves destroy exactly what makes the groove feel human.",
- "watch":"A groove that is genuinely sloppy rather than swinging does need editing. The difference is whether the offsets are consistent.",
- "related":["ab-the-bounce","ga-guitar-percussion-lock","w-edit-drums-keep-feel"]},
-
-{"id":"ab-conversational-but-loud","q":"How do I keep an afrobeats vocal conversational and still loud?","aliases":["afrobeats vocal sits back","vocal too processed afrobeats","keep vocal natural but loud"],
- "source":"leadvocal","intent":"upfront","genres":["afrobeats","highlife"],
- "short":"Compress for consistency, not for density, and make room at 2–4 kHz instead of raising it.",
- "steps":["Compress to 3–5 dB only. Afrobeats vocals should not sound squashed like a rap vocal.","Cut 2 dB at 2–4 kHz on the keys, guitars and percussion to open a lane.","Keep the vocal fairly dry, with a short slap of 60–100 ms rather than a long reverb.","Leave the breaths and the conversational phrasing — that is the style.","Lift 1.5 dB at 180–250 Hz for chest so it feels close rather than loud."],
- "params":{"comp":{"ratio":"3:1","gr":"3–5 dB"},"eq":[{"f":220,"gain":1.5,"q":0.9,"type":"bell"}],"delay":{"type":"slap","time":"80 ms","mix":"8–12%"}},
- "visual":{"type":"eq-mask","compare":true},
- "why":"The genre's vocal character is relaxed and close, which heavy compression destroys by making every syllable the same size. Carving space in the arrangement gets the same audibility without touching the performance's dynamics.",
- "watch":"Too little compression and the quiet ad-libbed lines vanish under the log drum. Three decibels is the floor, not zero.",
- "related":["ab-light-autotune","leadvocal-upfront","ab-cluttered-mids"]},
-
-{"id":"ab-shakers-drive","q":"How do I mix afrobeats shakers so they drive the track?","aliases":["shaker mix afrobeats","shaker drives groove","shaker too quiet","afrobeats shaker"],
- "source":"percussion","intent":"upfront","genres":["afrobeats","highlife","gospel-african"],
- "short":"High-pass hard, compress hard, pan off centre. The shaker is a rhythm instrument, not texture.",
- "steps":["High-pass at 400–600 Hz. A shaker needs nothing below that.","Compress at 6:1 with 4–6 dB so every stroke lands at the same size.","Pan 25–45% off centre, opposite whatever else is in the top end.","Raise attack on a transient designer rather than boosting treble.","Automate it up 1 dB in the sections where it carries the groove alone."],
- "params":{"eq":[{"f":500,"gain":-18,"q":0.7,"type":"hp"}],"comp":{"ratio":"6:1","gr":"4–6 dB"}},
- "visual":{"type":"eq-curve"},
- "why":"A shaker's drive comes from the regularity of its stroke, not its level. Compression makes the pattern metronomic in loudness while the player's timing stays human, which is exactly the combination that pushes a track forward.",
- "watch":"Compressed shakers raise the noise floor between strokes. Gate lightly if the recording is noisy.",
- "related":["ab-hats-and-shakers","percussion-brighter","ga-shekere-masks-hats"]},
-
-{"id":"ab-percussion-layers","q":"How do I mix layered afrobeats percussion without clutter?","aliases":["too many percussion layers","afrobeats percussion messy","layered percussion mix"],
- "source":"percussion","intent":"cleaner","genres":["afrobeats","highlife","gospel-african"],
- "short":"One part per frequency band and one part per stereo position. Mute whatever will not fit.",
- "steps":["Assign bands: congas in the low mids, shaker up top, bell in the presence range.","Give every part a different pan position; no two share a place.","High-pass everything except the congas at 300–500 Hz.","Bus them and compress the bus, not each part.","Mute each in turn. Anything you do not miss stays muted."],
- "params":{"eq":[{"f":400,"gain":-18,"q":0.7,"type":"hp"}],"comp":{"ratio":"3:1","gr":"2–4 dB"}},
- "visual":{"type":"stereo-field"},
- "why":"Percussion clutter is spatial before it is spectral. Six parts stacked in the centre fight even when each one is quiet; the same six spread across the field are heard as a single interlocking groove.",
- "watch":"Filtering the congas as high as the shakers removes the thump that makes them drums.",
- "related":["percussion-cleaner","ab-congas-bongos","ga-percussion-vs-programmed"]},
-
-{"id":"ab-low-end-phone","q":"How do I get afrobeats low end right on phone speakers?","aliases":["low end disappears on phone","afrobeats on phone speaker","sub doesnt translate"],
- "source":"808","intent":"brighter","genres":["afrobeats","hiphop","gospel-trap"],
- "short":"Saturate the sub so its harmonics carry the pitch. A phone cannot reproduce the fundamental at all.",
- "steps":["Saturate the log drum or 808 until you can hear the note on a laptop speaker.","Check the second and third harmonics land in 100–300 Hz and are not being cut there.","Keep the kick's beater click at 3–5 kHz — that is what a phone uses for the beat.","Test on an actual phone, not a phone simulation plugin.","Do not raise the sub to compensate. It will only cost headroom."],
- "params":{"eq":[{"f":200,"gain":1.5,"q":1,"type":"bell"},{"f":4000,"gain":2,"q":1.1,"type":"bell"}]},
- "visual":{"type":"eq-curve"},
- "why":"A phone speaker rolls off steeply below about 400 Hz, so the fundamental of a 50 Hz note is simply absent. The ear reconstructs the missing pitch from its harmonics, which is why saturation makes sub audible where boosting it does nothing.",
- "watch":"Cutting 200–300 Hz to clean up mud can remove the exact harmonics that were carrying the sub on small speakers.",
- "related":["ab-log-drum","c-harmonics-low-end","c-check-different-speakers"]},
-
-{"id":"ab-guitar-riff-all-song","q":"How do I mix a guitar riff that repeats the whole song?","aliases":["repetitive guitar riff","same riff all song","guitar loop gets boring"],
- "source":"eguitar-clean","intent":"back","genres":["afrobeats","highlife"],
- "short":"Automate it rather than balancing it. A static level on a repeating part becomes wallpaper.",
- "steps":["Set it low enough that it supports rather than leads, then ride it up 1–2 dB in the gaps.","Filter it differently between sections: brighter in the chorus, darker in the verse.","Duck it 2 dB under the vocal with a slow sidechain.","Pan it 30–50% off centre so it stops competing with the lead.","Vary its delay or reverb across the song so the space changes even though the part does not."],
- "params":{"eq":[{"f":120,"gain":-18,"q":0.7,"type":"hp"},{"f":3000,"gain":-2,"q":1.2,"type":"bell"}]},
- "visual":{"type":"automation"},
- "why":"The ear stops hearing anything that does not change. A riff repeating for three minutes at one level is inaudible by the second chorus, which producers usually treat by raising it — making it loud and still unnoticed.",
- "watch":"In highlife and afrobeats the riff often is the hook. Check with the writer before pushing it back.",
- "related":["hl-rhythm-guitar-masks-vocal","eguitar-clean-back","w-automate-not-set-forget"]},
-
-{"id":"ab-light-autotune","q":"How do I mix afrobeats vocals with light autotune?","aliases":["subtle autotune","autotune sounds obvious","light pitch correction afrobeats"],
- "source":"leadvocal","intent":"natural","genres":["afrobeats","rnb","gospel-urban"],
- "short":"Slow the retune speed and lower the strength. Autotune is audible because of speed, not amount.",
- "steps":["Set retune speed to 20–40 ms, not zero. Zero is what makes it sound robotic.","Set strength to 50–70% so the singer's own drift survives.","Set the correct key and scale; a wrong scale forces wrong notes and that is what people hear.","Fix the two or three worst notes by hand instead of raising the global strength.","Put the autotune before the compressor, so the compressor levels the corrected signal."],
- "params":{},
- "visual":{"type":"chain-flow"},
- "why":"The characteristic artefact is instant snapping between pitches, which no human voice does. Slowing the retune lets the voice slide into the note, so the correction lands but the gesture stays human.",
- "watch":"Slow retune on a fast melismatic run smears the notes together. Automate it faster for those bars.",
- "related":["ab-conversational-but-loud","w-tune-without-fake","gx-heavy-autotune"]},
-
-{"id":"ab-adlibs-and-bgvs","q":"How do I mix afrobeats ad-libs and background vocals?","aliases":["afrobeats adlibs","bgvs afrobeats","background vocals afrobeats"],
- "source":"adlib","intent":"wider","genres":["afrobeats","gospel-urban"],
- "short":"Hard-pan the responses, keep the doubles centred, and duck both under the lead.",
- "steps":["Split them: anything doubling the lead stays centre, anything answering it goes wide.","Pan the responses 70–100% out, alternating sides.","High-pass everything at 250–300 Hz.","Sidechain the whole group to duck 3 dB under the lead.","Give them more reverb and delay than the lead so they sit behind it."],
- "params":{"eq":[{"f":280,"gain":-18,"q":0.7,"type":"hp"}],"reverb":{"send":"25–40%"}},
- "visual":{"type":"stereo-field"},
- "why":"Afrobeats arrangements are conversational: the ad-libs answer the lead rather than thicken it. Panning them wide makes the call-and-response audible as a dialogue instead of a crowded centre.",
- "watch":"Hard-panned ad-libs vanish on a single phone speaker. Keep anything that carries meaning nearer the centre.",
- "related":["adlib-wider","adlib-back","ab-stacked-chorus"]},
-
-{"id":"ab-cluttered-mids","q":"How do I stop an afrobeats mix cluttering in the mids?","aliases":["afrobeats mix cluttered","too much in the middle","afrobeats midrange crowded"],
- "source":"mixbus","intent":"cleaner","genres":["afrobeats","highlife"],
- "short":"Count what lives in 300–800 Hz. In afrobeats it is usually the guitars, keys and congas all at once.",
- "steps":["List every source with energy in 300–800 Hz and pick two to keep there.","High-pass the rest at 300–500 Hz; most of them lose nothing.","Pan the survivors apart so they are not stacked in the centre.","Check with the vocal soloed against the band — the vocal needs that band too.","Resist a bus cut. It dulls the whole record to fix three channels."],
- "params":{"eq":[{"f":400,"gain":-18,"q":0.7,"type":"hp"}]},
- "visual":{"type":"eq-mask","compare":true},
- "why":"Afrobeats arrangements are dense with mid-range instruments by design — guitar, keys, congas and vocal all occupy the same two octaves. Deciding who is allowed in that band does more than any EQ curve applied after the fact.",
- "watch":"Filtering everything leaves the mix brittle. Keep two sources with real low mids or the record goes hollow.",
- "related":["gc-crowded-mids","mixbus-cleaner","ab-percussion-layers"]},
-
-{"id":"ab-hats-and-shakers","q":"How do I mix hats and shakers together?","aliases":["hats and shaker clash","shaker masks hats","two top end percussion parts"],
- "source":"hats","intent":"cleaner","genres":["afrobeats","highlife","gospel-african"],
- "short":"One of them owns 8–12 kHz. Low-pass the other and pan them apart.",
- "steps":["Decide which carries the groove. In afrobeats it is usually the shaker.","Give the winner the air above 8 kHz; low-pass the other at 9 kHz.","Pan them at least 40% apart.","Compress the busier one so its loud strokes stop punching through.","If both still fight, one of them is doing nothing."],
- "params":{"eq":[{"f":9000,"gain":-18,"q":0.7,"type":"lp"}],"comp":{"ratio":"4:1","gr":"3–5 dB"}},
- "visual":{"type":"eq-mask","compare":true},
- "why":"Both are broadband noise peaking in the same octave, so unlike pitched instruments there is no fundamental to move apart. Bandwidth and position are the only tools available.",
- "watch":"Low-passing hats below 8 kHz makes them sound like they are playing in the next room.",
- "related":["ga-shekere-masks-hats","hats-fix-harsh","ab-shakers-drive"]},
-
-{"id":"ab-drop-lands","q":"How do I make an afrobeats drop land?","aliases":["afrobeats drop","drop doesnt hit","make the drop bigger"],
- "source":"mixbus","intent":"bigger","genres":["afrobeats","hiphop"],
- "short":"Empty the bar before it. A drop is a contrast, and contrast is made by subtraction.",
- "steps":["Strip the bar before the drop to almost nothing — filter the low end out entirely.","Bring the sub back at the drop with no ramp; the sudden return is the impact.","Widen the stereo image at the drop, which reads as size without costing headroom.","Add one element that was not there before rather than raising everything.","Keep the vocal's level constant across the boundary so the band change is what you hear."],
- "params":{},
- "visual":{"type":"automation"},
- "why":"The limiter is already holding the loudest sections at the ceiling, so level added at a drop is taken straight back. Removing energy immediately before is the only way to increase the difference the ear perceives as impact.",
- "watch":"Filtering the bar before too aggressively makes it sound like a mistake rather than a build.",
- "related":["mixbus-punchier","hh-trap-drop","gc-final-chorus-lift"]},
-
-{"id":"ab-congas-bongos","q":"How do I mix congas and bongos in afrobeats?","aliases":["conga mix","bongo mix","hand drums afrobeats"],
- "source":"percussion","intent":"natural","genres":["afrobeats","highlife","gospel-african"],
- "short":"Let the congas keep their low mids, filter the bongos higher, and do not gate either.",
- "steps":["High-pass congas at 120–180 Hz and bongos at 250–350 Hz.","Compress gently, 3:1 with 2–3 dB, and use a slow attack so the slap survives.","Pan them to different positions, as two players would sit.","Cut 2–3 dB at 400–600 Hz if they box up against the guitars.","Leave the ring. Hand drums ring, and gating it out makes them sound sampled."],
- "params":{"eq":[{"f":150,"gain":-18,"q":0.7,"type":"hp"},{"f":500,"gain":-2.5,"q":1.5,"type":"bell"}],"comp":{"ratio":"3:1","attack":"20 ms","gr":"2–3 dB"}},
- "visual":{"type":"comp-attack","compare":true},
- "why":"Hand drums carry their character in the difference between an open tone and a slap, which is a transient and timbre difference rather than a level one. Fast compression flattens both and leaves a part that keeps time without saying anything.",
- "watch":"High-passing congas above 200 Hz removes the open tone and leaves only slaps.",
- "related":["ab-percussion-layers","ga-talking-drum","percussion-cleaner"]},
-
-{"id":"ab-the-bounce","q":"How do I get the afrobeats bounce in the mix?","aliases":["afrobeats bounce","groove doesnt bounce","make it bounce","afrobeats feel"],
- "source":"drumbus","intent":"punchier","genres":["afrobeats"],
- "short":"Bounce is space between the hits. Shorten everything and stop filling the gaps.",
- "steps":["Shorten the log drum and kick decays so there is silence between them.","Keep reverb short, under 1 second, and the sends low.","Compress with a slow attack and a release that recovers before the next beat.","High-pass the pads and keys so they stop filling the low-mid gaps.","Mute something. Bounce almost always appears when a sustained part leaves."],
- "params":{"comp":{"ratio":"3:1","attack":"30 ms","release":"tempo-synced","gr":"2–3 dB"}},
- "visual":{"type":"comp-envelope"},
- "why":"The ear reads bounce as the alternation between energy and silence. Anything sustained — a long reverb, a pad, an overlapping sub note — fills the silence, and without the silence there is no alternation left to feel.",
- "watch":"Shortening everything can leave the track feeling empty rather than bouncy. Keep one sustained element for glue.",
- "related":["ab-groove-swings","ab-log-drum","drumbus-fix-pumping"]},
-
-{"id":"ab-keys-under-groove","q":"How do I mix keys and pads under a busy afrobeats groove?","aliases":["keys under groove","pads in afrobeats","keys clutter afrobeats"],
- "source":"pad","intent":"back","genres":["afrobeats","highlife"],
- "short":"Filter both ends hard and let them fill only what the percussion leaves empty.",
- "steps":["High-pass at 250–350 Hz and low-pass at 8–10 kHz.","Duck them 2–3 dB under the lead vocal and 1–2 dB under the log drum.","Pan them wide and leave the centre for the vocal and the groove.","Automate them up in the gaps between vocal phrases.","If the groove is dense, the keys should be barely conscious — mute to check they do something."],
- "params":{"eq":[{"f":300,"gain":-18,"q":0.7,"type":"hp"},{"f":9000,"gain":-18,"q":0.7,"type":"lp"}]},
- "visual":{"type":"sidechain"},
- "why":"Afrobeats grooves leave very little spectral room between the sub and the percussion, so a sustained mid-range part has nowhere to sit without covering something. Filtering it into the narrow gap is the only way it adds harmony without adding clutter.",
- "watch":"Filtering a pad this hard can remove the chord's root. Check the harmony still reads.",
- "related":["pad-back","gc-pad-under-busy","ab-cluttered-mids"]},
-
-{"id":"ab-amapiano-influenced","q":"How do I mix an amapiano-influenced afrobeats track?","aliases":["amapiano mix","amapiano influence","piano house afrobeats"],
- "source":"mixbus","intent":"cleaner","genres":["afrobeats"],
- "short":"The log drum leads and everything else serves it. Slower tempo means longer decays are affordable.",
- "steps":["Build the balance around the log drum first, before the kick and before the vocal.","At 110–115 BPM you can afford longer reverb tails than afrobeats at 105 — use them.","Keep the percussion sparse and spacious; amapiano is defined by what it leaves out.","Soft-clip the log drum for drive rather than compressing it.","Keep the vocal relaxed and well behind the groove in attitude, not in level."],
- "params":{"comp":{"ratio":"2:1","gr":"1–2 dB"},"reverb":{"decay":"1.6–2.4 s","send":"15–22%"}},
- "visual":{"type":"levels"},
- "why":"Amapiano inverts the normal hierarchy: the log drum is the lead instrument and the kick is support. Mixing it with a conventional kick-first balance produces a track that is technically clean and stylistically wrong.",
- "watch":"Published amapiano guides disagree on almost every number. Trust reference tracks over printed advice here.",
- "related":["ab-log-drum","ab-the-bounce","c-reference-tracks"]},
-
-{"id":"ab-stacked-chorus","q":"How do I mix an afrobeats chorus with stacked vocals?","aliases":["afrobeats chorus stacks","stacked hook afrobeats","chorus vocals afrobeats"],
- "source":"harmony","intent":"bigger","genres":["afrobeats","gospel-urban"],
- "short":"Bus the stack, compress it as one, and keep the lead on top of it rather than inside it.",
- "steps":["Bus every stack layer; compress the bus at 4:1 with 4–6 dB.","Keep the lead centred and 3–4 dB above the stack.","Pan the stack wide and high-pass it at 180–220 Hz.","Dip the stack 2 dB at 3–5 kHz so the lead's consonants stay clear.","Use one reverb across the stack, not one per layer."],
- "params":{"comp":{"ratio":"4:1","gr":"4–6 dB"},"eq":[{"f":200,"gain":-18,"q":0.7,"type":"hp"},{"f":4000,"gain":-2,"q":1.3,"type":"bell"}]},
- "visual":{"type":"layering"},
- "why":"Bus compression gives the stack one shared envelope so it reads as a texture rather than a crowd. Keeping the lead above it preserves the conversational delivery the genre depends on even inside a big chorus.",
- "watch":"Stacks that are too wide make the chorus collapse on a phone, which is where most of the audience is.",
- "related":["gc-stacked-vocals","rb-vocal-stacks","harmony-glued"]},
-
-{"id":"ab-samples-highlife-guitar","q":"How do I mix an afrobeats track that samples highlife guitar?","aliases":["highlife sample afrobeats","sampled guitar afrobeats","old guitar sample"],
- "source":"eguitar-clean","intent":"glued","genres":["afrobeats","highlife"],
- "short":"Match the sample's era to the modern production, or lean into the difference deliberately.",
- "steps":["Decide whether the sample should sound old or new, then commit to it.","If modern: high-pass at 150 Hz, lift 8 kHz, and remove the tape wobble.","If vintage: leave it, and darken the modern elements slightly to meet it.","Put the sample and the new drums in one short room reverb either way.","Duck the sample 2 dB under the vocal — old recordings have no space carved for one."],
- "params":{"eq":[{"f":150,"gain":-18,"q":0.7,"type":"hp"},{"f":8000,"gain":2,"q":0.7,"type":"shelf"}],"reverb":{"type":"room","decay":"0.7 s","send":"8–12%"}},
- "visual":{"type":"eq-curve"},
- "why":"A sample arrives already mixed, with its own room and its own era of top end. The two failure modes are leaving it unmatched so it sounds pasted in, and over-correcting it so it loses the character that made it worth sampling.",
- "watch":"Clearing the sample matters more than mixing it. Check the rights before you spend an afternoon on this.",
- "related":["hh-sampled-soul-loop","hl-interlocking-guitars","gc-switches-halfway"]},
-
-{"id":"ab-club-system","q":"How do I mix afrobeats for a club system?","aliases":["club mix afrobeats","mix for a PA","sound system mix","club low end"],
- "source":"mixbus","intent":"louder","genres":["afrobeats","hiphop"],
- "short":"Mono the low end, keep real dynamics, and do not master as loud as a streaming release.",
- "steps":["Everything below 120 Hz mono. Club rigs sum the subs, and stereo bass cancels.","Leave more dynamic range than a streaming master — a PA has no normalisation.","Check the mix on a single speaker and on headphones; a club has no sweet spot.","Keep the vocal 1–2 dB louder than you would for streaming; club systems are mid-shy.","Master around −9 to −7 LUFS for a club cut, separately from the streaming master."],
- "params":{},
- "visual":{"type":"levels"},
- "why":"A club system reproduces sub at a level no studio monitor does, so low-end problems that are inaudible on your speakers become the whole room's problem. Mono below 120 Hz is the single change that protects against most of them.",
- "watch":"A club master played on streaming will be turned down and sound flat. Keep the two cuts separate.",
- "related":["c-low-end-mono","c-what-lufs","ab-low-end-phone"]},
-
-{"id":"ab-no-real-chorus","q":"How do I mix an arrangement that has no real chorus?","aliases":["no chorus song","song has no sections","flat arrangement","repetitive structure"],
- "source":"mixbus","intent":"natural","genres":["afrobeats","highlife"],
- "short":"Build the sections in the mix if the arrangement will not. Change one thing every sixteen bars.",
- "steps":["Mark the song in sixteen-bar blocks and decide what changes in each.","Add or remove one element per block rather than raising levels.","Widen progressively across the song so it grows without getting louder.","Open a filter on a sustained part slowly across two minutes.","Hold one element back entirely until the last third."],
- "params":{},
- "visual":{"type":"automation"},
- "why":"Many afrobeats arrangements are a single groove with variations rather than verse and chorus. The mix has to supply the sense of progression the arrangement does not, or the track feels like a long loop however good the groove is.",
- "watch":"Over-automating a groove track makes it feel restless. Few changes, each clearly audible.",
- "related":["gt-vamp-four-minutes","gw-six-minute-build","ab-guitar-riff-all-song"]},
-
-{"id":"ab-feature-recorded-elsewhere","q":"How do I match a feature verse recorded somewhere else?","aliases":["feature sounds different","guest verse mismatch","two vocals different rooms"],
- "source":"leadvocal","intent":"glued","genres":["afrobeats","hiphop","gospel-urban"],
- "short":"Match the room first, then the tone, then the level. Most people do it in the wrong order.",
- "steps":["Put both vocals through the same reverb and delay sends. Shared space matters most.","Match the low mids at 200–400 Hz before touching the top end.","Match the compression: same ratio and gain reduction, not the same threshold.","Only then match levels, and match them by perceived loudness, not by meter.","If the feature was recorded in a bright room, cut 3–4 kHz rather than boosting the other vocal."],
- "params":{"comp":{"ratio":"4:1","gr":"4–6 dB"},"reverb":{"send":"matched to the lead"}},
- "visual":{"type":"chain-flow"},
- "why":"The ear identifies two recordings as different places before it notices they are different tones. Putting both in the same reverb solves most of the mismatch, and the remaining tonal difference reads as two singers rather than two sessions.",
- "watch":"If the feature arrived already processed, ask for the raw file before spending time matching a mixed one.",
- "related":["hh-feature-different-room","gc-switches-halfway","leadvocal-natural"]},
-
-{"id":"ab-master-for-streaming","q":"How do I master an afrobeats track for streaming?","aliases":["master afrobeats","streaming master","afrobeats loudness"],
- "source":"mixbus","intent":"louder","genres":["afrobeats","highlife"],
- "short":"−14 LUFS, −1 dBTP, and protect the sub. Loudness past that is given back by the platform.",
- "steps":["Target −14 LUFS integrated with true peak at −1 dBTP.","Check the sub survives the limiter — it is the first thing to go.","Keep the low end mono below 120 Hz through the master chain.","Compare against two reference tracks at matched loudness.","Bounce a separate louder cut for club play rather than compromising this one."],
- "params":{},
- "visual":{"type":"levels"},
- "why":"Every major platform normalises to roughly −14 LUFS, so a −8 LUFS master is played at the same volume as a −14 one and has simply lost its dynamics. The only thing a louder master buys is a flatter record.",
- "watch":"Limiting hard on a log drum track crushes the sub first, which is the one thing the genre cannot lose.",
- "related":["c-what-lufs","c-spotify-turns-down","ab-club-system"]},
-
-{"id":"ab-vocal-sits-on-the-one","q":"How do I mix a vocal that lands behind the beat on purpose?","aliases":["lazy vocal timing","vocal behind the beat","vocal feels late","relaxed vocal timing"],
- "source":"leadvocal","intent":"natural","genres":["afrobeats","rnb","highlife"],
- "short":"Do not quantise it, and keep its reverb short so the lateness reads as feel rather than error.",
- "steps":["Leave the timing alone. A vocal 20–40 ms behind the beat is the style, not a mistake.","Keep the reverb pre-delay short so the tail does not push it further back.","Use a slap delay timed to the beat so the late vocal still references the grid.","Compress with a fast attack so each entry is clearly defined despite being late.","Check against the hats — if the vocal and hats disagree about the beat, something is genuinely wrong."],
- "params":{"comp":{"attack":"5 ms","ratio":"3:1","gr":"3–5 dB"},"delay":{"type":"slap","time":"1/16","mix":"6–10%"}},
- "visual":{"type":"delay-grid"},
- "why":"Behind-the-beat phrasing is a deliberate relationship between the voice and the groove, and it only reads as intentional when the groove itself is tight. Quantising the vocal removes the tension that made the performance feel relaxed.",
- "watch":"If the whole take drifts rather than sitting consistently late, that is sloppiness and does need editing.",
- "related":["ab-groove-swings","ab-conversational-but-loud","w-edit-drums-keep-feel"]},
-
-{"id":"hl-interlocking-guitars","q":"How do I mix interlocking highlife guitars?","aliases":["highlife guitars clash","two guitars interlocking","palm wine guitar mix","highlife guitar parts"],
- "source":"eguitar-clean","intent":"cleaner","genres":["highlife","gospel-african"],
- "short":"Separate them in pan and in band, and never compress them into one texture.",
- "steps":["High-pass both at 100–150 Hz. Neither needs low end.","Pan them 50–80% opposite each other.","Lift 2–3 kHz on one and 4–5 kHz on the other; cut each where the other was lifted.","Keep compression light, 3:1 and 2–3 dB. The picking dynamics are the arrangement.","Give them the same short reverb so they sound like two players in one room."],
- "params":{"eq":[{"f":120,"gain":-18,"q":0.7,"type":"hp"},{"f":2500,"gain":2,"q":1.2,"type":"bell"}],"comp":{"ratio":"3:1","gr":"2–3 dB"},"reverb":{"type":"room","decay":"0.8 s","send":"10–15%"}},
- "visual":{"type":"stereo-field"},
- "why":"Highlife guitar parts interlock rhythmically in the same register, so the music is the conversation between them. Panning separates them in space and complementary EQ separates them in tone, which lets the ear follow both lines instead of hearing an average of the two.",
- "watch":"Filtering hard enough to separate them can remove the woody body the style depends on.",
- "related":["ga-guitar-percussion-lock","hl-rhythm-guitar-masks-vocal","hl-guitar-solo"]},
-
-{"id":"hl-horn-section","q":"How do I mix a highlife horn section?","aliases":["highlife horns","horn section highlife","brass section mix","afro horns"],
- "source":"horns","intent":"glued","genres":["highlife","gospel-african","afrobeats"],
- "short":"One bus, one compressor, one room. A section is one instrument with several players.",
- "steps":["Bus every horn and do all processing on the bus.","Compress the bus at 4:1 with 3–5 dB so they breathe together.","Pan as they would stand: trumpets wide, trombone and sax nearer centre.","Dynamic EQ at 2–5 kHz, cutting only on the loudest hits.","Give the bus one room reverb at 1–1.4 seconds."],
- "params":{"comp":{"ratio":"4:1","attack":"18 ms","gr":"3–5 dB"},"eq":[{"f":3500,"gain":-3.5,"q":2.5,"type":"bell"}],"reverb":{"type":"room","decay":"1.2 s","send":"15–22%"}},
- "visual":{"type":"chain-flow"},
- "why":"A real section plays into shared air and their dynamics move together. Bus compression and a shared reverb reproduce both, which is why individually processed horns never fuse however carefully they are balanced.",
- "watch":"Bus compression lifts breath and key noise on every horn at once. Clean the takes first.",
- "related":["horns-glued","hl-horns-not-harsh","horns-fix-harsh"]},
-
-{"id":"hl-groove-stays-light","q":"How do I mix highlife drums so the groove stays light?","aliases":["highlife drums too heavy","light groove","highlife kit mix","drums too big highlife"],
- "source":"drumbus","intent":"natural","genres":["highlife","gospel-african"],
- "short":"Resist modern drum weight. Highlife lives on the rim, the hats and the ride, not the kick.",
- "steps":["Keep the kick modest: high-pass at 50 Hz and do not boost below 80.","Bring the hats, ride and rim up. They carry the groove in this style.","Compress the bus lightly, 2:1 with 1–2 dB. Heavy glue makes it feel plodding.","Do not layer samples under the kick and snare.","Leave the kit's natural dynamics — the variation is the swing."],
- "params":{"eq":[{"f":50,"gain":-18,"q":0.7,"type":"hp"}],"comp":{"ratio":"2:1","gr":"1–2 dB"}},
- "visual":{"type":"levels"},
- "why":"Modern drum treatment is built around a heavy kick and a compressed bus, both of which anchor a track to the floor. Highlife's feel comes from the upper kit staying mobile, so the same processing that makes hip-hop drums good makes highlife drums wrong.",
- "watch":"Too light and the track has no foundation on a club system. Keep the kick present, just not large.",
- "related":["ab-groove-swings","hl-percussion-vs-kit","drumbus-punchier"]},
-
-{"id":"hl-walking-bass","q":"How do I mix a highlife bass line that walks?","aliases":["walking bass highlife","melodic bass mix","bass moves a lot","highlife bass"],
- "source":"bass","intent":"smoother","genres":["highlife","gospel-trad"],
- "short":"Compress for note-to-note consistency and add 800 Hz so the melody is followable.",
- "steps":["Compress at 4:1 with 5–7 dB — a walking line needs every note the same size.","Add 2 dB at 700 Hz–1.5 kHz so the melodic movement is audible on small speakers.","High-pass at 40 Hz and cut any single note the room is reinforcing.","Keep it drier than the guitars so it stays as the anchor.","Clip-gain the few notes that still jump before compressing further."],
- "params":{"comp":{"ratio":"4:1","attack":"15 ms","release":"80 ms","gr":"5–7 dB"},"eq":[{"f":1000,"gain":2,"q":1,"type":"bell"},{"f":40,"gain":-18,"q":0.7,"type":"hp"}]},
- "visual":{"type":"comp-envelope"},
- "why":"A walking bass is a melody, so the listener needs to follow its contour rather than just feel its weight. Consistency of level lets the ear track the line, and the mid-range lift makes the intervals audible where the fundamentals are not reproduced.",
- "watch":"Too much 800 Hz–1.5 kHz and the bass starts competing with the guitars for the same lane.",
- "related":["bass-fix-masked","bass-upfront","gt-bass-pick-and-slap"]},
-
-{"id":"hl-percussion-vs-kit","q":"How do I mix highlife percussion against the kit?","aliases":["percussion and drums highlife","congas against kit","highlife percussion balance"],
- "source":"percussion","intent":"cleaner","genres":["highlife","gospel-african","afrobeats"],
- "short":"Let the percussion lead and the kit support. That is the opposite of most genres.",
- "steps":["Set the percussion level first, then bring the kit up under it.","High-pass the percussion at 200–300 Hz so it never fights the kick.","Pan the percussion wide and keep the kit centred.","Compress the kit more than the percussion, not less.","Share one room reverb so they sound like one ensemble."],
- "params":{"eq":[{"f":250,"gain":-18,"q":0.7,"type":"hp"}],"reverb":{"type":"room","decay":"0.8 s","send":"10–15%"}},
- "visual":{"type":"levels"},
- "why":"In highlife the hand percussion carries the rhythmic identity and the kit keeps time underneath it. Balancing kit-first, as in rock or pop, produces a technically correct mix in which the thing that makes the music highlife is in the background.",
- "watch":"Percussion-first balances can leave the track without a backbeat on big systems. Check the snare still lands.",
- "related":["hl-groove-stays-light","ga-percussion-vs-programmed","ab-percussion-layers"]},
-
-{"id":"hl-open-and-airy","q":"How do I keep a highlife mix open and airy?","aliases":["highlife mix crowded","keep mix open","airy highlife mix","mix feels closed"],
- "source":"mixbus","intent":"cleaner","genres":["highlife","gospel-african"],
- "short":"Fewer sustained parts, higher high-passes, and a lot more panning than feels necessary.",
- "steps":["High-pass everything except kick and bass at 150–300 Hz.","Pan aggressively. A highlife record should feel like a band spread across a stage.","Keep sustained parts — organ, pads — low and filtered.","Keep reverbs short, under 1.2 seconds, so the space stays defined.","Mute one part. Openness almost always arrives when something leaves."],
- "params":{"eq":[{"f":200,"gain":-18,"q":0.7,"type":"hp"}],"reverb":{"decay":"0.9 s","send":"10–18%"}},
- "visual":{"type":"stereo-field"},
- "why":"Air in a mix is unused space, in frequency and in the stereo field. Highlife is an arrangement of many small parts, so the only way to keep it open is to give each one a narrow band and a distinct position rather than letting them all fill the middle.",
- "watch":"A very wide mix collapses on a phone. Check the hook still works in mono.",
- "related":["ab-cluttered-mids","hl-recorded-live-one-room","c-how-wide-too-wide"]},
-
-{"id":"hl-twi-ga-vocals","q":"How do I mix highlife vocals sung in Twi or Ga?","aliases":["twi vocals mix","ga language vocals","african language vocal mix","local language vocals"],
- "source":"leadvocal","intent":"upfront","genres":["highlife","gospel-african"],
- "short":"Protect 1–4 kHz harder than you would in English. Tonal languages carry meaning in pitch and consonants.",
- "steps":["Keep 1–4 kHz clear on the vocal and carve it out of the guitars and horns.","Do not over-de-ess; the consonants do more work here than in English.","Compress for consistency so quieter syllables are not lost.","Keep the vocal drier than an English-language pop mix would be.","Have a native speaker check the mix for intelligibility, not just the balance."],
- "params":{"eq":[{"f":2500,"gain":2,"q":1,"type":"bell"}],"comp":{"ratio":"4:1","gr":"4–6 dB"}},
- "visual":{"type":"eq-mask","compare":true},
- "why":"Tonal languages distinguish words by pitch contour as well as by consonant, so losing the upper mid-range costs more meaning than it would in English. The usual advice to tame 2–4 kHz for smoothness is actively harmful here.",
- "watch":"Do not mix this by ear alone if you do not speak the language. Intelligibility is not something you can judge.",
- "related":["leadvocal-upfront","hl-rhythm-guitar-masks-vocal","gt-lead-vs-twenty-voices"]},
-
-{"id":"hl-recorded-live-one-room","q":"How do I mix a highlife track recorded live in one room?","aliases":["live band one room","everything bleeds","live highlife recording","one room recording"],
- "source":"mixbus","intent":"cleaner","genres":["highlife","gospel-trad"],
- "short":"Mix it as one performance, not as separate channels. Fix phase, then barely touch anything.",
- "steps":["Check polarity on every mic against the pair that sounds best. Half the problems are cancellation.","Set a balance with faders only, before any EQ. It will get you most of the way.","High-pass everything except the kick and bass — bleed is mostly low mids.","Use one reverb for everything, short, to tie the room together.","Resist per-channel EQ. Every move you make affects three other instruments."],
- "params":{"eq":[{"f":180,"gain":-18,"q":0.7,"type":"hp"}],"reverb":{"type":"room","decay":"0.8 s","send":"8–14%"}},
- "visual":{"type":"chain-flow"},
- "why":"With heavy bleed, every channel contains most of the band, so EQing the guitar also EQs the drums in the guitar mic. The mix is closer to mastering a live recording than to building one from isolated sources.",
- "watch":"Aggressive gating or editing on a one-room recording destroys the ensemble feel that justified recording it that way.",
- "related":["gt-live-drum-bleed","hl-open-and-airy","c-fix-phase-two-mics"]},
-
-{"id":"hl-rhythm-guitar-masks-vocal","q":"How do I stop the rhythm guitar masking the vocal?","aliases":["guitar covers vocal","rhythm guitar too loud","guitar fights the singer"],
- "source":"eguitar-clean","intent":"back","genres":["highlife","gospel-african","afrobeats"],
- "short":"Cut 2–4 kHz on the guitar and duck it under the vocal. Lowering it loses the part.",
- "steps":["Cut 2–3 dB at 2–4 kHz on the guitar — the vocal's consonant band.","Sidechain it to duck 2 dB whenever the vocal is present.","Pan it further off centre, 40–60%.","High-pass it at 150 Hz so it is not also competing underneath.","Automate it back up in the instrumental sections."],
- "params":{"eq":[{"f":3000,"gain":-2.5,"q":1.2,"type":"bell"},{"f":150,"gain":-18,"q":0.7,"type":"hp"}]},
- "visual":{"type":"sidechain"},
- "why":"A clean guitar's pick attack and a vocal's consonants occupy the same narrow band, so they mask each other precisely. Removing the overlap keeps the guitar's level and its rhythmic function while the words come through.",
- "watch":"The riff is often the hook in highlife. Duck it rather than permanently lowering it.",
- "related":["hl-interlocking-guitars","eguitar-clean-back","hl-twi-ga-vocals"]},
-
-{"id":"hl-guitar-solo","q":"How do I mix a highlife guitar solo?","aliases":["guitar solo mix","lead guitar highlife","solo doesnt cut through"],
- "source":"eguitar-clean","intent":"upfront","genres":["highlife","gospel-african"],
- "short":"Narrow it to the centre, add a slap delay, and duck everything else rather than raising it.",
- "steps":["Move the solo guitar toward the centre for its section only, then pan it back.","Add a slap delay of 80–140 ms, low in the mix, for size without reverb wash.","Duck the rhythm guitars and keys 2 dB for the solo.","Lift 2 dB at 2–3 kHz for the pick definition.","Automate it back down the moment the vocal returns."],
- "params":{"delay":{"type":"slap","time":"110 ms","mix":"10–15%"},"eq":[{"f":2500,"gain":2,"q":1.1,"type":"bell"}]},
- "visual":{"type":"automation"},
- "why":"A solo takes the lead vocal's role for its duration, so it needs the lead vocal's treatment: centre, present and with room made for it. Treating it as just a louder rhythm guitar leaves it sounding like an accompaniment that got loud.",
- "watch":"Panning a part during a song is audible if done abruptly. Move it over a bar.",
- "related":["hl-interlocking-guitars","hl-rhythm-guitar-masks-vocal","leadvocal-upfront"]},
-
-{"id":"hl-horns-not-harsh","q":"How do I stop highlife horns sounding harsh?","aliases":["horns too bright highlife","brass is harsh","horns hurt","highlife brass harsh"],
- "source":"horns","intent":"smoother","genres":["highlife","gospel-african"],
- "short":"Dynamic EQ at 2–5 kHz, triggered only on the loud hits, plus a real room.",
- "steps":["Dynamic EQ on the horn bus cutting 3–5 dB at 2–5 kHz, on peaks only.","Slow the compressor attack to 15–20 ms so it stops clamping the body.","Add a room reverb; dry brass is always harsher than brass in a space.","Tape saturation rounds the top where EQ only removes it.","Next session, move the mic off-axis — it is warmer for brass."],
- "params":{"eq":[{"f":3500,"gain":-4,"q":2.5,"type":"bell"}],"comp":{"attack":"18 ms"},"reverb":{"type":"room","decay":"1.2 s","send":"15–20%"}},
- "visual":{"type":"eq-curve"},
- "why":"Brass gets brighter the harder it is played, so harshness exists only in the loudest bars. A static cut dulls the quiet passages to solve a problem they never had.",
- "watch":"Dulling horns too far removes the brightness that makes a section sound celebratory.",
- "related":["hl-horn-section","horns-fix-harsh","c-dynamic-eq"]},
-
-{"id":"hl-song-modulates","q":"How do I mix a highlife song that modulates?","aliases":["highlife key change","modulation highlife","song changes key"],
- "source":"mixbus","intent":"bigger","genres":["highlife","gospel-trad"],
- "short":"Thin the bar before the change. The pitch rise already supplies the energy.",
- "steps":["Drop the arrangement for the two bars before the modulation.","Open a 1 dB high shelf on the mix bus from the new key onward.","Add one element at the change rather than raising everything.","Re-check the bass — a modulated line can hit a different room resonance.","Widen slightly after the change, never before."],
- "params":{"eq":[{"f":10000,"gain":1,"q":0.7,"type":"shelf"}]},
- "visual":{"type":"automation"},
- "why":"A key change raises pitch, which the ear already reads as a lift. Adding level on top makes it loud instead of higher, and the limiter removes most of the gain anyway.",
- "watch":"A modulated bass line often wakes a room mode that was silent in the original key. Check the low end after.",
- "related":["gc-key-change","hl-walking-bass","c-find-a-resonance"]},
-
-{"id":"hl-congas-and-claves","q":"How do I mix congas and claves in highlife?","aliases":["clave mix","congas and clave","wood percussion mix"],
- "source":"percussion","intent":"natural","genres":["highlife","gospel-african","afrobeats"],
- "short":"The clave is a timekeeper, so keep it dry, centred and consistent. The congas can move.",
- "steps":["Keep the clave near the centre, dry, and compressed at 6:1 so every strike is identical.","High-pass the clave at 500 Hz — it is all upper mid.","Pan the congas wide and leave them more dynamic.","Cut 2 dB at 2–3 kHz on the congas so the clave's crack stays clear.","Do not reverb the clave. It should feel like it is in the room with you."],
- "params":{"eq":[{"f":500,"gain":-18,"q":0.7,"type":"hp"}],"comp":{"ratio":"6:1","gr":"4–6 dB"}},
- "visual":{"type":"stereo-field"},
- "why":"The clave defines the rhythmic cycle everything else is measured against, so it has to be unambiguous in time and position. Congas decorate that cycle and can afford the dynamics and width that would make the clave unreliable.",
- "watch":"A compressed clave with a noisy recording pulls up room tone between strikes. Gate it lightly.",
- "related":["hl-percussion-vs-kit","ab-congas-bongos","percussion-cleaner"]},
-
-{"id":"hl-warm-not-old","q":"How do I make highlife sound warm without sounding old?","aliases":["warm but modern highlife","highlife sounds dated","modern highlife sound"],
- "source":"mixbus","intent":"brighter","genres":["highlife"],
- "short":"Keep the mid-range character, modernise the low end and add air above 10 kHz.",
- "steps":["Tighten and extend the low end; vagueness down there is what dates a record.","Add a 1.5 dB shelf above 10 kHz for air the older chain never captured.","Leave the 200–800 Hz balance alone. That is the warmth and the genre.","Use tape saturation rather than EQ for the warmth you want to keep.","Do not over-compress. The dynamic range is part of why it sounds like a band."],
- "params":{"eq":[{"f":11000,"gain":1.5,"q":0.7,"type":"shelf"},{"f":300,"gain":-1.5,"q":1.1,"type":"bell"}]},
- "visual":{"type":"eq-curve"},
- "why":"What reads as dated is a loose low end and a rolled-off top, both limits of the old recording chain rather than aesthetic choices. The mid-range balance was deliberate, and flattening it is what turns a modernised highlife record into a generic one.",
- "watch":"Adding air to an old recording also raises its tape hiss. De-noise before you shelf.",
- "related":["gt-modern-without-losing-church","hl-older-audience-vinyl","mixbus-louder"]},
-
-{"id":"hh-tune-the-808","q":"How do I tune my 808 to the song?","aliases":["tune 808","808 out of tune","what key is my 808","808 clashes with the beat"],
- "source":"808","intent":"cleaner","genres":["hiphop","gospel-trap","afrobeats"],
- "short":"Find its pitch with a tuner, then play it as a bass line. Tuning beats EQ every time.",
- "steps":["Put a tuner on the 808 and play it alone to find its actual pitch.","Transpose the sample so its root matches the key, then play the line from there.","Check the glide between notes; a portamento that is too slow blurs the pitch.","If the sample has a pitch envelope, flatten it so the sustained part is the note.","Only after tuning should you touch EQ. Most 808 mud is detuning, not frequency."],
- "params":{},
- "visual":{"type":"eq-curve"},
- "why":"An 808 is a tuned sine with a short click. If its pitch disagrees with the harmony, the beating between it and the bass of the chord produces exactly the low-end wobble that people try to EQ away — and no filter removes a tuning problem.",
- "watch":"Transposing a sample a long way changes its decay length. Re-check the note lengths after tuning.",
- "related":["808-bigger","808-tighter","hh-808-on-small-speakers"]},
-
-{"id":"hh-every-word-clear","q":"How do I mix a rap vocal so every word is clear?","aliases":["rap vocal clarity","cant hear the words","rap intelligibility","vocal clarity hip hop"],
- "source":"rapvocal","intent":"upfront","genres":["hiphop","gospel-trap","gospel-urban"],
- "short":"Heavy compression plus a carved 2–4 kHz lane in the beat. Clarity is a space problem.",
- "steps":["Compress to 6–10 dB so no syllable is quieter than any other.","Cut 2–3 dB at 2–4 kHz on the beat — hats, synths and sampled loops.","Lift 2–3 dB at 2–4 kHz on the vocal, the band you just cleared.","Keep it nearly dry. Reverb is the fastest way to lose consonants.","De-ess after the compressor and the presence lift, not before."],
- "params":{"comp":{"ratio":"6:1","attack":"3 ms","release":"40 ms","gr":"6–10 dB"},"eq":[{"f":3000,"gain":2.5,"q":1,"type":"bell"}]},
- "visual":{"type":"eq-mask","compare":true},
- "why":"Intelligibility lives almost entirely in 2–4 kHz, and a dense beat fills that band with hats and synths. Making the vocal louder raises the whole band; clearing the beat changes the ratio, which is what the ear actually uses.",
- "watch":"Lifting 2–4 kHz on the vocal without cutting it elsewhere just makes the mix harsh.",
- "related":["rapvocal-upfront","hh-vocal-over-loud-beat","leadvocal-louder"]},
-
-{"id":"hh-hats-dont-stab","q":"How do I mix trap hats so they don't stab?","aliases":["trap hats harsh","hats too sharp","hats stab","hat rolls painful"],
- "source":"hats","intent":"smoother","genres":["hiphop","gospel-trap"],
- "short":"Fix the velocities and the layer count first. The harshness is additive, not spectral.",
- "steps":["Count the hat layers. Three samples in the same band is the usual cause.","Lower the velocity on the off-beat and rolled hits by 15–25.","Cut 3–4 dB at 6–9 kHz on the busiest layer only.","Put a de-esser on the hat bus tuned to 7 kHz rather than a static cut.","Compress the bus lightly, 2:1 and 1–2 dB, after the velocities are right."],
- "params":{"eq":[{"f":7500,"gain":-3.5,"q":2.2,"type":"bell"}],"comp":{"ratio":"2:1","gr":"1–2 dB"}},
- "visual":{"type":"eq-curve"},
- "why":"Hat noise is broadband, so layers add energy across the whole top end rather than at one frequency. The level climbs faster than any single layer suggests, which is why cutting one band never quite fixes it.",
- "watch":"Over-cutting here dulls the vocal consonants too, since they share the band.",
- "related":["hats-fix-harsh","hh-hat-roll","gx-triplet-hat-rolls"]},
-
-{"id":"hh-snare-cuts-through","q":"How do I make a trap snare cut through?","aliases":["trap snare weak","snare doesnt cut","clap doesnt cut through","snare in trap"],
- "source":"snare","intent":"upfront","genres":["hiphop","gospel-trap"],
- "short":"Layer a clap for the body and a snare for the crack, then shape the transient.",
- "steps":["Layer two sources: one with body at 180–250 Hz, one with crack at 4–7 kHz.","Align their transients exactly or they will flam.","Transient designer: attack +3 to +6 on the combined bus.","Cut 3–4 dB at 400–600 Hz where layered snares box up.","Add a short reverb, under 0.6 s, for size without losing the attack."],
- "params":{"eq":[{"f":500,"gain":-3.5,"q":2,"type":"bell"},{"f":6000,"gain":2,"q":1.2,"type":"bell"}],"reverb":{"decay":"0.5 s","send":"10–15%"}},
- "visual":{"type":"layering"},
- "why":"No single trap snare sample has both weight and crack, because the two live two octaves apart and samples are recorded for one or the other. Layering supplies both; aligning the transients is what stops it sounding like two hits.",
- "watch":"Two layers whose transients are even two milliseconds apart sound like a flam, not a bigger snare.",
- "related":["snare-punchier","snare-bigger","w-layer-two-kicks"]},
-
-{"id":"hh-vocal-over-loud-beat","q":"How do I mix a rap vocal over a loud beat?","aliases":["beat too loud for vocal","vocal buried in beat","two track beat too loud"],
- "source":"rapvocal","intent":"upfront","genres":["hiphop","gospel-trap"],
- "short":"Duck the beat under the vocal. If the beat is a two-track you cannot carve it any other way.",
- "steps":["Sidechain the beat to the vocal, 2–3 dB, with a 150–250 ms release.","Use a dynamic EQ on the beat cutting 2–4 kHz only when the vocal is present.","Compress the vocal harder, 6–10 dB, so it stays consistently above.","Keep the vocal dry; reverb puts it behind the beat again.","If the beat has stems, carve properly instead and skip all of this."],
- "params":{"comp":{"gr":"2–3 dB ducking","release":"200 ms"},"eq":[{"f":3000,"gain":-2.5,"q":1.3,"type":"bell"}]},
- "visual":{"type":"sidechain"},
- "why":"A mastered two-track beat has no separable elements, so the only available move is to change its level or tone while the vocal is sounding. Frequency-selective ducking does that without the whole beat audibly dipping.",
- "watch":"Full-band ducking on a loud beat is very audible. Keep it to the vocal's band.",
- "related":["hh-beat-as-two-track","hh-every-word-clear","rapvocal-upfront"]},
-
-{"id":"hh-trap-drop","q":"How do I mix a trap drop?","aliases":["trap drop mix","drop doesnt hit trap","808 drop"],
- "source":"mixbus","intent":"bigger","genres":["hiphop","gospel-trap"],
- "short":"Filter the low end out of the bar before, then bring it back with no ramp.",
- "steps":["High-pass the whole mix at 200–400 Hz for the bar before the drop.","Restore the full range at the drop instantly — no automated ramp.","Add a reverse cymbal or riser only if the arrangement is thin without one.","Widen at the drop, which reads as size without costing headroom.","Keep the vocal level constant across the boundary."],
- "params":{"eq":[{"f":300,"gain":-18,"q":0.7,"type":"hp"}]},
- "visual":{"type":"automation"},
- "why":"The ear measures the drop against the moment immediately before it, and the limiter prevents the drop itself from getting louder. Removing the low end beforehand widens that gap by several perceived decibels at no cost.",
- "watch":"Filtering for more than two bars makes the build feel like a radio edit.",
- "related":["ab-drop-lands","mixbus-punchier","gc-final-chorus-lift"]},
-
-{"id":"hh-808-on-small-speakers","q":"How do I stop my 808 disappearing on small speakers?","aliases":["808 not audible on laptop","808 disappears on phone","sub doesnt translate hip hop"],
- "source":"808","intent":"brighter","genres":["hiphop","gospel-trap","afrobeats"],
- "short":"Saturate it so its harmonics carry the note. The fundamental is not reproduced at all.",
- "steps":["Saturate until the note is audible on a laptop speaker with the sub-bass gone.","Make sure 100–300 Hz is not being cut on the 808 to fix mud elsewhere.","Tune it. An out-of-tune 808 is unidentifiable however loud its harmonics are.","Keep a clean parallel path for the sub so monitors and clubs still get it.","Test on an actual phone before deciding you are finished."],
- "params":{"eq":[{"f":200,"gain":1.5,"q":1,"type":"bell"}]},
- "visual":{"type":"eq-curve"},
- "why":"The ear reconstructs a missing fundamental from its harmonic series, so a 50 Hz note is heard through its energy at 100, 150 and 200 Hz. That is why saturation adds audible sub on a phone and a 40 Hz boost adds none.",
- "watch":"The harmonics that make the 808 translate are in the same band as mix mud. Cut mud elsewhere.",
- "related":["ab-low-end-phone","808-bigger","c-harmonics-low-end"]},
-
-{"id":"rb-vocal-stacks","q":"How do I mix R&B vocal stacks?","aliases":["rnb stacks","layered rnb vocals","r&b harmony stack","vocal stack mix rnb"],
- "source":"harmony","intent":"glued","genres":["rnb","gospel-urban"],
- "short":"Bus them, compress them hard as a group, and pan by interval so the chord stays readable.",
- "steps":["Route every layer to one bus; do all EQ and compression there.","Compress the bus at 4:1 with 5–8 dB so individual voices stop being identifiable.","Pan by interval: the lowest harmony nearest centre, the highest hardest out.","High-pass the bus at 180–220 Hz so eight voices do not crowd the low mids.","Dip 2–3 dB at 3–5 kHz so the lead keeps its presence."],
- "params":{"comp":{"ratio":"4:1","gr":"5–8 dB"},"eq":[{"f":200,"gain":-18,"q":0.7,"type":"hp"},{"f":4000,"gain":-2.5,"q":1.3,"type":"bell"}]},
- "visual":{"type":"layering"},
- "why":"A stack works when you hear a chord rather than a count of singers. Bus compression gives every layer one envelope and panning by pitch lets the ear follow each voice to its own place, so the harmony stays legible while the individual takes disappear.",
- "watch":"Compressing the bus pulls up the breath on every layer at once. Clean them before you compress.",
- "related":["harmony-glued","gc-stacked-vocals","rb-harmonies-blend"]},
-
-{"id":"rb-warm-but-tight","q":"How do I get R&B low end warm but tight?","aliases":["rnb low end","warm tight bass rnb","r&b bass sound","low end warmth"],
- "source":"bass","intent":"tighter","genres":["rnb","gospel-urban"],
- "short":"Two compressors and saturation rather than a low-end boost. Warmth is harmonics, tightness is control.",
- "steps":["Compressor one slow, 3:1 and 3 dB; compressor two fast, 4:1 and 3 dB.","Add tube saturation for the harmonics that read as warmth.","Lift 1.5 dB at 80–120 Hz, not below. Below 60 Hz adds size, not warmth.","High-pass at 30 Hz and keep everything under 120 Hz mono.","Sidechain 1–2 dB to the kick — enough to separate, not enough to pump."],
- "params":{"comp":{"ratio":"3:1 then 4:1","gr":"3 dB each"},"eq":[{"f":100,"gain":1.5,"q":0.9,"type":"bell"},{"f":30,"gain":-18,"q":0.7,"type":"hp"}]},
- "visual":{"type":"comp-envelope"},
- "why":"Warmth and tightness pull in opposite directions if you treat both as level: more low end is warmer and looser. Saturation supplies warmth as harmonic content rather than energy, which leaves the compressors free to do only the tightening.",
- "watch":"Too much saturation turns a warm bass into a distorted one, and it is hard to hear the line being crossed.",
- "related":["bass-tighter","bass-fix-muddy","c-what-saturation-adds"]},
-
-{"id":"rb-harmonies-blend","q":"How do I make harmonies blend with the lead instead of competing?","aliases":["harmonies compete with lead","blend harmonies","rnb harmony balance"],
- "source":"harmony","intent":"back","genres":["rnb","gospel-urban","gospel-contemporary"],
- "short":"Darker, wider, more compressed and further back than the lead. Every parameter, not just level.",
- "steps":["Roll off 2–3 dB above 8 kHz on the harmony bus.","High-pass the harmonies higher than the lead: 200 Hz against 80.","Compress them harder, 5–8 dB, so they become a flat bed.","Give them a longer reverb than the lead.","Pan them wide and keep the lead alone in the centre."],
- "params":{"eq":[{"f":8000,"gain":-2.5,"q":0.7,"type":"shelf"},{"f":200,"gain":-18,"q":0.7,"type":"hp"}],"comp":{"ratio":"4:1","gr":"5–8 dB"}},
- "visual":{"type":"eq-mask","compare":true},
- "why":"The lead and its harmonies are the same voice singing the same words, so they mask perfectly and no single parameter separates them. Changing all of them a little — tone, width, dynamics, space — adds up to a clear hierarchy without any one move being audible.",
- "watch":"Darkening harmonies too far makes the words unintelligible, which matters when they carry the hook.",
- "related":["harmony-back","rb-vocal-stacks","gt-lead-vs-twenty-voices"]},
-
-{"id":"rb-intimate-reverb","q":"How do I get R&B reverb to feel intimate?","aliases":["intimate reverb","close reverb rnb","reverb without distance","small reverb vocal"],
- "source":"leadvocal","intent":"natural","genres":["rnb","gospel-urban"],
- "short":"Short decay, long pre-delay, and roll the top off the return. Intimacy is a small bright room, heard late.",
- "steps":["Use a room or small plate, 0.6–1.1 s, not a hall.","Set pre-delay to 30–50 ms so the dry voice always arrives clearly first.","High-pass the return at 400 Hz and low-pass at 6–8 kHz.","Keep the send low, 8–15%, and let a slap delay do some of the work.","Duck the return 3 dB under the dry vocal."],
- "params":{"reverb":{"type":"room","decay":"0.9 s","predelay":"40 ms","send":"10–15%"},"eq":[{"f":400,"gain":-18,"q":0.7,"type":"hp"},{"f":7000,"gain":-18,"q":0.7,"type":"lp"}]},
- "visual":{"type":"reverb-tail"},
- "why":"A long pre-delay keeps the dry voice in front and places the room behind it, which the ear reads as someone close to you in a space — rather than someone far away in one. Short decay and a filtered return keep that space small.",
- "watch":"Pre-delay longer than about 60 ms starts being heard as a separate echo rather than as room.",
- "related":["c-predelay","gw-reverb-for-ballad","leadvocal-back"]}
-
-]}
+ "_note": "Batch 3 — Afrobeats, Highlife, Hip-hop/Trap and R&B playbooks. 44 answers. The Afrobeats log drum entries say plainly that published sources disagree about its frequency range and that measuring your own sample beats any printed band, because that is the honest state of the material.",
+ "questions": [
+  {
+   "id": "ab-log-drum",
+   "q": "How do I mix an afrobeats log drum?",
+   "aliases": [
+    "log drum mix",
+    "logdrum",
+    "amapiano log drum",
+    "how to mix log drum"
+   ],
+   "source": "808",
+   "intent": "bigger",
+   "genres": [
+    "afrobeats"
+   ],
+   "short": "Tune it to the key first, then saturate. Measure your own sample rather than trusting a published band.",
+   "steps": [
+    "Tune it to the root of the song. An out-of-tune log drum cannot be fixed with EQ.",
+    "Open an analyser on your own sample and find its fundamental — published guides disagree by an octave.",
+    "Saturate until the harmonics an octave above the fundamental are audible on a laptop.",
+    "High-pass at 25–30 Hz and keep everything below 120 Hz mono.",
+    "Shorten the decay so each note ends before the next; overlap is what makes it mush."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 28,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "The log drum is a pitched sub instrument, so its spectrum moves with the sample and the key. Published advice puts it anywhere from 200–400 Hz to 200–800 Hz with no measurement behind either number, which is why the analyser on your own sound is the only reliable starting point.",
+   "watch": "Saturating past the point where it stops feeling like sub turns a log drum into a distorted bass guitar.",
+   "genreNotes": {
+    "afrobeats": "In amapiano-leaning tracks the log drum carries the groove and the kick serves it. In Nigerian afrobeats the kick usually leads."
+   },
+   "related": [
+    "ab-logdrum-vs-kick",
+    "808-bigger",
+    "c-harmonics-low-end"
+   ]
+  },
+  {
+   "id": "ab-logdrum-vs-kick",
+   "q": "How do I balance the log drum and the kick?",
+   "aliases": [
+    "log drum and kick clash",
+    "kick vs log drum",
+    "logdrum fights kick",
+    "afrobeats low end"
+   ],
+   "source": "kick",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats"
+   ],
+   "short": "Give the log drum the sub and the kick the punch. They cannot both own 60 Hz.",
+   "steps": [
+    "Let the log drum own 30–70 Hz and high-pass the kick at 50–60 Hz.",
+    "Give the kick 80–120 Hz for body and 3–5 kHz for the beater.",
+    "Sidechain the log drum to the kick, 2–3 dB, 10 ms attack, release before the next hit.",
+    "Check in mono on a phone — if only one of them survives, the split is wrong.",
+    "If the groove still feels crowded, shorten the log drum, do not lower the kick."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 55,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 100,
+      "gain": 2,
+      "q": 1,
+      "type": "bell"
+     },
+     {
+      "f": 4000,
+      "gain": 2,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "gr": "2–3 dB",
+     "attack": "10 ms"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Both are low-frequency transient sources, so they sum into a single undefined thud rather than masking each other politely. Separating them by role gives the ear two events it can tell apart, which is what makes the groove read.",
+   "watch": "High-passing the kick above 60 Hz leaves it thin on systems that do reproduce sub, like a club rig.",
+   "related": [
+    "ab-log-drum",
+    "kick-vs-808",
+    "hh-sidechain-808-to-kick"
+   ]
+  },
+  {
+   "id": "ab-groove-swings",
+   "q": "How do I mix afrobeats drums so the groove swings?",
+   "aliases": [
+    "afrobeats groove stiff",
+    "drums dont swing",
+    "afrobeats bounce",
+    "groove feels robotic"
+   ],
+   "source": "drumbus",
+   "intent": "natural",
+   "genres": [
+    "afrobeats",
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "Stop quantising and stop over-compressing. The swing is in the timing you are flattening.",
+   "steps": [
+    "Leave the percussion off the grid. Nudging it 10–25 ms late is the groove, not an error.",
+    "Keep the drum bus compression light, 2–3 dB with a slow attack.",
+    "Vary the velocity of repeated hits by 15–25 so the pattern breathes.",
+    "Do not gate the hand percussion; its decay carries the feel.",
+    "Check the groove with everything else muted — if it does not swing alone, no mix will save it."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "2:1",
+     "attack": "30 ms",
+     "gr": "2–3 dB"
+    }
+   },
+   "visual": {
+    "type": "delay-grid"
+   },
+   "why": "Swing lives in small timing offsets between the parts. Quantising removes those offsets and heavy compression removes the velocity differences that remain, so both of the usual tidying-up moves destroy exactly what makes the groove feel human.",
+   "watch": "A groove that is genuinely sloppy rather than swinging does need editing. The difference is whether the offsets are consistent.",
+   "related": [
+    "ab-the-bounce",
+    "ga-guitar-percussion-lock",
+    "w-edit-drums-keep-feel"
+   ]
+  },
+  {
+   "id": "ab-conversational-but-loud",
+   "q": "How do I keep an afrobeats vocal conversational and still loud?",
+   "aliases": [
+    "afrobeats vocal sits back",
+    "vocal too processed afrobeats",
+    "keep vocal natural but loud"
+   ],
+   "source": "leadvocal",
+   "intent": "upfront",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "short": "Compress for consistency, not for density, and make room at 2–4 kHz instead of raising it.",
+   "steps": [
+    "Compress to 3–5 dB only. Afrobeats vocals should not sound squashed like a rap vocal.",
+    "Cut 2 dB at 2–4 kHz on the keys, guitars and percussion to open a lane.",
+    "Keep the vocal fairly dry, with a short slap of 60–100 ms rather than a long reverb.",
+    "Leave the breaths and the conversational phrasing — that is the style.",
+    "Lift 1.5 dB at 180–250 Hz for chest so it feels close rather than loud."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "3:1",
+     "gr": "3–5 dB"
+    },
+    "eq": [
+     {
+      "f": 220,
+      "gain": 1.5,
+      "q": 0.9,
+      "type": "bell"
+     }
+    ],
+    "delay": {
+     "type": "slap",
+     "time": "80 ms",
+     "mix": "8–12%"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "The genre's vocal character is relaxed and close, which heavy compression destroys by making every syllable the same size. Carving space in the arrangement gets the same audibility without touching the performance's dynamics.",
+   "watch": "Too little compression and the quiet ad-libbed lines vanish under the log drum. Three decibels is the floor, not zero.",
+   "related": [
+    "ab-light-autotune",
+    "leadvocal-upfront",
+    "ab-cluttered-mids"
+   ]
+  },
+  {
+   "id": "ab-shakers-drive",
+   "q": "How do I mix afrobeats shakers so they drive the track?",
+   "aliases": [
+    "shaker mix afrobeats",
+    "shaker drives groove",
+    "shaker too quiet",
+    "afrobeats shaker"
+   ],
+   "source": "percussion",
+   "intent": "upfront",
+   "genres": [
+    "afrobeats",
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "High-pass hard, compress hard, pan off centre. The shaker is a rhythm instrument, not texture.",
+   "steps": [
+    "High-pass at 400–600 Hz. A shaker needs nothing below that.",
+    "Compress at 6:1 with 4–6 dB so every stroke lands at the same size.",
+    "Pan 25–45% off centre, opposite whatever else is in the top end.",
+    "Raise attack on a transient designer rather than boosting treble.",
+    "Automate it up 1 dB in the sections where it carries the groove alone."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 500,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "6:1",
+     "gr": "4–6 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A shaker's drive comes from the regularity of its stroke, not its level. Compression makes the pattern metronomic in loudness while the player's timing stays human, which is exactly the combination that pushes a track forward.",
+   "watch": "Compressed shakers raise the noise floor between strokes. Gate lightly if the recording is noisy.",
+   "related": [
+    "ab-hats-and-shakers",
+    "percussion-brighter",
+    "ga-shekere-masks-hats"
+   ]
+  },
+  {
+   "id": "ab-percussion-layers",
+   "q": "How do I mix layered afrobeats percussion without clutter?",
+   "aliases": [
+    "too many percussion layers",
+    "afrobeats percussion messy",
+    "layered percussion mix"
+   ],
+   "source": "percussion",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "One part per frequency band and one part per stereo position. Mute whatever will not fit.",
+   "steps": [
+    "Assign bands: congas in the low mids, shaker up top, bell in the presence range.",
+    "Give every part a different pan position; no two share a place.",
+    "High-pass everything except the congas at 300–500 Hz.",
+    "Bus them and compress the bus, not each part.",
+    "Mute each in turn. Anything you do not miss stays muted."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 400,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "gr": "2–4 dB"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "Percussion clutter is spatial before it is spectral. Six parts stacked in the centre fight even when each one is quiet; the same six spread across the field are heard as a single interlocking groove.",
+   "watch": "Filtering the congas as high as the shakers removes the thump that makes them drums.",
+   "related": [
+    "percussion-cleaner",
+    "ab-congas-bongos",
+    "ga-percussion-vs-programmed"
+   ]
+  },
+  {
+   "id": "ab-low-end-phone",
+   "q": "How do I get afrobeats low end right on phone speakers?",
+   "aliases": [
+    "low end disappears on phone",
+    "afrobeats on phone speaker",
+    "sub doesnt translate"
+   ],
+   "source": "808",
+   "intent": "brighter",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-trap"
+   ],
+   "short": "Saturate the sub so its harmonics carry the pitch. A phone cannot reproduce the fundamental at all.",
+   "steps": [
+    "Saturate the log drum or 808 until you can hear the note on a laptop speaker.",
+    "Check the second and third harmonics land in 100–300 Hz and are not being cut there.",
+    "Keep the kick's beater click at 3–5 kHz — that is what a phone uses for the beat.",
+    "Test on an actual phone, not a phone simulation plugin.",
+    "Do not raise the sub to compensate. It will only cost headroom."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": 1.5,
+      "q": 1,
+      "type": "bell"
+     },
+     {
+      "f": 4000,
+      "gain": 2,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A phone speaker rolls off steeply below about 400 Hz, so the fundamental of a 50 Hz note is simply absent. The ear reconstructs the missing pitch from its harmonics, which is why saturation makes sub audible where boosting it does nothing.",
+   "watch": "Cutting 200–300 Hz to clean up mud can remove the exact harmonics that were carrying the sub on small speakers.",
+   "related": [
+    "ab-log-drum",
+    "c-harmonics-low-end",
+    "c-check-different-speakers"
+   ]
+  },
+  {
+   "id": "ab-guitar-riff-all-song",
+   "q": "How do I mix a guitar riff that repeats the whole song?",
+   "aliases": [
+    "repetitive guitar riff",
+    "same riff all song",
+    "guitar loop gets boring"
+   ],
+   "source": "eguitar-clean",
+   "intent": "back",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "short": "Automate it rather than balancing it. A static level on a repeating part becomes wallpaper.",
+   "steps": [
+    "Set it low enough that it supports rather than leads, then ride it up 1–2 dB in the gaps.",
+    "Filter it differently between sections: brighter in the chorus, darker in the verse.",
+    "Duck it 2 dB under the vocal with a slow sidechain.",
+    "Pan it 30–50% off centre so it stops competing with the lead.",
+    "Vary its delay or reverb across the song so the space changes even though the part does not."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 120,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 3000,
+      "gain": -2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "The ear stops hearing anything that does not change. A riff repeating for three minutes at one level is inaudible by the second chorus, which producers usually treat by raising it — making it loud and still unnoticed.",
+   "watch": "In highlife and afrobeats the riff often is the hook. Check with the writer before pushing it back.",
+   "related": [
+    "hl-rhythm-guitar-masks-vocal",
+    "eguitar-clean-back",
+    "w-automate-not-set-forget"
+   ]
+  },
+  {
+   "id": "ab-light-autotune",
+   "q": "How do I mix afrobeats vocals with light autotune?",
+   "aliases": [
+    "subtle autotune",
+    "autotune sounds obvious",
+    "light pitch correction afrobeats"
+   ],
+   "source": "leadvocal",
+   "intent": "natural",
+   "genres": [
+    "afrobeats",
+    "rnb",
+    "gospel-urban"
+   ],
+   "short": "Slow the retune speed and lower the strength. Autotune is audible because of speed, not amount.",
+   "steps": [
+    "Set retune speed to 20–40 ms, not zero. Zero is what makes it sound robotic.",
+    "Set strength to 50–70% so the singer's own drift survives.",
+    "Set the correct key and scale; a wrong scale forces wrong notes and that is what people hear.",
+    "Fix the two or three worst notes by hand instead of raising the global strength.",
+    "Put the autotune before the compressor, so the compressor levels the corrected signal."
+   ],
+   "params": {},
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "The characteristic artefact is instant snapping between pitches, which no human voice does. Slowing the retune lets the voice slide into the note, so the correction lands but the gesture stays human.",
+   "watch": "Slow retune on a fast melismatic run smears the notes together. Automate it faster for those bars.",
+   "related": [
+    "ab-conversational-but-loud",
+    "w-tune-without-fake",
+    "gx-heavy-autotune"
+   ]
+  },
+  {
+   "id": "ab-adlibs-and-bgvs",
+   "q": "How do I mix afrobeats ad-libs and background vocals?",
+   "aliases": [
+    "afrobeats adlibs",
+    "bgvs afrobeats",
+    "background vocals afrobeats"
+   ],
+   "source": "adlib",
+   "intent": "wider",
+   "genres": [
+    "afrobeats",
+    "gospel-urban"
+   ],
+   "short": "Hard-pan the responses, keep the doubles centred, and duck both under the lead.",
+   "steps": [
+    "Split them: anything doubling the lead stays centre, anything answering it goes wide.",
+    "Pan the responses 70–100% out, alternating sides.",
+    "High-pass everything at 250–300 Hz.",
+    "Sidechain the whole group to duck 3 dB under the lead.",
+    "Give them more reverb and delay than the lead so they sit behind it."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 280,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "send": "25–40%"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "Afrobeats arrangements are conversational: the ad-libs answer the lead rather than thicken it. Panning them wide makes the call-and-response audible as a dialogue instead of a crowded centre.",
+   "watch": "Hard-panned ad-libs vanish on a single phone speaker. Keep anything that carries meaning nearer the centre.",
+   "related": [
+    "adlib-wider",
+    "adlib-back",
+    "ab-stacked-chorus"
+   ]
+  },
+  {
+   "id": "ab-cluttered-mids",
+   "q": "How do I stop an afrobeats mix cluttering in the mids?",
+   "aliases": [
+    "afrobeats mix cluttered",
+    "too much in the middle",
+    "afrobeats midrange crowded"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "short": "Count what lives in 300–800 Hz. In afrobeats it is usually the guitars, keys and congas all at once.",
+   "steps": [
+    "List every source with energy in 300–800 Hz and pick two to keep there.",
+    "High-pass the rest at 300–500 Hz; most of them lose nothing.",
+    "Pan the survivors apart so they are not stacked in the centre.",
+    "Check with the vocal soloed against the band — the vocal needs that band too.",
+    "Resist a bus cut. It dulls the whole record to fix three channels."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 400,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Afrobeats arrangements are dense with mid-range instruments by design — guitar, keys, congas and vocal all occupy the same two octaves. Deciding who is allowed in that band does more than any EQ curve applied after the fact.",
+   "watch": "Filtering everything leaves the mix brittle. Keep two sources with real low mids or the record goes hollow.",
+   "related": [
+    "gc-crowded-mids",
+    "mixbus-cleaner",
+    "ab-percussion-layers"
+   ]
+  },
+  {
+   "id": "ab-hats-and-shakers",
+   "q": "How do I mix hats and shakers together?",
+   "aliases": [
+    "hats and shaker clash",
+    "shaker masks hats",
+    "two top end percussion parts"
+   ],
+   "source": "hats",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats",
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "One of them owns 8–12 kHz. Low-pass the other and pan them apart.",
+   "steps": [
+    "Decide which carries the groove. In afrobeats it is usually the shaker.",
+    "Give the winner the air above 8 kHz; low-pass the other at 9 kHz.",
+    "Pan them at least 40% apart.",
+    "Compress the busier one so its loud strokes stop punching through.",
+    "If both still fight, one of them is doing nothing."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 9000,
+      "gain": -18,
+      "q": 0.7,
+      "type": "lp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "3–5 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Both are broadband noise peaking in the same octave, so unlike pitched instruments there is no fundamental to move apart. Bandwidth and position are the only tools available.",
+   "watch": "Low-passing hats below 8 kHz makes them sound like they are playing in the next room.",
+   "related": [
+    "ga-shekere-masks-hats",
+    "hats-fix-harsh",
+    "ab-shakers-drive"
+   ]
+  },
+  {
+   "id": "ab-drop-lands",
+   "q": "How do I make an afrobeats drop land?",
+   "aliases": [
+    "afrobeats drop",
+    "drop doesnt hit",
+    "make the drop bigger"
+   ],
+   "source": "mixbus",
+   "intent": "bigger",
+   "genres": [
+    "afrobeats",
+    "hiphop"
+   ],
+   "short": "Empty the bar before it. A drop is a contrast, and contrast is made by subtraction.",
+   "steps": [
+    "Strip the bar before the drop to almost nothing — filter the low end out entirely.",
+    "Bring the sub back at the drop with no ramp; the sudden return is the impact.",
+    "Widen the stereo image at the drop, which reads as size without costing headroom.",
+    "Add one element that was not there before rather than raising everything.",
+    "Keep the vocal's level constant across the boundary so the band change is what you hear."
+   ],
+   "params": {},
+   "visual": {
+    "type": "automation"
+   },
+   "why": "The limiter is already holding the loudest sections at the ceiling, so level added at a drop is taken straight back. Removing energy immediately before is the only way to increase the difference the ear perceives as impact.",
+   "watch": "Filtering the bar before too aggressively makes it sound like a mistake rather than a build.",
+   "related": [
+    "mixbus-punchier",
+    "hh-trap-drop",
+    "gc-final-chorus-lift"
+   ]
+  },
+  {
+   "id": "ab-congas-bongos",
+   "q": "How do I mix congas and bongos in afrobeats?",
+   "aliases": [
+    "conga mix",
+    "bongo mix",
+    "hand drums afrobeats"
+   ],
+   "source": "percussion",
+   "intent": "natural",
+   "genres": [
+    "afrobeats",
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "Let the congas keep their low mids, filter the bongos higher, and do not gate either.",
+   "steps": [
+    "High-pass congas at 120–180 Hz and bongos at 250–350 Hz.",
+    "Compress gently, 3:1 with 2–3 dB, and use a slow attack so the slap survives.",
+    "Pan them to different positions, as two players would sit.",
+    "Cut 2–3 dB at 400–600 Hz if they box up against the guitars.",
+    "Leave the ring. Hand drums ring, and gating it out makes them sound sampled."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 150,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 500,
+      "gain": -2.5,
+      "q": 1.5,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "attack": "20 ms",
+     "gr": "2–3 dB"
+    }
+   },
+   "visual": {
+    "type": "comp-attack",
+    "compare": true
+   },
+   "why": "Hand drums carry their character in the difference between an open tone and a slap, which is a transient and timbre difference rather than a level one. Fast compression flattens both and leaves a part that keeps time without saying anything.",
+   "watch": "High-passing congas above 200 Hz removes the open tone and leaves only slaps.",
+   "related": [
+    "ab-percussion-layers",
+    "ga-talking-drum",
+    "percussion-cleaner"
+   ]
+  },
+  {
+   "id": "ab-the-bounce",
+   "q": "How do I get the afrobeats bounce in the mix?",
+   "aliases": [
+    "afrobeats bounce",
+    "groove doesnt bounce",
+    "make it bounce",
+    "afrobeats feel"
+   ],
+   "source": "drumbus",
+   "intent": "punchier",
+   "genres": [
+    "afrobeats"
+   ],
+   "short": "Bounce is space between the hits. Shorten everything and stop filling the gaps.",
+   "steps": [
+    "Shorten the log drum and kick decays so there is silence between them.",
+    "Keep reverb short, under 1 second, and the sends low.",
+    "Compress with a slow attack and a release that recovers before the next beat.",
+    "High-pass the pads and keys so they stop filling the low-mid gaps.",
+    "Mute something. Bounce almost always appears when a sustained part leaves."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "3:1",
+     "attack": "30 ms",
+     "release": "tempo-synced",
+     "gr": "2–3 dB"
+    }
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "The ear reads bounce as the alternation between energy and silence. Anything sustained — a long reverb, a pad, an overlapping sub note — fills the silence, and without the silence there is no alternation left to feel.",
+   "watch": "Shortening everything can leave the track feeling empty rather than bouncy. Keep one sustained element for glue.",
+   "related": [
+    "ab-groove-swings",
+    "ab-log-drum",
+    "drumbus-fix-pumping"
+   ]
+  },
+  {
+   "id": "ab-keys-under-groove",
+   "q": "How do I mix keys and pads under a busy afrobeats groove?",
+   "aliases": [
+    "keys under groove",
+    "pads in afrobeats",
+    "keys clutter afrobeats"
+   ],
+   "source": "pad",
+   "intent": "back",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "short": "Filter both ends hard and let them fill only what the percussion leaves empty.",
+   "steps": [
+    "High-pass at 250–350 Hz and low-pass at 8–10 kHz.",
+    "Duck them 2–3 dB under the lead vocal and 1–2 dB under the log drum.",
+    "Pan them wide and leave the centre for the vocal and the groove.",
+    "Automate them up in the gaps between vocal phrases.",
+    "If the groove is dense, the keys should be barely conscious — mute to check they do something."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 300,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 9000,
+      "gain": -18,
+      "q": 0.7,
+      "type": "lp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "sidechain"
+   },
+   "why": "Afrobeats grooves leave very little spectral room between the sub and the percussion, so a sustained mid-range part has nowhere to sit without covering something. Filtering it into the narrow gap is the only way it adds harmony without adding clutter.",
+   "watch": "Filtering a pad this hard can remove the chord's root. Check the harmony still reads.",
+   "related": [
+    "pad-back",
+    "gc-pad-under-busy",
+    "ab-cluttered-mids"
+   ]
+  },
+  {
+   "id": "ab-amapiano-influenced",
+   "q": "How do I mix an amapiano-influenced afrobeats track?",
+   "aliases": [
+    "amapiano mix",
+    "amapiano influence",
+    "piano house afrobeats"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "afrobeats"
+   ],
+   "short": "The log drum leads and everything else serves it. Slower tempo means longer decays are affordable.",
+   "steps": [
+    "Build the balance around the log drum first, before the kick and before the vocal.",
+    "At 110–115 BPM you can afford longer reverb tails than afrobeats at 105 — use them.",
+    "Keep the percussion sparse and spacious; amapiano is defined by what it leaves out.",
+    "Soft-clip the log drum for drive rather than compressing it.",
+    "Keep the vocal relaxed and well behind the groove in attitude, not in level."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1–2 dB"
+    },
+    "reverb": {
+     "decay": "1.6–2.4 s",
+     "send": "15–22%"
+    }
+   },
+   "visual": {
+    "type": "levels"
+   },
+   "why": "Amapiano inverts the normal hierarchy: the log drum is the lead instrument and the kick is support. Mixing it with a conventional kick-first balance produces a track that is technically clean and stylistically wrong.",
+   "watch": "Published amapiano guides disagree on almost every number. Trust reference tracks over printed advice here.",
+   "related": [
+    "ab-log-drum",
+    "ab-the-bounce",
+    "c-reference-tracks"
+   ]
+  },
+  {
+   "id": "ab-stacked-chorus",
+   "q": "How do I mix an afrobeats chorus with stacked vocals?",
+   "aliases": [
+    "afrobeats chorus stacks",
+    "stacked hook afrobeats",
+    "chorus vocals afrobeats"
+   ],
+   "source": "harmony",
+   "intent": "bigger",
+   "genres": [
+    "afrobeats",
+    "gospel-urban"
+   ],
+   "short": "Bus the stack, compress it as one, and keep the lead on top of it rather than inside it.",
+   "steps": [
+    "Bus every stack layer; compress the bus at 4:1 with 4–6 dB.",
+    "Keep the lead centred and 3–4 dB above the stack.",
+    "Pan the stack wide and high-pass it at 180–220 Hz.",
+    "Dip the stack 2 dB at 3–5 kHz so the lead's consonants stay clear.",
+    "Use one reverb across the stack, not one per layer."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4–6 dB"
+    },
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 4000,
+      "gain": -2,
+      "q": 1.3,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "Bus compression gives the stack one shared envelope so it reads as a texture rather than a crowd. Keeping the lead above it preserves the conversational delivery the genre depends on even inside a big chorus.",
+   "watch": "Stacks that are too wide make the chorus collapse on a phone, which is where most of the audience is.",
+   "related": [
+    "gc-stacked-vocals",
+    "rb-vocal-stacks",
+    "harmony-glued"
+   ]
+  },
+  {
+   "id": "ab-samples-highlife-guitar",
+   "q": "How do I mix an afrobeats track that samples highlife guitar?",
+   "aliases": [
+    "highlife sample afrobeats",
+    "sampled guitar afrobeats",
+    "old guitar sample"
+   ],
+   "source": "eguitar-clean",
+   "intent": "glued",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "short": "Match the sample's era to the modern production, or lean into the difference deliberately.",
+   "steps": [
+    "Decide whether the sample should sound old or new, then commit to it.",
+    "If modern: high-pass at 150 Hz, lift 8 kHz, and remove the tape wobble.",
+    "If vintage: leave it, and darken the modern elements slightly to meet it.",
+    "Put the sample and the new drums in one short room reverb either way.",
+    "Duck the sample 2 dB under the vocal — old recordings have no space carved for one."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 150,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 8000,
+      "gain": 2,
+      "q": 0.7,
+      "type": "shelf"
+     }
+    ],
+    "reverb": {
+     "type": "room",
+     "decay": "0.7 s",
+     "send": "8–12%"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "A sample arrives already mixed, with its own room and its own era of top end. The two failure modes are leaving it unmatched so it sounds pasted in, and over-correcting it so it loses the character that made it worth sampling.",
+   "watch": "Clearing the sample matters more than mixing it. Check the rights before you spend an afternoon on this.",
+   "related": [
+    "hh-sampled-soul-loop",
+    "hl-interlocking-guitars",
+    "gc-switches-halfway"
+   ]
+  },
+  {
+   "id": "ab-club-system",
+   "q": "How do I mix afrobeats for a club system?",
+   "aliases": [
+    "club mix afrobeats",
+    "mix for a PA",
+    "sound system mix",
+    "club low end"
+   ],
+   "source": "mixbus",
+   "intent": "louder",
+   "genres": [
+    "afrobeats",
+    "hiphop"
+   ],
+   "short": "Mono the low end, keep real dynamics, and do not master as loud as a streaming release.",
+   "steps": [
+    "Everything below 120 Hz mono. Club rigs sum the subs, and stereo bass cancels.",
+    "Leave more dynamic range than a streaming master — a PA has no normalisation.",
+    "Check the mix on a single speaker and on headphones; a club has no sweet spot.",
+    "Keep the vocal 1–2 dB louder than you would for streaming; club systems are mid-shy.",
+    "Master around −9 to −7 LUFS for a club cut, separately from the streaming master."
+   ],
+   "params": {},
+   "visual": {
+    "type": "levels"
+   },
+   "why": "A club system reproduces sub at a level no studio monitor does, so low-end problems that are inaudible on your speakers become the whole room's problem. Mono below 120 Hz is the single change that protects against most of them.",
+   "watch": "A club master played on streaming will be turned down and sound flat. Keep the two cuts separate.",
+   "related": [
+    "c-low-end-mono",
+    "c-what-lufs",
+    "ab-low-end-phone"
+   ]
+  },
+  {
+   "id": "ab-no-real-chorus",
+   "q": "How do I mix an arrangement that has no real chorus?",
+   "aliases": [
+    "no chorus song",
+    "song has no sections",
+    "flat arrangement",
+    "repetitive structure"
+   ],
+   "source": "mixbus",
+   "intent": "natural",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "short": "Build the sections in the mix if the arrangement will not. Change one thing every sixteen bars.",
+   "steps": [
+    "Mark the song in sixteen-bar blocks and decide what changes in each.",
+    "Add or remove one element per block rather than raising levels.",
+    "Widen progressively across the song so it grows without getting louder.",
+    "Open a filter on a sustained part slowly across two minutes.",
+    "Hold one element back entirely until the last third."
+   ],
+   "params": {},
+   "visual": {
+    "type": "automation"
+   },
+   "why": "Many afrobeats arrangements are a single groove with variations rather than verse and chorus. The mix has to supply the sense of progression the arrangement does not, or the track feels like a long loop however good the groove is.",
+   "watch": "Over-automating a groove track makes it feel restless. Few changes, each clearly audible.",
+   "related": [
+    "gt-vamp-four-minutes",
+    "gw-six-minute-build",
+    "ab-guitar-riff-all-song"
+   ]
+  },
+  {
+   "id": "ab-feature-recorded-elsewhere",
+   "q": "How do I match a feature verse recorded somewhere else?",
+   "aliases": [
+    "feature sounds different",
+    "guest verse mismatch",
+    "two vocals different rooms"
+   ],
+   "source": "leadvocal",
+   "intent": "glued",
+   "genres": [
+    "afrobeats",
+    "hiphop",
+    "gospel-urban"
+   ],
+   "short": "Match the room first, then the tone, then the level. Most people do it in the wrong order.",
+   "steps": [
+    "Put both vocals through the same reverb and delay sends. Shared space matters most.",
+    "Match the low mids at 200–400 Hz before touching the top end.",
+    "Match the compression: same ratio and gain reduction, not the same threshold.",
+    "Only then match levels, and match them by perceived loudness, not by meter.",
+    "If the feature was recorded in a bright room, cut 3–4 kHz rather than boosting the other vocal."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4–6 dB"
+    },
+    "reverb": {
+     "send": "matched to the lead"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "The ear identifies two recordings as different places before it notices they are different tones. Putting both in the same reverb solves most of the mismatch, and the remaining tonal difference reads as two singers rather than two sessions.",
+   "watch": "If the feature arrived already processed, ask for the raw file before spending time matching a mixed one.",
+   "related": [
+    "hh-feature-different-room",
+    "gc-switches-halfway",
+    "leadvocal-natural"
+   ]
+  },
+  {
+   "id": "ab-master-for-streaming",
+   "q": "How do I master an afrobeats track for streaming?",
+   "aliases": [
+    "master afrobeats",
+    "streaming master",
+    "afrobeats loudness"
+   ],
+   "source": "mixbus",
+   "intent": "louder",
+   "genres": [
+    "afrobeats",
+    "highlife"
+   ],
+   "short": "−14 LUFS, −1 dBTP, and protect the sub. Loudness past that is given back by the platform.",
+   "steps": [
+    "Target −14 LUFS integrated with true peak at −1 dBTP.",
+    "Check the sub survives the limiter — it is the first thing to go.",
+    "Keep the low end mono below 120 Hz through the master chain.",
+    "Compare against two reference tracks at matched loudness.",
+    "Bounce a separate louder cut for club play rather than compromising this one."
+   ],
+   "params": {},
+   "visual": {
+    "type": "levels"
+   },
+   "why": "Every major platform normalises to roughly −14 LUFS, so a −8 LUFS master is played at the same volume as a −14 one and has simply lost its dynamics. The only thing a louder master buys is a flatter record.",
+   "watch": "Limiting hard on a log drum track crushes the sub first, which is the one thing the genre cannot lose.",
+   "related": [
+    "c-what-lufs",
+    "c-spotify-turns-down",
+    "ab-club-system"
+   ]
+  },
+  {
+   "id": "ab-vocal-sits-on-the-one",
+   "q": "How do I mix a vocal that lands behind the beat on purpose?",
+   "aliases": [
+    "lazy vocal timing",
+    "vocal behind the beat",
+    "vocal feels late",
+    "relaxed vocal timing"
+   ],
+   "source": "leadvocal",
+   "intent": "natural",
+   "genres": [
+    "afrobeats",
+    "rnb",
+    "highlife"
+   ],
+   "short": "Do not quantise it, and keep its reverb short so the lateness reads as feel rather than error.",
+   "steps": [
+    "Leave the timing alone. A vocal 20–40 ms behind the beat is the style, not a mistake.",
+    "Keep the reverb pre-delay short so the tail does not push it further back.",
+    "Use a slap delay timed to the beat so the late vocal still references the grid.",
+    "Compress with a fast attack so each entry is clearly defined despite being late.",
+    "Check against the hats — if the vocal and hats disagree about the beat, something is genuinely wrong."
+   ],
+   "params": {
+    "comp": {
+     "attack": "5 ms",
+     "ratio": "3:1",
+     "gr": "3–5 dB"
+    },
+    "delay": {
+     "type": "slap",
+     "time": "1/16",
+     "mix": "6–10%"
+    }
+   },
+   "visual": {
+    "type": "delay-grid"
+   },
+   "why": "Behind-the-beat phrasing is a deliberate relationship between the voice and the groove, and it only reads as intentional when the groove itself is tight. Quantising the vocal removes the tension that made the performance feel relaxed.",
+   "watch": "If the whole take drifts rather than sitting consistently late, that is sloppiness and does need editing.",
+   "related": [
+    "ab-groove-swings",
+    "ab-conversational-but-loud",
+    "w-edit-drums-keep-feel"
+   ]
+  },
+  {
+   "id": "hl-interlocking-guitars",
+   "q": "How do I mix interlocking highlife guitars?",
+   "aliases": [
+    "highlife guitars clash",
+    "two guitars interlocking",
+    "palm wine guitar mix",
+    "highlife guitar parts"
+   ],
+   "source": "eguitar-clean",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "Separate them in pan and in band, and never compress them into one texture.",
+   "steps": [
+    "High-pass both at 100–150 Hz. Neither needs low end.",
+    "Pan them 50–80% opposite each other.",
+    "Lift 2–3 kHz on one and 4–5 kHz on the other; cut each where the other was lifted.",
+    "Keep compression light, 3:1 and 2–3 dB. The picking dynamics are the arrangement.",
+    "Give them the same short reverb so they sound like two players in one room."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 120,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 2500,
+      "gain": 2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "3:1",
+     "gr": "2–3 dB"
+    },
+    "reverb": {
+     "type": "room",
+     "decay": "0.8 s",
+     "send": "10–15%"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "Highlife guitar parts interlock rhythmically in the same register, so the music is the conversation between them. Panning separates them in space and complementary EQ separates them in tone, which lets the ear follow both lines instead of hearing an average of the two.",
+   "watch": "Filtering hard enough to separate them can remove the woody body the style depends on.",
+   "related": [
+    "ga-guitar-percussion-lock",
+    "hl-rhythm-guitar-masks-vocal",
+    "hl-guitar-solo"
+   ]
+  },
+  {
+   "id": "hl-horn-section",
+   "q": "How do I mix a highlife horn section?",
+   "aliases": [
+    "highlife horns",
+    "horn section highlife",
+    "brass section mix",
+    "afro horns"
+   ],
+   "source": "horns",
+   "intent": "glued",
+   "genres": [
+    "highlife",
+    "gospel-african",
+    "afrobeats"
+   ],
+   "short": "One bus, one compressor, one room. A section is one instrument with several players.",
+   "steps": [
+    "Bus every horn and do all processing on the bus.",
+    "Compress the bus at 4:1 with 3–5 dB so they breathe together.",
+    "Pan as they would stand: trumpets wide, trombone and sax nearer centre.",
+    "Dynamic EQ at 2–5 kHz, cutting only on the loudest hits.",
+    "Give the bus one room reverb at 1–1.4 seconds."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "attack": "18 ms",
+     "gr": "3–5 dB"
+    },
+    "eq": [
+     {
+      "f": 3500,
+      "gain": -3.5,
+      "q": 2.5,
+      "type": "bell"
+     }
+    ],
+    "reverb": {
+     "type": "room",
+     "decay": "1.2 s",
+     "send": "15–22%"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "A real section plays into shared air and their dynamics move together. Bus compression and a shared reverb reproduce both, which is why individually processed horns never fuse however carefully they are balanced.",
+   "watch": "Bus compression lifts breath and key noise on every horn at once. Clean the takes first.",
+   "related": [
+    "horns-glued",
+    "hl-horns-not-harsh",
+    "horns-fix-harsh"
+   ]
+  },
+  {
+   "id": "hl-groove-stays-light",
+   "q": "How do I mix highlife drums so the groove stays light?",
+   "aliases": [
+    "highlife drums too heavy",
+    "light groove",
+    "highlife kit mix",
+    "drums too big highlife"
+   ],
+   "source": "drumbus",
+   "intent": "natural",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "Resist modern drum weight. Highlife lives on the rim, the hats and the ride, not the kick.",
+   "steps": [
+    "Keep the kick modest: high-pass at 50 Hz and do not boost below 80.",
+    "Bring the hats, ride and rim up. They carry the groove in this style.",
+    "Compress the bus lightly, 2:1 with 1–2 dB. Heavy glue makes it feel plodding.",
+    "Do not layer samples under the kick and snare.",
+    "Leave the kit's natural dynamics — the variation is the swing."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 50,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1–2 dB"
+    }
+   },
+   "visual": {
+    "type": "levels"
+   },
+   "why": "Modern drum treatment is built around a heavy kick and a compressed bus, both of which anchor a track to the floor. Highlife's feel comes from the upper kit staying mobile, so the same processing that makes hip-hop drums good makes highlife drums wrong.",
+   "watch": "Too light and the track has no foundation on a club system. Keep the kick present, just not large.",
+   "related": [
+    "ab-groove-swings",
+    "hl-percussion-vs-kit",
+    "drumbus-punchier"
+   ]
+  },
+  {
+   "id": "hl-walking-bass",
+   "q": "How do I mix a highlife bass line that walks?",
+   "aliases": [
+    "walking bass highlife",
+    "melodic bass mix",
+    "bass moves a lot",
+    "highlife bass"
+   ],
+   "source": "bass",
+   "intent": "smoother",
+   "genres": [
+    "highlife",
+    "gospel-trad"
+   ],
+   "short": "Compress for note-to-note consistency and add 800 Hz so the melody is followable.",
+   "steps": [
+    "Compress at 4:1 with 5–7 dB — a walking line needs every note the same size.",
+    "Add 2 dB at 700 Hz–1.5 kHz so the melodic movement is audible on small speakers.",
+    "High-pass at 40 Hz and cut any single note the room is reinforcing.",
+    "Keep it drier than the guitars so it stays as the anchor.",
+    "Clip-gain the few notes that still jump before compressing further."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "attack": "15 ms",
+     "release": "80 ms",
+     "gr": "5–7 dB"
+    },
+    "eq": [
+     {
+      "f": 1000,
+      "gain": 2,
+      "q": 1,
+      "type": "bell"
+     },
+     {
+      "f": 40,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "A walking bass is a melody, so the listener needs to follow its contour rather than just feel its weight. Consistency of level lets the ear track the line, and the mid-range lift makes the intervals audible where the fundamentals are not reproduced.",
+   "watch": "Too much 800 Hz–1.5 kHz and the bass starts competing with the guitars for the same lane.",
+   "related": [
+    "bass-fix-masked",
+    "bass-upfront",
+    "gt-bass-pick-and-slap"
+   ]
+  },
+  {
+   "id": "hl-percussion-vs-kit",
+   "q": "How do I mix highlife percussion against the kit?",
+   "aliases": [
+    "percussion and drums highlife",
+    "congas against kit",
+    "highlife percussion balance"
+   ],
+   "source": "percussion",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "gospel-african",
+    "afrobeats"
+   ],
+   "short": "Let the percussion lead and the kit support. That is the opposite of most genres.",
+   "steps": [
+    "Set the percussion level first, then bring the kit up under it.",
+    "High-pass the percussion at 200–300 Hz so it never fights the kick.",
+    "Pan the percussion wide and keep the kit centred.",
+    "Compress the kit more than the percussion, not less.",
+    "Share one room reverb so they sound like one ensemble."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 250,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "room",
+     "decay": "0.8 s",
+     "send": "10–15%"
+    }
+   },
+   "visual": {
+    "type": "levels"
+   },
+   "why": "In highlife the hand percussion carries the rhythmic identity and the kit keeps time underneath it. Balancing kit-first, as in rock or pop, produces a technically correct mix in which the thing that makes the music highlife is in the background.",
+   "watch": "Percussion-first balances can leave the track without a backbeat on big systems. Check the snare still lands.",
+   "related": [
+    "hl-groove-stays-light",
+    "ga-percussion-vs-programmed",
+    "ab-percussion-layers"
+   ]
+  },
+  {
+   "id": "hl-open-and-airy",
+   "q": "How do I keep a highlife mix open and airy?",
+   "aliases": [
+    "highlife mix crowded",
+    "keep mix open",
+    "airy highlife mix",
+    "mix feels closed"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "Fewer sustained parts, higher high-passes, and a lot more panning than feels necessary.",
+   "steps": [
+    "High-pass everything except kick and bass at 150–300 Hz.",
+    "Pan aggressively. A highlife record should feel like a band spread across a stage.",
+    "Keep sustained parts — organ, pads — low and filtered.",
+    "Keep reverbs short, under 1.2 seconds, so the space stays defined.",
+    "Mute one part. Openness almost always arrives when something leaves."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "decay": "0.9 s",
+     "send": "10–18%"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "Air in a mix is unused space, in frequency and in the stereo field. Highlife is an arrangement of many small parts, so the only way to keep it open is to give each one a narrow band and a distinct position rather than letting them all fill the middle.",
+   "watch": "A very wide mix collapses on a phone. Check the hook still works in mono.",
+   "related": [
+    "ab-cluttered-mids",
+    "hl-recorded-live-one-room",
+    "c-how-wide-too-wide"
+   ]
+  },
+  {
+   "id": "hl-twi-ga-vocals",
+   "q": "How do I mix highlife vocals sung in Twi or Ga?",
+   "aliases": [
+    "twi vocals mix",
+    "ga language vocals",
+    "african language vocal mix",
+    "local language vocals"
+   ],
+   "source": "leadvocal",
+   "intent": "upfront",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "Protect 1–4 kHz harder than you would in English. Tonal languages carry meaning in pitch and consonants.",
+   "steps": [
+    "Keep 1–4 kHz clear on the vocal and carve it out of the guitars and horns.",
+    "Do not over-de-ess; the consonants do more work here than in English.",
+    "Compress for consistency so quieter syllables are not lost.",
+    "Keep the vocal drier than an English-language pop mix would be.",
+    "Have a native speaker check the mix for intelligibility, not just the balance."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 2500,
+      "gain": 2,
+      "q": 1,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "4–6 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Tonal languages distinguish words by pitch contour as well as by consonant, so losing the upper mid-range costs more meaning than it would in English. The usual advice to tame 2–4 kHz for smoothness is actively harmful here.",
+   "watch": "Do not mix this by ear alone if you do not speak the language. Intelligibility is not something you can judge.",
+   "related": [
+    "leadvocal-upfront",
+    "hl-rhythm-guitar-masks-vocal",
+    "gt-lead-vs-twenty-voices"
+   ]
+  },
+  {
+   "id": "hl-recorded-live-one-room",
+   "q": "How do I fix phase on a highlife band recorded live?",
+   "aliases": [
+    "live band phase",
+    "one room phase problems",
+    "highlife live phase"
+   ],
+   "source": "mixbus",
+   "intent": "cleaner",
+   "genres": [
+    "highlife",
+    "gospel-trad"
+   ],
+   "short": "Mix it as one performance, not as separate channels. Fix phase, then barely touch anything.",
+   "steps": [
+    "Check polarity on every mic against the pair that sounds best. Half the problems are cancellation.",
+    "Set a balance with faders only, before any EQ. It will get you most of the way.",
+    "High-pass everything except the kick and bass — bleed is mostly low mids.",
+    "Use one reverb for everything, short, to tie the room together.",
+    "Resist per-channel EQ. Every move you make affects three other instruments."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 180,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "reverb": {
+     "type": "room",
+     "decay": "0.8 s",
+     "send": "8–14%"
+    }
+   },
+   "visual": {
+    "type": "chain-flow"
+   },
+   "why": "With heavy bleed, every channel contains most of the band, so EQing the guitar also EQs the drums in the guitar mic. The mix is closer to mastering a live recording than to building one from isolated sources.",
+   "watch": "Aggressive gating or editing on a one-room recording destroys the ensemble feel that justified recording it that way.",
+   "related": [
+    "gt-live-drum-bleed",
+    "hl-open-and-airy",
+    "c-fix-phase-two-mics"
+   ]
+  },
+  {
+   "id": "hl-rhythm-guitar-masks-vocal",
+   "q": "How do I stop the rhythm guitar masking the vocal?",
+   "aliases": [
+    "guitar covers vocal",
+    "rhythm guitar too loud",
+    "guitar fights the singer"
+   ],
+   "source": "eguitar-clean",
+   "intent": "back",
+   "genres": [
+    "highlife",
+    "gospel-african",
+    "afrobeats"
+   ],
+   "short": "Cut 2–4 kHz on the guitar and duck it under the vocal. Lowering it loses the part.",
+   "steps": [
+    "Cut 2–3 dB at 2–4 kHz on the guitar — the vocal's consonant band.",
+    "Sidechain it to duck 2 dB whenever the vocal is present.",
+    "Pan it further off centre, 40–60%.",
+    "High-pass it at 150 Hz so it is not also competing underneath.",
+    "Automate it back up in the instrumental sections."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 3000,
+      "gain": -2.5,
+      "q": 1.2,
+      "type": "bell"
+     },
+     {
+      "f": 150,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "sidechain"
+   },
+   "why": "A clean guitar's pick attack and a vocal's consonants occupy the same narrow band, so they mask each other precisely. Removing the overlap keeps the guitar's level and its rhythmic function while the words come through.",
+   "watch": "The riff is often the hook in highlife. Duck it rather than permanently lowering it.",
+   "related": [
+    "hl-interlocking-guitars",
+    "eguitar-clean-back",
+    "hl-twi-ga-vocals"
+   ]
+  },
+  {
+   "id": "hl-guitar-solo",
+   "q": "How do I mix a highlife guitar solo?",
+   "aliases": [
+    "guitar solo mix",
+    "lead guitar highlife",
+    "solo doesnt cut through"
+   ],
+   "source": "eguitar-clean",
+   "intent": "upfront",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "Narrow it to the centre, add a slap delay, and duck everything else rather than raising it.",
+   "steps": [
+    "Move the solo guitar toward the centre for its section only, then pan it back.",
+    "Add a slap delay of 80–140 ms, low in the mix, for size without reverb wash.",
+    "Duck the rhythm guitars and keys 2 dB for the solo.",
+    "Lift 2 dB at 2–3 kHz for the pick definition.",
+    "Automate it back down the moment the vocal returns."
+   ],
+   "params": {
+    "delay": {
+     "type": "slap",
+     "time": "110 ms",
+     "mix": "10–15%"
+    },
+    "eq": [
+     {
+      "f": 2500,
+      "gain": 2,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A solo takes the lead vocal's role for its duration, so it needs the lead vocal's treatment: centre, present and with room made for it. Treating it as just a louder rhythm guitar leaves it sounding like an accompaniment that got loud.",
+   "watch": "Panning a part during a song is audible if done abruptly. Move it over a bar.",
+   "related": [
+    "hl-interlocking-guitars",
+    "hl-rhythm-guitar-masks-vocal",
+    "leadvocal-upfront"
+   ]
+  },
+  {
+   "id": "hl-horns-not-harsh",
+   "q": "How do I stop highlife horns sounding harsh?",
+   "aliases": [
+    "horns too bright highlife",
+    "brass is harsh",
+    "horns hurt",
+    "highlife brass harsh"
+   ],
+   "source": "horns",
+   "intent": "smoother",
+   "genres": [
+    "highlife",
+    "gospel-african"
+   ],
+   "short": "Dynamic EQ at 2–5 kHz, triggered only on the loud hits, plus a real room.",
+   "steps": [
+    "Dynamic EQ on the horn bus cutting 3–5 dB at 2–5 kHz, on peaks only.",
+    "Slow the compressor attack to 15–20 ms so it stops clamping the body.",
+    "Add a room reverb; dry brass is always harsher than brass in a space.",
+    "Tape saturation rounds the top where EQ only removes it.",
+    "Next session, move the mic off-axis — it is warmer for brass."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 3500,
+      "gain": -4,
+      "q": 2.5,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "attack": "18 ms"
+    },
+    "reverb": {
+     "type": "room",
+     "decay": "1.2 s",
+     "send": "15–20%"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "Brass gets brighter the harder it is played, so harshness exists only in the loudest bars. A static cut dulls the quiet passages to solve a problem they never had.",
+   "watch": "Dulling horns too far removes the brightness that makes a section sound celebratory.",
+   "related": [
+    "hl-horn-section",
+    "horns-fix-harsh",
+    "c-dynamic-eq"
+   ]
+  },
+  {
+   "id": "hl-song-modulates",
+   "q": "How do I mix a highlife song that modulates?",
+   "aliases": [
+    "highlife key change",
+    "modulation highlife",
+    "song changes key"
+   ],
+   "source": "mixbus",
+   "intent": "bigger",
+   "genres": [
+    "highlife",
+    "gospel-trad"
+   ],
+   "short": "Thin the bar before the change. The pitch rise already supplies the energy.",
+   "steps": [
+    "Drop the arrangement for the two bars before the modulation.",
+    "Open a 1 dB high shelf on the mix bus from the new key onward.",
+    "Add one element at the change rather than raising everything.",
+    "Re-check the bass — a modulated line can hit a different room resonance.",
+    "Widen slightly after the change, never before."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 10000,
+      "gain": 1,
+      "q": 0.7,
+      "type": "shelf"
+     }
+    ]
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "A key change raises pitch, which the ear already reads as a lift. Adding level on top makes it loud instead of higher, and the limiter removes most of the gain anyway.",
+   "watch": "A modulated bass line often wakes a room mode that was silent in the original key. Check the low end after.",
+   "related": [
+    "gc-key-change",
+    "hl-walking-bass",
+    "c-find-a-resonance"
+   ]
+  },
+  {
+   "id": "hl-congas-and-claves",
+   "q": "How do I mix congas and claves in highlife?",
+   "aliases": [
+    "clave mix",
+    "congas and clave",
+    "wood percussion mix"
+   ],
+   "source": "percussion",
+   "intent": "natural",
+   "genres": [
+    "highlife",
+    "gospel-african",
+    "afrobeats"
+   ],
+   "short": "The clave is a timekeeper, so keep it dry, centred and consistent. The congas can move.",
+   "steps": [
+    "Keep the clave near the centre, dry, and compressed at 6:1 so every strike is identical.",
+    "High-pass the clave at 500 Hz — it is all upper mid.",
+    "Pan the congas wide and leave them more dynamic.",
+    "Cut 2 dB at 2–3 kHz on the congas so the clave's crack stays clear.",
+    "Do not reverb the clave. It should feel like it is in the room with you."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 500,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "6:1",
+     "gr": "4–6 dB"
+    }
+   },
+   "visual": {
+    "type": "stereo-field"
+   },
+   "why": "The clave defines the rhythmic cycle everything else is measured against, so it has to be unambiguous in time and position. Congas decorate that cycle and can afford the dynamics and width that would make the clave unreliable.",
+   "watch": "A compressed clave with a noisy recording pulls up room tone between strikes. Gate it lightly.",
+   "related": [
+    "hl-percussion-vs-kit",
+    "ab-congas-bongos",
+    "percussion-cleaner"
+   ]
+  },
+  {
+   "id": "hl-warm-not-old",
+   "q": "How do I make highlife sound warm without sounding old?",
+   "aliases": [
+    "warm but modern highlife",
+    "highlife sounds dated",
+    "modern highlife sound"
+   ],
+   "source": "mixbus",
+   "intent": "brighter",
+   "genres": [
+    "highlife"
+   ],
+   "short": "Keep the mid-range character, modernise the low end and add air above 10 kHz.",
+   "steps": [
+    "Tighten and extend the low end; vagueness down there is what dates a record.",
+    "Add a 1.5 dB shelf above 10 kHz for air the older chain never captured.",
+    "Leave the 200–800 Hz balance alone. That is the warmth and the genre.",
+    "Use tape saturation rather than EQ for the warmth you want to keep.",
+    "Do not over-compress. The dynamic range is part of why it sounds like a band."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 11000,
+      "gain": 1.5,
+      "q": 0.7,
+      "type": "shelf"
+     },
+     {
+      "f": 300,
+      "gain": -1.5,
+      "q": 1.1,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "What reads as dated is a loose low end and a rolled-off top, both limits of the old recording chain rather than aesthetic choices. The mid-range balance was deliberate, and flattening it is what turns a modernised highlife record into a generic one.",
+   "watch": "Adding air to an old recording also raises its tape hiss. De-noise before you shelf.",
+   "related": [
+    "gt-modern-without-losing-church",
+    "hl-older-audience-vinyl",
+    "mixbus-louder"
+   ]
+  },
+  {
+   "id": "hh-tune-the-808",
+   "q": "How do I tune my 808 to the song?",
+   "aliases": [
+    "tune 808",
+    "808 out of tune",
+    "what key is my 808",
+    "808 clashes with the beat"
+   ],
+   "source": "808",
+   "intent": "cleaner",
+   "genres": [
+    "hiphop",
+    "gospel-trap",
+    "afrobeats"
+   ],
+   "short": "Find its pitch with a tuner, then play it as a bass line. Tuning beats EQ every time.",
+   "steps": [
+    "Put a tuner on the 808 and play it alone to find its actual pitch.",
+    "Transpose the sample so its root matches the key, then play the line from there.",
+    "Check the glide between notes; a portamento that is too slow blurs the pitch.",
+    "If the sample has a pitch envelope, flatten it so the sustained part is the note.",
+    "Only after tuning should you touch EQ. Most 808 mud is detuning, not frequency."
+   ],
+   "params": {},
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "An 808 is a tuned sine with a short click. If its pitch disagrees with the harmony, the beating between it and the bass of the chord produces exactly the low-end wobble that people try to EQ away — and no filter removes a tuning problem.",
+   "watch": "Transposing a sample a long way changes its decay length. Re-check the note lengths after tuning.",
+   "related": [
+    "808-bigger",
+    "808-tighter",
+    "hh-808-on-small-speakers"
+   ]
+  },
+  {
+   "id": "hh-every-word-clear",
+   "q": "How do I mix a rap vocal so every word is clear?",
+   "aliases": [
+    "rap vocal clarity",
+    "cant hear the words",
+    "rap intelligibility",
+    "vocal clarity hip hop"
+   ],
+   "source": "rapvocal",
+   "intent": "upfront",
+   "genres": [
+    "hiphop",
+    "gospel-trap",
+    "gospel-urban"
+   ],
+   "short": "Heavy compression plus a carved 2–4 kHz lane in the beat. Clarity is a space problem.",
+   "steps": [
+    "Compress to 6–10 dB so no syllable is quieter than any other.",
+    "Cut 2–3 dB at 2–4 kHz on the beat — hats, synths and sampled loops.",
+    "Lift 2–3 dB at 2–4 kHz on the vocal, the band you just cleared.",
+    "Keep it nearly dry. Reverb is the fastest way to lose consonants.",
+    "De-ess after the compressor and the presence lift, not before."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "6:1",
+     "attack": "3 ms",
+     "release": "40 ms",
+     "gr": "6–10 dB"
+    },
+    "eq": [
+     {
+      "f": 3000,
+      "gain": 2.5,
+      "q": 1,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "Intelligibility lives almost entirely in 2–4 kHz, and a dense beat fills that band with hats and synths. Making the vocal louder raises the whole band; clearing the beat changes the ratio, which is what the ear actually uses.",
+   "watch": "Lifting 2–4 kHz on the vocal without cutting it elsewhere just makes the mix harsh.",
+   "related": [
+    "rapvocal-upfront",
+    "hh-vocal-over-loud-beat",
+    "leadvocal-louder"
+   ]
+  },
+  {
+   "id": "hh-hats-dont-stab",
+   "q": "How do I mix trap hats so they don't stab?",
+   "aliases": [
+    "trap hats harsh",
+    "hats too sharp",
+    "hats stab",
+    "hat rolls painful"
+   ],
+   "source": "hats",
+   "intent": "smoother",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "short": "Fix the velocities and the layer count first. The harshness is additive, not spectral.",
+   "steps": [
+    "Count the hat layers. Three samples in the same band is the usual cause.",
+    "Lower the velocity on the off-beat and rolled hits by 15–25.",
+    "Cut 3–4 dB at 6–9 kHz on the busiest layer only.",
+    "Put a de-esser on the hat bus tuned to 7 kHz rather than a static cut.",
+    "Compress the bus lightly, 2:1 and 1–2 dB, after the velocities are right."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 7500,
+      "gain": -3.5,
+      "q": 2.2,
+      "type": "bell"
+     }
+    ],
+    "comp": {
+     "ratio": "2:1",
+     "gr": "1–2 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "Hat noise is broadband, so layers add energy across the whole top end rather than at one frequency. The level climbs faster than any single layer suggests, which is why cutting one band never quite fixes it.",
+   "watch": "Over-cutting here dulls the vocal consonants too, since they share the band.",
+   "related": [
+    "hats-fix-harsh",
+    "hh-hat-roll",
+    "gx-triplet-hat-rolls"
+   ]
+  },
+  {
+   "id": "hh-snare-cuts-through",
+   "q": "How do I make a trap snare cut through?",
+   "aliases": [
+    "trap snare weak",
+    "snare doesnt cut",
+    "clap doesnt cut through",
+    "snare in trap"
+   ],
+   "source": "snare",
+   "intent": "upfront",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "short": "Layer a clap for the body and a snare for the crack, then shape the transient.",
+   "steps": [
+    "Layer two sources: one with body at 180–250 Hz, one with crack at 4–7 kHz.",
+    "Align their transients exactly or they will flam.",
+    "Transient designer: attack +3 to +6 on the combined bus.",
+    "Cut 3–4 dB at 400–600 Hz where layered snares box up.",
+    "Add a short reverb, under 0.6 s, for size without losing the attack."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 500,
+      "gain": -3.5,
+      "q": 2,
+      "type": "bell"
+     },
+     {
+      "f": 6000,
+      "gain": 2,
+      "q": 1.2,
+      "type": "bell"
+     }
+    ],
+    "reverb": {
+     "decay": "0.5 s",
+     "send": "10–15%"
+    }
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "No single trap snare sample has both weight and crack, because the two live two octaves apart and samples are recorded for one or the other. Layering supplies both; aligning the transients is what stops it sounding like two hits.",
+   "watch": "Two layers whose transients are even two milliseconds apart sound like a flam, not a bigger snare.",
+   "related": [
+    "snare-punchier",
+    "snare-bigger",
+    "w-layer-two-kicks"
+   ]
+  },
+  {
+   "id": "hh-vocal-over-loud-beat",
+   "q": "How do I mix a rap vocal over a loud beat?",
+   "aliases": [
+    "beat too loud for vocal",
+    "vocal buried in beat",
+    "two track beat too loud"
+   ],
+   "source": "rapvocal",
+   "intent": "upfront",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "short": "Duck the beat under the vocal. If the beat is a two-track you cannot carve it any other way.",
+   "steps": [
+    "Sidechain the beat to the vocal, 2–3 dB, with a 150–250 ms release.",
+    "Use a dynamic EQ on the beat cutting 2–4 kHz only when the vocal is present.",
+    "Compress the vocal harder, 6–10 dB, so it stays consistently above.",
+    "Keep the vocal dry; reverb puts it behind the beat again.",
+    "If the beat has stems, carve properly instead and skip all of this."
+   ],
+   "params": {
+    "comp": {
+     "gr": "2–3 dB ducking",
+     "release": "200 ms"
+    },
+    "eq": [
+     {
+      "f": 3000,
+      "gain": -2.5,
+      "q": 1.3,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "sidechain"
+   },
+   "why": "A mastered two-track beat has no separable elements, so the only available move is to change its level or tone while the vocal is sounding. Frequency-selective ducking does that without the whole beat audibly dipping.",
+   "watch": "Full-band ducking on a loud beat is very audible. Keep it to the vocal's band.",
+   "related": [
+    "hh-beat-as-two-track",
+    "hh-every-word-clear",
+    "rapvocal-upfront"
+   ]
+  },
+  {
+   "id": "hh-trap-drop",
+   "q": "How do I mix a trap drop?",
+   "aliases": [
+    "trap drop mix",
+    "drop doesnt hit trap",
+    "808 drop"
+   ],
+   "source": "mixbus",
+   "intent": "bigger",
+   "genres": [
+    "hiphop",
+    "gospel-trap"
+   ],
+   "short": "Filter the low end out of the bar before, then bring it back with no ramp.",
+   "steps": [
+    "High-pass the whole mix at 200–400 Hz for the bar before the drop.",
+    "Restore the full range at the drop instantly — no automated ramp.",
+    "Add a reverse cymbal or riser only if the arrangement is thin without one.",
+    "Widen at the drop, which reads as size without costing headroom.",
+    "Keep the vocal level constant across the boundary."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 300,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "automation"
+   },
+   "why": "The ear measures the drop against the moment immediately before it, and the limiter prevents the drop itself from getting louder. Removing the low end beforehand widens that gap by several perceived decibels at no cost.",
+   "watch": "Filtering for more than two bars makes the build feel like a radio edit.",
+   "related": [
+    "ab-drop-lands",
+    "mixbus-punchier",
+    "gc-final-chorus-lift"
+   ]
+  },
+  {
+   "id": "hh-808-on-small-speakers",
+   "q": "How do I stop my 808 disappearing on small speakers?",
+   "aliases": [
+    "808 not audible on laptop",
+    "808 disappears on phone",
+    "sub doesnt translate hip hop"
+   ],
+   "source": "808",
+   "intent": "brighter",
+   "genres": [
+    "hiphop",
+    "gospel-trap",
+    "afrobeats"
+   ],
+   "short": "Saturate it so its harmonics carry the note. The fundamental is not reproduced at all.",
+   "steps": [
+    "Saturate until the note is audible on a laptop speaker with the sub-bass gone.",
+    "Make sure 100–300 Hz is not being cut on the 808 to fix mud elsewhere.",
+    "Tune it. An out-of-tune 808 is unidentifiable however loud its harmonics are.",
+    "Keep a clean parallel path for the sub so monitors and clubs still get it.",
+    "Test on an actual phone before deciding you are finished."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 200,
+      "gain": 1.5,
+      "q": 1,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "eq-curve"
+   },
+   "why": "The ear reconstructs a missing fundamental from its harmonic series, so a 50 Hz note is heard through its energy at 100, 150 and 200 Hz. That is why saturation adds audible sub on a phone and a 40 Hz boost adds none.",
+   "watch": "The harmonics that make the 808 translate are in the same band as mix mud. Cut mud elsewhere.",
+   "related": [
+    "ab-low-end-phone",
+    "808-bigger",
+    "c-harmonics-low-end"
+   ]
+  },
+  {
+   "id": "rb-vocal-stacks",
+   "q": "How do I mix R&B vocal stacks?",
+   "aliases": [
+    "rnb stacks",
+    "layered rnb vocals",
+    "r&b harmony stack",
+    "vocal stack mix rnb"
+   ],
+   "source": "harmony",
+   "intent": "glued",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "short": "Bus them, compress them hard as a group, and pan by interval so the chord stays readable.",
+   "steps": [
+    "Route every layer to one bus; do all EQ and compression there.",
+    "Compress the bus at 4:1 with 5–8 dB so individual voices stop being identifiable.",
+    "Pan by interval: the lowest harmony nearest centre, the highest hardest out.",
+    "High-pass the bus at 180–220 Hz so eight voices do not crowd the low mids.",
+    "Dip 2–3 dB at 3–5 kHz so the lead keeps its presence."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "4:1",
+     "gr": "5–8 dB"
+    },
+    "eq": [
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 4000,
+      "gain": -2.5,
+      "q": 1.3,
+      "type": "bell"
+     }
+    ]
+   },
+   "visual": {
+    "type": "layering"
+   },
+   "why": "A stack works when you hear a chord rather than a count of singers. Bus compression gives every layer one envelope and panning by pitch lets the ear follow each voice to its own place, so the harmony stays legible while the individual takes disappear.",
+   "watch": "Compressing the bus pulls up the breath on every layer at once. Clean them before you compress.",
+   "related": [
+    "harmony-glued",
+    "gc-stacked-vocals",
+    "rb-harmonies-blend"
+   ]
+  },
+  {
+   "id": "rb-warm-but-tight",
+   "q": "How do I get R&B low end warm but tight?",
+   "aliases": [
+    "rnb low end",
+    "warm tight bass rnb",
+    "r&b bass sound",
+    "low end warmth"
+   ],
+   "source": "bass",
+   "intent": "tighter",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "short": "Two compressors and saturation rather than a low-end boost. Warmth is harmonics, tightness is control.",
+   "steps": [
+    "Compressor one slow, 3:1 and 3 dB; compressor two fast, 4:1 and 3 dB.",
+    "Add tube saturation for the harmonics that read as warmth.",
+    "Lift 1.5 dB at 80–120 Hz, not below. Below 60 Hz adds size, not warmth.",
+    "High-pass at 30 Hz and keep everything under 120 Hz mono.",
+    "Sidechain 1–2 dB to the kick — enough to separate, not enough to pump."
+   ],
+   "params": {
+    "comp": {
+     "ratio": "3:1 then 4:1",
+     "gr": "3 dB each"
+    },
+    "eq": [
+     {
+      "f": 100,
+      "gain": 1.5,
+      "q": 0.9,
+      "type": "bell"
+     },
+     {
+      "f": 30,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "comp-envelope"
+   },
+   "why": "Warmth and tightness pull in opposite directions if you treat both as level: more low end is warmer and looser. Saturation supplies warmth as harmonic content rather than energy, which leaves the compressors free to do only the tightening.",
+   "watch": "Too much saturation turns a warm bass into a distorted one, and it is hard to hear the line being crossed.",
+   "related": [
+    "bass-tighter",
+    "bass-fix-muddy",
+    "c-what-saturation-adds"
+   ]
+  },
+  {
+   "id": "rb-harmonies-blend",
+   "q": "How do I make harmonies blend with the lead instead of competing?",
+   "aliases": [
+    "harmonies compete with lead",
+    "blend harmonies",
+    "rnb harmony balance"
+   ],
+   "source": "harmony",
+   "intent": "back",
+   "genres": [
+    "rnb",
+    "gospel-urban",
+    "gospel-contemporary"
+   ],
+   "short": "Darker, wider, more compressed and further back than the lead. Every parameter, not just level.",
+   "steps": [
+    "Roll off 2–3 dB above 8 kHz on the harmony bus.",
+    "High-pass the harmonies higher than the lead: 200 Hz against 80.",
+    "Compress them harder, 5–8 dB, so they become a flat bed.",
+    "Give them a longer reverb than the lead.",
+    "Pan them wide and keep the lead alone in the centre."
+   ],
+   "params": {
+    "eq": [
+     {
+      "f": 8000,
+      "gain": -2.5,
+      "q": 0.7,
+      "type": "shelf"
+     },
+     {
+      "f": 200,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     }
+    ],
+    "comp": {
+     "ratio": "4:1",
+     "gr": "5–8 dB"
+    }
+   },
+   "visual": {
+    "type": "eq-mask",
+    "compare": true
+   },
+   "why": "The lead and its harmonies are the same voice singing the same words, so they mask perfectly and no single parameter separates them. Changing all of them a little — tone, width, dynamics, space — adds up to a clear hierarchy without any one move being audible.",
+   "watch": "Darkening harmonies too far makes the words unintelligible, which matters when they carry the hook.",
+   "related": [
+    "harmony-back",
+    "rb-vocal-stacks",
+    "gt-lead-vs-twenty-voices"
+   ]
+  },
+  {
+   "id": "rb-intimate-reverb",
+   "q": "How do I get R&B reverb to feel intimate?",
+   "aliases": [
+    "intimate reverb",
+    "close reverb rnb",
+    "reverb without distance",
+    "small reverb vocal"
+   ],
+   "source": "leadvocal",
+   "intent": "natural",
+   "genres": [
+    "rnb",
+    "gospel-urban"
+   ],
+   "short": "Short decay, long pre-delay, and roll the top off the return. Intimacy is a small bright room, heard late.",
+   "steps": [
+    "Use a room or small plate, 0.6–1.1 s, not a hall.",
+    "Set pre-delay to 30–50 ms so the dry voice always arrives clearly first.",
+    "High-pass the return at 400 Hz and low-pass at 6–8 kHz.",
+    "Keep the send low, 8–15%, and let a slap delay do some of the work.",
+    "Duck the return 3 dB under the dry vocal."
+   ],
+   "params": {
+    "reverb": {
+     "type": "room",
+     "decay": "0.9 s",
+     "predelay": "40 ms",
+     "send": "10–15%"
+    },
+    "eq": [
+     {
+      "f": 400,
+      "gain": -18,
+      "q": 0.7,
+      "type": "hp"
+     },
+     {
+      "f": 7000,
+      "gain": -18,
+      "q": 0.7,
+      "type": "lp"
+     }
+    ]
+   },
+   "visual": {
+    "type": "reverb-tail"
+   },
+   "why": "A long pre-delay keeps the dry voice in front and places the room behind it, which the ear reads as someone close to you in a space — rather than someone far away in one. Short decay and a filtered return keep that space small.",
+   "watch": "Pre-delay longer than about 60 ms starts being heard as a separate echo rather than as room.",
+   "related": [
+    "c-predelay",
+    "gw-reverb-for-ballad",
+    "leadvocal-back"
+   ]
+  }
+ ]
+}

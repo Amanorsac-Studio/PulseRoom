@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22",
+ "generated": "2026-10-23",
  "count": 1000,
  "questions": [
   {
@@ -10478,45 +10478,12 @@
    "status": "answered"
   },
   {
-   "id": "predelay-concept",
-   "q": "What is pre-delay and what should I set it to?",
-   "aliases": [
-    "pre delay explained",
-    "what does predelay do",
-    "reverb predelay setting"
-   ],
-   "source": "concept",
-   "intent": "learn",
-   "genres": [
-    "all"
-   ],
-   "bucket": "answered",
-   "status": "answered"
-  },
-  {
    "id": "eq-masking-concept",
    "q": "What is masking and how do I hear it?",
    "aliases": [
     "frequency masking",
     "instruments fighting",
     "why can't I hear an instrument"
-   ],
-   "source": "concept",
-   "intent": "learn",
-   "genres": [
-    "all"
-   ],
-   "bucket": "answered",
-   "status": "answered"
-  },
-  {
-   "id": "low-end-mono",
-   "q": "Should my low end be mono?",
-   "aliases": [
-    "mono bass",
-    "bass in stereo",
-    "low frequency mono",
-    "mono below 120"
    ],
    "source": "concept",
    "intent": "learn",
@@ -15565,6 +15532,38 @@
     "all",
     "hiphop",
     "afrobeats"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-how-a-deesser-works",
+   "q": "What is a de-esser actually doing?",
+   "aliases": [
+    "how de-essers work",
+    "de-esser explained",
+    "what does a deesser do"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
+   ],
+   "bucket": "answered",
+   "status": "answered"
+  },
+  {
+   "id": "c-does-the-daw-matter",
+   "q": "Does it matter which DAW I mix in?",
+   "aliases": [
+    "daw sound difference",
+    "does pro tools sound better",
+    "daw summing"
+   ],
+   "source": "concept",
+   "intent": "learn",
+   "genres": [
+    "all"
    ],
    "bucket": "answered",
    "status": "answered"

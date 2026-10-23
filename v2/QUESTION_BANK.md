@@ -1,6 +1,6 @@
 # PulseRoom 2.0 — Question Bank
 
-Generated 2026-10-22 by `v2/build-question-bank.js`. **1000 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
+Generated 2026-10-23 by `v2/build-question-bank.js`. **1000 questions.** This is the backlog: every entry has its final id, question text and search aliases. An answer is written against each one, in batches, and validated by `v2/validate.js` before it ships.
 
 **1000 of them are written.** A bullet marked ✓ has a finished, validated answer in `v2/data/`; the rest are scheduled.
 
@@ -1804,12 +1804,8 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **1000 questions.** This is
   `w-consistent-across-album` · learn
 - **How do I archive a project properly?**  
   `w-archive-a-project` · learn
-- **What is pre-delay and what should I set it to?**  
-  `predelay-concept` · learn
 - **What is masking and how do I hear it?**  
   `eq-masking-concept` · learn
-- **Should my low end be mono?**  
-  `low-end-mono` · learn
 - **What are formants and why do they matter?**  
   `c-formants` · learn
 - **Why does tuned vocal sound artificial even on slow settings?**  
@@ -1956,4 +1952,8 @@ Generated 2026-10-22 by `v2/build-question-bank.js`. **1000 questions.** This is
   `w-dealing-with-plugin-latency` · learn
 - **How do I decide what to charge for a mix?**  
   `w-knowing-what-to-charge` · learn
+- **What is a de-esser actually doing?**  
+  `c-how-a-deesser-works` · learn
+- **Does it matter which DAW I mix in?**  
+  `c-does-the-daw-matter` · learn
 
