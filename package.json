@@ -4,7 +4,7 @@
   "version": "1.2.0",
   "description": "Reverb & delay time calculator with EQ, compression and mixing guides for music producers",
   "main": "main.js",
-  "author": "PulseRoom",
+  "author": "Amanorsac Studio",
   "license": "MIT",
   "scripts": {
     "start": "node start.js",
@@ -52,7 +52,8 @@
       "signtoolOptions": {
         "signingHashAlgorithms": [
           "sha256"
-        ]
+        ],
+        "publisherName": "Amanorsac Studio"
       }
     },
     "mac": {
@@ -82,7 +83,6 @@
       "oneClick": false,
       "perMachine": true,
       "allowToChangeInstallationDirectory": false,
-      "installerIcon": "icon.png",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "PulseRoom"
