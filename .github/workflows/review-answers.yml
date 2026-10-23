@@ -1,0 +1,52 @@
+name: Review answers
+
+# v2/validate.js catches an id used twice and a question repeated verbatim.
+# It cannot catch two questions that mean the same thing in different words,
+# and the bank shipped three of those before this existed. This runs on every
+# push that touches the bank rather than at release time, because the point is
+# to catch a duplicate while it is still one commit rather than one release.
+
+on:
+  push:
+    paths: ['v2/data/**', 'answers.js', 'scripts/review-answers.js']
+  pull_request:
+    paths: ['v2/data/**', 'answers.js', 'scripts/review-answers.js']
+  workflow_dispatch:
+
+concurrency:
+  group: review-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  near-duplicates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Fatal. Same command the installer build runs, so a duplicate id or a
+      # stale answers.js is caught on the commit rather than at release.
+      - name: Validate the bank
+        run: |
+          node v2/validate.js --index v2/data/question-index.json             v2/data/batch-*.json v2/data/questions.seed.json
+          node scripts/build-answers.js
+          git diff --exit-code answers.js             || { echo "answers.js is stale - run scripts/build-answers.js and commit"; exit 1; }
+
+      # Advisory. A model's opinion must not be able to block a release, so
+      # this never fails the job: it writes to the run summary for a human.
+      - name: Near-duplicate questions
+        continue-on-error: true
+        env:
+          # Any OpenAI-compatible endpoint. Set LLM_BASE_URL and LLM_MODEL as
+          # repo variables and LLM_API_KEY as a secret. With no key the local
+          # similarity pass still runs and reports on its own.
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: |
+          echo '## Near-duplicate questions' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          node scripts/review-answers.js --threshold 0.72 >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
