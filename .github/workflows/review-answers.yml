@@ -48,5 +48,7 @@ jobs:
         run: |
           echo '## Near-duplicate questions' >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          node scripts/review-answers.js --threshold 0.72 >> $GITHUB_STEP_SUMMARY
+          # tee, not a plain redirect: a redirect leaves the job log empty,
+          # which is the first place anyone looks.
+          node scripts/review-answers.js --threshold 0.72 | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
