@@ -6,7 +6,14 @@ const fs = require('fs');
    stylesheet to the page means adding it here — the check below refuses to
    build if the two ever disagree, because the failure otherwise is a page that
    launches on the phone with a missing dependency and no error anyone sees. */
-const ASSETS = ['index.html', 'styles.css', 'ask.css', 'answers.js', 'app.js', 'ask.js', 'icon.png'];
+const ASSETS = ['index.html', 'styles.css', 'ask.css', 'license.css',
+                'answers.js', 'app.js', 'ask.js', 'license.js', 'icon.png'];
+
+/* preload.js and license/ are deliberately NOT here. They are the Electron
+   main process and its bridge; Capacitor has neither, and license.js stands
+   down when the bridge is absent. The mobile builds therefore ship with no
+   licensing at all, which is an open decision recorded in LICENSING.md, not
+   an oversight to be fixed by copying these files across. */
 
 /* Directories copied whole. The fonts are referenced from CSS rather than from
    the page, so they are listed here and checked separately below. */

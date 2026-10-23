@@ -36,7 +36,11 @@
       "app.js",
       "ask.js",
       "icon.png",
-      "fonts/**/*"
+      "fonts/**/*",
+      "preload.js",
+      "license.js",
+      "license.css",
+      "license/**/*"
     ],
     "win": {
       "target": [

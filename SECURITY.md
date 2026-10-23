@@ -2,8 +2,11 @@
 
 Amanorsac Studio Security Standard, AMS-SEC-001 v1.0.
 
-PulseRoom is unusual against this standard: it has no server, no database, no
-accounts and makes no network requests at all. Most of the standard is about
+PulseRoom has no database and no accounts. It is **no longer true** that it
+makes no network requests: adding licensing (AMS License Integration Standard
+v1.1) gave it exactly one outbound call, to the studio license server. Several
+statements below were written before that and have been corrected rather than
+left standing. Most of the standard is about
 the boundary between a client and a backend, and this app has no backend. That
 removes whole classes of risk rather than mitigating them, so several rules are
 not applicable rather than passing.
@@ -22,11 +25,36 @@ Verify before any production push or store submission.
 | SEC-2 parameterised queries | n/a | No database and no query language. Search is an in-memory scan over a bundled array. |
 | SEC-3 output escaping and CSP | pass | See below. |
 | SEC-4 database lockdown | n/a | No database, no storage buckets, no accounts. |
-| SEC-5 consent before tracking | pass | No analytics, no pixels, no cookies, no session replay, no telemetry. Verified by grep: zero occurrences of `fetch(`, `XMLHttpRequest`, `sendBeacon`, or any analytics SDK in shipped code. |
-| SEC-6 legal paperwork | **FAIL** | No Terms, Privacy Policy or Cookie Notice published. Blocks submission. See below. |
+| SEC-5 consent before tracking | pass | No analytics, no pixels, no cookies, no session replay, no telemetry. The one network call is licensing, which is a function the customer initiates by entering a key, not tracking. See **What leaves the machine** below. |
+| SEC-6 legal paperwork | **FAIL** | Blocks submission. The licensing data below must be declared, which it is not yet. See below. |
 | SEC-9 signed installers | partial | macOS and iOS signed; Android and Windows not. See Platform notes. |
 | SEC-7 secrets server-side | pass | Secret scan clean. The two matches are documentation and CI code naming secret variables, not secret values. No keys in the bundle. |
 | Dependency audit | pass | `npm audit --omit=dev`: 0 vulnerabilities. |
+
+## What leaves the machine
+
+One request, to `https://amanorsac.studio`, on activation and about hourly
+while the app is open. Nothing else, ever.
+
+| Sent | Why | Note |
+|---|---|---|
+| License key | identifies the purchase | typed by the customer |
+| Device id | counts the seat | random UUID made on first run. Not a hardware serial, MAC or username (R6) |
+| Device label | lets the buyer recognise the machine in My Apps | the computer name — **the one field that can carry a personal name**, because people call machines after themselves |
+
+The device label is the item that needs declaring. A machine called
+`NENE-STUDIO-PC` is personal data by most readings, it is sent to the studio's
+own server, and it is displayed back to the account holder. The standard
+requires it (§4.1 says use the computer name) and it is genuinely useful — it
+is how a buyer knows which of their two seats to free — but the privacy policy
+has to say it is collected.
+
+Nothing is stored on the device in the clear: the key and the proof are
+encrypted with the OS key store (DPAPI / Keychain). The device id is plain,
+which is correct — it is a random number with no meaning off this machine.
+
+See `LICENSING.md` for the implementation, the R7 deviation, and the
+acceptance-test status.
 
 ## SEC-3 in detail
 
@@ -79,19 +107,22 @@ exist.
 
 - [ ] Linked to the studio's `legal.html` (terms) from the store listings
 - [ ] Linked to the studio's `privacy.html` (privacy, cookie notice is its §6)
-- [ ] PulseRoom named in privacy policy §5 if it adds any new data processor
-      (it adds none: no network calls at all)
+- [ ] Privacy policy §5: PulseRoom sends a license key, a random device id and
+      the computer name to the studio's own license server. No third-party
+      processor is added — the server is Amanorsac Studio's — but the computer
+      name is personal data and must be declared
 - [ ] Apple privacy nutrition labels completed
 - [ ] Google Play Data Safety form completed
 
-Nothing new needs writing. The honest answer to nearly every question is
-"none". The app collects nothing, transmits nothing and stores
-nothing beyond the user's own tempo setting in memory. Both store forms should
-declare no data collection, which is both true and the easiest declaration to
-make.
+This is no longer a "collects nothing" declaration, and filing one would be
+false. The app transmits the three fields above for licensing. Both store forms
+should declare that, under the app-functionality purpose, not linked to
+advertising and not used for tracking — which is accurate and still a very
+short form to fill in.
 
-There is no account to delete, so the in-app account deletion requirement in
-SEC-6 does not apply.
+There is no account in the app, so the in-app account deletion requirement in
+SEC-6 does not apply. "Deactivate this device" (R10) is the nearest thing: it
+frees the seat on the server and deletes the stored key and proof locally.
 
 ## Platform notes
 

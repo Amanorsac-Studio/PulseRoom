@@ -38,7 +38,7 @@ these written for this music.
 | Answered questions | **1,000** |
 | Instruments and sources covered | **37** |
 | Genres, separately treated | **11** |
-| Works offline | completely — no account, no network call, ever |
+| Works offline | yes, for 30 days at a time — one license check, no account |
 | Platforms | Windows, macOS, Android, iOS |
 
 Genre breakdown: Gospel Traditional, Contemporary, Praise & Worship, African
@@ -137,9 +137,10 @@ genre is months of writing by someone who actually mixes this music. A competito
 add an EQ chart in an afternoon; they cannot add an answer about whether the
 organ pedals or the bass guitar should hold the low end.
 
-**It works with no internet and no account.** Nothing is collected, nothing is
-transmitted, nothing is stored. That is a feature in markets where data costs
-money, and it is also why there is no subscription to churn out of.
+**It works with no internet.** Activate once, then it runs offline for 30 days
+between checks, with no account to make and no content streamed. That matters
+in markets where data costs money. It is a one-time key, not a subscription,
+so there is nothing to churn out of.
 
 **Every answer carries its reasoning.** The product teaches rather than
 instructs, which is what turns a reference tool into something a producer keeps
@@ -170,7 +171,8 @@ open.
 > with real curves, plugin-order chains per source, and the loudness targets
 > you look up constantly.
 >
-> Works entirely offline. No account. Nothing collected.
+> Activate once with your key, then it works offline. No account, no
+> subscription, nothing streamed.
 
 **Keywords**
 

@@ -8,8 +8,9 @@
   <title>PulseRoom</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="ask.css" />
+  <link rel="stylesheet" href="license.css" />
 </head>
-<body>
+<body class="lic-unknown">
 
   <div class="app">
 
@@ -58,6 +59,11 @@
 
       <div class="sidebar-foot">
         <p>Values are starting points.<br/>Trust your ears first.</p>
+        <!-- R10: buyers need this to move to a new computer. -->
+        <div class="lic-seat" id="licSeat" hidden>
+          <span>Licensed on this machine</span>
+          <button class="lic-link" id="licDeactivate">Deactivate this device</button>
+        </div>
       </div>
     </aside>
 
@@ -140,10 +146,74 @@
     <button class="sheet-cancel" id="sheetCancel">Close</button>
   </div>
 
+
+  <!-- Activation. License Integration Standard v1.1 s7: the main view appears
+       when isLicensed() becomes true. -->
+  <div class="lic" id="licOverlay" role="dialog" aria-modal="true" aria-labelledby="licHeading">
+    <aside class="lic-aside">
+      <div class="lic-brand">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="3"  y="12" width="3.5" height="8"  rx="1.75" class="bm b1"/>
+          <rect x="9"  y="7"  width="3.5" height="18" rx="1.75" class="bm b2"/>
+          <rect x="15" y="3"  width="3.5" height="26" rx="1.75" class="bm b3"/>
+          <rect x="21" y="9"  width="3.5" height="14" rx="1.75" class="bm b4"/>
+          <rect x="27" y="13" width="2.5" height="6"  rx="1.25" class="bm b5"/>
+        </svg>
+        <div>
+          <span class="lic-brand-name">PulseRoom</span>
+          <span class="lic-brand-sub">Amanorsac Studio</span>
+        </div>
+      </div>
+
+      <div class="lic-pitch">
+        <h1>A mixing engineer<br/>you can ask a question.</h1>
+        <p>Built for the genres nobody else builds reference tools for &mdash;
+           Gospel, Afrobeats, Highlife, Hip-hop and R&amp;B, each mixed the way
+           it is actually mixed.</p>
+        <div class="lic-stats">
+          <div class="lic-stat"><b>1,000</b><span>ANSWERED QUESTIONS</span></div>
+          <div class="lic-stat"><b>37</b><span>SOURCES</span></div>
+          <div class="lic-stat"><b>11</b><span>GENRES</span></div>
+        </div>
+      </div>
+
+      <p class="lic-foot">Your key is on amanorsac.studio under My Apps,<br/>
+         and in Amanorsac Hub.</p>
+    </aside>
+
+    <section class="lic-main">
+      <h2 id="licHeading">Enter your license key</h2>
+      <p>One key activates PulseRoom on this machine. It works offline
+         afterwards.</p>
+
+      <div class="lic-field">
+        <label for="licKey">License key</label>
+        <input id="licKey" type="text" inputmode="latin" autocomplete="off"
+               spellcheck="false" maxlength="19" placeholder="XXXX-XXXX-XXXX-XXXX"
+               aria-describedby="licHelp" />
+        <p class="lic-help" id="licHelp">Four blocks of four. Case does not matter.</p>
+      </div>
+
+      <div class="lic-actions">
+        <button class="lic-btn" id="licActivate" disabled>Activate</button>
+        <button class="lic-link" id="licWhere">Where is my key?</button>
+      </div>
+
+      <div class="lic-msg" id="licMsg" role="status" aria-live="polite"></div>
+      <ul class="lic-devices" id="licDevices"></ul>
+    </section>
+  </div>
+
+  <!-- s7: a quiet notice between expiresAt and graceUntil, never a blocker. -->
+  <div class="lic-grace" id="licGrace">
+    <span>Connect to the internet soon to refresh your license.</span>
+  </div>
+
   <div class="toast" id="toast">Copied</div>
 
   <script src="answers.js"></script>
   <script src="app.js"></script>
   <script src="ask.js"></script>
+  <script src="license.js"></script>
 </body>
 </html>
