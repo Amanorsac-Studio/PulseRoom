@@ -10,6 +10,11 @@ on:
   push:
     tags: ['v*']
 
+# Three quick pushes otherwise leave three full builds running at once.
+concurrency:
+  group: installers-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   windows:
     runs-on: windows-latest
@@ -18,15 +23,51 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install --no-audit --no-fund
-      - run: npx electron-builder --win --publish never
+      - run: npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+
+      # The bank is the product. A build that ships a broken or stale one is
+      # worse than no build, so it fails here rather than at a buyer's machine.
+      - name: Validate the answer bank
+        shell: bash
+        run: |
+          node v2/validate.js --index v2/data/question-index.json             v2/data/batch-*.json v2/data/questions.seed.json
+          node scripts/build-answers.js
+          git diff --exit-code answers.js || { echo "answers.js is stale - run scripts/build-answers.js and commit"; exit 1; }
+
+      - name: Build signed installer
+        shell: bash
+        env:
+          # SEC-9: Windows installers are code-signed. When the secret is
+          # absent the build still runs, unsigned, and says so loudly.
+          CSC_LINK: ${{ secrets.WIN_CERT_P12 }}
+          CSC_KEY_PASSWORD: ${{ secrets.WIN_CERT_PASSWORD }}
+        run: |
+          if [ -z "$CSC_LINK" ]; then
+            echo "::warning title=Unsigned::WIN_CERT_P12 is not set - this installer is UNSIGNED and will trigger SmartScreen"
+            export CSC_IDENTITY_AUTO_DISCOVERY=false
+          fi
+          npx electron-builder --win --publish never
+
+      - name: Report what was produced
+        shell: bash
+        run: |
+          ls -la dist/*.exe
+          for f in dist/*.exe; do
+            echo "sha256  $(sha256sum "$f" | cut -d' ' -f1)  $(basename "$f")"
+            echo "bytes   $(stat -c%s "$f")"
+          done
+
       - uses: actions/upload-artifact@v4
         with:
           name: PulseRoom-Windows
           path: dist/*.exe
+          if-no-files-found: error
 
   macos:
     runs-on: macos-latest
+    # macOS runners bill ~10x. Signing Standard section 6: gate to tags and
+    # manual dispatch so a routine push cannot burn the allowance.
+    if: github.event_name == 'workflow_dispatch' || github.ref_type == 'tag'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,11 +75,69 @@ jobs:
           node-version: 22
       - run: rm -f package-lock.json && npm install --no-audit --no-fund
       - run: npm install dmg-license --no-save || true
-      - run: npx electron-builder --mac --universal --publish never
+
+      - name: Import Developer ID certificate
+        if: ${{ secrets.MAC_CERT_P12 != '' }}
+        env:
+          MAC_CERT_P12: ${{ secrets.MAC_CERT_P12 }}
+          MAC_CERT_PASSWORD: ${{ secrets.MAC_CERT_PASSWORD }}
+        run: |
+          KEYCHAIN=build.keychain
+          KEYCHAIN_PASSWORD=$(uuidgen)
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security list-keychains -d user -s "$KEYCHAIN" login.keychain-db
+          security default-keychain -s "$KEYCHAIN"
+          echo "$MAC_CERT_P12" | tr -d '[:space:]' | base64 --decode > app.p12
+          # the secrets form carries a trailing newline into the password
+          trim () { printf '%s' "$1" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'; }
+          security import app.p12 -k "$KEYCHAIN" -P "$(trim "$MAC_CERT_PASSWORD")"             -T /usr/bin/codesign -T /usr/bin/productsign
+          rm -f app.p12
+          # without this codesign blocks on a GUI prompt and the job hangs
+          security set-key-partition-list -S apple-tool:,apple:,codesign:             -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN" >/dev/null
+          security find-identity -v
+
+      - name: Build, sign and notarize
+        env:
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+          APPLE_API_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          APPLE_API_ISSUER: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          if [ -z "$ASC_KEY_P8" ]; then
+            echo "::warning title=Not notarized::ASC_KEY_P8 is not set - building UNSIGNED, Gatekeeper will block it"
+            export CSC_IDENTITY_AUTO_DISCOVERY=false
+            npx electron-builder --mac --publish never
+          else
+            echo "$ASC_KEY_P8" | tr -d '[:space:]' | base64 --decode > asc.p8 2>/dev/null               || printf '%s' "$ASC_KEY_P8" > asc.p8
+            export APPLE_API_KEY="$PWD/asc.p8"
+            npx electron-builder --mac --publish never
+            rm -f asc.p8
+          fi
+
+      - name: Verify the verdict a customer's Mac reaches
+        if: ${{ secrets.MAC_CERT_P12 != '' }}
+        run: |
+          for d in dist/*.dmg; do
+            echo "== $d"
+            spctl --assess -vv --type install "$d" || echo "::warning::spctl refused $d"
+            xcrun stapler validate "$d" || echo "::warning::not stapled: $d"
+          done
+
+      - name: Report what was produced
+        run: |
+          ls -la dist/*.dmg
+          for f in dist/*.dmg; do
+            echo "sha256  $(shasum -a 256 "$f" | cut -d' ' -f1)  $(basename "$f")"
+            echo "bytes   $(stat -f%z "$f")"
+          done
+
       - uses: actions/upload-artifact@v4
         with:
           name: PulseRoom-macOS
           path: dist/*.dmg
+          if-no-files-found: error
 
   android:
     runs-on: ubuntu-latest

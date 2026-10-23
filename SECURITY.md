@@ -72,15 +72,19 @@ A paid application cannot be submitted without these. Apple requires a privacy
 policy URL and will reject without one; Google requires a Data Safety
 declaration that matches reality.
 
-- [ ] Terms of Service published at `amanorsac.studio/legal/pulseroom`
-- [ ] Privacy Policy published at the same path
-- [ ] Cookie Notice published at the same path
-- [ ] All three linked from the store listings
+Corrected against the studio Security Standard section 3: PulseRoom does
+**not** get its own legal pages. It lives under the studio's, which already
+exist.
+
+- [ ] Linked to the studio's `legal.html` (terms) from the store listings
+- [ ] Linked to the studio's `privacy.html` (privacy, cookie notice is its §6)
+- [ ] PulseRoom named in privacy policy §5 if it adds any new data processor
+      (it adds none: no network calls at all)
 - [ ] Apple privacy nutrition labels completed
 - [ ] Google Play Data Safety form completed
 
-The content is straightforward because the honest answer to nearly every
-question is "none". The app collects nothing, transmits nothing and stores
+Nothing new needs writing. The honest answer to nearly every question is
+"none". The app collects nothing, transmits nothing and stores
 nothing beyond the user's own tempo setting in memory. Both store forms should
 declare no data collection, which is both true and the easiest declaration to
 make.

@@ -25,7 +25,7 @@
     "geist": "^1.7.2"
   },
   "build": {
-    "appId": "com.pulseroom.app",
+    "appId": "com.amanorsac.pulseroom",
     "productName": "PulseRoom",
     "files": [
       "main.js",
@@ -39,12 +39,57 @@
       "fonts/**/*"
     ],
     "win": {
-      "target": "nsis",
-      "icon": "icon.png"
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icon.png",
+      "artifactName": "${productName}-${version}-Windows.${ext}",
+      "signtoolOptions": {
+        "signingHashAlgorithms": [
+          "sha256"
+        ]
+      }
     },
     "mac": {
-      "target": "dmg",
-      "category": "public.app-category.music"
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "category": "public.app-category.music",
+      "icon": "icon.png",
+      "artifactName": "${productName}-${version}-macOS-${arch}.${ext}",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "notarize": {
+        "teamId": "SGQVTNFK4Q"
+      }
+    },
+    "copyright": "Copyright (c) 2026 Amanorsac Studio",
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": false,
+      "installerIcon": "icon.png",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PulseRoom"
+    },
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
     }
   }
 }
