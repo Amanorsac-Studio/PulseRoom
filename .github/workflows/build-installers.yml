@@ -77,7 +77,6 @@ jobs:
       # `secrets` cannot be read from a step-level `if`, so the presence check
       # goes through env instead.
       HAS_MAC_CERT: ${{ secrets.MAC_CERT_P12 != '' }}
-      HAS_ASC_KEY: ${{ secrets.ASC_KEY_P8 != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -121,32 +120,30 @@ jobs:
             npx electron-builder --mac --publish never
           else
             echo "$ASC_KEY_P8" | tr -d '[:space:]' | base64 --decode > asc.p8 2>/dev/null               || printf '%s' "$ASC_KEY_P8" > asc.p8
+            # The step runs under `bash -e`, so a failure anywhere below would
+            # skip a trailing rm and leave the key on disk. The trap does not.
+            trap 'rm -f asc.p8' EXIT
             export APPLE_API_KEY="$PWD/asc.p8"
             npx electron-builder --mac --publish never
-            rm -f asc.p8
-          fi
 
-      # electron-builder notarizes the .app and then wraps it in a DMG, so the
-      # DMG itself carries no ticket. The customer downloads the DMG, so that
-      # is the thing Gatekeeper judges first: the last build produced two DMGs
-      # that spctl rejected and stapler called unticketed, and the job stayed
-      # green because both checks ended in `|| echo ::warning`.
-      - name: Notarize and staple the disk images
-        if: env.HAS_MAC_CERT == 'true' && env.HAS_ASC_KEY == 'true'
-        env:
-          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
-          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
-          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
-        run: |
-          set -eo pipefail
-          KEY="$RUNNER_TEMP/asc.p8"
-          printf '%s' "$ASC_KEY_P8" > "$KEY"
-          for d in dist/*.dmg; do
-            echo "== notarizing $(basename "$d")"
-            xcrun notarytool submit "$d" --wait --timeout 30m               --key "$KEY" --key-id "$ASC_KEY_ID" --issuer "$ASC_ISSUER_ID"
-            xcrun stapler staple "$d"
-          done
-          rm -f "$KEY"
+            # electron-builder notarizes the .app and then wraps it in a DMG,
+            # so the DMG carries no ticket of its own. The customer downloads
+            # the DMG, so that is what Gatekeeper judges first: the previous
+            # build produced two that spctl rejected and stapler called
+            # unticketed, and the job stayed green because both checks ended
+            # in `|| echo ::warning`.
+            #
+            # Done here, in the step that already holds the key, rather than
+            # in a step of its own. A second step meant writing the secret to
+            # disk a second time, which is both a wider exposure and the shape
+            # of an exfiltration, and GitHub's scanner flagged the whole
+            # workflow for review on exactly that. One write, one delete.
+            for d in dist/*.dmg; do
+              echo "== notarizing $(basename "$d")"
+              xcrun notarytool submit "$d" --wait --timeout 30m                 --key "$PWD/asc.p8"                 --key-id "$APPLE_API_KEY_ID" --issuer "$APPLE_API_ISSUER"
+              xcrun stapler staple "$d"
+            done
+          fi
 
       # Fatal now. An installer a customer's Mac refuses is not a release,
       # and a warning in a green run is one nobody reads.
